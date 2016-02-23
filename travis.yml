@@ -3,4 +3,5 @@ rvm:
   - 2.2.2
   
 script:
-  - rake rspec
+  - rake cucumber
+  - rspec spec/
