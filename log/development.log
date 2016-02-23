@@ -5,3 +5,18 @@ Cannot render console from 136.152.142.115! Allowed networks: 127.0.0.1, ::1, 12
 Processing by Rails::WelcomeController#index as HTML
   Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
 Completed 200 OK in 38ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+Initializing jasmine.yml configuration
+
+
+Started GET "/" for 136.152.142.115 at 2016-02-23 04:28:07 +0000
+Cannot render console from 136.152.142.115! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (5.1ms)
+Completed 200 OK in 47ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 136.152.142.115 at 2016-02-23 04:35:58 +0000
+Cannot render console from 136.152.142.115! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (6.4ms)
+Completed 200 OK in 80ms (Views: 35.8ms | ActiveRecord: 0.0ms)
