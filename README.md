@@ -2,6 +2,10 @@
 
 A SaaS application project for CS169 Software Engineering at the University of California, Berkeley.
 
+### Deployment
+
+Great Course Guide is deployed on [Heroku](https://cs169-great-course-guide.herokuapp.com/)
+
 ### Trackers and Testers
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1541787)
