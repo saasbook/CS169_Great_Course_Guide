@@ -5,9 +5,21 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"}
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
   %body
-    %h1.title Great Course Guide
-    #main
-
+    %header
+      .navbar-fixed
+        %nav
+          .nav-wrapper.container
+            %a.brand-logo{href: "#"} Great Course Guide
+            %ul#nav-mobile.right.hide-on-med-and-down
+              %li
+                %a{href: "sass.html"} Classes
+              %li
+                %a{href: "badges.html"} Professors
+              %li
+                %a{href: "collapsible.html"} Profile
+    %main
       = yield
