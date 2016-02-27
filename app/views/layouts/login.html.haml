@@ -2,11 +2,12 @@
 %html
   %head
     %title Great Course Guide
+    = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"}
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
-  %body.light-blue.darken-4
-    %main.light-blue.darken-3.container
+  %body.blue.darken-4
+    %main.container
+      %h1.white-text.center-align Great Course Guide
         
