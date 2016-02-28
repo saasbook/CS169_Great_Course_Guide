@@ -3,6 +3,27 @@
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
+/* Custom Styles */
+#login-button {
+	background-color:#f3989b;
+	width:260px;
+	height:70px;
+	line-height:70px;
+	font-size:18px;
+	font-weight:400
+}
+html, body{ margin:0; padding:0; height:100%; width:100%; }
+#full-size{
+  height:100%;
+  width:100%;
+  overflow:hidden; /* or overflow:auto; if you want scrollbars */
+}
+.screen-center {
+  position: relative;
+  top: 20%;
+}
+
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important;
 }
@@ -7483,6 +7504,12 @@ nav .input-field label.active {
   font-family: "Roboto";
   src: local(Roboto Thin), url("font/roboto/Roboto-Thin.eot");
   src: url("font/roboto/Roboto-Thin.eot?#iefix") format("embedded-opentype"), url("font/roboto/Roboto-Thin.woff2") format("woff2"), url("font/roboto/Roboto-Thin.woff") format("woff"), url("font/roboto/Roboto-Thin.ttf") format("truetype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local(Roboto Light), url("font/roboto/Roboto-Light.eot");
+  src: url("font/roboto/Roboto-Light.eot?#iefix") format("embedded-opentype"), url("font/roboto/Roboto-Light.woff2") format("woff2"), url("font/roboto/Roboto-Light.woff") format("woff"), url("font/roboto/Roboto-Light.ttf") format("truetype");
   font-weight: 200;
 }
 

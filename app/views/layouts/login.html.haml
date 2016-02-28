@@ -8,6 +8,10 @@
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
   %body.blue.darken-4
-    %main.container
-      %h1.white-text.center-align Great Course Guide
-        
+    %main.container.center-align.vertical-align#full-size
+      .row.screen-center.animated.fadeIn
+        .col.s12
+          %h1.white-text Great Course Guide
+      .row.screen-center.animated.bounceInUp
+        .col.s12
+          %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/enter"} Login

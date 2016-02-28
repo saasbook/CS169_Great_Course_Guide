@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 gem 'rails', '4.2.5'
-
+gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use jquery as the JavaScript library
