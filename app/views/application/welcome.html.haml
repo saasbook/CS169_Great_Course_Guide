@@ -1,0 +1,61 @@
+!!! 5
+%html
+  %head
+    %title Great Course Guide
+    = stylesheet_link_tag '/stylesheets/materialize'
+    = stylesheet_link_tag '/stylesheets/animate.min'
+    = stylesheet_link_tag '/stylesheets/awesomplete'
+    = stylesheet_link_tag '/stylesheets/sweetalert'
+    %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet"}
+    = csrf_meta_tags
+
+  %body.white
+    %main.container.center-align.vertical-align#full-size
+      .container-small
+        .row.animated.fadeInDown.slow-animation
+          .col.s12
+            %h1 Welcome.
+            %h5 Please Enter Your Information
+        .row
+
+        .row
+          %form.col.s12#info-form{action: "/create", method: "post"}
+            #details-form.animated.slideInUp.slow-animation
+              = hidden_field_tag :authenticity_token, form_authenticity_token
+              .row
+                .input-field.col.s12
+                  %input.validate{placeholder: "Enter First Name", id: "first_name", name: "first_name", type: "text"}
+                  %label{for: "first_name"} First Name
+              .row
+                .input-field.col.s12
+                  %input.validate{placeholder: "Enter Last Name", id: "last_name", name: "last_name", type: "text"}
+                  %label{for: "last_name"} Last Name
+              .row
+                .input-field.col.s12
+                  %input.validate{placeholder: "Enter Email", id: "email", name: "email", type: "email"}
+                  %label{for: "email", "data-error": "wrong", "data-success": "right"} Email
+              .row.animated.fadeIn.delay-animation-1.slow-animation
+                .col.s12
+                  %input.btn.blue.waves-effect.waves-light#continue{type: "button", value: "Continue"}
+            #class-form.hide
+              .row
+                .col.s6.m9
+                  .input-field
+                    %input#class-search{placeholder: "Search for the Classes You've Taken", type: "text"}
+                .pad-top.col.s6.m3
+                  %input.btn.blue.waves-effect.waves-light#addClass{type: "button", value: "Add Class"}
+              .row.hide
+                .col.s12
+                  %select#class-selections{multiple: true, name: "class_select[]"}
+              .row
+                .col.s12
+                  %ul.collection#selected-classes
+              .row
+                .col.s12
+                  %input.btn.blue.waves-effect.waves-light#submit{type: "submit", value: "Finish"}
+    = javascript_include_tag '/javascripts/sweetalert.min.js'
+    = javascript_include_tag '/javascripts/jquery.js'
+    = javascript_include_tag '/javascripts/typeahead.js'
+    = javascript_include_tag '/javascripts/awesomplete.js'
+    = javascript_include_tag '/javascripts/welcome.js'
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}

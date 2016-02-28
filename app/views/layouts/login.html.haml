@@ -2,8 +2,9 @@
 %html
   %head
     %title Great Course Guide
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag '/stylesheets/materialize'
+    = stylesheet_link_tag '/stylesheets/animate.min'
+    = javascript_include_tag '/javascripts/jquery'
     = csrf_meta_tags
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
@@ -14,4 +15,4 @@
           %h1.white-text Great Course Guide
       .row.screen-center.animated.bounceInUp
         .col.s12
-          %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/enter"} Login
+          %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/login"} Login
