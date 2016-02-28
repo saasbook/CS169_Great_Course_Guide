@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # Filter Needed for CalNet Login
-  #before_filter CASClient::Frameworks::Rails::Filter, except: [:edit]
+  before_filter CASClient::Frameworks::Rails::Filter
 
   def login
     user_exists = User.find_by(uid: session[:cas_user]) != nil
@@ -16,18 +16,23 @@ class ApplicationController < ActionController::Base
   end
 
   def logout
-    CASClient::Frameworks::Rails::Filter.logout(self) and return
+    CASClient::Frameworks::Rails::Filter.logout(self)
+    session.clear and return
   end
 
   # Displays a page to allow the user to enter information
   def welcome
+    user_exists = User.find_by(uid: session[:cas_user]) != nil
+    if user_exists
+      redirect_to "/user" and return
+    end
     render "welcome", layout: false and return
   end
 
   def create
     user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], uid: session[:cas_user])
-    params[:class_select].each do |course|
-      user.courses.create(title: course)
+    if params[:class_select] != nil
+        params[:class_select].each { |course| user.courses.create(title: course) }
     end
 
     redirect_to "/user" and return
@@ -35,6 +40,10 @@ class ApplicationController < ActionController::Base
 
   # Displays the homepage for the user
   def index
+    user_exists = User.find_by(uid: session[:cas_user]) != nil
+    if not user_exists
+      redirect_to "/welcome" and return
+    end
   end
 
 
