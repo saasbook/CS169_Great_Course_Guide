@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # Filter Needed for CalNet Login
   before_filter CASClient::Frameworks::Rails::Filter
-  before_action :require_info, :except => [:welcome, :all_courses]
+  before_action :require_info, :except => [:welcome, :all_courses, :create]
 
   def require_info
     user_exists = User.find_by(uid: session[:cas_user]) != nil

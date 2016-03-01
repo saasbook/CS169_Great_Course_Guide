@@ -76,9 +76,9 @@ $(function () {
    if(key == 13)  // the enter key code
     {
       $('#addClass').click();
-      return false;  
+      return false;
     }
-  }); 
+  });
 
   $('#back').click(function() {
     $('#class-form').addClass("fadeOutRight")
@@ -89,13 +89,18 @@ $(function () {
   });
 
   // Getting All Courses
-  var all_classes = null;
+  var all_classes = [];
   $.get("/courses/all", function(data) {
-    all_classes = JSON.parse(data);
+    tmp = JSON.parse(data);
+    console.log(tmp);
+
+    for (var i = 0; i < tmp.length; i++) {
+      all_classes.push(tmp[i]["course_number"] + ": " + tmp[i]["title"]);
+    }
+    console.log(all_classes);
   });
 
   var input = document.getElementById("class-search");
-  //var all_classes = ["EE16A", "EE16B", "CS61A", "CS61B", "CS61C", "CS70", "CS169", "CS188"]
   new Awesomplete(input, {
     list: all_classes,
     autoFirst: true
