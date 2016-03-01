@@ -5,12 +5,11 @@ class ApplicationController < ActionController::Base
 
   # Filter Needed for CalNet Login
   before_filter CASClient::Frameworks::Rails::Filter
+  before_action :require_info, :except => [:welcome, :all_courses]
 
-  def login
+  def require_info
     user_exists = User.find_by(uid: session[:cas_user]) != nil
-    if user_exists
-      redirect_to "/user" and return
-    else
+    if not user_exists
       redirect_to "/welcome" and return
     end
   end
@@ -29,10 +28,20 @@ class ApplicationController < ActionController::Base
     render "welcome", layout: false and return
   end
 
+  def all_courses
+    render :text => Course.all_courses.to_json
+    # respond_to do |format|
+    #   msg = {:status => "ok", :message => "Success!", :courses =>  Course.all_courses}
+    #   format.json  {render :json => msg} # don't do msg.to_json
+    # end
+  end
+
   def create
-    user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], uid: session[:cas_user])
+    user = User.create(first_name: params[:first_name],
+                        last_name: params[:last_name], email: params[:email],
+                                                        uid: session[:cas_user])
     if params[:class_select] != nil
-        params[:class_select].each { |course| user.courses.create(title: course) }
+      params[:class_select].each { |course| user.courses.create(title: course) }
     end
 
     redirect_to "/user" and return
@@ -40,10 +49,8 @@ class ApplicationController < ActionController::Base
 
   # Displays the homepage for the user
   def index
-    user_exists = User.find_by(uid: session[:cas_user]) != nil
-    if not user_exists
-      redirect_to "/welcome" and return
-    end
+    @user = User.find_by(uid: session[:cas_user])
+    @user_courses = @user.courses
   end
 
 

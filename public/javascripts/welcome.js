@@ -54,8 +54,14 @@ $(function () {
     }
   });
 
+  // Getting All Courses
+  var all_classes = null;
+  $.get("/courses/all", function(data) {
+    all_classes = JSON.parse(data);
+  });
+
   var input = document.getElementById("class-search");
-  var all_classes = ["EE16A", "EE16B", "CS61A", "CS61B", "CS61C", "CS70", "CS169", "CS188"]
+  //var all_classes = ["EE16A", "EE16B", "CS61A", "CS61B", "CS61C", "CS70", "CS169", "CS188"]
   new Awesomplete(input, {
     list: all_classes
   });

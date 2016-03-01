@@ -1,2 +1,18 @@
 .container
-    Hello World!
+  .row
+    .col.s12
+      .card.white
+        .card-content
+          %span.card-title Your Classes
+          %table.centered
+            %thead
+              %tr
+                %th{"data-fied": "name"} Course
+                %th{"data-field": "title"} Title
+            %tbody
+              - @user_courses.each do |course|
+                %tr
+                  %td= course.course_number
+                  %td= course.title
+        .card-action
+          %a{href: "#"} Edit
