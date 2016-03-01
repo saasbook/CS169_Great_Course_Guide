@@ -30,7 +30,10 @@ class ApplicationController < ActionController::Base
 
   def classes
     @all_courses = Course.all_courses
-    puts @all_courses
+  end
+
+  def professors
+    @all_profs = Professor.all_profs
   end
 
   def all_courses
