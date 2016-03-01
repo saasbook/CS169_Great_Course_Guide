@@ -1,4 +1,6 @@
 class Professor < ActiveRecord::Base
+	
+
 	def self.all_profs
 		profs = []
 	    self.select('DISTINCT name, rating').each do |prof|
