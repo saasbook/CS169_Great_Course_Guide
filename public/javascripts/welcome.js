@@ -4,12 +4,22 @@ var email = null;
 var selected_classes = [];
 alert = swal;
 
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
 $(function () {
   $("#continue").click(function() {
 
     first_name = $('#first_name').val();
     last_name = $('#last_name').val();
     email = $('#email').val();
+
+    if (!validateEmail(email)) {
+      alert("Oops", "Please enter a valid email.", "error")
+      return
+    }
 
     if (first_name == "" || last_name == "" || email == "") {
       alert("Oops", "Please fill-in all fields.", "error");
