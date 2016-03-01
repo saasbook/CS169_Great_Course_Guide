@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/user" => "application#index"
   post "/create" => "application#create"
   get "/courses/all" => "application#all_courses"
+  get "/classes" => "application#classes"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

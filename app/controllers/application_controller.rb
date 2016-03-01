@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
     render "welcome", layout: false and return
   end
 
+  def classes
+    @all_courses = Course.all_courses
+    puts @all_courses
+  end
+
   def all_courses
     render :text => Course.all_courses.to_json
     # respond_to do |format|

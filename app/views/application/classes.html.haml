@@ -1,0 +1,18 @@
+.container
+  .row
+    .col.s12
+      .card.white
+        .card-content
+          %span.card-title All Classes
+          %table.centered
+            %thead
+              %tr
+                %th{"data-fied": "name"} Course
+                %th{"data-field": "title"} Title
+            %tbody
+              - @all_courses.each do |course|
+                %tr
+                  %td= course[:course_number]
+                  %td= course[:title]
+        .card-action
+          %a{href: "/user"} Back
