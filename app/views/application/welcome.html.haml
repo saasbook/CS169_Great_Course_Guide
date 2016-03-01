@@ -51,7 +51,9 @@
                 .col.s12
                   %ul.collection#selected-classes
               .row
-                .col.s12
+                .col.s6.push-s1
+                  %input.btn.blue.waves-effect.waves-light#back{type: "button", value: "Back"}
+                .col.s6.pull-s1
                   %input.btn.blue.waves-effect.waves-light#submit{type: "submit", value: "Finish"}
     = javascript_include_tag '/javascripts/sweetalert.min.js'
     = javascript_include_tag '/javascripts/jquery.js'
