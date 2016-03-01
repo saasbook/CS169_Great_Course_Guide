@@ -41,7 +41,12 @@ class ApplicationController < ActionController::Base
                         last_name: params[:last_name], email: params[:email],
                                                         uid: session[:cas_user])
     if params[:class_select] != nil
-      params[:class_select].each { |course| user.courses.create(title: course) }
+      params[:class_select].each do |course| 
+        index = course.index(":")
+        course_number = course[0..(index-1)]
+        title = course[(index + 2)..(course.length - 1)]
+        user.courses.create(title: title, course_number: course_number) 
+      end
     end
 
     redirect_to "/user" and return
