@@ -80,6 +80,16 @@ $(function () {
     }
   });
 
+  $('#first_name, #last_name, #email').keypress(function (e) {
+   var key = e.which;
+   console.log("Pressed enter.")
+   if(key == 13)  // the enter key code
+    {
+      $('#continue').click();
+      return false;
+    }
+  });
+
   $('#back').click(function() {
     $('#class-form').addClass("fadeOutRight")
     setTimeout(function() {
@@ -92,7 +102,6 @@ $(function () {
   var all_classes = [];
   $.get("/courses/all", function(data) {
     tmp = JSON.parse(data);
-    console.log(tmp);
 
     for (var i = 0; i < tmp.length; i++) {
       all_classes.push(tmp[i]["course_number"] + ": " + tmp[i]["title"]);
