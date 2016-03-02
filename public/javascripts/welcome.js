@@ -3,10 +3,14 @@ var last_name = null;
 var email = null;
 var selected_classes = [];
 alert = swal;
+var all_emails = [];
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    console.log(email)
+    console.log(all_emails)
+    console.log(all_emails.indexOf(email))
+    return re.test(email) && all_emails.indexOf(email) < 0;
 }
 
 $(function () {
@@ -17,10 +21,10 @@ $(function () {
     last_name = $('#last_name').val();
     email = $('#email').val();
 
-    // if (!validateEmail(email)) {
-    //   alert("Oops", "Please enter a valid email.", "error")
-    //   return
-    // }
+    if (!validateEmail(email)) {
+      alert("Oops", "Please enter a valid and unique email.", "error")
+      return
+    }
 
     if (first_name == "" || last_name == "" || email == "") {
       alert("Oops", "Please fill-in all fields.", "error");
@@ -107,6 +111,10 @@ $(function () {
       all_classes.push(tmp[i]["course_number"] + ": " + tmp[i]["title"]);
     }
     console.log(all_classes);
+  });
+
+  $.get("/users/all", function(data) {
+    all_emails = JSON.parse(data);
   });
 
   var input = document.getElementById("class-search");

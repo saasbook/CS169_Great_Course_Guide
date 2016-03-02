@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   # Filter Needed for CalNet Login
   before_filter CASClient::Frameworks::Rails::Filter
-  before_action :require_info, :except => [:welcome, :all_courses, :create]
+  before_action :require_info, :except => [:welcome, :all_courses, :all_emails, :create]
   before_action :get_info
 
   def require_info
@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     end
     @all_courses = Course.all_courses
     @all_profs = Professor.all_profs
+    @all_emails = User.all_emails
   end
 
   def logout
@@ -48,15 +49,20 @@ class ApplicationController < ActionController::Base
     render :text => @all_courses.to_json
   end
 
+  def all_emails
+    render :text => @all_emails.to_json
+  end
+
   def create
     # TODO: Need to validate params
     @user = User.create(first_name: params[:first_name],
                         last_name: params[:last_name], email: params[:email],
                                                         uid: session[:cas_user])
-    puts User.all
+    puts @user
     if params[:class_select] != nil
       params[:class_select].each do |course|
         attrs = Course.splitByColon(course)
+        puts @user.valid?
         @user.courses.create(title: attrs[0], course_number: attrs[1])
       end
     end

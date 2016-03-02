@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/user" => "application#index"
   post "/create" => "application#create"
   get "/courses/all" => "application#all_courses"
+  get "/users/all" => "application#all_emails"
   get "/classes" => "application#classes"
   get "/professors" => "application#professors"
   get "/edit" => "application#edit"
