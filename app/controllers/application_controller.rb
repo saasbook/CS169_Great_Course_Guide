@@ -58,11 +58,9 @@ class ApplicationController < ActionController::Base
     @user = User.create(first_name: params[:first_name],
                         last_name: params[:last_name], email: params[:email],
                                                         uid: session[:cas_user])
-    puts @user
     if params[:class_select] != nil
       params[:class_select].each do |course|
         attrs = Course.splitByColon(course)
-        puts @user.valid?
         @user.courses.create(title: attrs[0], course_number: attrs[1])
       end
     end
