@@ -6,6 +6,6 @@ class LoginController < ApplicationController
     if user_exists
       redirect_to "/user" and return
     end
-    render "../views/layouts/login", layout: false and return
+    render "../views/layouts/login" and return
   end
 end

@@ -66,5 +66,29 @@ class ApplicationController < ActionController::Base
     @user_courses = @user.courses
   end
 
+  def edit
+    @user = User.find_by(uid: session[:cas_user])
+    @user_courses = @user.courses
+    @all_courses = Course.all_courses
+    @user_classNames = []
+    @user_courses.each do |course|
+      @user_classNames << course.course_number
+    end
+  end
+
+  def update
+    @user = User.find_by(uid: session[:cas_user])
+    @user.courses.destroy_all()
+    if params[:classes] != nil
+      params[:classes].each_key do |course| 
+        index = course.index(":")
+        course_number = course[0..(index-1)]
+        title = course[(index + 2)..(course.length - 1)]
+        @user.courses.create(title: title, course_number: course_number) 
+      end
+    end
+    redirect_to "/user" and return
+  end
+
 
 end

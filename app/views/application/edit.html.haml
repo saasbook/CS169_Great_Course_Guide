@@ -1,0 +1,25 @@
+.container
+  .row
+    .col.s12
+      %form#edit-form{action: "/update", method: "post"}
+        = hidden_field_tag :authenticity_token, form_authenticity_token
+        .card.white
+          .card-content
+            %span.card-title Edit Your Classes
+            %table.centered
+              %thead
+                %tr
+                  %th{"data-field": "add"} Add?
+                  %th{"data-field": "name"} Course
+                  %th{"data-field": "title"} Title
+              %tbody
+                - @all_courses.each do |course|
+                  %tr
+                    %td
+
+                      %input{type: "checkbox", class: "filled-in", id: "#{course[:course_number]}-choice", :checked => (@user_classNames.include?(course[:course_number]) ? "checked" : nil), name: "classes[#{course[:course_number]}: #{course[:title]}]"}
+                      %label{for: "#{course[:course_number]}-choice"}
+                    %td= course[:course_number]
+                    %td= course[:title]
+          .card-action
+            %input.btn.blue.waves-effect.waves-light#save{type: "submit", value: "Save"}   

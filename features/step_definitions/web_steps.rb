@@ -50,7 +50,6 @@ When /^(?:|I )go to (.+)$/ do |page_name|
 end
 
 When /^(?:|I )press "([^"]*)"$/ do |button|
-  puts button
   click_button(button)
 end
 
@@ -104,8 +103,6 @@ When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
-  puts page.body
-  puts text
   if page.respond_to? :should
     page.should have_content(text)
   else

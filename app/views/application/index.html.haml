@@ -1,7 +1,7 @@
 .container
   .row
     .col.s12
-      .card.white
+      .card.white.animated.fadeInUp
         .card-content
           %span.card-title Your Classes
           %table.centered
@@ -15,4 +15,4 @@
                   %td= course.course_number
                   %td= course.title
         .card-action
-          %a{href: "#"} Edit
+          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit
