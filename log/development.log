@@ -32089,3 +32089,63 @@ Existing local CAS session detected for "1067193". Previous ticket "ST-6731-LuPB
   [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
 Redirected to https://auth-test.berkeley.edu/cas/logout?destination=http%3A%2F%2Flocalhost%3A3000%2Fuser&gateway=true
 Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 31]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = ?  [["user_id", 31]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 106]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "courses" WHERE "courses"."id" = ?  [["id", 107]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 31]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Machine Structures"], ["course_number", "CS61C"], ["created_at", "2016-03-02 19:54:48.059217"], ["updated_at", "2016-03-02 19:54:48.059217"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Components and Design Techniques for Digital Systems"], ["course_number", "CS150"], ["created_at", "2016-03-02 19:55:00.870904"], ["updated_at", "2016-03-02 19:55:00.870904"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Computer Architecture and Engineering"], ["course_number", "CS152"], ["created_at", "2016-03-02 19:55:14.581786"], ["updated_at", "2016-03-02 19:55:14.581786"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Discrete Mathematics and Probability Theory"], ["course_number", "CS70"], ["created_at", "2016-03-02 19:55:23.901284"], ["updated_at", "2016-03-02 19:55:23.901284"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "User Interface Design and Development"], ["course_number", "CS160"], ["created_at", "2016-03-02 19:55:40.158382"], ["updated_at", "2016-03-02 19:55:40.158382"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Computer Security"], ["course_number", "CS161"], ["created_at", "2016-03-02 19:55:49.053338"], ["updated_at", "2016-03-02 19:55:49.053338"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Operating Systems and System Programming"], ["course_number", "CS162"], ["created_at", "2016-03-02 19:56:01.677521"], ["updated_at", "2016-03-02 19:56:01.677521"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Programming Languages and Compilers"], ["course_number", "CS164"], ["created_at", "2016-03-02 19:56:13.979065"], ["updated_at", "2016-03-02 19:56:13.979065"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Software Engineering"], ["course_number", "CS169"], ["created_at", "2016-03-02 19:56:32.388092"], ["updated_at", "2016-03-02 19:56:32.388092"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Efficient Algorithms and Intractable Problems"], ["course_number", "CS170"], ["created_at", "2016-03-02 19:56:42.955637"], ["updated_at", "2016-03-02 19:56:42.955637"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Computability and Complexity"], ["course_number", "CS172"], ["created_at", "2016-03-02 19:56:55.730900"], ["updated_at", "2016-03-02 19:56:55.730900"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Combinatorics and Discrete Probability"], ["course_number", "CS174"], ["created_at", "2016-03-02 19:57:05.386626"], ["updated_at", "2016-03-02 19:57:05.386626"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Algorithms for Computational Biology"], ["course_number", "CS176"], ["created_at", "2016-03-02 19:57:15.466205"], ["updated_at", "2016-03-02 19:57:15.466205"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Foundations of Computer Graphics"], ["course_number", "CS184"], ["created_at", "2016-03-02 19:57:27.359791"], ["updated_at", "2016-03-02 19:57:27.359791"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Introduction to Database Systems"], ["course_number", "CS186"], ["created_at", "2016-03-02 19:57:37.104778"], ["updated_at", "2016-03-02 19:57:37.104778"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Introduction to Artificial Intelligence"], ["course_number", "CS188"], ["created_at", "2016-03-02 19:57:46.424714"], ["updated_at", "2016-03-02 19:57:46.424714"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "course_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Introduction to Knowledge-Based Systems and Languages"], ["course_number", "CS189"], ["created_at", "2016-03-02 19:57:58.231899"], ["updated_at", "2016-03-02 19:57:58.231899"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 23]]
