@@ -5,16 +5,55 @@
     = stylesheet_link_tag '/stylesheets/materialize'
     = stylesheet_link_tag '/stylesheets/animate.min'
     = javascript_include_tag '/javascripts/jquery'
-    = javascript_include_tag '/javascripts/jquery.vide'
     = csrf_meta_tags
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
+    :css
+      .fullscreen-bg {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          overflow: hidden;
+          z-index: -100;
+      }
+      .fullscreen-bg__video {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: auto;
+          height: auto;
+          min-width: 100%;
+          min-height: 100%;
+          -webkit-transform: translate(-50%, -50%);
+             -moz-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+      	    transform: translate(-50%, -50%);
+      }
+      @media (max-width: 767px) {
+          .fullscreen-bg {
+              background: url('/media/Berkeley.png') center center / cover no-repeat;
+          }
+          .fullscreen-bg__video {
+              display: none;
+          }
+      }
+      #wrapper {
+          min-height: 100%;
+          background-color: rgba(10, 9, 9, 0.4)
+      }
   %body
-    %main.container.center-align.vertical-align#full-size
-      .row.screen-center.animated.fadeIn
-        .col.s12
-          %h1.white-text Great Course Guide
-      .row.screen-center.animated.bounceInUp
-        .col.s12
-          %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/user"} Login
-    %div{style: "width: 1000px, height: 500px", "data-vide-bg": "/media/Berkeley", "data-vide-options": "loop: true, muted: true"}
+    .fullscreen-bg{style: "z-index: -10"}
+      %video.fullscreen-bg__video{poster: "/media/Berkeley.png", autoplay: true, loop: true}
+        %source{src: "/media/Berkeley.webm", type: "video/webm"}
+        %source{src: "/media/Berkeley.ogg", type: "video/ogg"}
+        %source{src: "/media/Berkeley.mp4", type: "video/mp4"}
+    #wrapper
+      %main.container.center-align.vertical-align.animated.fadeIn#full-size
+        .row.screen-center
+          .col.s12
+            %h1.white-text Great Course Guide
+        .row
+          .col.s12
+            %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/user"} Login

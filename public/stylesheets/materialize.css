@@ -11246,7 +11246,7 @@ html, body{ margin:0; padding:0; height:100%; width:100%; }
 }
 .screen-center {
   position: relative;
-  top: 20%;
+  padding-top: 12%;
 }
 .container-small {
   margin: 0 auto;
