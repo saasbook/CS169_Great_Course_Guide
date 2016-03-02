@@ -9,4 +9,12 @@ class Course < ActiveRecord::Base
     end
     return courses
   end
+
+  def self.splitByColon(course)
+  	index = course.index(":")
+    course_number = course[0..(index-1)]
+    title = course[(index + 2)..(course.length - 1)]
+    return title, course_number
+  end
+
 end

@@ -55,10 +55,8 @@ class ApplicationController < ActionController::Base
                                                         uid: session[:cas_user])
     if params[:class_select] != nil
       params[:class_select].each do |course|
-        index = course.index(":")
-        course_number = course[0..(index-1)]
-        title = course[(index + 2)..(course.length - 1)]
-        @user.courses.create(title: title, course_number: course_number)
+        attrs = Course.splitByColon(course)
+        @user.courses.create(title: attrs[0], course_number: attrs[1])
       end
     end
 
@@ -80,10 +78,8 @@ class ApplicationController < ActionController::Base
 
     if params[:classes] != nil
       params[:classes].each_key do |course|
-        index = course.index(":")
-        course_number = course[0..(index-1)]
-        title = course[(index + 2)..(course.length - 1)]
-        @user.courses.create(title: title, course_number: course_number)
+        attrs = Course.splitByColon(course)
+        @user.courses.create(title: attrs[0], course_number: attrs[1])
       end
     end
 
