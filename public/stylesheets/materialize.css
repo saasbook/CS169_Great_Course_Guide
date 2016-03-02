@@ -11266,6 +11266,18 @@ html, body{ margin:0; padding:0; height:100%; width:100%; }
 .delay-animation-1 {
   -webkit-animation-delay: 1s;
 }
+.delay-animation-half-3 {
+  -webkit-animation-delay: 1.5s;
+}
+.delay-animation-half-1 {
+  -webkit-animation-delay: .5s;
+}
+.delay-animation-quarater-1 {
+  -webkit-animation-delay: .25s;
+}
+.delay-animation-quarter-3 {
+  -webkit-animation-delay: .75s;
+}
 .hide {
   display: none;
 }

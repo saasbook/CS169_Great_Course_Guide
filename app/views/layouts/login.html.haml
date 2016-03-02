@@ -9,6 +9,11 @@
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
     :css
+      html, body {
+          margin: 0;
+          height: 100%;
+          overflow: hidden;
+      }
       .fullscreen-bg {
           position: fixed;
           top: 0;
@@ -50,10 +55,10 @@
         %source{src: "/media/Berkeley.ogg", type: "video/ogg"}
         %source{src: "/media/Berkeley.mp4", type: "video/mp4"}
     #wrapper
-      %main.container.center-align.vertical-align.animated.fadeIn#full-size
-        .row.screen-center
+      %main.container.center-align.vertical-align#full-size
+        .row.screen-center.animated.fadeIn.slow-animation.delay-animation-quarter-1
           .col.s12
             %h1.white-text Great Course Guide
-        .row
+        .row.animated.fadeIn.slow-animation.delay-animation-half-1
           .col.s12
             %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/user"} Login
