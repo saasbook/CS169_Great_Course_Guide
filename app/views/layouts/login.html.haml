@@ -5,10 +5,11 @@
     = stylesheet_link_tag '/stylesheets/materialize'
     = stylesheet_link_tag '/stylesheets/animate.min'
     = javascript_include_tag '/javascripts/jquery'
+    = javascript_include_tag '/javascripts/jquery.vide'
     = csrf_meta_tags
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
-  %body.blue.darken-4
+  %body
     %main.container.center-align.vertical-align#full-size
       .row.screen-center.animated.fadeIn
         .col.s12
@@ -16,3 +17,4 @@
       .row.screen-center.animated.bounceInUp
         .col.s12
           %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/user"} Login
+    %div{style: "width: 1000px, height: 500px", "data-vide-bg": "/media/Berkeley", "data-vide-options": "loop: true, muted: true"}
