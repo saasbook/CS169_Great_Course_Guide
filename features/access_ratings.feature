@@ -16,8 +16,8 @@ Background: I am on the user page
   Then I should be on the user page
   Given the following professors exist:
   | name                    | rating   | 
-  | Dog                     | 7.0      | 
   | Cup                     | 4.0      | 
+  | Dog                     | 7.0      | 
   | Cat                     | 2.0      |
 
 Scenario: I press on the Professors Page
