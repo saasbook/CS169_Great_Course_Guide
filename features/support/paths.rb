@@ -16,6 +16,8 @@ module NavigationHelpers
     when /^the home\s?page$/ then '/'
     when /^the welcome page$/ then '/welcome'
     when /^the user page$/ then '/user'
+    when /^the classes page$/ then '/classes'
+    when /^the edit page$/ then '/edit'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

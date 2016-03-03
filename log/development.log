@@ -44736,3 +44736,338 @@ Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3yc
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
   Rendered text template (0.0ms)
 Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/edit" for ::1 at 2016-03-02 18:41:10 -0800
+Processing by ApplicationController#edit as HTML
+Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3ycmUfQDcNWoAS4IFJa-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = ?[0m  [["user_id", 36]]
+  Rendered application/edit.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-02 18:41:10 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3ycmUfQDcNWoAS4IFJa-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.2ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-02 18:41:10 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3ycmUfQDcNWoAS4IFJa-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/update" for ::1 at 2016-03-02 18:41:15 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"YxApIZp8/hAggpUVtILYYO8F90XrgNBQHVF1ugx+LRH7YketB7vMAgH60QAqdtSEIbC0NHvGRJ0AOtAP3Jd4Sw==", "classes"=>{"CS70: Discrete Mathematics and Probability Theory"=>"on", "CS61C: Machine Structures"=>"on", "CS61B: Data Structures"=>"on", "CS61A: Structure and Interpretation of Computer Programs"=>"on"}}
+Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3ycmUfQDcNWoAS4IFJa-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = ?[0m  [["user_id", 36]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 150]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "courses" WHERE "courses"."id" = ?  [["id", 151]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 152]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("title", "course_number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Discrete Mathematics and Probability Theory"], ["course_number", "CS70"], ["user_id", 36], ["created_at", "2016-03-03 02:41:15.762165"], ["updated_at", "2016-03-03 02:41:15.762165"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Machine Structures"], ["course_number", "CS61C"], ["user_id", 36], ["created_at", "2016-03-03 02:41:15.764034"], ["updated_at", "2016-03-03 02:41:15.764034"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("title", "course_number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Data Structures"], ["course_number", "CS61B"], ["user_id", 36], ["created_at", "2016-03-03 02:41:15.765743"], ["updated_at", "2016-03-03 02:41:15.765743"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "courses" ("title", "course_number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Structure and Interpretation of Computer Programs"], ["course_number", "CS61A"], ["user_id", 36], ["created_at", "2016-03-03 02:41:15.767378"], ["updated_at", "2016-03-03 02:41:15.767378"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/user
+Completed 302 Found in 14ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/user" for ::1 at 2016-03-02 18:41:15 -0800
+Processing by ApplicationController#index as HTML
+Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3ycmUfQDcNWoAS4IFJa-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = ?  [["user_id", 36]]
+  Rendered application/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-02 18:41:15 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3ycmUfQDcNWoAS4IFJa-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.4ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-02 18:41:15 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7256-W3ycmUfQDcNWoAS4IFJa-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-03-02 19:30:20 -0800
+Processing by LoginController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  Rendered layouts/login.html.haml within layouts/login (0.7ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-03-02 19:32:05 -0800
+Processing by LoginController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered layouts/login.html.haml within layouts/login (0.8ms)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user" for ::1 at 2016-03-02 19:32:38 -0800
+Processing by ApplicationController#index as HTML
+Guessed service url: "http://localhost:3000/user"
+Generated login url: https://auth-test.berkeley.edu/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fuser
+Redirecting to "https://auth-test.berkeley.edu/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fuser"
+Redirected to https://auth-test.berkeley.edu/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fuser
+Filter chain halted as CASClient::Frameworks::Rails::Filter rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user?ticket=ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" for ::1 at 2016-03-02 19:32:47 -0800
+Processing by ApplicationController#index as HTML
+  Parameters: {"ticket"=>"ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu"}
+Request contains ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu".
+Guessed service url: "http://localhost:3000/user"
+Requesting CAS response for URI https://auth-test.berkeley.edu/cas/proxyValidate?service=http%3A%2F%2Flocalhost%3A3000%2Fuser&ticket=ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu
+CAS server responded with #<Net::HTTPOK 200 OK readbody=true>:
+
+
+
+
+<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+    <cas:authenticationSuccess>
+        <cas:user>1067193</cas:user>
+        
+        
+    </cas:authenticationSuccess>
+</cas:serviceResponse>
+
+Ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" for service "http://localhost:3000/user" belonging to user "1067193" is VALID.
+Extra user attributes provided along with ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu": {}.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.2ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = ?  [["user_id", 36]]
+  Rendered application/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 532ms (Views: 6.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-02 19:32:48 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.2ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-02 19:32:48 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.3ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/professors" for ::1 at 2016-03-02 19:32:52 -0800
+Processing by ApplicationController#professors as HTML
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/professors.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-02 19:32:53 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-02 19:32:53 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/classes" for ::1 at 2016-03-02 19:32:54 -0800
+Processing by ApplicationController#classes as HTML
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/classes.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-02 19:32:54 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-02 19:32:54 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.6ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/professors" for ::1 at 2016-03-02 19:32:55 -0800
+Processing by ApplicationController#professors as HTML
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/professors.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-02 19:32:55 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-02 19:32:55 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user" for ::1 at 2016-03-02 19:32:56 -0800
+Processing by ApplicationController#index as HTML
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067193"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = ?[0m  [["user_id", 36]]
+  Rendered application/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-02 19:32:56 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-02 19:32:56 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067193". Previous ticket "ST-7310-fNdIHmB7xOcLvsfdr1EA-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067193"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.2ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-03-02 19:37:40 -0800
+Processing by LoginController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT course_number, title FROM "courses"  ORDER BY "courses"."course_number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT DISTINCT name, rating FROM "professors"  ORDER BY "professors"."rating" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered layouts/login.html.haml within layouts/login (0.8ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+  [1m[36mCourse Load (1.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
