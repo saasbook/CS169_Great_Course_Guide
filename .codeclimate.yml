@@ -1,0 +1,10 @@
+exclude_paths:
+- bin/**/*
+- db/**/*
+- lib/**/*
+- script/**/*
+- spec/**/*
+- tmp/**/*
+- Gemfile
+- Gemfile.lock
+- public/**/*
