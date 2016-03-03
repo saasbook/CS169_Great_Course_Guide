@@ -18,6 +18,6 @@ Background: I am on the user page
  Scenario: I click on the logout button
   Given I am on the user page
   Then I should see "Your Classes"
-  And I click "Logout"
+  When I follow "Logout"
 
 
