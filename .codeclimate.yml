@@ -10,3 +10,4 @@ exclude_paths:
 - Gemfile
 - Gemfile.lock
 - public/**/*
+- features/**/*
