@@ -58,10 +58,15 @@ class ApplicationController < ActionController::Base
     @user = User.create(first_name: params[:first_name],
                         last_name: params[:last_name], email: params[:email],
                                                         uid: session[:cas_user])
+    if !@user.valid?
+      @user = User.find_by(uid: session[:cas_user])
+    end
     if params[:class_select] != nil
       params[:class_select].each do |course|
         attrs = Course.splitByColon(course)
-        @user.courses.create(title: attrs[0], course_number: attrs[1])
+        if @user.courses.find_by(title: attrs[0]).nil?
+          @user.courses.create(title: attrs[0], course_number: attrs[1])
+        end
       end
     end
 
