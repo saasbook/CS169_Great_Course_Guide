@@ -3,5 +3,5 @@ rvm:
   - 2.2.2
   
 script:
-  - cucumber
-  - rspec
+  - bundle exec cucumber
+  - bundle exec rspec
