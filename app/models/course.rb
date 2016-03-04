@@ -15,8 +15,6 @@ class Course < ActiveRecord::Base
             if not user.user_courses.include? prereq
                 reqs << {id: Course.where(title: prereq.title).first.id, number: prereq.number, title: prereq.title}
             end
-            puts prereq.id
-            puts "werowerwelkjrwe"
         end
         return reqs
     end
