@@ -7,12 +7,15 @@ class Professor < ActiveRecord::Base
 
 	def self.all_profs
 		profs = []
-		self.select('DISTINCT name').each do |prof|
+		self.all.each do |prof|
 			courses = prof.professor_courses
-			avg_rating = 0
+			rating_sum = 0
+			course_count = 0
 			courses.each do |course|
-				avg_rating += course.rating
+				rating_sum += course.rating
+				course_count += 1
 			end
+			avg_rating = rating_sum/course_count
 			profs << {name: prof.name, rating: avg_rating}
 		end
 		return profs

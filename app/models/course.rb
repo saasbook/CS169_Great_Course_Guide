@@ -4,7 +4,7 @@ class Course < ActiveRecord::Base
     
 	def self.all_courses
 		courses = []
-		self.select('DISTINCT number, title').each do |course|
+		self.select('DISTINCT number, title').order(title: :desc).each do |course|
 			courses << {number: course.number, title: course.title}
 		end
 		return courses

@@ -108,7 +108,7 @@ $(function () {
     tmp = JSON.parse(data);
 
     for (var i = 0; i < tmp.length; i++) {
-      all_classes.push(tmp[i]["course_number"] + ": " + tmp[i]["title"]);
+      all_classes.push(tmp[i]["number"] + ": " + tmp[i]["title"]);
     }
     console.log(all_classes);
   });
