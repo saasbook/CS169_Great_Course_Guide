@@ -11,39 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304055323) do
+ActiveRecord::Schema.define(version: 20160304065621) do
 
   create_table "courses", force: :cascade do |t|
-    t.string "number"
-    t.string "title"
+    t.string   "number"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prereqs", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "prereq_id"
+    t.string   "number"
+    t.string   "title"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "professor_courses", force: :cascade do |t|
-    t.integer "professor_id"
-    t.integer "course_id"
-    t.float   "rating"
-    t.string  "term"
+    t.string   "number"
+    t.string   "name"
+    t.float    "rating"
+    t.string   "term"
+    t.integer  "professor_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "professors", force: :cascade do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "student_courses", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "course_id"
+  create_table "user_courses", force: :cascade do |t|
+    t.string   "number"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first"
-    t.string "last"
-    t.string "uid"
-    t.string "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "uid"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
