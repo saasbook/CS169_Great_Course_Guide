@@ -49719,3 +49719,242 @@ Existing local CAS session detected for "1067241". Previous ticket "ST-69-3ksYnH
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
   Rendered text template (0.0ms)
 Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for ::1 at 2016-03-04 00:44:58 -0800
+Processing by ApplicationController#logout as HTML
+Existing local CAS session detected for "1067241". Previous ticket "ST-69-3ksYnHKR5uJQDeu9BdHu-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067241"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 4]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 5]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+Redirected to https://auth-test.berkeley.edu/cas/logout?destination=http%3A%2F%2Flocalhost%3A3000%2Fuser&gateway=true
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-03-04 00:45:00 -0800
+Processing by LoginController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 4]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 5]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  Rendered layouts/login.html.haml within layouts/login (0.5ms)
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user" for ::1 at 2016-03-04 00:45:03 -0800
+Processing by ApplicationController#index as HTML
+Guessed service url: "http://localhost:3000/user"
+Generated login url: https://auth-test.berkeley.edu/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fuser
+Redirecting to "https://auth-test.berkeley.edu/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fuser"
+Redirected to https://auth-test.berkeley.edu/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fuser
+Filter chain halted as CASClient::Frameworks::Rails::Filter rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user?ticket=ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" for ::1 at 2016-03-04 00:45:07 -0800
+Processing by ApplicationController#index as HTML
+  Parameters: {"ticket"=>"ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu"}
+Request contains ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu".
+Guessed service url: "http://localhost:3000/user"
+Requesting CAS response for URI https://auth-test.berkeley.edu/cas/proxyValidate?service=http%3A%2F%2Flocalhost%3A3000%2Fuser&ticket=ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu
+CAS server responded with #<Net::HTTPOK 200 OK readbody=true>:
+
+
+
+
+<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+    <cas:authenticationSuccess>
+        <cas:user>1067241</cas:user>
+        
+        
+    </cas:authenticationSuccess>
+</cas:serviceResponse>
+
+Ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" for service "http://localhost:3000/user" belonging to user "1067241" is VALID.
+Extra user attributes provided along with ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu": {}.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067241"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 4]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 5]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.1ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered application/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 649ms (Views: 4.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-04 00:45:08 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 3]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 4]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 5]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-04 00:45:08 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.2ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 3]]
+  [1m[35mProfessorCourse Load (0.2ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 4]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 5]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 6]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/edit" for ::1 at 2016-03-04 00:45:15 -0800
+Processing by ApplicationController#edit as HTML
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067241"]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 4]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 5]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered application/edit.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 3.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-04 00:45:15 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 3]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 4]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 5]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-04 00:45:15 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 3]]
+  [1m[35mProfessorCourse Load (0.7ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 4]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 5]]
+  [1m[35mProfessorCourse Load (0.2ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-03-04 00:51:02 -0800
+Processing by LoginController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 3]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 4]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 5]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+Redirected to http://localhost:3000/user
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/user" for ::1 at 2016-03-04 00:51:02 -0800
+Processing by ApplicationController#index as HTML
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067241"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1067241"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 3]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 4]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 5]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.1ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 2]]
+  Rendered application/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/all" for ::1 at 2016-03-04 00:51:02 -0800
+Processing by ApplicationController#all_courses as */*
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067241"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 4]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 5]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/all" for ::1 at 2016-03-04 00:51:02 -0800
+Processing by ApplicationController#all_emails as */*
+Existing local CAS session detected for "1067241". Previous ticket "ST-70-ezszfyr0hz3cQ4vUlwax-cas-t2.calnet.berkeley.edu" will be re-used.
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1067241"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT DISTINCT number, title FROM "courses"  ORDER BY "courses"."title" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 4]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 5]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms)

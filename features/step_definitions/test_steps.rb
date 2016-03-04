@@ -7,6 +7,7 @@ Given /the following professors exist/ do |prof_table|
   num_profs = 0 
   prof_table.hashes.each do |prof|
     p = Professor.create(prof)
+    p.courses.create({number: "Spoon", name: "Fork", rating: -num_profs, term: "SP14"})
     num_profs += 1
   end
 end
