@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
 	def self.all_courses
 		courses = []
 		self.select('DISTINCT number, title').each do |course|
-			courses << {course_number: course.number, title: course.title}
+			courses << {number: course.number, title: course.title}
 		end
 		return courses
 	end
@@ -21,9 +21,9 @@ class Course < ActiveRecord::Base
 
     def self.splitByColon course
         index = course.index ":"
-        course_number = course[0..(index-1)]
+        number = course[0..(index-1)]
         title = course[(index + 2)..(course.length - 1)]
-        return title, course_number
+        return title, number
     end
 
 end
