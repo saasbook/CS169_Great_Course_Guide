@@ -10,6 +10,6 @@ Great Course Guide is deployed on [Heroku](https://cs169-great-course-guide.hero
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1541787)
 
-[Travis CI](https://travis-ci.org/sophiazheng/CS169_Great_Course_Guide)
+[<img src="https://api.travis-ci.org/sophiazheng/CS169_Great_Course_Guide.svg"/>](https://travis-ci.org/sophiazheng/CS169_Great_Course_Guide)
 
 [<img src="https://codeclimate.com/github/sophiazheng/CS169_Great_Course_Guide/badges/gpa.svg" />](https://codeclimate.com/github/sophiazheng/CS169_Great_Course_Guide)
