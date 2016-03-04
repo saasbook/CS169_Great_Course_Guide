@@ -12,7 +12,7 @@
             %tbody
               - @user_courses.each do |course|
                 %tr
-                  %td= course.number
-                  %td= course.title
+                  %td= link_to course[:number], "/classes/#{course[:id]}"
+                  %td= course[:title]
         .card-action
           %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit

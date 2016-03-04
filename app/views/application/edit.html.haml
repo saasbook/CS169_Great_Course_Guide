@@ -19,7 +19,7 @@
 
                       %input{type: "checkbox", class: "filled-in", id: "#{course[:number]}-choice", :checked => (@user_classNames.include?(course[:number]) ? "checked" : nil), name: "classes[#{course[:number]}: #{course[:title]}]"}
                       %label{for: "#{course[:number]}-choice"}
-                    %td= course[:number]
+                    %td= link_to course[:number], "/classes/#{course[:id]}", :target => '_blank'
                     %td= course[:title]
           .card-action
-            %input.btn.blue.waves-effect.waves-light#save{type: "submit", value: "Save"}   
+            %input.btn.blue.waves-effect.waves-light#save{type: "submit", value: "Save"}
