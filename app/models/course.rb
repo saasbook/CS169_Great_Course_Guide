@@ -1,9 +1,9 @@
 class Course < ActiveRecord::Base
     has_many :prereqs
-    
+
 	def self.all_courses
 		courses = []
-		self.all.order(number: :desc).each do |course|
+		self.all.order(number: :asc).each do |course|
 			courses << {id: course.id, number: course.number, title: course.title}
 		end
 		return courses
