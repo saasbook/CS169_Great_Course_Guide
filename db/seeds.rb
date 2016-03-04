@@ -8,8 +8,10 @@
 
 professors = [{name: "John Denero"}, {name: "Josh Hug"}, {name: "Satish Rao"}, {name: "Pieter Abbiel"}, 
 	          {name: "Paul Hilfinger"}, {name: "Armando Fox"}]
-courses = [{number: "CS61A", title: "Title1"}, {number: "CS61B", title: "Title2"}, {number: "CS70", title: "Title3"},
-		   {number: "CS188", title: "Title4"}, {number: "CS169", title: "Title5"}, {number: "CS170", title: "Title6"}]
+courses = [{number: "CS61A", title: "Structure and Interpretation of Computer Programs"}, 
+			{number: "CS61B", title: "Data Structures"}, {number: "CS70", title: "Discrete Math and Probability"},
+		   {number: "CS188", title: "Introduction to Artificial Intelligence"}, {number: "CS169", title: "Software Engineering"}, 
+		   {number: "CS170", title: "Efficient Algorithms and Intractable Problems"}]
 
 
 courses.each do |course|
@@ -19,5 +21,5 @@ end
 
 professors.each do |prof|
 	p = Professor.create(prof)
-	p.professor_courses.create(number: "CS61A", name: "Intro to CS", rating: Random.rand(0..7), term: "SP15")
+	p.professor_courses.create(number: "CS61A", name: "Structure and Interpretation of Computer Programs", rating: Random.rand(0.0..7.0), term: "SP15")
 end
