@@ -1,22 +1,22 @@
 class Course < ActiveRecord::Base
     has_many :prereqs
-
     
 	def self.all_courses
 		courses = []
 		self.select('DISTINCT number, title').each do |course|
-			courses << {number: course.number, title: course.title}
+			courses << {id: course.id, number: course.number, title: course.title}
 		end
 		return courses
 	end
 
     def compute_prereqs_given_user user
         prereqs = []
-        self.prereqs.each {|prereq|
+        self.prereqs.each do |prereq|
             if not user.user_courses.include? prereq
-                prereqs << prereq.number
-            end}
-        prereqs
+                prereqs << prereq
+            end
+        end
+        return prereqs
     end
 
     def self.splitByColon course

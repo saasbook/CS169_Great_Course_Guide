@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/courses/all" => "application#all_courses"
   get "/users/all" => "application#all_emails"
   get "/classes" => "application#classes"
+  get "/classes/:id" => "application#specific_class"
   get "/professors" => "application#professors"
   get "/edit" => "application#edit"
   post "/update" => "application#update"

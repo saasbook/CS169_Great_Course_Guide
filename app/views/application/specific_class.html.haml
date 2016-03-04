@@ -3,16 +3,16 @@
     .col.s12
       .card.white
         .card-content
-          %span.card-title All Classes
+          %span.card-title="Prerequisites for #{@course.number}"
           %table.centered
             %thead
               %tr
                 %th{"data-fied": "name"} Course
                 %th{"data-field": "title"} Title
             %tbody
-              - @all_courses.each do |course|
+              - @prereqs.each do |prereq|
                 %tr
-                  %td= link_to course[:number], "/classes/#{course[:id]}"
-                  %td= course[:title]
+                  %td= link_to prereq[:number], "/classes/#{prereq[:id]}"
+                  %td= prereq[:id]
         .card-action
-          %a{href: "/user"} Back
+          %a{href: "/classes"} Back

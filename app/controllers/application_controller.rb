@@ -39,6 +39,11 @@ class ApplicationController < ActionController::Base
     render "welcome", layout: false and return
   end
 
+  def specific_class
+    @course = Course.find(params[:id])
+    @prereqs = @course.compute_prereqs_given_user(User.find_by(uid: session[:cas_user]))
+  end
+
   def classes
   end
 
