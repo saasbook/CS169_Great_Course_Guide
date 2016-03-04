@@ -16,8 +16,9 @@ class Professor < ActiveRecord::Base
 				course_count += 1
 			end
 			avg_rating = rating_sum/course_count
-			profs << {name: prof.name, rating: avg_rating}
+			profs << {name: prof.name, rating: avg_rating.round(1)}
 		end
+		profs = profs.sort_by { |k| -k[:rating] }
 		return profs
 	end
 end

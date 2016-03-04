@@ -13,6 +13,6 @@
               - @prereqs.each do |prereq|
                 %tr
                   %td= link_to prereq[:number], "/classes/#{prereq[:id]}"
-                  %td= prereq[:id]
+                  %td= prereq[:title]
         .card-action
           %a{href: "/classes"} Back

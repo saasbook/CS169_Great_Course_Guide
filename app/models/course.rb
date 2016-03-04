@@ -3,20 +3,22 @@ class Course < ActiveRecord::Base
     
 	def self.all_courses
 		courses = []
-		self.select('DISTINCT number, title').each do |course|
+		self.all.order(number: :desc).each do |course|
 			courses << {id: course.id, number: course.number, title: course.title}
 		end
 		return courses
 	end
 
     def compute_prereqs_given_user user
-        prereqs = []
+        reqs = []
         self.prereqs.each do |prereq|
             if not user.user_courses.include? prereq
-                prereqs << prereq
+                reqs << {id: Course.where(title: prereq.title).first.id, number: prereq.number, title: prereq.title}
             end
+            puts prereq.id
+            puts "werowerwelkjrwe"
         end
-        return prereqs
+        return reqs
     end
 
     def self.splitByColon course

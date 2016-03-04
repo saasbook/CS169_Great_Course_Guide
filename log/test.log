@@ -14052,3 +14052,1019 @@ Redirected to https://auth-test.berkeley.edu/cas/logout?destination=http%3A%2F%2
 Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
 Started GET "/cas/logout?destination=http%3A%2F%2Fwww.example.com%2Fuser&gateway=true" for 127.0.0.1 at 2016-03-04 00:50:34 -0800
   [1m[35m (1.9ms)[0m  rollback transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "prereqs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar, "title" varchar, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "professor_courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar, "name" varchar, "rating" float, "term" varchar, "professor_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "professors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "user_courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "uid" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160304065621')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160304064229')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160304064244')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160304064528')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160304064601')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160304064631')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160304064706')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160304065328')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (8.8ms)
+Completed 200 OK in 46ms (Views: 18.4ms | ActiveRecord: 0.6ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"Kc0UO1l5iZl+Ss1OtFW6XF1iZTr7XSNZsvBJ46k2sxhSBZ2VvqwhFGZKY/85JRE9/sr3Btq6mITW1cbJ46rfLw==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:56:37.553871"], ["updated_at", "2016-03-04 09:56:37.553871"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 39ms (ActiveRecord: 1.2ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.1ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 30ms (Views: 9.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cup"], ["created_at", "2016-03-04 09:56:37.596549"], ["updated_at", "2016-03-04 09:56:37.596549"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "professor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["number", "Spoon"], ["name", "Fork"], ["rating", 0.0], ["term", "SP14"], ["professor_id", 1], ["created_at", "2016-03-04 09:56:37.608872"], ["updated_at", "2016-03-04 09:56:37.608872"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dog"], ["created_at", "2016-03-04 09:56:37.610716"], ["updated_at", "2016-03-04 09:56:37.610716"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "professor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["number", "Spoon"], ["name", "Fork"], ["rating", -1.0], ["term", "SP14"], ["professor_id", 2], ["created_at", "2016-03-04 09:56:37.612554"], ["updated_at", "2016-03-04 09:56:37.612554"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cat"], ["created_at", "2016-03-04 09:56:37.613744"], ["updated_at", "2016-03-04 09:56:37.613744"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "professor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["number", "Spoon"], ["name", "Fork"], ["rating", -2.0], ["term", "SP14"], ["professor_id", 3], ["created_at", "2016-03-04 09:56:37.615250"], ["updated_at", "2016-03-04 09:56:37.615250"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/professors" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#professors as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/professors.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/welcome.html.haml (2.0ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"pol6GtHhXjxlv69q202LvOrevVamvZydTgJKzRpTnIQ8andZsnv5jp35MydINV5CiJEsA7giypWt3SKFTjYp7A==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:56:37.658051"], ["updated_at", "2016-03-04 09:56:37.658051"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1
+Redirected to http://www.example.com/user
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.0ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "ABCD"], ["number", "CS61A"], ["created_at", "2016-03-04 09:56:37.668929"], ["updated_at", "2016-03-04 09:56:37.668929"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "EFGH"], ["number", "CS61B"], ["created_at", "2016-03-04 09:56:37.670800"], ["updated_at", "2016-03-04 09:56:37.670800"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "IJKL"], ["number", "CS61C"], ["created_at", "2016-03-04 09:56:37.672283"], ["updated_at", "2016-03-04 09:56:37.672283"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/classes" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#classes as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/classes.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (3.4ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"wyiHpK3pv2FbCve2OuA9p0Z+4gxAEmEDVfRSdbVYys7RjQohx5WLI/eUMthADGhrBR6y1NooVxkvKhz0cDJIYQ==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:56:37.738377"], ["updated_at", "2016-03-04 09:56:37.738377"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.0ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "ABCD"], ["number", "CS61A"], ["created_at", "2016-03-04 09:56:37.747126"], ["updated_at", "2016-03-04 09:56:37.747126"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "EFGH"], ["number", "CS61B"], ["created_at", "2016-03-04 09:56:37.748385"], ["updated_at", "2016-03-04 09:56:37.748385"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "IJKL"], ["number", "CS61C"], ["created_at", "2016-03-04 09:56:37.750972"], ["updated_at", "2016-03-04 09:56:37.750972"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (5.0ms)
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"BrAkgjB8fC/BziDnFxaFZBRodv70pkpxgXs4ycq1DpsUFakHWgBIbW1Q5Ylt+tCoVwgmJm6cfGv7pXZID9+MNA==", "classes"=>{"CS61A: ABCD"=>"on", "CS61B: EFGH"=>"on"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "ABCD"], ["number", "CS61A"], ["user_id", 1], ["created_at", "2016-03-04 09:56:37.783749"], ["updated_at", "2016-03-04 09:56:37.783749"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "EFGH"], ["number", "CS61B"], ["user_id", 1], ["created_at", "2016-03-04 09:56:37.785461"], ["updated_at", "2016-03-04 09:56:37.785461"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/user
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.0ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (2.4ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"WMocNRlpAHBUc608SIxqz7dLNJgED29bnNGzAwSRfQtYWyzIqsCBLDcZwfvGeYXX4GYbqycuRp5enjt20n8F9g==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:56:37.819474"], ["updated_at", "2016-03-04 09:56:37.819474"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.0ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.1ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "ABCD"], ["number", "CS61A"], ["created_at", "2016-03-04 09:56:37.829611"], ["updated_at", "2016-03-04 09:56:37.829611"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "EFGH"], ["number", "CS61B"], ["created_at", "2016-03-04 09:56:37.831322"], ["updated_at", "2016-03-04 09:56:37.831322"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "IJKL"], ["number", "CS61C"], ["created_at", "2016-03-04 09:56:37.832476"], ["updated_at", "2016-03-04 09:56:37.832476"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"re3q9bomGTuiepTCfhowhZuQBQvH/ax5kyaHr+/Q+8WtfNoICY+YZ8EQ+AXw79+dzL0qOOTchbxRaQ/aOT6DOA==", "classes"=>{"CS61A: ABCD"=>"on"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "ABCD"], ["number", "CS61A"], ["user_id", 1], ["created_at", "2016-03-04 09:56:37.848008"], ["updated_at", "2016-03-04 09:56:37.848008"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.2ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.6ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"o5qmAuF9aQAhPK9th/HNCkqTy8lsCZCiR77CWmxLMZqjC5b/UtToXEJWw6oJBCISHb7k+k8ouWeF8UovuqVJZw==", "classes"=>{"CS61A: ABCD"=>"on", "CS61B: EFGH"=>"on"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "user_courses" WHERE "user_courses"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "ABCD"], ["number", "CS61A"], ["user_id", 1], ["created_at", "2016-03-04 09:56:37.870380"], ["updated_at", "2016-03-04 09:56:37.870380"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "EFGH"], ["number", "CS61B"], ["user_id", 1], ["created_at", "2016-03-04 09:56:37.871724"], ["updated_at", "2016-03-04 09:56:37.871724"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/user
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"vIfCdEo6pSQ8YkLSbQ5CUgG1mmZVpogN6bFgCYYkPCe8FvKJ+ZMkeF8ILhXj+61KVpi1VXaHocgr/uh8UMpE2g==", "classes"=>{"CS61B: EFGH"=>"on", "CS61C: IJKL"=>"on"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "user_courses" WHERE "user_courses"."id" = ?  [["id", 2]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "user_courses" WHERE "user_courses"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "EFGH"], ["number", "CS61B"], ["user_id", 1], ["created_at", "2016-03-04 09:56:37.896462"], ["updated_at", "2016-03-04 09:56:37.896462"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "IJKL"], ["number", "CS61C"], ["user_id", 1], ["created_at", "2016-03-04 09:56:37.897906"], ["updated_at", "2016-03-04 09:56:37.897906"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/user
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.2ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by LoginController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  Rendered layouts/login.html.haml within layouts/login (4.9ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.3ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+Redirected to http://www.example.com/welcome
+Filter chain halted as :require_info rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (1.9ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (2.3ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"viipBbUAWmQHyOrPsCqVoBvxraz9EQzlBEcms+BRiYL72SCeNPQVLNZ1NJGneWJ6PGDPHleI3IVUQ2mcW9rt0g==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:56:37.990643"], ["updated_at", "2016-03-04 09:56:37.990643"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:37 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.0ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (1.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:56:38 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/welcome.html.haml (1.6ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:56:38 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"dgHId2P+D+VXdyWBAO3gCmzFdOiazCO6PXBWvg4ef/ci1GQVVXrFf/ot6sdpk6Al/VKf40OKuZNnWwyJz7LgEw==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:56:38.022475"], ["updated_at", "2016-03-04 09:56:38.022475"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1
+Redirected to http://www.example.com/user
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:38 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:56:38 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.1ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/logout" for 127.0.0.1 at 2016-03-04 01:56:38 -0800
+Processing by ApplicationController#logout as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to https://auth-test.berkeley.edu/cas/logout?destination=http%3A%2F%2Fwww.example.com%2Fuser&gateway=true
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/cas/logout?destination=http%3A%2F%2Fwww.example.com%2Fuser&gateway=true" for 127.0.0.1 at 2016-03-04 01:56:38 -0800
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (7.6ms)
+Completed 200 OK in 38ms (Views: 14.9ms | ActiveRecord: 0.5ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"d7PuTUlLwIh6zhSIjZGkkvtmPZXZgnHJb3WIZ+lssI4+YA5GWt76zUpDVN4e62iNjqx8KnaPOeT+Qrg0Uh6MFA==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:57:31.390603"], ["updated_at", "2016-03-04 09:57:31.390603"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 31ms (ActiveRecord: 1.0ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.2ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (3.5ms)
+Completed 200 OK in 24ms (Views: 8.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cup"], ["created_at", "2016-03-04 09:57:31.427106"], ["updated_at", "2016-03-04 09:57:31.427106"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "professor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["number", "Spoon"], ["name", "Fork"], ["rating", 0.0], ["term", "SP14"], ["professor_id", 1], ["created_at", "2016-03-04 09:57:31.437896"], ["updated_at", "2016-03-04 09:57:31.437896"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dog"], ["created_at", "2016-03-04 09:57:31.440004"], ["updated_at", "2016-03-04 09:57:31.440004"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "professor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["number", "Spoon"], ["name", "Fork"], ["rating", -1.0], ["term", "SP14"], ["professor_id", 2], ["created_at", "2016-03-04 09:57:31.441755"], ["updated_at", "2016-03-04 09:57:31.441755"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cat"], ["created_at", "2016-03-04 09:57:31.442924"], ["updated_at", "2016-03-04 09:57:31.442924"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "professor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["number", "Spoon"], ["name", "Fork"], ["rating", -2.0], ["term", "SP14"], ["professor_id", 3], ["created_at", "2016-03-04 09:57:31.444353"], ["updated_at", "2016-03-04 09:57:31.444353"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/professors" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#professors as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 3]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/professors.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/welcome.html.haml (1.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"gweqNM9BmFy4SJDEp6YzqKUwHZADIYDH8OqQsn59VPZrsSZLxYAtK3TFB0dXu6HIl8MHy4TOipsKJTwdmlQ6rQ==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:57:31.484617"], ["updated_at", "2016-03-04 09:57:31.484617"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1
+Redirected to http://www.example.com/user
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "ABCD"], ["number", "CS61A"], ["created_at", "2016-03-04 09:57:31.495208"], ["updated_at", "2016-03-04 09:57:31.495208"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "EFGH"], ["number", "CS61B"], ["created_at", "2016-03-04 09:57:31.496594"], ["updated_at", "2016-03-04 09:57:31.496594"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "IJKL"], ["number", "CS61C"], ["created_at", "2016-03-04 09:57:31.497369"], ["updated_at", "2016-03-04 09:57:31.497369"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/classes" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#classes as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/classes.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.4ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (1.7ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"TJQsOpA8hbXU54PRjU+RuxbNAQfNPoDvac36cFd49WEL7cyNI0OWke7pzAarTrZfZJxw4pDmLgk9fuNhkdvh3Q==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:57:31.544766"], ["updated_at", "2016-03-04 09:57:31.544766"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "ABCD"], ["number", "CS61A"], ["created_at", "2016-03-04 09:57:31.556396"], ["updated_at", "2016-03-04 09:57:31.556396"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "EFGH"], ["number", "CS61B"], ["created_at", "2016-03-04 09:57:31.558274"], ["updated_at", "2016-03-04 09:57:31.558274"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "IJKL"], ["number", "CS61C"], ["created_at", "2016-03-04 09:57:31.559155"], ["updated_at", "2016-03-04 09:57:31.559155"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"IKMTvCN4SVuX2pKYoS0qLRB4LVyQky9OayP+jBhWgbJn2vMLkAdaf63U3U+HLA3JYilcuc1Lgag/kOed3vWVDg==", "classes"=>{"CS61B: EFGH"=>"on", "CS61A: ABCD"=>"on"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "EFGH"], ["number", "CS61B"], ["user_id", 1], ["created_at", "2016-03-04 09:57:31.586127"], ["updated_at", "2016-03-04 09:57:31.586127"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "ABCD"], ["number", "CS61A"], ["user_id", 1], ["created_at", "2016-03-04 09:57:31.587720"], ["updated_at", "2016-03-04 09:57:31.587720"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/user
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (1.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"FMVrZvQ+lb1aImNHOuxSC5pxmb2LVKMGBPFRZZqfUZMjcT/D5Woad5OEIRq0Ys5QbwowL8aZdRvy5G59wPzjLA==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:57:31.624123"], ["updated_at", "2016-03-04 09:57:31.624123"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "ABCD"], ["number", "CS61A"], ["created_at", "2016-03-04 09:57:31.633028"], ["updated_at", "2016-03-04 09:57:31.633028"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "EFGH"], ["number", "CS61B"], ["created_at", "2016-03-04 09:57:31.634309"], ["updated_at", "2016-03-04 09:57:31.634309"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "courses" ("title", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "IJKL"], ["number", "CS61C"], ["created_at", "2016-03-04 09:57:31.635253"], ["updated_at", "2016-03-04 09:57:31.635253"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"wOoEi8uwz8hSjyXkEL1PzPDldjPgxcWHSnTG6BeXwC/3XlAu2uRAApspZ7meM9OXBZ7foa0IE5q8YfnwTfRykA==", "classes"=>{"CS61A: ABCD"=>"on"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "ABCD"], ["number", "CS61A"], ["user_id", 1], ["created_at", "2016-03-04 09:57:31.650286"], ["updated_at", "2016-03-04 09:57:31.650286"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"N0Fzh0nG+jRw1E+tQhukPNZxv1mjvmmQuhukigv0v+UA9SciWJJ1/rlyDfDMlThnIwoWy+5zv41MDpuSUZcNWg==", "classes"=>{"CS61B: EFGH"=>"on", "CS61A: ABCD"=>"on"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "user_courses" WHERE "user_courses"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "EFGH"], ["number", "CS61B"], ["user_id", 1], ["created_at", "2016-03-04 09:57:31.672550"], ["updated_at", "2016-03-04 09:57:31.672550"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "ABCD"], ["number", "CS61A"], ["user_id", 1], ["created_at", "2016-03-04 09:57:31.674563"], ["updated_at", "2016-03-04 09:57:31.674563"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/user
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/edit" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#edit as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/edit.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+Started POST "/update" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#update as HTML
+  Parameters: {"authenticity_token"=>"8rN8WUve5ifXSngV+WioyQdIHwmXm0i5PZGWKJ+5hBvFByj8Wopp7R7sOkh35jSS8jO2m9pWnqTLhKkwxdo2pA==", "classes"=>{"CS61C: IJKL"=>"on", "CS61B: EFGH"=>"on"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.2ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "user_courses" WHERE "user_courses"."id" = ?  [["id", 2]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "user_courses" WHERE "user_courses"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "IJKL"], ["number", "CS61C"], ["user_id", 1], ["created_at", "2016-03-04 09:57:31.701411"], ["updated_at", "2016-03-04 09:57:31.701411"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "user_courses" ("title", "number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "EFGH"], ["number", "CS61B"], ["user_id", 1], ["created_at", "2016-03-04 09:57:31.702667"], ["updated_at", "2016-03-04 09:57:31.702667"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/user
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by LoginController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  Rendered layouts/login.html.haml within layouts/login (4.6ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+Redirected to http://www.example.com/welcome
+Filter chain halted as :require_info rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (1.6ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered application/welcome.html.haml (1.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"L2fLP5Q01/U4fkrlso3ZpldGEldrhXbhDfW7ASo3Q7SvBgMzqtHu8mwJokakhW1Bzk4e1RmdtBEKI54rSH9dTQ==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:57:31.778220"], ["updated_at", "2016-03-04 09:57:31.778220"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1[0m
+Redirected to http://www.example.com/user
+Completed 302 Found in 23ms (ActiveRecord: 2.1ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC
+  [1m[36mProfessor Load (0.0ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUserCourse Load (0.0ms)[0m  [1mSELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/welcome" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered application/welcome.html.haml (1.2ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+Started POST "/create" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"W9fR+t2oRqr9fIjBPrwUSSh9BNScP9yHEY0gPbeIU/zBhKNtVBjrEe1z7VebGyknYSzIgDP4bjG95V9R/3KZcQ==", "first_name"=>"Michael", "last_name"=>"Jackson", "email"=>"mjhomie@gmail.com"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mjhomie@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."uid" = 'homer' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Michael"], ["last_name", "Jackson"], ["email", "mjhomie@gmail.com"], ["uid", "homer"], ["created_at", "2016-03-04 09:57:31.823589"], ["updated_at", "2016-03-04 09:57:31.823589"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mjhomie@gmail.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."uid" = 'homer' AND "users"."id" != 1) LIMIT 1
+Redirected to http://www.example.com/user
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+Started GET "/user" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUserCourse Load (0.0ms)[0m  SELECT "user_courses".* FROM "user_courses" WHERE "user_courses"."user_id" = ?  [["user_id", 1]]
+  Rendered application/index.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+Started GET "/logout" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+Processing by ApplicationController#logout as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "homer"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "homer"]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses"  ORDER BY "courses"."number" DESC[0m
+  [1m[35mProfessor Load (0.0ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to https://auth-test.berkeley.edu/cas/logout?destination=http%3A%2F%2Fwww.example.com%2Fuser&gateway=true
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/cas/logout?destination=http%3A%2F%2Fwww.example.com%2Fuser&gateway=true" for 127.0.0.1 at 2016-03-04 01:57:31 -0800
+  [1m[35m (0.3ms)[0m  rollback transaction

@@ -8,15 +8,17 @@
 
 professors = [{name: "John Denero"}, {name: "Josh Hug"}, {name: "Satish Rao"}, {name: "Pieter Abbiel"}, 
 	          {name: "Paul Hilfinger"}, {name: "Armando Fox"}]
-courses = [{number: "CS61A", title: "Structure and Interpretation of Computer Programs"}, 
-			{number: "CS61B", title: "Data Structures"}, {number: "CS70", title: "Discrete Math and Probability"},
+courses = [{number: "CS10", title: "The Beauty and Joy of Computing"}, 
+	       {number: "CS61A", title: "Structure and Interpretation of Computer Programs"}, 
+		   {number: "CS61B", title: "Data Structures"}, {number: "CS70", title: "Discrete Math and Probability"},
 		   {number: "CS188", title: "Introduction to Artificial Intelligence"}, {number: "CS169", title: "Software Engineering"}, 
 		   {number: "CS170", title: "Efficient Algorithms and Intractable Problems"}]
 
-
 courses.each do |course|
 	c = Course.create(course)
-	c.prereqs.create(courses[0])
+	if c.number != "CS10"
+		c.prereqs.create(courses[0])
+	end
 end
 
 professors.each do |prof|
