@@ -12,7 +12,7 @@
             %tbody
               - @all_courses.each do |course|
                 %tr
-                  %td= course[:course_number]
+                  %td= course[:number]
                   %td= course[:title]
         .card-action
           %a{href: "/user"} Back

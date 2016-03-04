@@ -1,6 +1,9 @@
 class Professor < ActiveRecord::Base
     has_many :professor_courses
 
+   	def courses
+   		return self.professor_courses
+   	end
 
 	def self.all_profs
 		profs = []
