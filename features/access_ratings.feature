@@ -10,10 +10,10 @@ Background: I am on the user page
   And I login as "Michael"
   Then I should be on the user page
   Given the following professors exist:
-  | name                    | rating   | 
-  | Cup                     | 4.0      | 
-  | Dog                     | 7.0      | 
-  | Cat                     | 2.0      |
+  | name |
+  | Cup  |
+  | Dog  |
+  | Cat  | 
 
 Scenario: I press on the Professors Page
 
@@ -21,4 +21,4 @@ Scenario: I press on the Professors Page
   Then I should see "All Professors"
   Then I should see "Dog" before "Cat"
   And I should see "Cup" before "Cat"
-  But I should not see "Cup" before "Dog"
+  But I should not see "Dog" before "Cup"

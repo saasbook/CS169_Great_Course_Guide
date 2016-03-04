@@ -10,7 +10,7 @@ Background: I am on the user page
   And I login as "Michael"
   Then I should be on the user page
   Given the following courses exist:
-  | title                   | course_number   | 
+  | title                   | number          | 
   | ABCD                    | CS61A           | 
   | EFGH                    | CS61B           | 
   | IJKL                    | CS61C           |

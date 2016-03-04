@@ -19,5 +19,5 @@ end
 
 professors.each do |prof|
 	p = Professor.create(prof)
-	p.courses.create(number: "CS61A", name: "Intro to CS", rating: Random.rand(0..7), term: "SP15")
+	p.professor_courses.create(number: "CS61A", name: "Intro to CS", rating: Random.rand(0..7), term: "SP15")
 end
