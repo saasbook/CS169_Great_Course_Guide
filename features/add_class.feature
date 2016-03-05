@@ -20,8 +20,8 @@ Scenario: Click All Classes
   Then I should be on the classes page
   Then I should see "CS61A"
   Then I should see "CS61B"
-  And I should see "IJKL" before "EFGH"
-  But I should not see "ABCD" before "CS61C"
+  And I should not see "IJKL" before "EFGH"
+  But I should see "ABCD" before "CS61C"
   When I follow "Back"
   Then I should be on the user page
 

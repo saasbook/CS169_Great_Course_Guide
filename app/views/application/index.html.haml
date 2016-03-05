@@ -10,7 +10,7 @@
                 %th{"data-fied": "name"} Course
                 %th{"data-field": "title"} Title
             %tbody
-              - @user_courses.each do |course|
+              - @user.courses.each do |course|
                 %tr
                   %td= link_to course[:number], "/classes/#{course[:id]}"
                   %td= course[:title]

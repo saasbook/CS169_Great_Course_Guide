@@ -69,8 +69,8 @@ class ApplicationController < ActionController::Base
     if params[:class_select] != nil
       params[:class_select].each do |course|
         attrs = Course.splitByColon(course)
-        if @user.courses.find_by(title: attrs[0]).nil?
-          @user.courses.create(title: attrs[0], number: attrs[1])
+        if @user.user_courses.find_by(title: attrs[0]).nil?
+          @user.user_courses.create(title: attrs[0], number: attrs[1])
         end
       end
     end
@@ -83,18 +83,18 @@ class ApplicationController < ActionController::Base
 
   def edit
     @user_classNames = []
-    @user_courses.each do |course|
+    @user.user_courses.each do |course|
       @user_classNames << course.number
     end
   end
 
   def update
-    @user.courses.destroy_all
+    @user.user_courses.destroy_all
 
     if params[:classes] != nil
       params[:classes].each_key do |course|
         attrs = Course.splitByColon(course)
-        @user.courses.create(title: attrs[0], number: attrs[1])
+        @user.user_courses.create(title: attrs[0], number: attrs[1])
       end
     end
 
