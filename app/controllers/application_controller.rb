@@ -19,9 +19,6 @@ class ApplicationController < ActionController::Base
   def get_info
     @user = User.find_by(uid: session[:cas_user])
     @user_exists = @user != nil
-    if @user_exists
-      @user_courses = @user.courses
-    end
     @all_courses = Course.all_courses
     @all_profs = Professor.all_profs
     @all_emails = User.all_emails

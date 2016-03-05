@@ -9,13 +9,12 @@ class Professor < ActiveRecord::Base
 		profs = []
 		self.all.each do |prof|
 			courses = prof.professor_courses
-			rating_sum = 0
-			course_count = 0
-			courses.each do |course|
-				rating_sum += course.rating
-				course_count += 1
+			rating_sum = courses.sum(:rating)
+			num_courses = courses.length
+			avg_rating = 0
+			if num_courses > 0
+				avg_rating = rating_sum/courses.length
 			end
-			avg_rating = rating_sum/course_count
 			profs << {name: prof.name, rating: avg_rating.round(1)}
 		end
 		profs = profs.sort_by { |k| -k[:rating] }
