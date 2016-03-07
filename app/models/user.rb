@@ -17,10 +17,19 @@ class User < ActiveRecord::Base
 	def courses
 		courses = []
 		self.user_courses.each do |course|
-			courses << {id: Course.find_by(title: course.title).id, 
+			courses << {id: Course.find_by(number: course.number).id,
 						number: course.number, title: course.title}
 		end
     	Utils.alpha_sort(courses, :number, true)
 		return courses
+	end
+
+	def has_taken prereq
+		self.user_courses.each do |course|
+			if course.number == prereq.number
+				return true
+			end
+		end
+		return false
 	end
 end

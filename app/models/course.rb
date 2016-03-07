@@ -13,8 +13,8 @@ class Course < ActiveRecord::Base
   def compute_prereqs_given_user user
     reqs = []
     self.prereqs.each do |prereq|
-        if not user.user_courses.include? prereq
-            reqs << {id: Course.find_by(title: prereq.title).id, number: prereq.number, title: prereq.title}
+        if not user.has_taken(prereq)
+            reqs << {id: Course.find_by(number: prereq.number).id, number: prereq.number, title: prereq.title}
         end
     end
     Utils.alpha_sort(prereqs, :number, true)

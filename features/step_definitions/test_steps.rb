@@ -4,7 +4,7 @@ end
 
 num_profs = 0
 Given /the following professors exist/ do |prof_table|
-  num_profs = 0 
+  num_profs = 0
   prof_table.hashes.each do |prof|
     p = Professor.create(prof)
     p.courses.create({number: "Spoon", name: "Fork", rating: -num_profs, term: "SP14"})
@@ -14,9 +14,15 @@ end
 
 num_courses = 0
 Given /the following courses exist/ do |course_table|
-  num_courses = 0 
+  num_courses = 0
   course_table.hashes.each do |course|
     c = Course.create(course)
+  end
+end
+
+Given /the following prerequisites exist/ do |prereq_table|
+  prereq_table.hashes.each do |course|
+    c = Course.find_by(number: course[:course]).prereqs.create({:number => course[:number], :title => course[:title]})
   end
 end
 
@@ -41,18 +47,8 @@ And /I login as "(.*)"/ do |name|
   click_button("Finish")
 end
 
-Given /I have "(.*)" in my classes/ do |course_name| 
+Given /I have "(.*)" in my classes/ do |course_name|
   click_link("Edit")
   check(course_name)
   click_button("Save")
 end
-
-
-
-
-
-
-
-
-
-
