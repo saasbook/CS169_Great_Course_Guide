@@ -15,9 +15,6 @@ Background: I am on the user page
   And I press "Finish"
   Then I should be on the user page
 
- Scenario: I click on the logout button
+ Scenario: Logout button exists
   Given I am on the user page
-  Then I should see "Your Classes"
-  When I follow "Logout"
-
-
+  Then I should see "Logout"
