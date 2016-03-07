@@ -1,0 +1,5 @@
+/log
+/tmp
+/spec/tmp
+/.bundle
+/vendor/bundle
