@@ -6,7 +6,7 @@ class Course < ActiveRecord::Base
 		self.all.each do |course|
 			courses << {id: course.id, number: course.number, title: course.title}
 		end
-    Utils.alpha_sort(courses, :number, true)
+    Utils.alpha_sort(courses, :number)
 		return courses
 	end
 
@@ -17,7 +17,7 @@ class Course < ActiveRecord::Base
             reqs << {id: Course.find_by(number: prereq.number).id, number: prereq.number, title: prereq.title}
         end
     end
-    Utils.alpha_sort(prereqs, :number, true)
+    Utils.alpha_sort(prereqs, :number)
     return reqs
   end
 
