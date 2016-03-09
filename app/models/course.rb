@@ -17,7 +17,7 @@ class Course < ActiveRecord::Base
             reqs << {id: Course.find_by(number: prereq.number).id, number: prereq.number, title: prereq.title}
         end
     end
-    Utils.alpha_sort(prereqs, :number)
+    Utils.alpha_sort(reqs, :number)
     return reqs
   end
 
