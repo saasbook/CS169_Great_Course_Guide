@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 			courses << {id: Course.find_by(number: course.number).id,
 						number: course.number, title: course.title}
 		end
-    	Utils.alpha_sort(courses, :number, true)
+    	Utils.alpha_sort(courses, :number)
 		return courses
 	end
 
