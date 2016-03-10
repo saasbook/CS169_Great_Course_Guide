@@ -11,3 +11,4 @@ exclude_paths:
 - Gemfile.lock
 - public/**/*
 - features/**/*
+- coverage/**/*
