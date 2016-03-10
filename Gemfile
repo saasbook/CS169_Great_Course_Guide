@@ -24,6 +24,7 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'simplecov', :require => false
+  gem 'coveralls', :require => false
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels', :require => false
   gem 'database_cleaner'
