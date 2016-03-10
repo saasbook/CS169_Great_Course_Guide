@@ -65,7 +65,7 @@ class ApplicationController < ActionController::Base
     end
     if params[:class_select] != nil
       params[:class_select].each do |course|
-        attrs = Course.splitByColon(course)
+        attrs = Utils.split_by_colon(course)
         if @user.user_courses.find_by(title: attrs[0]).nil?
           @user.user_courses.create(title: attrs[0], number: attrs[1])
         end
@@ -90,7 +90,7 @@ class ApplicationController < ActionController::Base
 
     if params[:classes] != nil
       params[:classes].each_key do |course|
-        attrs = Course.splitByColon(course)
+        attrs = Utils.split_by_colon(course)
         @user.user_courses.create(title: attrs[0], number: attrs[1])
       end
     end

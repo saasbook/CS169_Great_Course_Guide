@@ -14,17 +14,10 @@ class Course < ActiveRecord::Base
     reqs = []
     self.prereqs.each do |prereq|
         if not user.has_taken(prereq)
-            reqs << {id: Course.find_by(number: prereq.number).id, number: prereq.number, title: prereq.title}
+            reqs << {id: Course.find_by(number: prereq.number).id, number: prereq.number, title: prereq.title, course_id: prereq.course_id}
         end
     end
     Utils.alpha_sort(reqs, :number)
     return reqs
-  end
-
-  def self.splitByColon course
-    index = course.index ":"
-    number = course[0..(index-1)]
-    title = course[(index + 2)..(course.length - 1)]
-    return title, number
   end
 end
