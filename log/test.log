@@ -18242,3 +18242,500 @@ Redirected to https://auth-test.berkeley.edu/cas/logout?destination=http%3A%2F%2
 Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
 Started GET "/cas/logout?destination=http%3A%2F%2Fwww.example.com%2Fuser&gateway=true" for 127.0.0.1 at 2016-03-04 18:01:32 -0800
   [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.5ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:18:45.627961"], ["updated_at", "2016-03-10 00:18:45.627961"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:18:45.633830"], ["updated_at", "2016-03-10 00:18:45.633830"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:18:45.635450"], ["updated_at", "2016-03-10 00:18:45.635450"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:18:45.637461"], ["updated_at", "2016-03-10 00:18:45.637461"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:18:45.638842"], ["updated_at", "2016-03-10 00:18:45.638842"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:18:45.640032"], ["updated_at", "2016-03-10 00:18:45.640032"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:18:45.641654"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:18:45.649640"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:18:45.651239"], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:18:45.652417"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.2ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:18:45.663094"], ["updated_at", "2016-03-10 00:18:45.663094"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:18:45.664939"], ["updated_at", "2016-03-10 00:18:45.664939"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:18:45.666668"], ["updated_at", "2016-03-10 00:18:45.666668"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:18:45.668272"], ["updated_at", "2016-03-10 00:18:45.668272"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:18:45.670812"], ["updated_at", "2016-03-10 00:18:45.670812"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:18:45.672393"], ["updated_at", "2016-03-10 00:18:45.672393"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:18:45.674057"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:18:45.675240"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:18:45.676538"], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:18:45.677651"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:18:45.683824"], ["updated_at", "2016-03-10 00:18:45.683824"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:18:45.685256"], ["updated_at", "2016-03-10 00:18:45.685256"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:18:45.686647"], ["updated_at", "2016-03-10 00:18:45.686647"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:18:45.687987"], ["updated_at", "2016-03-10 00:18:45.687987"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:18:45.689201"], ["updated_at", "2016-03-10 00:18:45.689201"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:18:45.690390"], ["updated_at", "2016-03-10 00:18:45.690390"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:18:45.692279"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:18:45.693705"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:18:45.695084"], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:18:45.696322"], ["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:19:56.217760"], ["updated_at", "2016-03-10 00:19:56.217760"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:19:56.221770"], ["updated_at", "2016-03-10 00:19:56.221770"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:19:56.223356"], ["updated_at", "2016-03-10 00:19:56.223356"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:19:56.224871"], ["updated_at", "2016-03-10 00:19:56.224871"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:19:56.226112"], ["updated_at", "2016-03-10 00:19:56.226112"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:19:56.227315"], ["updated_at", "2016-03-10 00:19:56.227315"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:19:56.228917"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:19:56.235297"], ["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:19:56.237474"], ["id", 3]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:19:56.238815"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36m (1.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.2ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:19:56.249858"], ["updated_at", "2016-03-10 00:19:56.249858"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:19:56.251936"], ["updated_at", "2016-03-10 00:19:56.251936"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:19:56.253771"], ["updated_at", "2016-03-10 00:19:56.253771"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:19:56.255353"], ["updated_at", "2016-03-10 00:19:56.255353"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:19:56.256604"], ["updated_at", "2016-03-10 00:19:56.256604"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:19:56.259181"], ["updated_at", "2016-03-10 00:19:56.259181"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:19:56.262669"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:19:56.264039"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:19:56.265425"], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:19:56.266565"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProfessor Load (0.2ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "John Denero"], ["created_at", "2016-03-10 00:19:56.275291"], ["updated_at", "2016-03-10 00:19:56.275291"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:19:56.277031"], ["updated_at", "2016-03-10 00:19:56.277031"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:19:56.278433"], ["updated_at", "2016-03-10 00:19:56.278433"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:19:56.279739"], ["updated_at", "2016-03-10 00:19:56.279739"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:19:56.280976"], ["updated_at", "2016-03-10 00:19:56.280976"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:19:56.282196"], ["updated_at", "2016-03-10 00:19:56.282196"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:19:56.284241"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:19:56.285686"], ["id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:19:56.287083"], ["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:19:56.288234"], ["id", 4]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.1ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:20:13.653012"], ["updated_at", "2016-03-10 00:20:13.653012"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:20:13.656769"], ["updated_at", "2016-03-10 00:20:13.656769"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:13.658378"], ["updated_at", "2016-03-10 00:20:13.658378"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:13.659769"], ["updated_at", "2016-03-10 00:20:13.659769"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:13.661249"], ["updated_at", "2016-03-10 00:20:13.661249"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:13.662456"], ["updated_at", "2016-03-10 00:20:13.662456"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:13.664085"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:13.670669"], ["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:13.672825"], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:13.674131"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.2ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:20:13.685620"], ["updated_at", "2016-03-10 00:20:13.685620"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:20:13.687510"], ["updated_at", "2016-03-10 00:20:13.687510"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:13.689026"], ["updated_at", "2016-03-10 00:20:13.689026"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:13.690370"], ["updated_at", "2016-03-10 00:20:13.690370"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:13.691603"], ["updated_at", "2016-03-10 00:20:13.691603"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:13.693142"], ["updated_at", "2016-03-10 00:20:13.693142"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:13.696066"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:13.697619"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:13.699104"], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:13.700233"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "John Denero"], ["created_at", "2016-03-10 00:20:13.708336"], ["updated_at", "2016-03-10 00:20:13.708336"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:20:13.710233"], ["updated_at", "2016-03-10 00:20:13.710233"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:13.712842"], ["updated_at", "2016-03-10 00:20:13.712842"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:13.714948"], ["updated_at", "2016-03-10 00:20:13.714948"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:13.717599"], ["updated_at", "2016-03-10 00:20:13.717599"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:13.719526"], ["updated_at", "2016-03-10 00:20:13.719526"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:13.721843"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:13.723821"], ["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:13.725754"], ["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:13.727268"], ["id", 4]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:20:35.926763"], ["updated_at", "2016-03-10 00:20:35.926763"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:20:35.930679"], ["updated_at", "2016-03-10 00:20:35.930679"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:35.932293"], ["updated_at", "2016-03-10 00:20:35.932293"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:35.933692"], ["updated_at", "2016-03-10 00:20:35.933692"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:35.934915"], ["updated_at", "2016-03-10 00:20:35.934915"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:35.936150"], ["updated_at", "2016-03-10 00:20:35.936150"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:35.937729"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:35.944135"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:35.946321"], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:35.947624"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.1ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "John Denero"], ["created_at", "2016-03-10 00:20:35.959508"], ["updated_at", "2016-03-10 00:20:35.959508"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:20:35.961234"], ["updated_at", "2016-03-10 00:20:35.961234"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:35.962782"], ["updated_at", "2016-03-10 00:20:35.962782"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:35.965803"], ["updated_at", "2016-03-10 00:20:35.965803"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:35.967155"], ["updated_at", "2016-03-10 00:20:35.967155"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:35.968697"], ["updated_at", "2016-03-10 00:20:35.968697"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:35.970384"], ["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:35.971644"], ["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:35.973019"], ["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:35.974137"], ["id", 4]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProfessor Load (0.1ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36mProfessorCourse Load (0.0ms)[0m  [1mSELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProfessor Load (0.2ms)[0m  [1mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Denero"], ["created_at", "2016-03-10 00:20:35.982868"], ["updated_at", "2016-03-10 00:20:35.982868"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Josh Hug"], ["created_at", "2016-03-10 00:20:35.984600"], ["updated_at", "2016-03-10 00:20:35.984600"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61A"], ["name", "Test Title 1"], ["rating", 5.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:35.986144"], ["updated_at", "2016-03-10 00:20:35.986144"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61B"], ["name", "Test Title 2"], ["rating", 3.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:35.987539"], ["updated_at", "2016-03-10 00:20:35.987539"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["number", "CS61C"], ["name", "Test Title 3"], ["rating", 2.0], ["term", "Fall 2016"], ["created_at", "2016-03-10 00:20:35.988813"], ["updated_at", "2016-03-10 00:20:35.988813"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "professor_courses" ("number", "name", "rating", "term", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["number", "CS61D"], ["name", "Test Title 4"], ["rating", 4.0], ["term", "Spring 2016"], ["created_at", "2016-03-10 00:20:35.990112"], ["updated_at", "2016-03-10 00:20:35.990112"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:35.992151"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 1], ["updated_at", "2016-03-10 00:20:35.994040"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?[0m  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:35.996133"], ["id", 3]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "professor_courses" SET "professor_id" = ?, "updated_at" = ? WHERE "professor_courses"."id" = ?  [["professor_id", 2], ["updated_at", "2016-03-10 00:20:35.998587"], ["id", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mProfessor Load (0.1ms)[0m  SELECT "professors".* FROM "professors"
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 1]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT SUM("professor_courses"."rating") FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?[0m  [["professor_id", 2]]
+  [1m[35mProfessorCourse Load (0.0ms)[0m  SELECT "professor_courses".* FROM "professor_courses" WHERE "professor_courses"."professor_id" = ?  [["professor_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
