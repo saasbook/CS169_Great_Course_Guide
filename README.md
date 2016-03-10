@@ -14,4 +14,4 @@ Great Course Guide is deployed on [Heroku](https://cs169-great-course-guide.hero
 
 [<img src="https://codeclimate.com/github/sophiazheng/CS169_Great_Course_Guide/badges/gpa.svg" />](https://codeclimate.com/github/sophiazheng/CS169_Great_Course_Guide)
 
-[<img src="https://coveralls.io/repos/github/sophiazheng/CS169_Great_Course_Guide/badge.svg />](https://coveralls.io/github/sophiazheng/CS169_Great_Course_Guide)
+[<img src="https://coveralls.io/repos/github/sophiazheng/CS169_Great_Course_Guide/badge.svg" />](https://coveralls.io/github/sophiazheng/CS169_Great_Course_Guide)
