@@ -78,16 +78,56 @@ describe ApplicationController do
     end
   end
 
-  # TODO
   describe "create" do
+    before :each do
+      User.destroy_all
+      Course.destroy_all
+      Course.create(number: "CS61A", title: "SICP")
+    end
+    it "should create and store a new user in @user if the user has a unique email and uid" do
+      first_user = {first_name: "Test", last_name: "Test", uid: "123456", email: "unique@test.test", class_select: ["CS61A: SICP"]}
+      post :create, first_user
+      expect(assigns(:user)).to eq(User.find_by(uid: first_user[:uid]))
+    end
+    it "should not create and store a new user if the user has an email or uid already" do
+      first_user = {first_name: "Test", last_name: "Test", uid: "123456", email: "unique@test.test"}
+      invalid_uid_user = {first_name: "Test", last_name: "Test", uid: "123456", email: "notunique@test.test"}
+      post :create, invalid_uid_user
+      expect(assigns(:user)).to eq(User.find_by(uid: first_user[:uid]))
+    end
+    it "should add classes take by the user to @user.user_courses" do
+      first_user = {first_name: "Test", last_name: "Test", uid: "123456", email: "unique@test.test", class_select: ["CS61A: SICP"]}
+      post :create, first_user
+      expect(assigns(:user).user_courses.first.number).to eq("CS61A")
+    end
   end
 
-  # TODO
   describe "edit" do
+    before :each do
+      User.destroy_all
+      Course.destroy_all
+      @course = Course.create(number: "CS61A", title: "SICP")
+      @user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
+      @user.user_courses.create(number: "CS61A", title: "SICP")
+    end
+    it "should add all user course names to @user_classNames" do
+      get :edit
+      expect(assigns(:user_classNames)).to include(@course.number)
+    end
   end
 
-  # TODO
   describe "update" do
+    before :each do
+      User.destroy_all
+      Course.destroy_all
+      @user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
+      @course = Course.create(number: "CS61A", title: "SICP")
+    end
+    it "should update @user.user_courses with :classes" do
+      class_dict = {classes: {"CS61A: SICP": true}}
+      post :update, class_dict
+      expect(assigns(:user).user_courses.first.title).to eq(@course.title)
+    end    
   end
 
   it "logging out" do
