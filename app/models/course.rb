@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+
   has_many :prereqs
 
 	def self.all_courses
