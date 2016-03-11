@@ -32,7 +32,6 @@ class ApplicationController < ActionController::Base
   # Displays a page to allow the user to enter information
   def welcome
     redirect_to "/user" and return if @user_exists
-
     render "welcome", layout: false and return
   end
 
