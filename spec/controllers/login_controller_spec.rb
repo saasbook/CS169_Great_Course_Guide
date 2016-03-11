@@ -1,7 +1,7 @@
 require "spec_helper"
 require "rails_helper"
 
-describe LoginController do 
+describe LoginController do
 	describe "logging in a user" do
 		it "should redirect a user to the user page if user exists" do
 			user = User.create(first_name: "John", last_name: "Doe",
