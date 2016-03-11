@@ -1,15 +1,14 @@
 class Utils
-  def self.alpha_sort(list, field, ascending)
-    l = list.sort{|a, b|
-      a[field],b[field] = [a[field],b[field]].map{|s| s.gsub(/\d+/){|m| "0"*(3 - m.size) + m }}
-      a[field]<=>b[field]
+  def self.alpha_sort(list, field)
+    return list.sort_by!{|x|
+      x[field].gsub(/\d+/){|m| "0"*(6-m.size)+m}
     }
-    l.each do |item|
-      item[field] = item[field].gsub(/0(?=\d+)/) {}
-    end
-    if !ascending
-      l.reverse!
-    end
-    return l
+  end
+
+  def self.split_by_colon(course)
+    index = course.index(":")
+    number = course[0..(index-1)]
+    title = course[(index + 2)..(course.length - 1)]
+    return title, number
   end
 end

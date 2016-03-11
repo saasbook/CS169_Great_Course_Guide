@@ -1,49 +1,75 @@
+require "spec_helper"
 require "rails_helper"
 
-describe "Prereqs for courses"  do
-    context "If the prereq does not exist as a course" do
-        it 'should not include the prereq if the prereq is not in the database' do
-            # setup
-            user = User.new(:first_name =>"John", :last_name => "Doe", 
-                :email =>"JohnDoe@berkeley.edu" , :uid => "23152");
-            bad_course = Course.new(:number => "MATH180", :title => "Math")
-            
-            course = Course.new(:number => "CS22" , :title => "Fake CS course" , :prereq => bad_course) 
+describe Course do
+  describe '.all_courses' do
+    before(:each) do
+      Course.destroy_all()
+    end
+    context 'there are no courses' do
+      it 'should return nothing' do
+        all_courses = Course.all_courses()
+        expect(all_courses).to be_empty
+      end
+    end
+    context 'there are courses' do
+      it 'should return every course in order' do
+        Course.create(number: "CS61B", title: "Data Strucutres")
+        Course.create(number: "CS61A", title: "SICP")
+        Course.create(number: "CS169", title: "Software Engineering")
+        Course.create(number: "CS61C", title: "Computer Architecture")
 
-            # exercise
-            requirements = course.compute_prereqs_given_user(user)
-            
-            # verify
-            expect(requirements).not_to include[bad_course.number]
-        end
-    end
-    context "If the prereq does exist" do
-        it 'should return a list of reqs that include the course' do
-           # setup
-            user = User.new(:first_name =>"John", :last_name => "Doe", 
-                :email =>"JohnDoe@berkeley.edu" , :uid => "23152")
-            good_course = Course.find_by(:number => "CS61A")
-            course = Course.new(:number => "CS22" , :title => "Fake CS course" , :prereq => bad_course) 
-            # exercise
-            requirements = course.compute_prereqs_given_user(user)
-            
-            # verify
-            expect(requirements).not_to include [good_course.number]
-        end
-    end
-end
+        all_courses = Course.all_courses()
 
-describe "user has taken the prereqs for the course already" do 
-    it 'should not show the course in the list of requirements' do
-        # setup
-        completed_course = Course.find_by(:number => "CS61A")
-        user = User.new(:first_name =>"John", :last_name => "Doe", 
-                :email =>"JohnDoe@berkeley.edu" , :uid => "23152", :user_courses => completed_course)
-        
-        course = Course.new(:number => "CS22" , :title => "Fake CS course" , :prereq => bad_course) 
-        # exercise
-        requirements = course.compute_prereqs_given_user(user)
-        # verify
-        expect(requirements).not_to include [completed_course.number]
+        expect(all_courses.length).to be(4)
+        expect(all_courses[0][:number]).to eq("CS61A")
+        expect(all_courses[1][:number]).to eq("CS61B")
+        expect(all_courses[2][:number]).to eq("CS61C")
+        expect(all_courses[3][:number]).to eq("CS169")
+      end
     end
+  end
+
+  describe '#compute_prereqs_given_user' do
+    before(:each) do
+      Course.destroy_all()
+      User.destroy_all()
+      Course.create(number: "CS61A", title: "SICP")
+      Course.create(number: "CS61B", title: "Data Strucutres")
+      Course.create(number: "CS61C", title: "Computer Architecture")
+      Course.find(3).prereqs.create(number: "CS61B", title: "Data Strucutres")
+      Course.find(3).prereqs.create(number: "CS61A", title: "SICP")
+      User.create(first_name: "John", last_name: "Doe", uid: "00000001", email: "john.doe@university.edu")
+    end
+    context 'user has taken no prereqs' do
+      it 'should return all prereqs in order' do
+        user = User.find(1)
+        prereqs = Course.find(3).compute_prereqs_given_user(user)
+
+        expect(prereqs.length).to be(2)
+        expect(prereqs[0][:number]).to eq("CS61A")
+        expect(prereqs[1][:number]).to eq("CS61B")
+      end
+    end
+    context 'user has taken some prereqs' do
+      it 'should return remaining prereqs' do
+        user = User.find(1)
+        user.user_courses.create(number: "CS61A", title: "SICP")
+        prereqs = Course.find(3).compute_prereqs_given_user(user)
+
+        expect(prereqs.length).to be(1)
+        expect(prereqs[0][:number]).to eq("CS61B")
+      end
+    end
+    context 'user has taken all prereqs' do
+      it 'should return no prereqs' do
+        user = User.find(1)
+        user.user_courses.create(number: "CS61A", title: "SICP")
+        user.user_courses.create(number: "CS61B", title: "SICP")
+        prereqs = Course.find(3).compute_prereqs_given_user(user)
+
+        expect(prereqs).to be_empty
+      end
+    end
+  end
 end
