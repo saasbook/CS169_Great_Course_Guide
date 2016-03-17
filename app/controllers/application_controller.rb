@@ -82,6 +82,7 @@ class ApplicationController < ActionController::Base
     @user.user_courses.each do |course|
       @user_classNames << course.number
     end
+    Utils.parseData()
   end
 
   def update
