@@ -103,6 +103,11 @@ $(function () {
   });
 
   $(".dropdown-button").dropdown({hover: true, belowOrigin: true});
+  $(".button-collapse").sideNav({
+    edge: 'left',
+    closeOnClick: 'true'
+  });
+  $('.collapsible').collapsible();
 
   // Getting All Courses
   var all_classes = [];
