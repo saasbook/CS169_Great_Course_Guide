@@ -18,37 +18,37 @@ describe "User CRUD" do
         it "should reject a user with same uid" do 
             User.create(:first_name => "John", :last_name => "Doe",
                 :email => "jd@berkeley.edu" , :uid => "25403252" )
-            User.create(:first_name => "Jon", :last_name => "Doh",
-            :email => "jdd@berkeley.edu", :uid => "25403252" ).should_not be_valid
+            expect(User.new(:first_name => "Jon", :last_name => "Doh",
+            :email => "jdd@berkeley.edu", :uid => "25403252")).to_not be_valid
             
         end
         
         it "should reject a user with same email" do 
             User.create(:first_name => "John", :last_name => "Doe",
                 :email => "jd@berkeley.edu" , :uid => "25403252" )
-            User.create(:first_name => "Jon", :last_name => "Doh",
-            :email => "jd@berkeley.edu", :uid => "65403262" ).should_not be_valid
+            expect(User.new(:first_name => "Jon", :last_name => "Doh",
+            :email => "jd@berkeley.edu", :uid => "65403262")).to_not be_valid
         end
         
         it "should add a user with the same name" do
             User.create(:first_name => "John", :last_name => "Doe",
                 :email => "jd@berkeley.edu" , :uid => "25403252" )
-            User.create(:first_name => "Jon", :last_name => "Doh",
-            :email => "jdd@berkeley.edu", :uid => "65403262" ).should be_valid
+            expect(User.create(:first_name => "Jon", :last_name => "Doh",
+            :email => "jdd@berkeley.edu", :uid => "65403262")).to be_valid
         end
         
         it "should reject users with missing values" do 
-             User.create(:last_name => "Doh",
-            :email => "jd@berkeley.edu", :uid => "65403262" ).should_not be_valid
+             expect(User.create(:last_name => "Doh",
+            :email => "jd@berkeley.edu", :uid => "65403262")).to_not be_valid
              
-             User.create(:first_name => "Jon",
-            :email => "jd@berkeley.edu", :uid => "65403262" ).should_not be_valid
+             expect(User.create(:first_name => "Jon",
+            :email => "jd@berkeley.edu", :uid => "65403262")).to_not be_valid
              
-             User.create(:first_name => "Jon", :last_name => "Doh",
-             :uid => "65403262" ).should_not be_valid
+             expect(User.create(:first_name => "Jon", :last_name => "Doh",
+             :uid => "65403262" )).to_not be_valid
              
-             User.create(:first_name => "Jon", :last_name => "Doh",
-            :email => "jd@berkeley.edu").should_not be_valid
+             expect(User.create(:first_name => "Jon", :last_name => "Doh",
+            :email => "jd@berkeley.edu")).to_not be_valid
         end
         
     end

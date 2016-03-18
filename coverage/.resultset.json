@@ -1,15 +1,15 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
         1,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -67,6 +67,10 @@
         null,
         null,
         1,
+        0,
+        null,
+        null,
+        1,
         null,
         3,
         null,
@@ -111,7 +115,7 @@
         null,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/models/user.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user.rb": [
         1,
         null,
         1,
@@ -148,7 +152,7 @@
         null,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/models/professor.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor.rb": [
         1,
         1,
         null,
@@ -157,14 +161,14 @@
         null,
         null,
         1,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
         null,
-        10,
+        12,
         null,
         null,
         1,
@@ -175,9 +179,20 @@
         30,
         20,
         null,
+        null,
+        1,
+        2,
+        2,
+        4,
+        2,
+        null,
+        null,
+        4,
+        2,
+        null,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/models/course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/course.rb": [
         1,
         null,
         1,
@@ -203,7 +218,7 @@
         null,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
         1,
         null,
         1,
@@ -217,7 +232,9 @@
         null,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/models/utils.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/utils.rb": [
+        1,
+        null,
         1,
         1,
         30,
@@ -231,25 +248,46 @@
         5,
         5,
         null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/models/prereq.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
         1,
         1,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/models/user_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/rohitlalchanadani/CS169_Great_Course_Guide/app/models/professor_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor_course.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1457715895
+    "timestamp": 1458275835
   },
   "Cucumber Features": {
     "coverage": {
