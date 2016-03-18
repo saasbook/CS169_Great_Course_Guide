@@ -44,21 +44,29 @@ describe Course do
     context 'user has taken no prereqs' do
       it 'should return all prereqs in order' do
         user = User.find(1)
-        prereqs = Course.find(3).compute_prereqs_given_user(user)
+        prereqs = Course.find(3).compute_prereqs_given_user(user)[0]
 
         expect(prereqs.length).to be(2)
         expect(prereqs[0][:number]).to eq("CS61A")
         expect(prereqs[1][:number]).to eq("CS61B")
+
+        prereqs = Course.find(3).compute_prereqs_given_user(user)[1]
+        expect(prereqs.length).to be(0)
       end
     end
     context 'user has taken some prereqs' do
       it 'should return remaining prereqs' do
         user = User.find(1)
         user.user_courses.create(number: "CS61A", title: "SICP")
-        prereqs = Course.find(3).compute_prereqs_given_user(user)
+        prereqs = Course.find(3).compute_prereqs_given_user(user)[0]
 
         expect(prereqs.length).to be(1)
         expect(prereqs[0][:number]).to eq("CS61B")
+
+        prereqs = Course.find(3).compute_prereqs_given_user(user)[1]
+
+        expect(prereqs.length).to be(1)
+        expect(prereqs[0][:number]).to eq("CS61A")
       end
     end
     context 'user has taken all prereqs' do
@@ -66,9 +74,14 @@ describe Course do
         user = User.find(1)
         user.user_courses.create(number: "CS61A", title: "SICP")
         user.user_courses.create(number: "CS61B", title: "SICP")
-        prereqs = Course.find(3).compute_prereqs_given_user(user)
+        prereqs = Course.find(3).compute_prereqs_given_user(user)[0]
 
         expect(prereqs).to be_empty
+
+        prereqs = Course.find(3).compute_prereqs_given_user(user)[1]
+        expect(prereqs.length).to be(2)
+        expect(prereqs[0][:number]).to eq("CS61A")
+        expect(prereqs[1][:number]).to eq("CS61B")
       end
     end
   end
