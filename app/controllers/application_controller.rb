@@ -46,6 +46,10 @@ class ApplicationController < ActionController::Base
   def professors
   end
 
+  def dist_profs
+    @dist_profs = Professor.dist_profs
+  end
+
   def all_courses
     render :text => @all_courses.to_json
   end

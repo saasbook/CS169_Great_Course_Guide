@@ -102,6 +102,8 @@ $(function () {
     }, 400);
   });
 
+  $(".dropdown-button").dropdown({hover: true, belowOrigin: true});
+
   // Getting All Courses
   var all_classes = [];
   $.get("/courses/all", function(data) {
@@ -122,4 +124,6 @@ $(function () {
     list: all_classes,
     autoFirst: true
   });
+
 });
+

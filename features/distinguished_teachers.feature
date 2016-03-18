@@ -4,10 +4,20 @@ Feature: Distinguished Teachers
   So that I can take classes from the best teachers
   I want to see a list of teachers who won the distinguished teaching award.
 
-Scenario: Seeing Distinguished Teachers
-  Given I am on the welcome page
+Background: There are classes
+
+  Given the following professors exist:
+  | name | distinguished |
+  | Cup  | true			 |
+  | Dog  | true          |
+  | Cat  | false		 |
+  And I am on the welcome page
   And I login as "Michael"
-  When I follow "Distinguished Teachers"
-  I should see "Distinguished Teachers"
-  I should see "John Denero"
-  I should see "Josh Hug"
+  Then I should be on the user page
+
+Scenario: Seeing Distinguished Teachers
+  When I follow "Distinguished Professors"
+  And I should see "Dog"
+  And I should see "Cup"
+  And I should not see "Cat"
+

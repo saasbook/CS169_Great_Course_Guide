@@ -1,0 +1,18 @@
+.container
+  .row
+    .col.s12
+      .card.white
+        .card-content
+          %span.card-title Distinguished Professors
+          %table.centered
+            %thead
+              %tr
+                %th{"data-field": "name"} Name
+                %th{"data-field": "rating"} Average Rating
+            %tbody
+              - @dist_profs.each do |prof|
+                %tr
+                  %td= prof[:name]
+                  %td= prof[:rating]
+        .card-action
+          %a{href: "/user"} Back

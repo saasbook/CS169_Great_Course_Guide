@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-professors = [{name: "John Denero"}, {name: "Josh Hug"}, {name: "Satish Rao"}, {name: "Pieter Abbiel"},
+professors = [{name: "John Denero", distinguished: true}, {name: "Josh Hug", distinguished: true}, {name: "Satish Rao"}, {name: "Pieter Abbiel"},
 	          {name: "Paul Hilfinger"}, {name: "Armando Fox"}]
 courses = [{number: "CS10", title: "The Beauty and Joy of Computing"},
 	       	{number: "CS61A", title: "Structure and Interpretation of Computer Programs"},

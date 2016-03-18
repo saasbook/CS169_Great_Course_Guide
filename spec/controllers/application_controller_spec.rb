@@ -31,17 +31,17 @@ describe ApplicationController do
       expect(assigns(:user)).to eq(@user)
     end
     it "should assign all courses to @all_courses" do
-      Course.should_receive(:all_courses).and_return("test_course")
+      expect(Course).to receive(:all_courses).and_return("test_course")
       get :index
       expect(assigns(:all_courses)).to eq("test_course")
     end
     it "should assign all professors to @all_professors" do
-      Professor.should_receive(:all_profs).and_return("test_prof")
+      expect(Professor).to receive(:all_profs).and_return("test_prof")
       get :index
       expect(assigns(:all_profs)).to eq("test_prof")
     end
     it "should assign all emails to @all_emails" do
-      User.should_receive(:all_emails).and_return("test_email")
+      expect(User).to receive(:all_emails).and_return("test_email")
       get :index
       expect(assigns(:all_emails)).to eq("test_email")
     end

@@ -17,7 +17,7 @@ Background: I am on the user page
 
 Scenario: I press on the Professors Page
 
-  When I follow "Professors"
+  When I follow "All Professors"
   Then I should see "All Professors"
   Then I should see "Dog" before "Cat"
   And I should see "Cup" before "Cat"
