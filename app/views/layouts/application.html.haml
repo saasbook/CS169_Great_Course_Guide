@@ -13,6 +13,11 @@
   %body.grey.lighten-3
     %header
       .navbar-fixed
+        %ul#profOptions.dropdown-content
+          %li
+            %a{href: "/professors"} All Professors
+          %li
+            %a{href: "/distProfs"} Distinguished Professors
         %nav.blue.darken-4
           .nav-wrapper.container
             %a.brand-logo{href: "/welcome"} Great Course Guide
@@ -20,7 +25,9 @@
               %li
                 %a{href: "/classes"} Classes
               %li
-                %a{href: "/professors"} Professors
+                %a.dropdown-button{"data-activates" => "profOptions"}
+                  Professors
+                  %i.material-icons.right arrow_drop_down
               %li
                 %a{href: "/logout"} Logout
     %main

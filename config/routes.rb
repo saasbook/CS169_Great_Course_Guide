@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/classes" => "application#classes"
   get "/classes/:id" => "application#specific_class"
   get "/professors" => "application#professors"
+  get "/distProfs" => "application#dist_profs"
   get "/edit" => "application#edit"
   post "/update" => "application#update"
 
