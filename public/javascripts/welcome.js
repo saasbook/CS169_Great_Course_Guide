@@ -102,7 +102,7 @@ $(function () {
     }, 400);
   });
 
-  $(".dropdown-button").dropdown({hover: false, "data-beloworigin": true});
+  $(".dropdown-button").dropdown({hover: true, belowOrigin: true});
 
   // Getting All Courses
   var all_classes = [];
