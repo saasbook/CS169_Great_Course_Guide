@@ -33,19 +33,21 @@
               %li
                 %a{href: "/logout"} Logout
             %ul#nav-mobile2.side-nav
-              %li.bold
+              %li.bold.no-padding
                 %a{href: "/classes"} Classes
-              %li.no-padding
+              %li.bold.no-padding
                 %ul.collapsible.collapsible-accordion
-                  %li.bold
-                    %a.collapsible-header Professors
+                  %li.bold.no-padding
+                    %a.collapsible-header 
+                      Professors
+                      %i.material-icons.right arrow_drop_down
                     %div.collapsible-body{style: "display: block"}
                       %ul
-                        %li
+                        %li.bold.no-padding
                           %a{href: "/professors"} All Professors
-                        %li
+                        %li.bold.no-padding
                           %a{href: "/distProfs"} Distinguished Professors
-              %li
+              %li.bold.no-padding
                 %a{href: "/logout"} Logout
     %main
       = yield
