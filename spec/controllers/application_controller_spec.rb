@@ -74,7 +74,7 @@ describe ApplicationController do
     end
     it "should assign @prereqs" do
       get :specific_class, id: @course.id
-      expect(assigns(:prereqs)).to eq(@course.compute_prereqs_given_user(@user))
+      expect(assigns(:prereqs).nil?).to eq(@course.compute_prereqs_given_user(@user)[0].empty?)
     end
   end
 

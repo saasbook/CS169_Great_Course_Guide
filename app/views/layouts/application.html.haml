@@ -21,6 +21,8 @@
         %nav.blue.darken-4
           .nav-wrapper.container
             %a.brand-logo{href: "/welcome"} Great Course Guide
+            %a.button-collapse{"data-activates": "nav-mobile2"}
+              %i.material-icons menu
             %ul#nav-mobile.right.hide-on-med-and-down
               %li
                 %a{href: "/classes"} Classes
@@ -29,6 +31,23 @@
                   Professors
                   %i.material-icons.right arrow_drop_down
               %li
+                %a{href: "/logout"} Logout
+            %ul#nav-mobile2.side-nav
+              %li.bold.no-padding
+                %a{href: "/classes"} Classes
+              %li.bold.no-padding
+                %ul.collapsible.collapsible-accordion
+                  %li.bold.no-padding
+                    %a.collapsible-header 
+                      Professors
+                      %i.material-icons.right arrow_drop_down
+                    %div.collapsible-body{style: "display: block"}
+                      %ul
+                        %li.bold.no-padding
+                          %a{href: "/professors"} All Professors
+                        %li.bold.no-padding
+                          %a{href: "/distProfs"} Distinguished Professors
+              %li.bold.no-padding
                 %a{href: "/logout"} Logout
     %main
       = yield

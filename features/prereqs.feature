@@ -48,5 +48,18 @@ Scenario: Accounts for taken classes
   When I am on the classes page
   And I follow "CS70"
   Then I should see "Prerequisites for CS70"
-  And I should see "CS61B"
-  But I should not see "CS61A"
+  And I should see "CS61B" before "Completed Prerequisites"
+  And I should not see "CS61A" before "Completed Prerequisites"
+
+Scenario: Prereqs in proper category (taken vs remaining)
+  Given I am on the user page
+  And I have "CS61A-choice" in my classes
+  When I am on the classes page
+  And I follow "CS61B"
+  Then I should see "Completed Prerequisites" before "CS61A" 
+
+
+
+
+
+

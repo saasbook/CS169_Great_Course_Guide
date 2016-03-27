@@ -3,16 +3,34 @@
     .col.s12
       .card.white
         .card-content
-          %span.card-title="Prerequisites for #{@course.number}"
+          %span.card-title="Remaining Prerequisites for #{@course.number}"
           %table.centered
             %thead
               %tr
                 %th{"data-fied": "name"} Course
                 %th{"data-field": "title"} Title
             %tbody
-              - @prereqs.each do |prereq|
+              - @remaining_prereqs.each do |prereq|
                 %tr
                   %td= link_to prereq[:number], "/classes/#{prereq[:id]}"
                   %td= prereq[:title]
         .card-action
-          %a{href: "/classes"} Back
+          %a{href: "/user"} Back
+.container
+  .row
+    .col.s12
+      .card.white
+        .card-content
+          %span.card-title="Completed Prerequisites for #{@course.number}"
+          %table.centered
+            %thead
+              %tr
+                %th{"data-fied": "name"} Course
+                %th{"data-field": "title"} Title
+            %tbody
+              - @finished_prereqs.each do |prereq|
+                %tr
+                  %td= link_to prereq[:number], "/classes/#{prereq[:id]}"
+                  %td= prereq[:title]
+        .card-action
+          %a{href: "/user"} Back

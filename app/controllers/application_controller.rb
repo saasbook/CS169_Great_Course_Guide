@@ -37,7 +37,9 @@ class ApplicationController < ActionController::Base
 
   def specific_class
     @course = Course.find(params[:id])
-    @prereqs = @course.compute_prereqs_given_user(@user)
+    all_prereqs = @course.compute_prereqs_given_user(@user)
+    @remaining_prereqs = all_prereqs[0]
+    @finished_prereqs = all_prereqs[1]
   end
 
   def classes
