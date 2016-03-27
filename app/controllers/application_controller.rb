@@ -85,18 +85,24 @@ class ApplicationController < ActionController::Base
 
   def edit
     @user_classNames = []
+    @user_takenClassNames = []
     @user.user_courses.each do |course|
+      if course.taken
+        @user_takenClassNames << course.number
+      end
       @user_classNames << course.number
     end
   end
 
   def update
     @user.user_courses.destroy_all
+    taken_classes = params[:taken_classes]
 
     if params[:classes] != nil
       params[:classes].each_key do |course|
         attrs = Utils.split_by_colon(course)
-        @user.user_courses.create(title: attrs[0], number: attrs[1])
+        taken = taken_classes.include?(course)
+        @user.user_courses.create(title: attrs[0], number: attrs[1], taken: taken)
       end
     end
 

@@ -121,7 +121,6 @@ $(function () {
     for (var i = 0; i < tmp.length; i++) {
       all_classes.push(tmp[i]["number"] + ": " + tmp[i]["title"]);
     }
-    console.log(all_classes);
   });
 
   $.get("/users/all", function(data) {
@@ -129,10 +128,26 @@ $(function () {
   });
 
   var input = document.getElementById("class-search");
-  new Awesomplete(input, {
-    list: all_classes,
-    autoFirst: true
+  if (input != null) {
+    new Awesomplete(input, {
+      list: all_classes,
+      autoFirst: true
+    });
+  };
+
+  // EDIT PAGE JS
+  $(".takenBox").change(function() {
+    var id = this.id;
+    var split = id.split("-");
+    var addBoxID = "#" + split[0] + "-choice";
+    $(addBoxID).prop('checked', true);
+  });
+
+  $(".addBox").change(function() {
+    var id = this.id;
+    var split = id.split("-");
+    var addBoxID = "#" + split[0] + "-taken";
+    $(addBoxID).prop('checked', false);
   });
 
 });
-
