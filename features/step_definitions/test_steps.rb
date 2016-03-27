@@ -42,13 +42,14 @@ And /I login as "(.*)"/ do |name|
   fill_in("First Name", :with => name)
   fill_in("Last Name", :with => "Jackson")
   fill_in("Email", :with => "mjhomie@gmail.com")
-  click_button("Continue")
+  click_button("Continue", match: :first)
   should have_button("Add Class")
-  click_button("Finish")
+  click_button("Finish", match: :first)
 end
 
 Given /I have "(.*)" in my classes/ do |course_name|
-  click_link("Edit")
+  click_link("Edit", match: :first)
   check(course_name)
-  click_button("Save")
+  check("#{course_name.split("-")[0]}" + "-taken")
+  click_button("Save", match: :first)
 end

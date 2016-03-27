@@ -101,7 +101,11 @@ class ApplicationController < ActionController::Base
     if params[:classes] != nil
       params[:classes].each_key do |course|
         attrs = Utils.split_by_colon(course)
-        taken = taken_classes.include?(course)
+        begin
+          taken = taken_classes.include?(course)
+        rescue
+          taken = false
+        end
         @user.user_courses.create(title: attrs[0], number: attrs[1], taken: taken)
       end
     end
