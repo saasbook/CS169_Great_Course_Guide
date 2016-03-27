@@ -3,7 +3,7 @@
     .col.s12
       .card.white.animated.fadeInUp
         .card-content
-          %span.card-title Your Classes
+          %span.card-title Classes You Want to Take
           %table.centered
             %thead
               %tr
@@ -11,8 +11,27 @@
                 %th{"data-field": "title"} Title
             %tbody
               - @user.courses.each do |course|
-                %tr
-                  %td= link_to course[:number], "/classes/#{course[:id]}"
-                  %td= course[:title]
+                - if not course[:taken]
+                  %tr
+                    %td= link_to course[:number], "/classes/#{course[:id]}"
+                    %td= course[:title]
+        .card-action
+          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit
+  .row
+    .col.s12
+      .card.white.animated.fadeInUp
+        .card-content
+          %span.card-title Your Completed Classes
+          %table.centered
+            %thead
+              %tr
+                %th{"data-fied": "name"} Course
+                %th{"data-field": "title"} Title
+            %tbody
+              - @user.courses.each do |course|
+                - if course[:taken]
+                  %tr
+                    %td= link_to course[:number], "/classes/#{course[:id]}"
+                    %td= course[:title]
         .card-action
           %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit
