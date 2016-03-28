@@ -14,12 +14,13 @@ class Professor < ActiveRecord::Base
         if num_courses > 0
             avg_rating = (rating_sum/courses.length).round(2)
         end
-        return avg_rating
+        return avg_rating if not avg_rating.nan? else 0
     end
 
 	def self.all_profs
 		profs = []
 		self.all.each do |prof|
+      rating = prof.rating
 			profs << {name: prof.name, rating: prof.rating}
 		end
 		profs = profs.sort_by { |professor| -professor[:rating] }

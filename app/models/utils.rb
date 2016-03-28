@@ -24,7 +24,7 @@ class Utils
       question = row[3]
       total = row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10]
       avg = (row[4]*1 + row[5]*2 + row[6]*3 + row[7]*4 + row[8]*5 + row[9]*6 + row[10]*7).to_f
-      avg = (avg/total).round(2)
+      avg = total == 0 ? 0 : (avg/total).round(2)
       entry = all.find { |hash| hash[:name] == name and hash[:course] == course}
       if entry
         entry[:questions][question] = avg
@@ -57,7 +57,7 @@ class Utils
       # Calculate the rating
       total = row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10]
       avg = (row[4]*1 + row[5]*2 + row[6]*3 + row[7]*4 + row[8]*5 + row[9]*6 + row[10]*7).to_f
-      rating = (avg/total).round(2) # Rating
+      rating = total == 0 ? 0 : (avg/total).round(2) # Rating
 
       professor = Professor.find_by(name: name) == nil ? Professor.create(name: name) : Professor.find_by(name: name)
 
