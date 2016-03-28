@@ -23,7 +23,6 @@ CS263,Design of Programming Languages
 CS267,Applications of Parallel Computers
 CS278,Computational Complexity
 CS280,Computer Vision
-<<<<<<< HEAD
 CS281A,Statistical Learning Theory
 CS293B,Vision B: Quantitative, Perceptual, and Physiological Aspects
 CS301,Teaching Techniques for Computer Science
@@ -96,7 +95,7 @@ EE290G,Advanced Topics in Semiconductor Manufacturing
 EE290N,Advanced Topics in System Theory
 EE290O,Advanced Topics in Control
 EE290T,Advanced Topics in Signal Processing
-EE291E,Hybrid Systems and Intelligent Control 
+EE291E,Hybrid Systems and Intelligent Control
 EE227A,Introduction to Convex Optimization
 EE290F,Advanced Topics
 EE290Q,Advanced Topics in Networking
@@ -217,30 +216,19 @@ EE298A,The Entrepreneurial Business of Software
 CS61CL,Machine Structures (Lab Based)
 CS84,Interactive Choreography in 3D Tele-Immersive Spaces
 CS161,Computer Security
-EE124,
-CS39M,
-EE127,
-EE149,
-CS39N,
-EE145O,
-EE127A,
-CS298,
-CS10,
-CS283,
-CS39P,
-EE194,
-EE225E,
-EE235C,
-EE246C,
-EE219D,
-EE242M,
-EE25,
-CS39Q,
-CS261N,
-EE134,
-EE230M,
-CS299,
-CSC249M,
+EE124,Spectrum Analysis Lab
+EE127,Optimization Models and Applications
+EE149,Introduction to Embedded Systems
+EE127A,Optimization Models and Applications
+CS10,The Beauty and Joy of Computing
+CS283,Advanced Computer Graphics Algorithms and Techniques
+CS39P,Photographing History in the Making
+EE225E,Principles of Magnetic Resonance Imaging
+EE235C,Nanoscale Fabrication
+EE246C,Microelectromechanical Systems
+EE219D,System Identification
+CS261N,Internet and Network Security
+EE134,Fundamentals of Photovoltaic Devices
 EE137A,
 EE215A,
 EEC249M,
