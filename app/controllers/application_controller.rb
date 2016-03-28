@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
     @user = User.find_by(uid: session[:cas_user])
     @user_exists = @user != nil
     @all_courses = Course.all_courses
-    @all_profs = Professor.all_profs
     @all_emails = User.all_emails
   end
 
@@ -46,6 +45,7 @@ class ApplicationController < ActionController::Base
   end
 
   def professors
+    @all_profs = Professor.all_profs
   end
 
   def dist_profs

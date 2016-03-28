@@ -1,6 +1,7 @@
 class Course < ActiveRecord::Base
 
   has_many :prereqs
+  validates_uniqueness_of :number
 
 	def self.all_courses
 		courses = []
@@ -15,7 +16,7 @@ class Course < ActiveRecord::Base
     remaining_reqs = []
     finished_reqs = []
     self.prereqs.each do |prereq|
-        req = {id: Course.find_by(number: prereq.number).id, 
+        req = {id: Course.find_by(number: prereq.number).id,
                   number: prereq.number, title: prereq.title, course_id: prereq.course_id}
         if not user.has_taken(prereq)
             remaining_reqs << req
