@@ -224,6 +224,7 @@ CS176,Algorithms for Computational Biology
 CS249A,Introduction to Embedded Systems
 CS284A,COMPUTER GRAPHICS & IMAGING
 CS286A,Implementation of Database Systems
+<<<<<<< HEAD
 CS375,Teaching Techniques for Computer Science
 EE230A,Integrated Circuit Devices
 EE230C,Solid State Electronics
@@ -235,15 +236,13 @@ EEC249A,Design of Embedded Systems: Models, Validation and Synthesis
 EE375,Teaching Techniques for Electrical Engineering
 EE227C,Optimization Models and Applications
 EE20,Signals and Systems
-EE218,
-EE230B,
-EE241B,
-EEC247B,
-CS168,
-CS286B,
-CS39S,
-EE218A,
-EE242B,
+EE218,Introduction to Optical Engineering
+EE230B,Solid State Devices
+EE241B,Advanced Integrated Circuits for Communication
+EEC247B,Introduction to MEMS Design
+CS168,Introduction to the Internet: Architecture and Protocols
+CS39S,Photographic Technique in the Free Speech Movement and Today
+EE218A,Introduction to Optical Engineering
 EE84,Hands-on Optics
 EE16A,Designing Information Devices and Systems I
 EE240B,Advanced Analog Integrated Circuit Design
