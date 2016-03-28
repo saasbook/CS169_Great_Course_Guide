@@ -97,24 +97,22 @@ EE290G,
 EE290N,
 EE290O,
 EE290T,
-EE291E,
-EE298,
-EE227A,
-EE290F,
-EE290Q,
-CS270,
-CS271,
-CS289,
-EE113,
-EE225B,
-EE225D,
-EE228B,
-EE229,
-EE232,
-EE239,
-EE290A,
-EE290D,
-EE290E,
+EE291E,Hybrid Systems and Intelligent Control 
+EE227A,Introduction to Convex Optimization
+EE290F,Advanced Topics
+EE290Q,Advanced Topics in Networking
+CS270,Combinatorial Algorithms and Data Structures
+CS271,Randomness and Computation
+CS289,Knowledge Representation and Reasoning
+EE113,Power Electronics
+EE225B,Digital Image Processing
+EE225D,Audio Signal Processing
+EE229,Information Theory and Coding
+EE232,Lightwave Devices
+EE239,Partially Ionized Plasmas
+EE290A,Advanced Topics in Computer-Aided Design
+EE290D,Advanced Topics in Semiconductor Technology
+EE290E,Advanced Topics in Electromagnetics and Plasmas
 CS196H,
 CS273,
 CS279,
