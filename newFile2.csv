@@ -133,39 +133,29 @@ EE146,Dynamic Networks in Biology
 EE201,Strategic Computing and Communications Technology
 EE223,Stochastic Systems: Estimation and Control
 EE290H,Advanced Topics in Semiconductor Manufacturing
-CS39C,
-CS258,
-EE12,
-EE104,
-EE117A,
-EE120L,
-EE210A,
-EE219A,
-CS39D,
-CS281,
-CS98,
-CS198,
-CS254,
-EE43A,
-EE43B,
-EE117B,
-EE135,
-EE136,
-EE226B,
-EE290C,
-CS39B,
-CS290X,
-CS277,
-CS294S,
-EE236,
-EE238,
-CS269,
-EE145A,
-EE236B,
-EE228,
-EE290J,
-CS292J,
-EE290L,
+CS258,Parallel Processors
+EE104,Linear and Nonlinear Circuits
+EE117A,Electromagnetic Fields and Waves-I
+EE120L,Signals and Systems Laboratory
+EE210A,Introduction to X-Ray Physics and Technology
+EE219A,Computer-Aided Verification of Electronic Circuits and Systems
+CS281,Machine Learning
+CS98,Directed Group Study
+CS198,Directed Group Studies for Advanced Undergraduates
+CS254,Topics in VLSI Chip Design and Implementation
+EE43A,Introductory Electronics Lab
+EE43B,Introductory Electronics Lab
+EE117B,Electromagnetic Fields and Waves-II
+EE135,Microwave, Optics and Plasma Laboratory
+EE136,Introduction to Quantum and Optical Electronics
+EE226B,Applications of Stochastic Process Theory
+EE290C,Advanced Topics in Circuit Design
+CS277,Concrete Complexity
+EE238,Superconductive Devices and Circuits
+EE145A,Sensors, Actuators, and Electrodes
+EE236B,Quantum and Optical Electronics
+EE290J,Image Processing
+CS292J,Advanced Topics in Distributed Computing Systems
 EE290Y,
 EE290W,
 EE291D,
