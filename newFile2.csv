@@ -197,30 +197,17 @@ EE239A,
 EE290R,
 EE290V,
 EE40I,
-EE191A,
-EE235,
-EE237,
-EE239B,
-EE227B,
-EE216,
-EE291C,
-CS189,
-CS292V,
-CS6,
-CS91A,
-CS292I,
-EE144,
-EE221B,
-EE290M,
-EE290Z,
-EE291B,
-EE147,
-CS257,
-CS292F,
-CS8,
-CS259,
-CS292T,
-EE7,
+EE191A,How Things Work
+EE235,Nanoscale Fabrication
+EE239B,Partially Ionized Plasmas
+EE227B,Convex Optimization
+EE216,Antennas and Propagation
+EE291C,Control and Optimization of Distributed Parameters
+CS189,Introduction to Machine Learning
+EE144,Fundamental Algorithms for System Modeling, Analysis, and Optimization
+EE147,Introduction to Microelectromechanical Systems
+CS257,Advanced Computer Architecture
+CS259,Fault Tolerant Systems
 EE90,
 EE296,
 EE198,
