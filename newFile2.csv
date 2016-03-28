@@ -23,8 +23,9 @@ CS263,Design of Programming Languages
 CS267,Applications of Parallel Computers
 CS278,Computational Complexity
 CS280,Computer Vision
-CS281A,Statistical Learning Theory
-CS293B,Vision B: Quantitative, Perceptual, and Physiological Aspects
+CS281A,
+CS293B,
+CS294,
 CS301,
 EE1,
 EE20N,
@@ -201,29 +202,22 @@ EE144,Fundamental Algorithms for System Modeling, Analysis, and Optimization
 EE147,Introduction to Microelectromechanical Systems
 CS257,Advanced Computer Architecture
 CS259,Fault Tolerant Systems
-EE90,
-EE296,
-EE198,
-EE200A,
-EE290X,
-CS7E,
-CS39K,
-CS293C,
-CS191,
-EE224B,
-CS4,
-CS61BL,
-CS194,
-EE229B,
-EE229A,
-CS3L,
-EE224,
-EE291F,
-EE301,
-EE298A,
-CS61CL,
-CS84,
-CS161,
+EE290X,Strategic Computing and Communications Technology
+CS39K,Information Technology
+CS293C,Perceptual Organization
+CS191,Quantum Information Science and Technology
+EE224B,Fundamentals of Wireless Communication
+CS4,Introduction to Computing for Engineers
+CS61BL,Data Structures (Lab Based)
+CS194,Special Topics
+EE229B,Error Control Coding
+EE229A,Information Theory and Coding
+CS3L,Introduction to Symbolic Programming (Lab Based)
+EE291F,Control and Optimization of Distributed Parameters
+EE298A,The Entrepreneurial Business of Software
+CS61CL,Machine Structures (Lab Based)
+CS84,Interactive Choreography in 3D Tele-Immersive Spaces
+CS161,Computer Security
 EE124,
 CS39M,
 EE127,
