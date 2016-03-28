@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # Filter Needed for CalNet Login
   before_filter CASClient::Frameworks::Rails::Filter
   before_action :require_info, :except => [:welcome, :all_courses, :all_emails, :create]
-  before_action :get_info
+  before_action :get_info, :except => :create
 
   def require_info
     user_exists = User.find_by(uid: session[:cas_user]) != nil
@@ -70,7 +70,6 @@ class ApplicationController < ActionController::Base
   end
 
   def create
-    # TODO: Need to validate params
     @user = User.create(first_name: params[:first_name],
                         last_name: params[:last_name], email: params[:email],
                                                         uid: session[:cas_user])
