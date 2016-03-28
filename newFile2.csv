@@ -23,6 +23,7 @@ CS263,Design of Programming Languages
 CS267,Applications of Parallel Computers
 CS278,Computational Complexity
 CS280,Computer Vision
+<<<<<<< HEAD
 CS281A,Statistical Learning Theory
 CS293B,Vision B: Quantitative, Perceptual, and Physiological Aspects
 CS301,Teaching Techniques for Computer Science
@@ -111,32 +112,28 @@ EE239,Partially Ionized Plasmas
 EE290A,Advanced Topics in Computer-Aided Design
 EE290D,Advanced Topics in Semiconductor Technology
 EE290E,Advanced Topics in Electromagnetics and Plasmas
-CS196H,
-CS273,
-CS279,
-CS281B,
-CS286,
-CS39I,
-CS284,
-CS39A,
-CS39H,
-EE225C,
-EE131,
-EE219,
-CS39F,
-CS265,
-CS274,
-EE219C,
-EE226,
-CS250,
-CS262,
-EE43,
-EE146,
-EE201,
-EE223,
-EE225,
-EE290,
-EE290H,
+CS196H,Honors Seminar for Computer Science Majors
+CS273,Foundations of Parallel Computation
+CS279,System Support for Scientific Computation
+CS281B,Advanced Topics in Learning and Decision Making
+CS286,Implementation of Data Base Systems
+CS39I,Freshman/Sophomore Seminar
+CS284,Computer-Aided Geometric Design and Modeling
+CS39A,Introduction to Computer Animation
+CS39H,CS39H Internet Media
+EE225C,VLSI Signal Processing
+EE131,Semiconductor Electronics
+EE219,Circuit Theory and Computer-Aided Analysis
+CS265,Compiler Optimization and Code Generation
+CS274,Computational Geometry
+EE219C,Computer-Aided Verification
+CS250,VLSI Systems Design
+CS262,Advanced Topics in Operating Systems
+EE43,Introductory Electronics Laboratory
+EE146,Dynamic Networks in Biology
+EE201,Strategic Computing and Communications Technology
+EE223,Stochastic Systems: Estimation and Control
+EE290H,Advanced Topics in Semiconductor Manufacturing
 CS39C,
 CS258,
 EE12,
@@ -204,29 +201,22 @@ EE144,Fundamental Algorithms for System Modeling, Analysis, and Optimization
 EE147,Introduction to Microelectromechanical Systems
 CS257,Advanced Computer Architecture
 CS259,Fault Tolerant Systems
-EE90,
-EE296,
-EE198,
-EE200A,
-EE290X,
-CS7E,
-CS39K,
-CS293C,
-CS191,
-EE224B,
-CS4,
-CS61BL,
-CS194,
-EE229B,
-EE229A,
-CS3L,
-EE224,
-EE291F,
-EE301,
-EE298A,
-CS61CL,
-CS84,
-CS161,
+EE290X,Strategic Computing and Communications Technology
+CS39K,Information Technology
+CS293C,Perceptual Organization
+CS191,Quantum Information Science and Technology
+EE224B,Fundamentals of Wireless Communication
+CS4,Introduction to Computing for Engineers
+CS61BL,Data Structures (Lab Based)
+CS194,Special Topics
+EE229B,Error Control Coding
+EE229A,Information Theory and Coding
+CS3L,Introduction to Symbolic Programming (Lab Based)
+EE291F,Control and Optimization of Distributed Parameters
+EE298A,The Entrepreneurial Business of Software
+CS61CL,Machine Structures (Lab Based)
+CS84,Interactive Choreography in 3D Tele-Immersive Spaces
+CS161,Computer Security
 EE124,
 CS39M,
 EE127,
