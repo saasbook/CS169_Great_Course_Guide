@@ -7,7 +7,7 @@
           %table.centered
             %thead
               %tr
-                %th{"data-fied": "name"} Course
+                %th{"data-field": "name"} Course
                 %th{"data-field": "title"} Title
                 %th{"data-field": "taken"} Taken
             %tbody
@@ -22,7 +22,7 @@
                   %td= prereq[:title]
                   %td Yes
         .card-action
-          %a{href: "/user"} Back
+          %a{href: "/user"} Home
   .row
     .col.s12
       .card.white
@@ -31,12 +31,12 @@
           %table.centered
             %thead
               %tr
-                %th{"data-fied": "name"} Professor
+                %th{"data-field": "name"} Professor
                 %th{"data-field": "title"} Rating
             %tbody
               - @professors.each do |professor|
                 %tr
-                  %td= professor.name
+                  %td= link_to professor.name, "/professors/#{professor.id}"
                   %td= professor.rating
         .card-action
-          %a{href: "/user"} Back
+          %a{href: "/user"} Home

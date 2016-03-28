@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/users/all" => "application#all_emails"
   get "/classes" => "application#classes"
   get "/classes/:id" => "application#specific_class"
+  get "/professors/:id" => "application#specific_professor"
   get "/professors" => "application#professors"
   get "/distProfs" => "application#dist_profs"
   get "/edit" => "application#edit"

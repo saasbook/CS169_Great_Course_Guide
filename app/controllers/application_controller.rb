@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
     @user_exists = @user != nil
     @all_courses = Course.all_courses
     @all_emails = User.all_emails
+    session[:return_to] = request.referer
   end
 
   def logout
@@ -119,6 +120,11 @@ class ApplicationController < ActionController::Base
     end
 
     redirect_to "/user" and return
+  end
+
+  def specific_professor
+    @prof = Professor.find(params[:id])
+    @prof_courses = @prof.courses.order(rating: :desc)
   end
 
 end
