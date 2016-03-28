@@ -3150,7 +3150,6 @@ Abbeel,Pieter,CS294 Fall 2008 Section 40,Rate the overall teaching effectiveness
 Barsky,Brian,CS301 Fall 2008,Rate the overall teaching effectiveness of this instructor,1,3,0,5,8,6,1
 Clancy,Michael J.,CS301 Fall 2008,Rate the overall teaching effectiveness of this instructor,1,2,3,5,7,5,2
 Barsky,Brian,CS39J Fall 2008,Rate the overall teaching effectiveness of this instructor,0,0,0,0,4,2,2
-Bajcsy,Ruzena,CS39M Fall 2008,Rate the overall teaching effectiveness of this instructor,0,0,0,3,2,3,0
 Garcia,Dan,CS3L Fall 2008,Rate the overall teaching effectiveness of this instructor,0,0,0,5,19,38,60
 Harvey,Brian K.,CS61A Fall 2008,Rate the overall teaching effectiveness of this instructor,0,1,3,7,40,103,126
 Hilfinger,Paul,CS61B Fall 2008,Rate the overall teaching effectiveness of this instructor,2,7,2,10,19,19,11
@@ -3261,7 +3260,6 @@ Haghighi,Aria,CS70 Summer 2009,Rate the overall teaching effectiveness of this i
 Parekh,Abhay,EE228 Spring 2009,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,8,4
 Asanovic,Krste,CS250 Fall 2009 Section 2,Rate the overall teaching effectiveness of this instructor,0,0,0,0,3,9,8
 Harvey,Brian K.,CS301 Fall 2009 Section 2,Rate the overall teaching effectiveness of this instructor,0,0,0,2,2,5,9
-Garcia,Dan,CS39N Fall 2009 Section 2,Rate the overall teaching effectiveness of this instructor,0,0,0,0,4,8,5
 Gustafson,Ture K.,EE100 Fall 2009,Rate the overall teaching effectiveness of this instructor,10,20,13,16,10,3,0
 Maharbiz,Michel,CS150 Fall 2009,Rate the overall teaching effectiveness of this instructor,0,1,3,2,8,10,7
 Canny,John,CS160 Fall 2009,Rate the overall teaching effectiveness of this instructor,1,2,3,1,7,6,2
@@ -3302,7 +3300,6 @@ Katz,Randy H.,CS294 Fall 2009 Section 49,Rate the overall teaching effectiveness
 Barsky,Brian,CS294 Fall 2009 Section 7,Rate the overall teaching effectiveness of this instructor,0,0,1,0,1,2,0
 Barsky,Brian,CS301 Fall 2009 Section 1,Rate the overall teaching effectiveness of this instructor,0,0,0,3,8,1,5
 Barsky,Brian,CS39J Fall 2009,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,7,1
-Harvey,Brian K.,CS39N Fall 2009 Section 1,Rate the overall teaching effectiveness of this instructor,0,0,1,1,5,5,2
 Clancy,Michael J.,CS3L Fall 2009,Rate the overall teaching effectiveness of this instructor,1,1,1,16,27,22,3
 Harvey,Brian K.,CS61A Fall 2009,Rate the overall teaching effectiveness of this instructor,1,0,3,9,34,109,152
 Hilfinger,Paul,CS61B Fall 2009,Rate the overall teaching effectiveness of this instructor,4,0,3,10,23,43,17
@@ -3311,7 +3308,6 @@ Rao,Satish,CS70 Fall 2009,Rate the overall teaching effectiveness of this instru
 Salahuddin,Sayeef,EE105 Fall 2009,Rate the overall teaching effectiveness of this instructor,1,4,8,11,19,8,1
 Asanovic,Krste,CS250 Fall 2009 Section 1,Rate the overall teaching effectiveness of this instructor,0,0,0,0,3,9,8
 Harvey,Brian K.,CS301 Fall 2009 Section 1,Rate the overall teaching effectiveness of this instructor,0,0,0,2,2,5,9
-Garcia,Dan,CS39N Fall 2009 Section 1,Rate the overall teaching effectiveness of this instructor,0,0,0,0,4,8,5
 Tse,David,CS70 Fall 2009,Rate the overall teaching effectiveness of this instructor,0,0,3,10,21,46,29
 Sanders,Seth,EE113 Fall 2009,Rate the overall teaching effectiveness of this instructor,0,0,3,0,8,4,2
 Yablonovitch,Eli,EE117 Fall 2009,Rate the overall teaching effectiveness of this instructor,0,2,3,0,2,0,0
@@ -3360,10 +3356,7 @@ Subramanian,Vivek,EE130 Spring 2010,Rate the overall teaching effectiveness of t
 Sanders,Seth,EE140 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,3,4,4,6,6,4
 Rabaey,Jan,EE141 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,1,3,11,10
 Nguyen,Clark,EE143 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,0,2,8,16
-Fearing,Ronald,EE145O Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,1,7
 El Ghaoui,Laurent,EE127A Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,2,4,3,0
-Full,Robert,EE145O Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,0,11,5,53
-Koehl,Mimi,EE145O Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,0,5,0,7
 Maharbiz,Michel,EE147 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,6,2
 Lee,Edward A.,EE149 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,1,4,9,11
 Fearing,Ronald,EE192 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,1,1,10,7
@@ -3424,7 +3417,6 @@ Papadimitriou,Christos,CS294 Spring 2010 Section 56,Rate the overall teaching ef
 Asanovic,Krste,CS294 Spring 2010 Section 57,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,3,5
 Klein,Dan,CS294 Spring 2010 Section 58,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,0,4
 Bajcsy,Ruzena,CS294 Spring 2010 Section 6,Rate the overall teaching effectiveness of this instructor,0,0,0,1,0,1,1
-Hartmann,Bjoern,CS298 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,7,6
 Barsky,Brian,CS301 Spring 2010,Rate the overall teaching effectiveness of this instructor,4,0,2,2,1,5,4
 Harvey,Brian K.,CS301 Spring 2010,Rate the overall teaching effectiveness of this instructor,3,1,0,1,5,4,7
 Clancy,Michael J.,CS302 Spring 2010,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,5,1
@@ -3497,8 +3489,6 @@ Seshia,Sanjit,EE144 Fall 2010,Rate the overall teaching effectiveness of this in
 Roychowdhury,Jaijeet,EE144 Fall 2010,Rate the overall teaching effectiveness of this instructor,2,0,0,1,0,0,0
 Conolly,Steven,EE145B Fall 2010,Rate the overall teaching effectiveness of this instructor,10,0,0,7,0,0,0
 Derenzo,Stephen E.,EE145L Fall 2010,Rate the overall teaching effectiveness of this instructor,1,0,0,4,0,0,1
-Calloway,Duncan,EE194 Fall 2010 Section 1,Rate the overall teaching effectiveness of this instructor,8,0,0,3,0,0,0
-Poolla,Kameshwar,EE194 Fall 2010 Section 2,Rate the overall teaching effectiveness of this instructor,9,0,0,6,0,0,1
 Ayazifar,Babak,EE20N Fall 2010,Rate the overall teaching effectiveness of this instructor,85,0,2,53,0,0,5
 Anantharam,Venkat,EE20N Fall 2010,Rate the overall teaching effectiveness of this instructor,31,0,1,9,1,12,10
 Roychowdhury,Jaijeet,EE219A Fall 2010,Rate the overall teaching effectiveness of this instructor,2,0,0,4,0,0,0
@@ -3628,14 +3618,12 @@ Tomlin,Claire,EE221A Fall 2011 Section 0,Rate the overall teaching effectiveness
 Anantharam,Venkat,EE223 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,1,3,7,5
 Walrand,Jean,EE226A Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,1,0,4,5,9,6
 Yablonovitch,Eli,EE236A Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,1,2,3,7,10,5
-Niknejad,Ali,EE242M Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,2,5,6
 Seshia,Sanjit,EE244 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,2,4
 Lee,Edward A.,EE244 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,3,3
 Roychowdhury,Jaijeet,EE244 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,3,0,3
 Nguyen,Clark,EE245 Fall 2011,Rate the overall teaching effectiveness of this instructor,0,0,0,0,2,9,12
 Boser,Bernhard,EE247 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,2,2,2,3
 Bokor,Jeffrey,EE24 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,4,5,5
-Boser,Bernhard,EE25 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,1,4,5,6,7
 Zakhor,Avideh,EE290T Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,1,0,1,4,0
 Maharbiz,Michel,EE40 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,2,12,6,16,35,30,10
 Subramanian,Vivek,EE42 Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,1,0,7,16,17,17
@@ -3673,8 +3661,6 @@ Colella,Phillip,CS294 Fall 2011 Section 73,Rate the overall teaching effectivene
 Demmel,James,CS294 Fall 2011 Section 76,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,4,5
 Barsky,Brian,CS301 Fall 2011,Rate the overall teaching effectiveness of this instructor,0,1,0,5,4,9,6
 Barsky,Brian,CS39P Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,2,2,4
-Barsky,Brian,CS39Q Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,1,0,0,0,2,3,2
-Nader,Laura,CS39Q Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,4,2
 DeNero,John,CS61A Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,1,1,0,1,35,84,212
 Hilfinger,Paul,CS61B Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,2,2,4,22,40,57,32
 Franklin,Michael,CS61C Fall 2011 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,6,16,49,28,18
@@ -3751,7 +3737,6 @@ Morgan,Nelson,EE225D Spring 2012 Section 0,Rate the overall teaching effectivene
 Lustig,Michael,EE225E Spring 2012,Rate the overall teaching effectiveness of this instructor,0,0,0,0,2,7,7
 El Ghaoui,Laurent,EE227A Spring 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,1,5,5,11,5,4
 Anantharam,Venkat,EE229A Spring 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,2,2,1,1
-Javey,Ali,EE230M Spring 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,3,3
 Subramanian,Vivek,EE231 Spring 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,4,17
 Chang-Hasnain,Constance,EE235 Spring 2012,Rate the overall teaching effectiveness of this instructor,0,0,1,2,6,8,2
 Alon,Elad,EE240 Spring 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,2,13
@@ -3793,7 +3778,6 @@ Paxson,Vern,CS261N Fall 2012 Section 0,Rate the overall teaching effectiveness o
 Joseph,Anthony D.,CS262A Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,1,0,1,11,13,4
 Kubiatowicz,John,CS262A Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,1,10,14,9
 Necula,George,CS263 Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,3,3,9
-Colella,Phillip,CS299 Fall 2012,Rate the overall teaching effectiveness of this instructor,0,0,1,0,1,1,0
 Malik,Jitendra,CS280 Fall 2012,Rate the overall teaching effectiveness of this instructor,0,0,0,0,4,6,12
 Wainwright,Martin J.,CS281A Fall 2012,Rate the overall teaching effectiveness of this instructor,0,1,0,1,5,18,29
 Sequin,Carlo H.,CS284 Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,1,3
@@ -3804,8 +3788,6 @@ Bodik,Ras,CS294 Fall 2012 Section 80,Rate the overall teaching effectiveness of 
 Song,Yun,CS294 Fall 2012 Section 81,Rate the overall teaching effectiveness of this instructor,0,0,0,2,3,2,7
 Raghavendra,Prasad,CS294 Fall 2012 Section 83,Rate the overall teaching effectiveness of this instructor,0,0,0,0,2,8,4
 Hartmann,Bjoern,CS294 Fall 2012 Section 84,Rate the overall teaching effectiveness of this instructor,0,0,0,1,0,1,4
-Lee,Edward A.,CSC249M Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,0,2
-Seshia,Sanjit,CSC249M Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,1,0
 Barsky,Brian,CS301 Fall 2012,Rate the overall teaching effectiveness of this instructor,1,3,2,5,4,5,1
 Barsky,Brian,CS39P Fall 2012,Rate the overall teaching effectiveness of this instructor,0,0,0,1,5,5,0
 DeNero,John,CS61A Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,2,2,12,74,267
@@ -3844,9 +3826,7 @@ Tomlin,Claire,EE221A Fall 2012 Section 0,Rate the overall teaching effectiveness
 Zakhor,Avideh,EE225B Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,0,0
 Walrand,Jean,EE226A Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,1,3,1,5,2
 Anantharam,Venkat,EE229B Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,1,0,0,0,2,6,0
-Salahuddin,Sayeef,EE230M Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,1,3,4,5
 Chang-Hasnain,Constance,EE232 Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,1,6,3,1,1,0
-Niknejad,Ali,EE242M Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,3,3,3
 Nguyen,Clark,EE245 Fall 2012,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,7,8
 Sangiovanni-Vincentelli,Alberto L.,EE249 Fall 2012,Rate the overall teaching effectiveness of this instructor,0,0,1,1,0,4,5
 Lee,Edward A.,EEC249M Fall 2012 Section 0,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,0,3
@@ -3961,8 +3941,6 @@ Anantharam,Venkat,EE226B Spring 2013,Rate the overall teaching effectiveness of 
 Walrand,Jean,EE226B Spring 2013,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,2,3
 Sra,Suvrit,EE227A Spring 2013,Rate the overall teaching effectiveness of this instructor,0,1,0,3,3,6,6
 Anantharam,Venkat,EE229A Spring 2013,Rate the overall teaching effectiveness of this instructor,0,0,0,0,1,5,3
-King Liu,Tsu-Jae,EE230M Spring 2013,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,0,4
-Xu,Nuo,EE230M Spring 2013,Rate the overall teaching effectiveness of this instructor,0,0,0,0,2,0,2
 Subramanian,Vivek,EE231 Spring 2013,Rate the overall teaching effectiveness of this instructor,0,0,0,0,0,5,14
 Chang-Hasnain,Constance,EE235 Spring 2013,Rate the overall teaching effectiveness of this instructor,0,3,2,5,8,1,6
 Kong,Lingkai,EE240 Spring 2013,Rate the overall teaching effectiveness of this instructor,0,0,3,0,5,5,8
