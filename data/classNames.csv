@@ -119,7 +119,7 @@ CS286,Implementation of Data Base Systems
 CS39I,Freshman/Sophomore Seminar
 CS284,Computer-Aided Geometric Design and Modeling
 CS39A,Introduction to Computer Animation
-CS39H,CS39H Internet Media
+CS39H,Internet Media
 EE225C,VLSI Signal Processing
 EE131,Semiconductor Electronics
 EE219,Circuit Theory and Computer-Aided Analysis
@@ -248,3 +248,7 @@ EE240B,Advanced Analog Integrated Circuit Design
 CS61AS,The Structure and Interpretation of Computer Programs (Self-Paced)
 EE151,Introduction to Digital Design and Integrated Circuits
 EE16B,Designing Information Devices and Systems II
+CS294,Seminar
+EE298,Seminar
+EE225,Seminar
+EE291,Control and Optimization of Distributed Parameters

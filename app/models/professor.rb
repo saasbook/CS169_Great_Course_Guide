@@ -3,7 +3,7 @@ class Professor < ActiveRecord::Base
     validates_uniqueness_of :name
 
    	def courses
-   		return self.professor_courses
+   		self.professor_courses
    	end
 
     def rating
@@ -22,7 +22,7 @@ class Professor < ActiveRecord::Base
 		self.all.each do |prof|
 			profs << {name: prof.name, rating: prof.rating}
 		end
-		profs = profs.sort_by { |k| -k[:rating] }
+		profs = profs.sort_by { |professor| -professor[:rating] }
 		return profs
 	end
 
@@ -33,7 +33,7 @@ class Professor < ActiveRecord::Base
         dist_profs << {name: prof.name, rating: prof.rating}
       end
     end
-    dist_profs = dist_profs.sort_by { |k| -k[:rating] }
+    dist_profs = dist_profs.sort_by { |professor| -professor[:rating] }
     return dist_profs
   end
 end
