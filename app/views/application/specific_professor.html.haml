@@ -14,6 +14,7 @@
             %tbody
               - @prof_courses.each do |p_course|
                 %tr
+                  - puts p_course.number
                   - id = Course.find_by_number(p_course.number).id
                   %td= link_to p_course.number, "/classes/#{id}"
                   %td= p_course.name
