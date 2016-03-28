@@ -49,6 +49,15 @@ class Utils
     end
     invalid = []
 
+    CSV.foreach('data/classPrereqs.csv') do |line|
+      size = line.size()
+      number = line[0]
+      course = Course.find_by_number(number)
+      line[1..size].each do |prereq|
+        course.prereqs.create(number: prereq)
+      end
+    end
+
     CSV.foreach('data/classData.csv', converters: :numeric) do |row|
       name = row[1] + " " + row[0] # John Denero
       number = row[2].split(' ', 2)[0] # CS61A
@@ -88,9 +97,9 @@ class Utils
   end
 
   def self.uniqueCourses()
-    file = File.open("newFile2.csv", "w")
+    file = File.open("newFile3.csv", "w")
     all_numbers = Set.new
-    CSV.foreach('newFile.csv', converters: :numeric) do |line|
+    CSV.foreach('data/classData.csv', converters: :numeric) do |line|
       puts line
       number = line[2].split(' ', 2)[0]
       if not all_numbers.include?(number)
