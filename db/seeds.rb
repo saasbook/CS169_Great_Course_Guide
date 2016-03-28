@@ -34,9 +34,9 @@ courses.each do |course|
 	c = Course.create(course)
 	if i != 0
 		if i < 4
-			c.prereqs.create(courses[i - 1])
+			c.prereqs.create(number: courses[i - 1][:number])
 		else
-			c.prereqs.create(courses[3])
+			c.prereqs.create(number: courses[3][:number])
 		end
 	end
 	i += 1
