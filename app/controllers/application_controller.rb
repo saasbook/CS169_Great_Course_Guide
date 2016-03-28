@@ -121,4 +121,9 @@ class ApplicationController < ActionController::Base
     redirect_to "/user" and return
   end
 
+  def specific_professor
+    @prof = Professor.find(params[:id])
+    @prof_courses = @prof.courses.order(rating: :desc)
+  end
+
 end

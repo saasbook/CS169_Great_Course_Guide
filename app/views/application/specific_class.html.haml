@@ -36,7 +36,7 @@
             %tbody
               - @professors.each do |professor|
                 %tr
-                  %td= professor.name
+                  %td= link_to professor.name, "/professors/#{professor.id}"
                   %td= professor.rating
         .card-action
           %a{href: "/user"} Back
