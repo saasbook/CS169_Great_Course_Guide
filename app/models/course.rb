@@ -17,7 +17,7 @@ class Course < ActiveRecord::Base
     finished_reqs = []
     self.prereqs.each do |prereq|
         req = {id: Course.find_by(number: prereq.number).id,
-                  number: prereq.number, title: prereq.title, course_id: prereq.course_id}
+                  number: prereq.number, title: Course.find_by(number: prereq.number).title, course_id: prereq.course_id}
         if not user.has_taken(prereq)
             remaining_reqs << req
         else

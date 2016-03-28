@@ -1,3 +1,5 @@
+require 'set'
+
 class ApplicationController < ActionController::Base
 
   # Prevent CSRF attacks by raising an exception.
@@ -39,6 +41,13 @@ class ApplicationController < ActionController::Base
     all_prereqs = @course.compute_prereqs_given_user(@user)
     @remaining_prereqs = all_prereqs[0]
     @finished_prereqs = all_prereqs[1]
+
+    @professorCourses = ProfessorCourse.where(number: @course.number)
+    @professors = Set.new
+    @professorCourses.each do |professorCourse|
+      @professors << professorCourse.professor
+    end
+    @professors = @professors.sort_by { |professor| -professor.rating}
   end
 
   def classes
