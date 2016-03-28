@@ -156,26 +156,23 @@ EE145A,Sensors, Actuators, and Electrodes
 EE236B,Quantum and Optical Electronics
 EE290J,Image Processing
 CS292J,Advanced Topics in Distributed Computing Systems
-EE290Y,
-EE290W,
-EE291D,
-EE290B,
-EE114,
-EE210B,
-EE290P,
-EE291,
-CS2,
-CS60C,
-CS253,
-CS60A,
-CS60B,
-CS275,
-EE191B,
-EE215,
-EE290I,
-CS292G,
-EE217,
-EE239A,
+EE290Y,Organic Materials in Electronics
+EE290W,Special Issues in Semiconductor Manufacturing
+EE291D,System Identification
+EE290B,Advanced Topics in Solid State Devices
+EE114,Power Systems Analysis
+EE210B,Introduction to X-Ray Physics and Technology
+EE290P,Thin Film Technology for IC Fabrication
+CS2,Topics in Computer Science
+CS60C,Data Structures and Advanced Programming
+CS253,Software Engineering and Artificial Intelligence
+CS60A,The Structure and Interpretation of Computer Programs
+CS60B,Machine Structures
+CS275,Computational Algebra
+EE215,Power Systems
+EE290I,Advanced Topics in Statistical Communications
+CS292G,Document Processing Systems
+EE217,Microwave Circuits
 EE290R,
 EE290V,
 EE40I,
