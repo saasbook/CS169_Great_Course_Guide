@@ -112,32 +112,28 @@ EE239,Partially Ionized Plasmas
 EE290A,Advanced Topics in Computer-Aided Design
 EE290D,Advanced Topics in Semiconductor Technology
 EE290E,Advanced Topics in Electromagnetics and Plasmas
-CS196H,
-CS273,
-CS279,
-CS281B,
-CS286,
-CS39I,
-CS284,
-CS39A,
-CS39H,
-EE225C,
-EE131,
-EE219,
-CS39F,
-CS265,
-CS274,
-EE219C,
-EE226,
-CS250,
-CS262,
-EE43,
-EE146,
-EE201,
-EE223,
-EE225,
-EE290,
-EE290H,
+CS196H,Honors Seminar for Computer Science Majors
+CS273,Foundations of Parallel Computation
+CS279,System Support for Scientific Computation
+CS281B,Advanced Topics in Learning and Decision Making
+CS286,Implementation of Data Base Systems
+CS39I,Freshman/Sophomore Seminar
+CS284,Computer-Aided Geometric Design and Modeling
+CS39A,Introduction to Computer Animation
+CS39H,CS39H Internet Media
+EE225C,VLSI Signal Processing
+EE131,Semiconductor Electronics
+EE219,Circuit Theory and Computer-Aided Analysis
+CS265,Compiler Optimization and Code Generation
+CS274,Computational Geometry
+EE219C,Computer-Aided Verification
+CS250,VLSI Systems Design
+CS262,Advanced Topics in Operating Systems
+EE43,Introductory Electronics Laboratory
+EE146,Dynamic Networks in Biology
+EE201,Strategic Computing and Communications Technology
+EE223,Stochastic Systems: Estimation and Control
+EE290H,Advanced Topics in Semiconductor Manufacturing
 CS39C,
 CS258,
 EE12,
