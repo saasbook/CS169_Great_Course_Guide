@@ -224,18 +224,17 @@ CS176,Algorithms for Computational Biology
 CS249A,Introduction to Embedded Systems
 CS284A,COMPUTER GRAPHICS & IMAGING
 CS286A,Implementation of Database Systems
-CS375,
-EE230A,
-EE230C,
-EE240C,
-EE241A,
-EE242A,
-EE247A,
-EEC249A,
-EE375,
-CSC219D,
-EE227C,
-EE20,
+CS375,Teaching Techniques for Computer Science
+EE230A,Integrated Circuit Devices
+EE230C,Solid State Electronics
+EE240C,Analog Integrated Circuit Design and Analysis
+EE241A,Advanced Digital Integrated Circuits
+EE242A,Advanced Integrated Circuits
+EE247A,Analog-Digital Interfaces in VLSI Technology
+EEC249A,Design of Embedded Systems: Models, Validation and Synthesis
+EE375,Teaching Techniques for Electrical Engineering
+EE227C,Optimization Models and Applications
+EE20,Signals and Systems
 EE218,
 EE230B,
 EE241B,
