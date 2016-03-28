@@ -22,7 +22,7 @@ end
 
 Given /the following prerequisites exist/ do |prereq_table|
   prereq_table.hashes.each do |course|
-    c = Course.find_by(number: course[:course]).prereqs.create({:number => course[:number], :title => course[:title]})
+    c = Course.find_by(number: course[:course]).prereqs.create({:number => course[:number]})
   end
 end
 

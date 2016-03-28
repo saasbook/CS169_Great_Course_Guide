@@ -13,11 +13,11 @@ Background: I have classes
   | IJKL  | CS61C  |
   | MNOP  | CS70   |
   And the following prerequisites exist:
-  | course | number | title |
-  | CS61C  | CS61B  | EFGH  |
-  | CS61B  | CS61A  | ABCD  |
-  | CS70   | CS61B  | EFGH  |
-  | CS70   | CS61A  | ABCD  |
+  | course | number |
+  | CS61C  | CS61B  | 
+  | CS61B  | CS61A  |
+  | CS70   | CS61B  | 
+  | CS70   | CS61A  | 
   And I am on the welcome page
   And I login as "Michael"
   Then I should be on the user page
@@ -48,15 +48,9 @@ Scenario: Accounts for taken classes
   When I am on the classes page
   And I follow "CS70"
   Then I should see "Prerequisites for CS70"
-  And I should see "CS61B" before "Completed Prerequisites"
-  And I should not see "CS61A" before "Completed Prerequisites"
-
-Scenario: Prereqs in proper category (taken vs remaining)
-  Given I am on the user page
-  And I have "CS61A-choice" in my classes
-  When I am on the classes page
-  And I follow "CS61B"
-  Then I should see "Completed Prerequisites" before "CS61A" 
+  And I should see "CS61B" before "CS61A"
+  And I should not see "Yes" before "CS61A"
+  And I should see "No" before "CS61A"
 
 
 
