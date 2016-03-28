@@ -1,5 +1,6 @@
 class Professor < ActiveRecord::Base
     has_many :professor_courses
+    validates_uniqueness_of :name
 
    	def courses
    		return self.professor_courses
