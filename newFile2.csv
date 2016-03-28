@@ -1,5 +1,5 @@
-CS3,
-CS39J,
+CS3,Introduction to Symbolic Programming
+CS39J,Freshman/Sophomore Seminar
 CS61A,The Structure and Interpretation of Computer Programs
 CS61B,Data Structures
 CS61C,Great Ideas in Computer Architecture
@@ -23,81 +23,79 @@ CS263,Design of Programming Languages
 CS267,Applications of Parallel Computers
 CS278,Computational Complexity
 CS280,Computer Vision
-CS281A,
-CS293B,
-CS294,
-CS301,
-EE1,
-EE20N,
-EE24,
-EE40,
-EE42,
-EE100,
-EE105,
-EE117,
-EE120,
-EE122,
-EE123,
-EE125,
-EE126,
-EE128,
-EE130,
-EE140,
-EE141,
-EE142,
-EE143,
-EE145L,
-EE210,
-EE216A,
-EE226A,
-EE228A,
-EE233,
-EE236A,
-EE242,
-EE244,
-EE245,
-EE247,
-EE249,
-EE290S,
-EE221A,
-CS182,
-CS252,
-CS260,
-CS262B,
-CS264,
-CS266,
-CS268,
-CS276,
-CS282,
-CS285,
-CS287,
-CS288,
-CS302,
-EE118,
-EE119,
-EE121,
-EE129,
-EE133,
-EE145B,
-EE145M,
-EE192,
-EE213,
-EE219B,
-EE220,
-EE222,
-EE224A,
-EE225A,
-EE230,
-EE231,
-EE240,
-EE241,
-EE243,
-EE246,
-EE290G,
-EE290N,
-EE290O,
-EE290T,
-EE291E,Hybrid Systems and Intelligent Control 
+CS281A,Statistical Learning Theory
+CS293B,Vision B: Quantitative, Perceptual, and Physiological Aspects
+CS301,Teaching Techniques for Computer Science
+EE1,EECS - The FirstCourse
+EE20N,Structure and Interpretation of Systems and Signals
+EE24,Freshman Seminar
+EE40,Introduction to Microelectronic Circuits
+EE42,Introduction to Digital Electronics
+EE100,Electronic Techniques for Engineering
+EE105,Microelectronic Devices and Circuits
+EE117,Electromagnetic Fields and Waves
+EE120,Signals and Systems
+EE122,Introduction to Communication Networks
+EE123,Digital Signal Processing
+EE125,Introduction to Robotics
+EE126,Probability and Random Processes
+EE128,Feedback Control
+EE130,Integrated-Circuit Devices
+EE140,Linear Integrated Circuits
+EE141,Introduction to Digital Integrated Circuits
+EE142,Integrated Circuits for Communications
+EE143,Microfabrication Technology
+EE145L,Introductory Electronic Transducers Laboratory
+EE210,Applied Electromagnetic Theory
+EE226A,Random Processes in Systems
+EE228A,High Speed Communications Networks
+EE233,Lightwave Systems
+EE236A,Quantum and Optical Electronics
+EE242,Advanced Integrated Circuits for Communications
+EE244,Computer-Aided Design of Integrated Circuits
+EE245,Introduction to MEMS Design
+EE247,Analysis and Design of VLSI Analog-Digital Interface Integrated Circuits
+EE249,Embedded System Design: Models, Validation, and Synthesis
+EE290S,Advanced Topics in Communications and Information Theory
+EE221A,Linear System Theory
+CS182,The Neural Basis of Thought and Language
+CS252,Graduate Computer Architecture
+CS260,User-Interfaces to COmputer Systems
+CS262B,Advanced Topics in Computer Systems
+CS264,Implementation of Programming Languages
+CS266,Introduction to System Performance Analysis
+CS268,Computer Analysis
+CS276,Cryptography
+CS282,Algebraic Algorithms
+CS285,Solid Free-Form Modeling and Fabrication
+CS287,Advanced Robotics
+CS288,Artificial Intelligence Approach to Natural Language Processing
+CS302,Designing Computer Science Education
+EE118,Introduction to Optical Communication Systems and Networks
+EE119,Introduction to Optical Engineering
+EE121,Introduction to Digital Communication Systems
+EE129,Neural and Nonlinear Information Processing
+EE133,Microfabrication Equipment Laboratory
+EE145B,Image Processing and Reconstruction Tomography
+EE145M,Introductory Microcomputer Interfacing Laboratory
+EE192,Mechatronic Design Laboratory
+EE213,Soft X-rays and Extreme Ultraviolet Radiation
+EE219B,Logic Synthesis for Hardware Systems
+EE220,Nonlinear Circuits
+EE222,Nonlinear Systems--Analysis, Stability, and Control
+EE224A,Digital Communication
+EE225A,Digital Signal Processing
+EE230,Solid State Electronics
+EE231,Solid State Devices
+EE240,Advanced Analog Integrated Circuits
+EE241,Advanced Digital Integrated Circuits
+EE243,Advanced IC Processing and Layout
+EE246,Microelectromechanical Systems (MEMS)
+EE290G,Advanced Topics in Semiconductor Manufacturing
+EE290N,Advanced Topics in System Theory
+EE290O,Advanced Topics in Control
+EE290T,Advanced Topics in Signal Processing
+EE291E,Hybrid Systems and Intelligent Control
 EE227A,Introduction to Convex Optimization
 EE290F,Advanced Topics
 EE290Q,Advanced Topics in Networking
@@ -208,30 +206,19 @@ EE298A,The Entrepreneurial Business of Software
 CS61CL,Machine Structures (Lab Based)
 CS84,Interactive Choreography in 3D Tele-Immersive Spaces
 CS161,Computer Security
-EE124,
-CS39M,
-EE127,
-EE149,
-CS39N,
-EE145O,
-EE127A,
-CS298,
-CS10,
-CS283,
-CS39P,
-EE194,
-EE225E,
-EE235C,
-EE246C,
-EE219D,
-EE242M,
-EE25,
-CS39Q,
-CS261N,
-EE134,
-EE230M,
-CS299,
-CSC249M,
+EE124,Spectrum Analysis Lab
+EE127,Optimization Models and Applications
+EE149,Introduction to Embedded Systems
+EE127A,Optimization Models and Applications
+CS10,The Beauty and Joy of Computing
+CS283,Advanced Computer Graphics Algorithms and Techniques
+CS39P,Photographing History in the Making
+EE225E,Principles of Magnetic Resonance Imaging
+EE235C,Nanoscale Fabrication
+EE246C,Microelectromechanical Systems
+EE219D,System Identification
+CS261N,Internet and Network Security
+EE134,Fundamentals of Photovoltaic Devices
 EE137A,
 EE215A,
 EEC249M,
