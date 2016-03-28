@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
     @user_exists = @user != nil
     @all_courses = Course.all_courses
     @all_emails = User.all_emails
+    session[:return_to] = request.referer
   end
 
   def logout
