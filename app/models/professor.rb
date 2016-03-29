@@ -11,10 +11,8 @@ class Professor < ActiveRecord::Base
         rating_sum = courses.sum(:rating)
         num_courses = courses.length
         avg_rating = 0
-        if num_courses > 0
-            avg_rating = (rating_sum/courses.length).round(2)
-        end
-        return avg_rating if not avg_rating.nan? else 0
+        avg_rating = num_courses == 0 ? 0 : (rating_sum/num_courses).round(2)
+        return avg_rating
     end
 
 	def self.all_profs
