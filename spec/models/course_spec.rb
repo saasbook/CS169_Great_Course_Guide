@@ -37,8 +37,8 @@ describe Course do
       Course.create(number: "CS61A", title: "SICP")
       Course.create(number: "CS61B", title: "Data Strucutres")
       Course.create(number: "CS61C", title: "Computer Architecture")
-      Course.find(3).prereqs.create(number: "CS61B", title: "Data Strucutres")
-      Course.find(3).prereqs.create(number: "CS61A", title: "SICP")
+      Course.find(3).prereqs.create(number: "CS61B")
+      Course.find(3).prereqs.create(number: "CS61A")
       User.create(first_name: "John", last_name: "Doe", uid: "00000001", email: "john.doe@university.edu")
     end
     context 'user has taken no prereqs' do

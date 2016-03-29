@@ -35,11 +35,6 @@ describe ApplicationController do
       get :index
       expect(assigns(:all_courses)).to eq("test_course")
     end
-    it "should assign all professors to @all_professors" do
-      expect(Professor).to receive(:all_profs).and_return("test_prof")
-      get :index
-      expect(assigns(:all_profs)).to eq("test_prof")
-    end
     it "should assign all emails to @all_emails" do
       expect(User).to receive(:all_emails).and_return("test_email")
       get :index

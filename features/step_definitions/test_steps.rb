@@ -20,9 +20,20 @@ Given /the following courses exist/ do |course_table|
   end
 end
 
+And /professors teach the appropriate courses/ do
+  cup = Professor.find_by_name("Cup")
+  dog = Professor.find_by_name("Dog")
+  cat = Professor.find_by_name("Cat")
+  cup.courses.create({number: "CS61A", name: "ABCD", rating: 2, term: "SP14"})
+  cup.courses.create({number: "CS61B", name: "EFGH", rating: 5, term: "SP14"})
+  dog.courses.create({number: "CS61C", name: "IJKL", rating: 2, term: "SP14"})
+  cat.courses.create({number: "CS70", name: "MNOP", rating: 2, term: "SP14"})
+  cat.courses.create({number: "CS61A", name: "ABCD", rating: 3, term: "SP15"})
+end
+
 Given /the following prerequisites exist/ do |prereq_table|
   prereq_table.hashes.each do |course|
-    c = Course.find_by(number: course[:course]).prereqs.create({:number => course[:number], :title => course[:title]})
+    c = Course.find_by(number: course[:course]).prereqs.create({:number => course[:number]})
   end
 end
 

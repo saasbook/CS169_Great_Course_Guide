@@ -8,9 +8,9 @@ Background: There are classes
 
   Given the following professors exist:
   | name | distinguished |
-  | Cup  | true			 |
+  | Cup  | true			     |
   | Dog  | true          |
-  | Cat  | false		 |
+  | Cat  | false		     |
   And I am on the welcome page
   And I login as "Michael"
   Then I should be on the user page
