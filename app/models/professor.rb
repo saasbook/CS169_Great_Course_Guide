@@ -19,7 +19,7 @@ class Professor < ActiveRecord::Base
 		profs = []
 		self.all.each do |prof|
       rating = prof.rating
-			profs << {name: prof.name, rating: prof.rating}
+			profs << {id: prof.id, name: prof.name, rating: prof.rating}
 		end
 		profs = profs.sort_by { |professor| -professor[:rating] }
 		return profs

@@ -8,11 +8,11 @@
             %thead
               %tr
                 %th{"data-field": "name"} Name
-                %th{"data-field": "rating"} Average Rating
+                %th{"data-field": "rating"} Average Rating (Out of 7)
             %tbody
               - @all_profs.each do |prof|
                 %tr
-                  %td= prof[:name]
+                  %td= link_to prof[:name], '/professors/' + prof[:id].to_s
                   %td= prof[:rating]
         .card-action
           %a{href: "/user"} Back
