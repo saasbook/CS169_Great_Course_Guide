@@ -57,7 +57,7 @@ describe Course do
     context 'user has taken some prereqs' do
       it 'should return remaining prereqs' do
         user = User.find(1)
-        user.user_courses.create(number: "CS61A", title: "SICP")
+        user.user_courses.create(number: "CS61A", title: "SICP", taken: true)
         prereqs = Course.find(3).compute_prereqs_given_user(user)[0]
 
         expect(prereqs.length).to be(1)
@@ -72,8 +72,8 @@ describe Course do
     context 'user has taken all prereqs' do
       it 'should return no prereqs' do
         user = User.find(1)
-        user.user_courses.create(number: "CS61A", title: "SICP")
-        user.user_courses.create(number: "CS61B", title: "SICP")
+        user.user_courses.create(number: "CS61A", title: "SICP", taken: true)
+        user.user_courses.create(number: "CS61B", title: "SICP", taken: true)
         prereqs = Course.find(3).compute_prereqs_given_user(user)[0]
 
         expect(prereqs).to be_empty
