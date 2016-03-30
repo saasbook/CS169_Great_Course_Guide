@@ -37,8 +37,8 @@ describe Professor do
 			@professor2.professor_courses << @course3
 			@professor2.professor_courses << @course4
 
-			@prof1_avg = {name: "John Denero", rating: 4.0}
-			@prof2_avg = {name: "Josh Hug", rating: 3.0}
+			@prof1_avg = {id: 1, name: "John Denero", rating: 4.0}
+			@prof2_avg = {id: 2, name: "Josh Hug", rating: 3.0}
 		end
 
 		it 'should return a list of all professors' do
