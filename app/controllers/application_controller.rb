@@ -106,7 +106,7 @@ class ApplicationController < ActionController::Base
   def update
     @user.user_courses.destroy_all
     taken_classes = params[:taken_classes]
-
+    puts params
     if params[:classes] != nil
       params[:classes].each_key do |course|
         attrs = Utils.split_by_colon(course)
@@ -115,6 +115,8 @@ class ApplicationController < ActionController::Base
         rescue
           taken = false
         end
+        puts attrs[0]
+        puts taken
         @user.user_courses.create(title: attrs[0], number: attrs[1], taken: taken)
       end
     end
