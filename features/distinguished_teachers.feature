@@ -7,10 +7,10 @@ Feature: Distinguished Teachers
 Background: There are classes
 
   Given the following professors exist:
-  | name | distinguished |
-  | Cup  | true			     |
-  | Dog  | true          |
-  | Cat  | false		     |
+  | name | distinguished | distinguishedYear |
+  | Cup  | true			     | 2016              |
+  | Dog  | true          | null              |
+  | Cat  | false		     | null              |
   And I am on the welcome page
   And I login as "Michael"
   Then I should be on the user page
@@ -20,4 +20,5 @@ Scenario: Seeing Distinguished Teachers
   And I should see "Dog"
   And I should see "Cup"
   And I should not see "Cat"
+  And I should see "2016"
 
