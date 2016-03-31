@@ -382,6 +382,25 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
@@ -400,7 +419,7 @@
         null
       ]
     },
-    "timestamp": 1459315217
+    "timestamp": 1459456900
   },
   "Cucumber Features": {
     "coverage": {
@@ -731,6 +750,25 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
@@ -803,6 +841,6 @@
         null
       ]
     },
-    "timestamp": 1459315156
+    "timestamp": 1459456894
   }
 }

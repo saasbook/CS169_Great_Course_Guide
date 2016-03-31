@@ -8,11 +8,13 @@
             %thead
               %tr
                 %th{"data-field": "name"} Name
+                %th{"data-field": "year"} Year
                 %th{"data-field": "rating"} Average Rating (Out of 7)
             %tbody
               - @dist_profs.each do |prof|
                 %tr
                   %td= prof[:name]
+                  %td= prof[:year]
                   %td= prof[:rating]
         .card-action
           %a{href: "/user"} Back

@@ -13,12 +13,19 @@ Professor.destroy_all
 ProfessorCourse.destroy_all
 Course.destroy_all
 
+distinguishedProfs = Hash.new
+CSV.foreach('data/distinguishedProfs.csv') do |line|
+  name = line[0]
+  year = line[1]
+  distinguishedProfs[name] = year
+end
+puts distinguishedProfs
+
 CSV.foreach('data/classNames.csv', converters: :numeric) do |line|
   number = line[0]
   title = line[1]
   Course.create(number: number, title: title)
 end
-invalid = []
 
 CSV.foreach('data/classPrereqs.csv') do |line|
   size = line.size()
@@ -39,7 +46,15 @@ CSV.foreach('data/classData.csv', converters: :numeric) do |row|
   avg = (row[4]*1 + row[5]*2 + row[6]*3 + row[7]*4 + row[8]*5 + row[9]*6 + row[10]*7).to_f
   rating = total == 0 ? 0 : (avg/total).round(2) # Rating
 
-  professor = Professor.find_by(name: name) == nil ? Professor.create(name: name) : Professor.find_by(name: name)
+  professor = Professor.find_by(name: name) 
+  if professor.nil?
+    professor = Professor.create(name: name)
+    if distinguishedProfs.keys.include?(name)
+      professor.distinguished = true
+      professor.distinguishedYear = distinguishedProfs[name]
+      professor.save
+    end
+  end
 
   course = Course.find_by(number: number)
   if course

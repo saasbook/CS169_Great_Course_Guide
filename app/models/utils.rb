@@ -15,6 +15,25 @@ class Utils
     return title, number
   end
 
+  # def self.fixProfs
+  #   begin
+  #     file = File.open("newFile4.csv", "w")
+  #     year = 0
+  #     IO.readlines('data/distinguishedProfs.csv').each do |line|
+  #       arr = line.split(' - ')
+  #       if arr.length == 1
+  #         year = arr[0]
+  #       else
+  #         file.write(arr[0] + "," + year)
+  #       end
+  #     end
+  #   rescue IOError => e
+  #     puts "lol"
+  #   ensure
+  #     file.close unless file.nil?
+  #   end
+  # end
+
   # def self.fixData
   #   begin
   #     file = File.open("newFile4.csv", "w")
