@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 	def has_taken prereq
 		self.user_courses.each do |course|
 			if course.number == prereq.number
-				return true
+				return course.taken
 			end
 		end
 		return false

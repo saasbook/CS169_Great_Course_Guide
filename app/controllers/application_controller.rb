@@ -106,7 +106,6 @@ class ApplicationController < ActionController::Base
   def update
     @user.user_courses.destroy_all
     taken_classes = params[:taken_classes]
-
     if params[:classes] != nil
       params[:classes].each_key do |course|
         attrs = Utils.split_by_colon(course)
