@@ -8,6 +8,7 @@
     = stylesheet_link_tag '/stylesheets/awesomplete'
     = stylesheet_link_tag '/stylesheets/sweetalert'
     %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet"}
+    = javascript_include_tag '/javascripts/jquery.js'
     = csrf_meta_tags
 
   %body.grey.lighten-3
@@ -38,7 +39,7 @@
               %li.bold.no-padding
                 %ul.collapsible.collapsible-accordion
                   %li.bold.no-padding
-                    %a.collapsible-header 
+                    %a.collapsible-header
                       Professors
                       %i.material-icons.right arrow_drop_down
                     %div.collapsible-body{style: "display: block"}
@@ -51,10 +52,7 @@
                 %a{href: "/logout"} Logout
     %main
       = yield
-
     = javascript_include_tag '/javascripts/sweetalert.min.js'
-    = javascript_include_tag '/javascripts/jquery.js'
-    = javascript_include_tag '/javascripts/typeahead.js'
     = javascript_include_tag '/javascripts/awesomplete.js'
-    = javascript_include_tag '/javascripts/welcome.js'
+    = javascript_include_tag '/javascripts/app.js'
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}

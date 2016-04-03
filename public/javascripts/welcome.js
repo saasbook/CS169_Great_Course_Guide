@@ -3,17 +3,17 @@ var last_name = null;
 var email = null;
 var selected_classes = [];
 alert = swal;
-var all_emails = [];
-
-function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    console.log(email)
-    console.log(all_emails)
-    console.log(all_emails.indexOf(email))
-    return re.test(email) && all_emails.indexOf(email) < 0;
-}
 
 $(function () {
+  var all_emails = [];
+  function validateEmail(email) {
+    var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(email) && all_emails.indexOf(email) < 0;
+  }
+  $.get("/users/all", function(data) {
+    all_emails = JSON.parse(data);
+  });
+
   $('#selected-classes').addClass("hide")
   $("#continue").click(function() {
 
@@ -47,12 +47,10 @@ $(function () {
       alert("Oops", "Please select a class.", "error");
       return
     }
-
     if ($.inArray(value, all_classes) == -1) {
       alert("Oops", "That isn't a valid class.", "error");
       return;
     }
-
     if ($.inArray(value, selected_classes) !== -1) {
       alert("Oops", "Class already added.", "error");
       return
@@ -61,7 +59,7 @@ $(function () {
     item.val(""); // Clear textfield
     var list = $('#selected-classes');
     var class_selections = $('#class-selections');
-    if (value != "" && $.inArray(value, selected_classes) == -1) {
+    if ($.inArray(value, selected_classes) == -1) {
       list.append("<li class='collection-item'>" + value + "</li>");
       class_selections.append("<option value='" + value + "' selected>" + value + "</option>");
       selected_classes.push(value);
@@ -69,62 +67,38 @@ $(function () {
       if(i != -1) {
         all_classes.splice(i, 1);
       }
-    } else {
-      alert("");
     }
-
   });
 
-  $('#class-search').keypress(function (e) {
-   var key = e.which;
-   if(key == 13)  // the enter key code
-    {
+  $('#class-search').keypress(function(e) {
+    if (e.which == 13) {
       $('#addClass').click();
       return false;
     }
   });
 
   $('#first_name, #last_name, #email').keypress(function (e) {
-   var key = e.which;
-   console.log("Pressed enter.")
-   if(key == 13)  // the enter key code
-    {
+    if (e.which == 13) {
       $('#continue').click();
       return false;
     }
   });
 
   $('#back').click(function() {
-    $('#class-form').addClass("fadeOutRight")
+    $('#class-form').addClass("fadeOutRight");
     setTimeout(function() {
-      $('#class-form').addClass("hide")
+      $('#class-form').addClass("hide");
       $('#details-form').removeClass("fadeOutLeft").addClass("animated fadeInLeft").removeClass("hide");
     }, 400);
   });
 
-  $(".sidenav-overlay").click(function() {
-    $(".button-collapse").sideNav('hide')
-  });
-
-  $(".dropdown-button").dropdown({hover: true, belowOrigin: true});
-  $(".button-collapse").sideNav({
-    edge: 'left',
-    closeOnClick: 'true'
-  });
-  $('.collapsible').collapsible();
-
   // Getting All Courses
   var all_classes = [];
   $.get("/courses/all", function(data) {
-    tmp = JSON.parse(data);
-
-    for (var i = 0; i < tmp.length; i++) {
-      all_classes.push(tmp[i]["number"] + ": " + tmp[i]["title"]);
+    data = JSON.parse(data);
+    for (var i = 0; i < data.length; i++) {
+      all_classes.push(data[i]["number"] + ": " + data[i]["title"]);
     }
-  });
-
-  $.get("/users/all", function(data) {
-    all_emails = JSON.parse(data);
   });
 
   var input = document.getElementById("class-search");
@@ -134,20 +108,4 @@ $(function () {
       autoFirst: true
     });
   };
-
-  // EDIT PAGE JS
-  $(".takenBox").change(function() {
-    var id = this.id;
-    var split = id.split("-");
-    var addBoxID = "#" + split[0] + "-choice";
-    $(addBoxID).prop('checked', true);
-  });
-
-  $(".addBox").change(function() {
-    var id = this.id;
-    var split = id.split("-");
-    var addBoxID = "#" + split[0] + "-taken";
-    $(addBoxID).prop('checked', false);
-  });
-
 });

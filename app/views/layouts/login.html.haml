@@ -4,50 +4,8 @@
     %title Great Course Guide
     = stylesheet_link_tag '/stylesheets/materialize'
     = stylesheet_link_tag '/stylesheets/animate.min'
-    = javascript_include_tag '/javascripts/jquery'
+    = stylesheet_link_tag '/stylesheets/login'
     = csrf_meta_tags
-    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
-
-    :css
-      html, body {
-          margin: 0;
-          height: 100%;
-          overflow: hidden;
-      }
-      .fullscreen-bg {
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          overflow: hidden;
-          z-index: -100;
-      }
-      .fullscreen-bg__video {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: auto;
-          height: auto;
-          min-width: 100%;
-          min-height: 100%;
-          -webkit-transform: translate(-50%, -50%);
-             -moz-transform: translate(-50%, -50%);
-              -ms-transform: translate(-50%, -50%);
-      	    transform: translate(-50%, -50%);
-      }
-      @media (max-width: 767px) {
-          .fullscreen-bg {
-              background: url('/media/Berkeley.png') center center / cover no-repeat;
-          }
-          .fullscreen-bg__video {
-              display: none;
-          }
-      }
-      #wrapper {
-          min-height: 100%;
-          background-color: rgba(10, 9, 9, 0.4)
-      }
   %body
     .fullscreen-bg{style: "z-index: -10"}
       %video.fullscreen-bg__video{poster: "/media/Berkeley.png", autoplay: true, loop: true}
@@ -62,3 +20,5 @@
         .row.animated.fadeIn.slow-animation.delay-animation-half-1
           .col.s12
             %a.waves-effect.waves-light.btn-large.blue#login-button{href: "/user"} Login
+    = javascript_include_tag '/javascripts/jquery'
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}

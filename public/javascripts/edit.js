@@ -1,1 +1,11 @@
-console.log("YO");
+$(function() {
+  $(".takenBox").change(function() {
+    var split = this.id.split("-");
+    $("#" + split[0] + "-choice").prop('checked', true);
+  });
+
+  $(".addBox").change(function() {
+    var split = this.id.split("-");
+    $("#" + split[0] + "-taken").prop('checked', false);
+  });
+});
