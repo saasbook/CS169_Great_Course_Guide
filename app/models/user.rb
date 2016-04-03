@@ -24,6 +24,6 @@ class User < ActiveRecord::Base
 
 	def has_taken(prereq)
     user_course = self.user_courses.find_by(number: prereq.number)
-    return user_course != nil and user_course.taken
+    return (user_course != nil and user_course.taken)
 	end
 end
