@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 require 'csv'
 require 'set'
 
@@ -19,7 +11,6 @@ CSV.foreach('data/distinguishedProfs.csv') do |line|
   year = line[1]
   distinguishedProfs[name] = year
 end
-puts distinguishedProfs
 
 CSV.foreach('data/classNames.csv', converters: :numeric) do |line|
   number = line[0]
@@ -46,7 +37,7 @@ CSV.foreach('data/classData.csv', converters: :numeric) do |row|
   avg = (row[4]*1 + row[5]*2 + row[6]*3 + row[7]*4 + row[8]*5 + row[9]*6 + row[10]*7).to_f
   rating = total == 0 ? 0 : (avg/total).round(2) # Rating
 
-  professor = Professor.find_by(name: name) 
+  professor = Professor.find_by(name: name)
   if professor.nil?
     professor = Professor.create(name: name)
     if distinguishedProfs.keys.include?(name)
