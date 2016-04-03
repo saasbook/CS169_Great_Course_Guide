@@ -3,7 +3,6 @@ require 'set'
 class ApplicationController < ActionController::Base
 
   # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   # Filter Needed for CalNet Login
@@ -74,7 +73,7 @@ class ApplicationController < ActionController::Base
     @user = User.create(first_name: params[:first_name],
                         last_name: params[:last_name], email: params[:email],
                                                         uid: session[:cas_user])
-    if !@user.valid?
+    if not @user.valid?
       @user = User.find_by(uid: session[:cas_user])
     end
     if params[:class_select] != nil
