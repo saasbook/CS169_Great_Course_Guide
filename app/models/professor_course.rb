@@ -1,3 +1,3 @@
 class ProfessorCourse < ActiveRecord::Base
-    belongs_to :professor
+  belongs_to :professor
 end

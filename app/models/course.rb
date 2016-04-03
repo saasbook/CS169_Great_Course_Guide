@@ -12,17 +12,13 @@ class Course < ActiveRecord::Base
 		return courses
 	end
 
-  def compute_prereqs_given_user user
+  def compute_prereqs_given_user(user)
     remaining_reqs = []
     finished_reqs = []
     self.prereqs.each do |prereq|
-        req = {id: Course.find_by(number: prereq.number).id,
-                  number: prereq.number, title: Course.find_by(number: prereq.number).title, course_id: prereq.course_id}
-        if not user.has_taken(prereq)
-            remaining_reqs << req
-        else
-            finished_reqs << req
-        end
+      req = {id: Course.find_by(number: prereq.number).id,
+                number: prereq.number, title: Course.find_by(number:  prereq.number).title, course_id: prereq.course_id}
+      if user.has_taken(prereq) then finished_reqs << req else remaining_reqs << req end
     end
     Utils.alpha_sort(remaining_reqs, :number)
     Utils.alpha_sort(finished_reqs, :number)
