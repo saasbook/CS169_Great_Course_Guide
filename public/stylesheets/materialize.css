@@ -2834,7 +2834,7 @@ video.responsive-video {
 }
 
 /*********************
-  Transition Classes
+  Transition Courses
 **********************/
 ul.staggered-list li {
   opacity: 0;
@@ -2847,7 +2847,7 @@ ul.staggered-list li {
 }
 
 /*********************
-  Media Query Classes
+  Media Query Courses
 **********************/
 @media only screen and (max-width: 600px) {
   .hide-on-small-only, .hide-on-small-and-down {
@@ -3305,7 +3305,7 @@ nav ul a span.badge {
 }
 
 /*******************
-  Utility Classes
+  Utility Courses
 *******************/
 .hide {
   display: none !important;

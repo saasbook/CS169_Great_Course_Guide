@@ -1,4 +1,4 @@
-Feature: Add Classes
+Feature: Add Courses
 
   As a student
   So that I can consider my course options
@@ -15,9 +15,9 @@ Background: I am on the user page
   | EFGH                    | CS61B       | 
   | IJKL                    | CS61C       | 
 
-Scenario: Click All Classes
-  When I follow "Classes"
-  Then I should be on the classes page
+Scenario: Click All Courses
+  When I follow "Courses"
+  Then I should be on the courses page
   Then I should see "CS61A"
   Then I should see "CS61B"
   And I should not see "IJKL" before "EFGH"
@@ -25,7 +25,7 @@ Scenario: Click All Classes
   When I follow "Back"
   Then I should be on the user page
 
-Scenario: Add Classes I Have Taken
+Scenario: Add Courses I Have Taken
   When I follow "Edit"
   Then I should be on the edit page
   When I check "CS61A-taken"
@@ -35,10 +35,10 @@ Scenario: Add Classes I Have Taken
   Then I press "Save"
   Then I should be on the user page
   And I should see "CS61A" before "CS61B"
-  And I should not see "EFGH" before "Classes You Want to Take"
-  And I should not see "CS61B" before "Your Completed Classes"
+  And I should not see "EFGH" before "Courses You Want to Take"
+  And I should not see "CS61B" before "Your Completed Courses"
 
-Scenario: Delete Classes
+Scenario: Delete Courses
   Given I have "CS61A-choice" in my classes
   Given I have "CS61B-choice" in my classes
   When I follow "Edit"
@@ -46,5 +46,5 @@ Scenario: Delete Classes
   And I check "CS61C-choice"
   Then I press "Save"
   And I should not see "CS61A"
-  And I should not see "CS61B" before "Classes You Want to Take"
-  And I should see "CS61C" before "Your Completed Classes"
+  And I should not see "CS61B" before "Courses You Want to Take"
+  And I should see "CS61C" before "Your Completed Courses"

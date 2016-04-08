@@ -36,58 +36,6 @@ class ApplicationController < ActionController::Base
     render "welcome", layout: false and return
   end
 
-  def specific_class
-    @course = Course.find(params[:id])
-    all_prereqs = @course.compute_prereqs_given_user(@user)
-    @remaining_prereqs = all_prereqs[0]
-    @finished_prereqs = all_prereqs[1]
-
-    @professorCourses = ProfessorCourse.where(number: @course.number)
-    @professors = Set.new
-    @professorCourses.each do |professorCourse|
-      @professors << professorCourse.professor
-    end
-    @professors = @professors.sort_by { |professor| -professor.rating}
-  end
-
-  def classes
-  end
-
-  def professors
-    @all_profs = Professor.all_profs
-  end
-
-  def dist_profs
-    @dist_profs = Professor.dist_profs
-  end
-
-  def all_courses
-    render :text => @all_courses.to_json
-  end
-
-  def all_emails
-    render :text => @all_emails.to_json
-  end
-
-  def create
-    @user = User.create(first_name: params[:first_name],
-                        last_name: params[:last_name], email: params[:email],
-                                                        uid: session[:cas_user])
-    if not @user.valid?
-      @user = User.find_by(uid: session[:cas_user])
-    end
-    if params[:class_select] != nil
-      params[:class_select].each do |course|
-        attrs = Utils.split_by_colon(course)
-        if @user.user_courses.find_by(title: attrs[0]).nil?
-          @user.user_courses.create(title: attrs[0], number: attrs[1], taken: true)
-        end
-      end
-    end
-
-    redirect_to "/user" and return
-  end
-
   def index
   end
 
@@ -120,9 +68,28 @@ class ApplicationController < ActionController::Base
     redirect_to "/user" and return
   end
 
-  def specific_professor
-    @prof = Professor.find(params[:id])
-    @prof_courses = @prof.courses.order(rating: :desc)
+  def create
+    @user = User.create(first_name: params[:first_name],
+                        last_name: params[:last_name], email: params[:email],
+                                                        uid: session[:cas_user])
+    if not @user.valid?
+      @user = User.find_by(uid: session[:cas_user])
+    end
+
+    if params[:class_select] != nil
+      params[:class_select].each do |course|
+        attrs = Utils.split_by_colon(course)
+        if @user.user_courses.find_by(title: attrs[0]).nil?
+          @user.user_courses.create(title: attrs[0], number: attrs[1], taken: true)
+        end
+      end
+    end
+
+    redirect_to "/user" and return
+  end
+
+  def emails
+    render :text => @all_emails.to_json
   end
 
 end

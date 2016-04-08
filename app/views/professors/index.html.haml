@@ -1,0 +1,18 @@
+.container
+  .row
+    .col.s12
+      .card.white
+        .card-content
+          %span.card-title All Professors
+          %table.centered
+            %thead
+              %tr
+                %th{"data-field": "name"} Name
+                %th{"data-field": "rating"} Average Rating (Out of 7)
+            %tbody
+              - @all_profs.each do |prof|
+                %tr
+                  %td= link_to prof[:name], professor_path(prof[:id])
+                  %td= prof[:rating]
+        .card-action
+          %a{href: "/user"} Back
