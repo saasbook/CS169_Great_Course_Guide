@@ -18,12 +18,12 @@ class User < ActiveRecord::Base
 		courses << {id: Course.find_by(number: course.number).id,
 						    number: course.number, title: course.title, taken: course.taken}
 		end
-    Utils.alpha_sort(courses, :number)
+    	Utils.alpha_sort(courses, :number)
 		return courses
 	end
 
 	def has_taken(prereq)
-    user_course = self.user_courses.find_by(number: prereq.number)
-    return (user_course != nil and user_course.taken)
+    	user_course = self.user_courses.find_by(number: prereq.number)
+    	return (user_course != nil and user_course.taken)
 	end
 end
