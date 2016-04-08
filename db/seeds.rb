@@ -48,6 +48,6 @@ CSV.foreach('data/classData.csv', converters: :numeric) do |row|
   end
 
   course = Course.find_by(number: number)
-  courseName = Course.find_by(number: number).title
+  courseName = course.title
   professor.courses.create(number: number, rating: rating, term: term, name: courseName)
 end
