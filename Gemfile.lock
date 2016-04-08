@@ -177,6 +177,15 @@ GEM
       fattr (>= 2.2.0)
       map (>= 6.1.0)
     map (6.6.0)
+    mechanize (2.7.4)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (>= 1.17.2, < 3)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.6)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     metric_fu (4.12.0)
@@ -199,9 +208,12 @@ GEM
     minitest (5.8.4)
     multi_json (1.11.2)
     multi_test (0.1.2)
+    net-http-digest_auth (1.4)
+    net-http-persistent (2.9.4)
     netrc (0.11.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    ntlm-http (0.1.1)
     parallel (1.6.2)
     parser (2.3.0.6)
       ast (~> 2.2)
@@ -331,6 +343,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    webrobots (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -350,6 +363,7 @@ DEPENDENCIES
   jasmine-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mechanize
   metric_fu
   pg
   rails (= 4.2.5)

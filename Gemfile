@@ -15,6 +15,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml'
 
+gem 'mechanize'
+
 group :development, :test do
   gem 'byebug'
   gem 'jasmine-rails'
