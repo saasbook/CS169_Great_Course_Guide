@@ -22,7 +22,7 @@ Background: I have classes
   And I login as "Michael"
   And professors teach the appropriate courses
   Given I have "CS61A-choice" in my classes
-  And I am on the classes page
+  And I am on the courses page
 
 
 Scenario: Professor page displays correct info

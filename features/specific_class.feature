@@ -30,7 +30,7 @@ Background: I have classes
 
 Scenario: Prerequisites show
 
-  Given I am on the classes page
+  Given I am on the courses page
   When I follow "CS61C"
   Then I should see "Prerequisites for CS61C"
   And I should see "CS61B"
@@ -38,7 +38,7 @@ Scenario: Prerequisites show
 
 Scenario: Prerequisite links work
 
-  Given I am on the classes page
+  Given I am on the courses page
   When I follow "CS61C"
   Then I should see "Prerequisites for CS61C"
   When I follow "CS61B"
@@ -51,7 +51,7 @@ Scenario: Accounts for taken classes
 
   Given I am on the user page
   And I have "CS61A-choice" in my classes
-  When I am on the classes page
+  When I am on the courses page
   And I follow "CS70"
   Then I should see "Prerequisites for CS70"
   And I should see "CS61B" before "CS61A"
@@ -59,7 +59,7 @@ Scenario: Accounts for taken classes
   And I should see "No" before "CS61A"
 
 Scenario: Shows all professors that have taught a certain course
-  Given I am on the classes page
+  Given I am on the courses page
   And I follow "CS61A"
   Then I should see "Cat"
   And I should see "Cup"

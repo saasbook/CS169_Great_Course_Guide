@@ -3,7 +3,7 @@
     .col.s12
       .card.white.animated.fadeInUp
         .card-content
-          %span.card-title Classes You Want to Take
+          %span.card-title Courses You Want to Take
           %table.centered
             %thead
               %tr
@@ -13,7 +13,7 @@
               - @user.courses.each do |course|
                 - if not course[:taken]
                   %tr
-                    %td= link_to course[:number], "/classes/#{course[:id]}"
+                    %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
         .card-action
           %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit
@@ -21,7 +21,7 @@
     .col.s12
       .card.white.animated.fadeInUp
         .card-content
-          %span.card-title Your Completed Classes
+          %span.card-title Your Completed Courses
           %table.centered
             %thead
               %tr
@@ -31,7 +31,7 @@
               - @user.courses.each do |course|
                 - if course[:taken]
                   %tr
-                    %td= link_to course[:number], "/classes/#{course[:id]}"
+                    %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
         .card-action
           %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit

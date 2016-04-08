@@ -56,23 +56,6 @@ describe ApplicationController do
     end
   end
 
-  describe "Getting a specific class" do
-    before :each do
-      User.destroy_all
-      Course.destroy_all
-      @user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
-      @course = Course.create(number: "CS61A", title: "SICP")
-    end
-    it "should should assign the correct course to @course" do
-      get :specific_class, id: @course.id
-      expect(assigns(:course)).to eq(@course)
-    end
-    it "should assign @prereqs" do
-      get :specific_class, id: @course.id
-      expect(assigns(:prereqs).nil?).to eq(@course.compute_prereqs_given_user(@user)[0].empty?)
-    end
-  end
-
   describe "create" do
     before :each do
       User.destroy_all

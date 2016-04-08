@@ -24,7 +24,7 @@ class Professor < ActiveRecord::Base
     dist_profs = []
     self.all.each do |prof|
       if prof.distinguished
-        dist_profs << {name: prof.name, rating: prof.rating, year: prof.distinguishedYear}
+        dist_profs << {id: prof.id, name: prof.name, rating: prof.rating, year: prof.distinguishedYear}
       end
     end
     return dist_profs.sort_by { |professor| -professor[:rating] }
