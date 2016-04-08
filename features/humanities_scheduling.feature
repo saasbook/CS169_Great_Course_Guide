@@ -1,8 +1,8 @@
 Feature: Schedule Planning for Humanities
 
-	As a user
-	So that I can plan my humanities courses for the next year
-	I would like to see a list of upcoming humanities courses taught by Distinguished Teachers
+  As a user
+  So that I can plan my humanities courses for the next year
+  I would like to see a list of upcoming humanities courses taught by Distinguished Teachers
 
 Background: I am on the user page
 
