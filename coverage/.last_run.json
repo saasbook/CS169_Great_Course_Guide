@@ -1,5 +1,9 @@
 {
   "result": {
+<<<<<<< HEAD
     "covered_percent": 93.51
+=======
+    "covered_percent": 60.0
+>>>>>>> fc94bd475273dfd486d9e0cec20ff39f76b71e7e
   }
 }
