@@ -20,6 +20,12 @@ Given /the following courses exist/ do |course_table|
   end
 end
 
+Given /the following courses are going to be taught/ do |course_table|
+  course_table.hashes.each do |course|
+    c = DraftCourse.create(course)
+  end
+end
+
 And /professors teach the appropriate courses/ do
   cup = Professor.find_by_name("Cup")
   dog = Professor.find_by_name("Dog")
@@ -62,5 +68,11 @@ Given /I have "(.*)" in my classes/ do |course_name|
   click_link("Edit", match: :first)
   check(course_name)
   check("#{course_name.split("-")[0]}" + "-taken")
+  click_button("Save", match: :first)
+end
+
+Given /I want to take "(.*)"/ do |course_name|
+  click_link("Edit", match: :first)
+  check(course_name)
   click_button("Save", match: :first)
 end
