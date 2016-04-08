@@ -11,9 +11,9 @@ Background: I am on the user page
   Then I should be on the user page
   Given the following professors exist:
   | name | distinguished | distinguishedYear |
-  | Cup  | true			 | 2016              |
+  | Cup  | true			     | 2016              |
   | Dog  | false         | null              |
-  | Cat  | false		 | null              |
+  | Cat  | false		     | null              |
 
 Scenario: I want to see classes taught by distinguished humanities teachers 
 
