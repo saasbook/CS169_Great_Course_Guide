@@ -56,19 +56,25 @@ class User < ActiveRecord::Base
     spring_courses = draft_schedule[1]
 
     possible_fall_courses = []
+    backup_fall_courses = []
     fall_courses.each_key do |course_number|
       if self.wants_to_take(course_number) and self.can_take(course_number)
         possible_fall_courses << course_number
+      elsif self.can_take(course_number)
+        backup_fall_courses << course_number
       end
     end
 
     possible_spring_courses = []
+    backup_spring_courses = []
     spring_courses.each_key do |course_number|
       if self.wants_to_take(course_number) and self.can_take(course_number)
         possible_spring_courses << course_number
+      elsif self.can_take(course_number)
+        backup_spring_courses << course_number
       end
     end
-    return [possible_fall_courses, possible_spring_courses]
+    return [possible_fall_courses, backup_fall_courses, possible_spring_courses, backup_spring_courses]
   end
 
 
