@@ -14,7 +14,7 @@ class Utils
     return title, number
   end
 
-  def self.parse
+  def self.draft_schedule
     fall_2016 = Hash.new
     spring_2017 = Hash.new
     CSV.foreach('data/DraftSchedule.csv') do |line|
@@ -25,8 +25,7 @@ class Utils
         spring_2017[course] = line[2]
       end
     end
-    puts fall_2016
-    puts spring_2017
+    return [fall_2016, spring_2017]
   end
 
 end
