@@ -33,8 +33,11 @@ class User < ActiveRecord::Base
   end
 
   def can_take(course_number)
-    prereqs = Course.find_by(number: course_number).prereqs
-    prereqs.each do |prereq|
+    course = Course.find_by(number: course_number)
+    if has_taken(course)
+      return false
+    end
+    course.prereqs.each do |prereq|
       if not has_taken(prereq)
         return false
       end
@@ -75,6 +78,8 @@ class User < ActiveRecord::Base
       end
     end
     return [possible_fall_courses, backup_fall_courses, possible_spring_courses, backup_spring_courses]
+    # At this point, we have the courses to recommend to the user_course
+    # We need to sort them appropriately
   end
 
 

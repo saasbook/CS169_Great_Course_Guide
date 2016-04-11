@@ -3,7 +3,6 @@ CS61A,John DeNero,Joshua Hug
 CS61B,Joshua Hug,Paul N. Hilfinger
 CS61C,Bernhard Boser; TBA,Dan Garcia
 CS70,Jean Walrand; TBA,Anant Sahai; TBA
-CS149,Edward A. Lee
 CS152,John Wawrzynek
 CS160,Björn Hartmann,John F. Canny
 CS161,Raluca Ada Popa; Nicholas Weaver,Vern Paxson
@@ -22,21 +21,19 @@ CS189,Jitendra Malik; Benjamin Recht,Jonathan Shewchuk
 CS195,Joshua Hug,TBA
 EE16A,Babak Ayazifar; Vladimir Stojanovic,Michel Maharbiz
 EE16B,Murat Arcak; Michel Maharbiz,Babak Ayazifar; Vladimir Stojanovic
-EE24,,Jeffrey Bokor
-EE39,Jeffrey Bokor
 EE105,Ali Niknejad,TBA
 EEC106A,Ruzena Bajcsy; Ken Goldberg; S. Shankar Sastry
 EEC106B,,Ruzena Bajcsy; S. Shankar Sastry
 EE113,,Seth R. Sanders
 EE117,,Eli Yablonovitch
-EE118,Laura Waller 
+EE118,Laura Waller
 EE120,Ronald S. Fearing,Thomas Courtade
 EE121,Kannan Ramchandran
 EE122,,Shyam Parekh
 EE123,,Avideh Zakhor
 EE126,Avideh Zakhor,Kannan Ramchandran
 EE127,,Laurent El Ghaoui
-EEC128,Seth R. Sanders,Ronald S. Fearing
+EE128,Seth R. Sanders,Ronald S. Fearing
 EE130,Ali Javey,Sayeef Salahuddin
 EE134,,Ana Claudia Arias
 EE137A,Alexandra von Meier
@@ -45,7 +42,6 @@ EE140,Rikky Muller,Kristofer Pister
 EE142,,Ali Niknejad
 EE143,Clark Nguyen,Ali Javey
 EE144,Jaijeet Roychowdhury; Stavros Tripakis
-EEC145B,Steven Conolly
+EE145B,Steven Conolly
 EE147,Kristofer Pister
-CS149,Edward A. Lee
-
+EE149,Edward A. Lee
