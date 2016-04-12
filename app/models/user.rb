@@ -57,38 +57,31 @@ class User < ActiveRecord::Base
 
   def recommended_EECS_courses
     draft_schedule = Utils.draft_schedule
-    fall_courses = draft_schedule[:fall]
-    spring_courses = draft_schedule[:spring]
 
-    possible_fall_courses = []
-    backup_fall_courses = []
-    fall_courses.each_key do |course_number|
-      if self.wants_to_take(course_number) and self.can_take(course_number)
-        possible_fall_courses << course_number
-      elsif self.can_take(course_number)
-        backup_fall_courses << course_number
+    semesters = {fall: {courses: {}, possible_courses: [], backup_courses: []}, spring: {courses: {}, possible_courses: [], backup_courses: []}}
+
+    semesters[:fall][:courses] = draft_schedule[:fall]
+    semesters[:spring][:courses] = draft_schedule[:spring]
+
+    semesters.each do |name, semester|
+      semester[:courses].each_key do |course_number|
+        if self.wants_to_take(course_number) and self.can_take(course_number)
+          semester[:possible_courses] << course_number
+        elsif self.can_take(course_number)
+          semester[:backup_courses] << course_number
+        end
       end
     end
 
-    possible_spring_courses = []
-    backup_spring_courses = []
-    spring_courses.each_key do |course_number|
-      if self.wants_to_take(course_number) and self.can_take(course_number)
-        possible_spring_courses << course_number
-      elsif self.can_take(course_number)
-        backup_spring_courses << course_number
-      end
-    end
+    get_course_data(semesters[:fall][:possible_courses], semesters[:fall][:courses])
+    get_course_data(semesters[:fall][:backup_courses], semesters[:fall][:courses])
+    get_course_data(semesters[:spring][:possible_courses], semesters[:spring][:courses])
+    get_course_data(semesters[:spring][:backup_courses], semesters[:spring][:courses])
 
-    get_course_data(possible_fall_courses, fall_courses)
-    get_course_data(backup_fall_courses, fall_courses)
-    get_course_data(possible_spring_courses, spring_courses)
-    get_course_data(backup_spring_courses, spring_courses)
-
-    return { possible_fall: possible_fall_courses,
-             backup_fall: backup_fall_courses,
-             possible_spring: possible_spring_courses,
-             backup_spring: backup_spring_courses }
+    return { possible_fall: semesters[:fall][:possible_courses],
+             backup_fall: semesters[:fall][:backup_courses],
+             possible_spring: semesters[:spring][:possible_courses],
+             backup_spring: semesters[:spring][:backup_courses] }
   end
 
   def recommended_breadth_courses
@@ -104,7 +97,8 @@ class User < ActiveRecord::Base
     return distinguished_fall_breadth_courses
   end
 
-  private
+  protected
+
   def get_average_rating_of_professors(professors)
     total = 0
     num_professors = 0
@@ -121,10 +115,9 @@ class User < ActiveRecord::Base
         end
       end
     end
-    return (total / num_professors).round(2) if num_professors > 0 else "*"
+    return num_professors > 0 ? (total / num_professors).round(2) : "*"
   end
 
-  private
   def get_course_data(course_list, term_list)
     course_list.map! { |course_number| [Course.find_by(number: course_number),
               term_list[course_number].split(";"),
