@@ -9,19 +9,12 @@ var data = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            // data: [6, 5, 8, 8, 5, 5, 4]
             data: terms_and_ratings_j[1]
         },
     ]
 };
-
-// function getChartData(terms_and_ratings) {
-//   data[labels] = terms_and_ratings[0]
-//   data[datasets][0][data] = terms_and_ratings[1]
-//   console.log("AHH")
-// }
 // Get the context of the canvas element we want to select
-var countries= document.getElementById("countries").getContext("2d");
-new Chart(countries).Line(data);
+var graph= document.getElementById("graph").getContext("2d");
+new Chart(graph).Line(data);
 
 
