@@ -24,5 +24,7 @@ class CoursesController < ApplicationController
   def schedule
     @recommended_EECS_courses = @user.recommended_EECS_courses
     puts @recommended_EECS_courses
+    @recommended_breadth_courses = @user.recommended_breadth_courses
+    puts @recommended_breadth_courses
   end
 end
