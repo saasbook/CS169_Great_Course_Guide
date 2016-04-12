@@ -1,39 +1,39 @@
 CS10,Dan Garcia,TBA
 CS61A,John DeNero,Joshua Hug
-CS61B,Joshua Hug,Paul N. Hilfinger
-CS61C,Bernhard Boser; TBA,Dan Garcia
-CS70,Jean Walrand; TBA,Anant Sahai; TBA
+CS61B,Joshua Hug,Paul Hilfinger
+CS61C,Bernhard Boser;TBA,Dan Garcia
+CS70,Jean Walrand;TBA,Anant Sahai;TBA
 CS152,John Wawrzynek
-CS160,Björn Hartmann,John F. Canny
-CS161,Raluca Ada Popa; Nicholas Weaver,Vern Paxson
+CS160,Bjoern Hartmann,John Canny
+CS161,Raluca Popa;Nicholas Weaver,Vern Paxson
 CS162,Anthony D. Joseph,Ion Stoica
-CS164,Paul N. Hilfinger,Koushik Sen
-CS168,Sylvia Ratnasamy; Scott Shenker
+CS164,Paul Hilfinger,Koushik Sen
+CS168,Sylvia Ratnasamy;Scott Shenker
 CS169,Armando Fox,George Necula
-CS170,Christos Papadimitriou; Luca Trevisan,Prasad Raghavendra; TBA
+CS170,Christos Papadimitriou;Luca Trevisan,Prasad Raghavendra;TBA
 CS172,,TBA
 CS174,,TBA
 CS176,Nir Yosef
-CS184,,James O'Brien
-CS186,Joseph Gonzalez,Joseph M. Hellerstein
+CS184,,James O'brien
+CS186,Joseph Gonzalez,Joseph Hellerstein
 CS188,TBA,Pieter Abbeel
-CS189,Jitendra Malik; Benjamin Recht,Jonathan Shewchuk
+CS189,Jitendra Malik;Ben Recht,Jonathan Shewchuk
 CS195,Joshua Hug,TBA
-EE16A,Babak Ayazifar; Vladimir Stojanovic,Michel Maharbiz
-EE16B,Murat Arcak; Michel Maharbiz,Babak Ayazifar; Vladimir Stojanovic
+EE16A,Babak Ayazifar;Vladimir Stojanovic,Michel Maharbiz
+EE16B,Murat Arcak;Michel Maharbiz,Babak Ayazifar;Vladimir Stojanovic
 EE105,Ali Niknejad,TBA
-EEC106A,Ruzena Bajcsy; Ken Goldberg; S. Shankar Sastry
-EEC106B,,Ruzena Bajcsy; S. Shankar Sastry
-EE113,,Seth R. Sanders
+EEC106A,Ruzena Bajcsy;Ken Goldberg;S. Shankar Sastry
+EEC106B,,Ruzena Bajcsy;S. Shankar Sastry
+EE113,,Seth Sanders
 EE117,,Eli Yablonovitch
 EE118,Laura Waller
-EE120,Ronald S. Fearing,Thomas Courtade
+EE120,Ronald Fearing,Thomas Courtade
 EE121,Kannan Ramchandran
 EE122,,Shyam Parekh
 EE123,,Avideh Zakhor
 EE126,Avideh Zakhor,Kannan Ramchandran
 EE127,,Laurent El Ghaoui
-EE128,Seth R. Sanders,Ronald S. Fearing
+EE128,Seth Sanders,Ronald Fearing
 EE130,Ali Javey,Sayeef Salahuddin
 EE134,,Ana Claudia Arias
 EE137A,Alexandra von Meier
@@ -41,7 +41,7 @@ EE137B,,Alexandra von Meier
 EE140,Rikky Muller,Kristofer Pister
 EE142,,Ali Niknejad
 EE143,Clark Nguyen,Ali Javey
-EE144,Jaijeet Roychowdhury; Stavros Tripakis
+EE144,Jaijeet Roychowdhury;Stavros Tripakis
 EE145B,Steven Conolly
 EE147,Kristofer Pister
 EE149,Edward A. Lee

@@ -3,7 +3,9 @@
     .col.s12
       .card.white
         .card-content
-          %span.card-title="Prerequisites for #{@course.number}"
+          %span.card-title="#{@course.number}: #{@course.title}"
+          %br
+          .chip Required Prerequisites
           %table.centered
             %thead
               %tr

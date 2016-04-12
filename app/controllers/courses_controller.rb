@@ -20,4 +20,11 @@ class CoursesController < ApplicationController
   def all
     render :text => @all_courses.to_json
   end
+
+  def schedule
+    @recommended_EECS_courses = @user.recommended_EECS_courses
+    puts @recommended_EECS_courses
+    @recommended_breadth_courses = @user.recommended_breadth_courses
+    puts @recommended_breadth_courses
+  end
 end
