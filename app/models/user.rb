@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 
 	validates :first_name, presence: true
-    validates :last_name, presence: true
-    validates :email, presence: true, uniqueness: true
-    validates :uid, presence: true, uniqueness: true
+  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :uid, presence: true, uniqueness: true
 	has_many :user_courses
 
 	def self.all_emails
@@ -55,8 +55,8 @@ class User < ActiveRecord::Base
 
   def recommended_EECS_courses
     draft_schedule = Utils.draft_schedule
-    fall_courses = draft_schedule[0]
-    spring_courses = draft_schedule[1]
+    fall_courses = draft_schedule[:fall]
+    spring_courses = draft_schedule[:spring]
 
     possible_fall_courses = []
     backup_fall_courses = []
@@ -77,10 +77,58 @@ class User < ActiveRecord::Base
         backup_spring_courses << course_number
       end
     end
-    return [possible_fall_courses, backup_fall_courses, possible_spring_courses, backup_spring_courses]
-    # At this point, we have the courses to recommend to the user_course
-    # We need to sort them appropriately
+
+    get_course_data(possible_fall_courses, fall_courses)
+    get_course_data(backup_fall_courses, fall_courses)
+    get_course_data(possible_spring_courses, spring_courses)
+    get_course_data(backup_spring_courses, spring_courses)
+
+    return { possible_fall: possible_fall_courses,
+             backup_fall: backup_fall_courses,
+             possible_spring: possible_spring_courses,
+             backup_spring: backup_spring_courses }
   end
 
+  private
+  def get_average_rating_of_professors(professors)
+    total = 0
+    num_professors = 0
+    professors.each do |name|
+      puts name
+      if name == "TBA"
+        next
+      end
+      professor = Professor.find_by(name: name)
+      if professor
+        if professor.rating
+          total += professor.rating
+          num_professors += 1
+        end
+      end
+    end
+    return (total / num_professors).round(2) if num_professors > 0 else "*"
+  end
 
+  private
+  def get_course_data(course_list, term_list)
+    course_list.map! { |course_number| [Course.find_by(number: course_number),
+              term_list[course_number].split(";"),
+              get_average_rating_of_professors(term_list[course_number].split(";"))] }
+    course_list.each do |data|
+      new_professors = []
+      data[1].each do |professor_name|
+        new_professors << Professor.find_by(name: professor_name)
+      end
+      data[1] = new_professors
+    end
+
+    course_list.sort_by! do |data|
+      if data[2] == "*"
+        0
+      else
+        -data[2]
+      end
+    end
+    #course_list.slice!(7,course_list.length)
+  end
 end

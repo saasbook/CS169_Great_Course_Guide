@@ -51,3 +51,9 @@ CSV.foreach('data/classData.csv', converters: :numeric) do |row|
   courseName = course.title
   professor.courses.create(number: number, rating: rating, term: term, name: courseName)
 end
+
+# New Professors for the year
+Professor.create(name: "TBA")
+Professor.create(name: "Ken Goldberg")
+Professor.create(name: "Nicholas Weaver")
+Professor.create(name: "Joseph Gonzalez")

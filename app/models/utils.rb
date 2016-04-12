@@ -21,11 +21,12 @@ class Utils
       course = line[0]
       if not line[1].nil?
         fall_2016[course] = line[1]
-      elsif line.length == 3
+      end
+      if line.length == 3
         spring_2017[course] = line[2]
       end
     end
-    return [fall_2016, spring_2017]
+    return {fall: fall_2016, spring: spring_2017}
   end
 
 end

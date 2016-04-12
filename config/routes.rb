@@ -12,14 +12,15 @@ Rails.application.routes.draw do
   get "/user" => "application#index"
   get "/edit" => "application#edit"
   post "/update" => "application#update"
-  post "/create" => 'application#create'  
+  post "/create" => 'application#create'
   get '/users/emails' => 'application#emails'
 
   # Professors
-  resources :professors, only: [:index, :show]
   get '/distinguished' => 'professors#dist'
+  resources :professors, only: [:index, :show]
 
   # Courses
-  resources :courses, only: [:index, :show]
   get '/courses/all' => 'courses#all'
+  get '/courses/schedule' => 'courses#schedule'
+  resources :courses, only: [:index, :show]
 end

@@ -1,0 +1,65 @@
+.container
+  .row
+    .col.l6.m12
+      .card.white.animated.fadeInUp.medium
+        .card-content.scrollable
+          %span.card-title Recommended Fall 2016 Courses
+          %table.centered
+            %thead
+              %tr
+                %th{"data-field": "name"} Course
+                %th{"data-field": "professor"} Professor(s)
+                %th{"data-field": "average rating"} Rating
+            %tbody
+              - @recommended_EECS_courses[:possible_fall].each do |course|
+                %tr
+                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td
+                    - course[1].each do |professor|
+                      - if course[1].index(professor) + 1 == course[1].length
+                        = link_to(professor.name, professor_path(professor.id))
+                      - else
+                        = link_to(professor.name, professor_path(professor.id)) + ", "
+                  %td= course[2]
+                  %hr
+              - @recommended_EECS_courses[:backup_fall].each do |course|
+                %tr
+                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td
+                    - course[1].each do |professor|
+                      - if course[1].index(professor) + 1 == course[1].length
+                        = link_to(professor.name, professor_path(professor.id))
+                      - else
+                        = link_to(professor.name, professor_path(professor.id)) + ", "
+                  %td= course[2]
+    .col.l6.m12
+      .card.white.animated.fadeInUp.medium
+        .card-content.scrollable
+          %span.card-title Recommended Spring 2017 Courses
+          %table.centered
+            %thead
+              %tr
+                %th{"data-field": "name"} Course
+                %th{"data-field": "professor"} Professor(s)
+                %th{"data-field": "average rating"} Rating
+            %tbody
+              - @recommended_EECS_courses[:possible_spring].each do |course|
+                %tr
+                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td
+                    - course[1].each do |professor|
+                      - if course[1].index(professor) + 1 == course[1].length
+                        = link_to(professor.name, professor_path(professor.id))
+                      - else
+                        = link_to(professor.name, professor_path(professor.id)) + ", "
+                  %td= course[2]
+              - @recommended_EECS_courses[:backup_spring].each do |course|
+                %tr
+                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td
+                    - course[1].each do |professor|
+                      - if course[1].index(professor) + 1 == course[1].length
+                        = link_to(professor.name, professor_path(professor.id))
+                      - else
+                        = link_to(professor.name, professor_path(professor.id)) + ", "
+                  %td= course[2]
