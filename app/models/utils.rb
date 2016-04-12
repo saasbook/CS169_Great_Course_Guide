@@ -37,26 +37,4 @@ class Utils
     return fall_2016_breadth
   end
 
-  # def self.getLecs
-  #   begin
-  #     file = File.open("newFile4.csv", "w")
-  #     CSV.foreach('data/fall2016breadths.csv') do |line|
-  #       final = []
-  #       course = line[0] + line[1]
-  #       title = line[2]
-  #       puts "AHH"
-  #       name = line[3]
-  #       puts "YOO"
-  #       final << course
-  #       final << title
-  #       final << name
-  #       file.write(final.join(",") + "\n")
-  #     end
-  #   rescue IOError => e
-  #     puts "lol"
-  #   ensure
-  #     file.close unless file.nil?
-  #   end
-  # end
-
 end
