@@ -63,7 +63,7 @@ class Professor < ActiveRecord::Base
     terms = []
     ratings = []
     self.courses.each do |p_course|
-      terms << p_course.term
+      terms << p_course.number + " " + p_course.term
       ratings << p_course.rating
     end
     return terms,ratings
