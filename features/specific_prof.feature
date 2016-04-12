@@ -35,4 +35,4 @@ Scenario: Clicking on a class should go to class page
   When I follow "CS61A"
   And I follow "Cup"
   Then I follow "CS61B"
-  Then I should see "Prerequisites for CS61B"
+  Then I should see "Required Prerequisites"
