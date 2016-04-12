@@ -1,4 +1,5 @@
 require 'csv'
+require 'set'
 
 class Utils
   def self.alpha_sort(list, field)
@@ -27,6 +28,14 @@ class Utils
       end
     end
     return {fall: fall_2016, spring: spring_2017}
+  end
+
+  def self.breadth_schedule
+    fall_2016_breadth = Set.new
+    CSV.foreach('data/fall2016breadths.csv') do |line|
+      fall_2016_breadth.add(line)
+    end
+    return fall_2016_breadth
   end
 
 end
