@@ -1,35 +1,27 @@
-var canvas = document.getElementById("profChart");
-var parent = document.getElementById("chartParent");
-Chart.defaults.global.responsive = true;
 var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: terms_and_ratings_j[0],
     datasets: [
         {
-            label: "My First dataset",
+            label: "Class Ratings",
             fillColor: "rgba(220,220,220,0.2)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
+            // data: [6, 5, 8, 8, 5, 5, 4]
+            data: terms_and_ratings_j[1]
         },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
     ]
 };
-var options = {
-    scaleShowGridLines = true
-}
-var ctx = document.getElementById("profChart").getContext("2d");
-var myLineChart = new Chart(ctx).Line(data, options);
+
+// function getChartData(terms_and_ratings) {
+//   data[labels] = terms_and_ratings[0]
+//   data[datasets][0][data] = terms_and_ratings[1]
+//   console.log("AHH")
+// }
+// Get the context of the canvas element we want to select
+var countries= document.getElementById("countries").getContext("2d");
+new Chart(countries).Line(data);
 
 

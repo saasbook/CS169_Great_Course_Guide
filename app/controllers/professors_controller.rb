@@ -8,6 +8,7 @@ class ProfessorsController < ApplicationController
     @prof = Professor.find(params[:id])
     @prof_courses = @prof.courses.order(rating: :desc)
     @uniq_prof_courses = @prof.unique_courses
+    @terms_and_ratings = @prof.chart_info #already ordered
   end
 
   def distinguished
