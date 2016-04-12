@@ -33,3 +33,5 @@
                   %td= prof[:year]
         .card-action
           %a{href: "/user"} Back
+%canvas#profChart{:height => "254", :style => "width: 170px; height: 127px;", :width => "340"}
+= javascript_include_tag '/javascripts/prof_chart.js'
