@@ -1,3 +1,5 @@
+require 'csv'
+
 class User < ActiveRecord::Base
 
 	validates :first_name, presence: true
@@ -89,13 +91,12 @@ class User < ActiveRecord::Base
              backup_spring: backup_spring_courses }
   end
 
-  def recommeded_breadth_courses
+  def recommended_breadth_courses
     fall_breadth_courses = Utils.breadth_schedule
-
     distinguished_fall_breadth_courses = []
     fall_breadth_courses.each do |course|
       professor = Professor.find_by(name: course[2])
-      if professor.distinguished
+      if professor and professor.distinguished 
         distinguished_fall_breadth_courses << course
       end
     end
@@ -114,7 +115,7 @@ class User < ActiveRecord::Base
       end
       professor = Professor.find_by(name: name)
       if professor
-        if professor.rating
+        if professor.rating and professor.rating != "*"
           total += professor.rating
           num_professors += 1
         end
