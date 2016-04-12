@@ -35,16 +35,20 @@ class User < ActiveRecord::Base
   end
 
   def can_take(course_number)
-    course = Course.find_by(number: course_number)
-    if has_taken(course)
-      return false
-    end
-    course.prereqs.each do |prereq|
-      if not has_taken(prereq)
+    if Course.exists?(number: course_number)
+      course = Course.find_by(number: course_number)
+      if has_taken(course)
         return false
       end
+      course.prereqs.each do |prereq|
+        if not has_taken(prereq)
+          return false
+        end
+      end
+      return true
+    else
+      return false
     end
-    return true
   end
 
   def added_courses
