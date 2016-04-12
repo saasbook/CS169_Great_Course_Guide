@@ -44,4 +44,20 @@ class Professor < ActiveRecord::Base
       end
     end
   end
+
+  def chart_info
+    terms = []
+    ratings = []
+    self.courses.each do |p_course|
+      terms << p_course.term
+      ratings << p_course.rating
+    end
+    return terms,ratings
+  end
 end
+
+
+
+
+
+

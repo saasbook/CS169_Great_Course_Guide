@@ -7,6 +7,7 @@ class ProfessorsController < ApplicationController
   def show
     @prof = Professor.find(params[:id])
     @prof_courses = @prof.courses.order(rating: :desc)
+    @terms_and_ratings = @prof.chart_info #already ordered
   end
 
   def dist
