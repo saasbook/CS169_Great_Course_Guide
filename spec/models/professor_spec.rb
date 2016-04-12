@@ -23,8 +23,8 @@ describe Professor do
 	describe "returns a list of all professors" do
 		before :each do
 			Professor.destroy_all
-			@professor1 = Professor.create(name: "John Denero", distinguished: true, distinguishedYear: "2016")
-			@professor2 = Professor.create(name: "Josh Hug")
+			@professor1 = Professor.create(name: "John Denero", distinguished: true, distinguishedYear: "2016", category: "EECS")
+			@professor2 = Professor.create(name: "Josh Hug", category: "EECS")
 
 			@course1 = ProfessorCourse.create(number: "CS61A", name: "Test Title 1", rating: 5.0, term: "Fall 2016")
 			@course2 = ProfessorCourse.create(number: "CS61B", name: "Test Title 2", rating: 3.0, term: "Spring 2016")
@@ -42,23 +42,23 @@ describe Professor do
 		end
 
 		it 'should return a list of all professors' do
-			expect(Professor.all_profs).to include(@prof1_avg)
-			expect(Professor.all_profs).to include(@prof2_avg)
+			expect(Professor.all_profs("EECS")).to include(@prof1_avg)
+			expect(Professor.all_profs("EECS")).to include(@prof2_avg)
 		end
 
 		it 'should sort professors by rating' do
-			expect(Professor.all_profs.first).to eq(@prof1_avg)
-			expect(Professor.all_profs.second).to eq(@prof2_avg)
+			expect(Professor.all_profs("EECS").first).to eq(@prof1_avg)
+			expect(Professor.all_profs("EECS").second).to eq(@prof2_avg)
 		end
 
 		it 'should filter by distinguished teachers' do
-			expect(Professor.dist_profs.length).to equal(1)
-			expect(Professor.dist_profs.first[:name]).to eql("John Denero")
-			expect(Professor.dist_profs.first[:year]).to eql("2016")
+			expect(Professor.dist_profs("EECS").length).to equal(1)
+			expect(Professor.dist_profs("EECS").first[:name]).to eql("John Denero")
+			expect(Professor.dist_profs("EECS").first[:year]).to eql("2016")
 		end
 
 		it 'should have the average rating of the professor' do
-			all_profs = Professor.all_profs
+			all_profs = Professor.all_profs("EECS")
 			all_profs.each do |prof_avg|
 				name = prof_avg[:name]
 				if name == "John Denero"
