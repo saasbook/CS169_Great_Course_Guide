@@ -60,10 +60,8 @@ class User < ActiveRecord::Base
 
     semesters = {fall: {courses: {}, possible_courses: [], backup_courses: []}, spring: {courses: {}, possible_courses: [], backup_courses: []}}
 
-    semesters[:fall][:courses] = draft_schedule[:fall]
-    semesters[:spring][:courses] = draft_schedule[:spring]
-
     semesters.each do |name, semester|
+      semester[:courses] = draft_schedule[name]
       semester[:courses].each_key do |course_number|
         if self.wants_to_take(course_number) and self.can_take(course_number)
           semester[:possible_courses] << course_number
@@ -71,12 +69,9 @@ class User < ActiveRecord::Base
           semester[:backup_courses] << course_number
         end
       end
+      get_course_data(semester[:possible_courses], semester[:courses])
+      get_course_data(semester[:backup_courses], semester[:courses])
     end
-
-    get_course_data(semesters[:fall][:possible_courses], semesters[:fall][:courses])
-    get_course_data(semesters[:fall][:backup_courses], semesters[:fall][:courses])
-    get_course_data(semesters[:spring][:possible_courses], semesters[:spring][:courses])
-    get_course_data(semesters[:spring][:backup_courses], semesters[:spring][:courses])
 
     return { possible_fall: semesters[:fall][:possible_courses],
              backup_fall: semesters[:fall][:backup_courses],
