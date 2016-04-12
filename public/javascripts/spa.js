@@ -3,5 +3,5 @@ $(function() {
 
   $(window).on('beforeunload', function() {
     $('.mainContent').removeClass('fadeIn').addClass('fadeOut');
-  });    
+  });
 });

@@ -16,7 +16,9 @@
                     %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
         .card-action
-          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit
+          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"}
+            %i.material-icons.right mode_edit
+            Edit
   .row
     .col.s12
       .card.white
@@ -34,4 +36,6 @@
                     %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
         .card-action
-          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"} Edit
+          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"}
+            %i.material-icons.right mode_edit
+            Edit
