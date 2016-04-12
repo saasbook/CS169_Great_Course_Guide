@@ -17,16 +17,16 @@ Background: I am on the user page
 
 Scenario: I want to see classes taught by distinguished humanities teachers 
 
-  When I follow "Recommended Schedule"
-  Then I should see "Humanities"
+  When I follow "Schedule"
+  Then I should see "Breadth"
   And I should see "CS61A"
   And I should see "CS61B"
   But I should not see "CS61C"
 
 Scenario: There are no distinguished humanities teachers teaching the next year (SAD PATH)
 
-  When I follow "Recommended Schedule"
-  Then I should see "Humanities"
+  When I follow "Schedule"
+  Then I should see "Breadth"
   And I should not see "CS61A"
   And I should not see "CS61B"
   And I should not see "CS61C"
