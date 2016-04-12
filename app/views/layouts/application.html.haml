@@ -42,7 +42,13 @@
                 %a{href: "/logout"} Logout
             %ul#nav-mobile2.side-nav
               %li.bold.no-padding
-                %a{href: "/courses"} Courses
+                %a{href: "/courses/schedule"}
+                  %i.material-icons.left today
+                  Schedule
+              %li.bold.no-padding
+                %a{href: "/courses"} 
+                  %i.material-icons.left subject
+                  Courses
               %li.bold.no-padding
                 %ul.collapsible.collapsible-accordion
                   %li.bold.no-padding
@@ -54,7 +60,7 @@
                         %li.bold.no-padding
                           %a{href: "/professors"} All EECS Professors
                         %li.bold.no-padding
-                          %a{href: "/professors/dist"} Distinguished Professors
+                          %a{href: "/distinguished"} Distinguished Professors
               %li.bold.no-padding
                 %a{href: "/logout"} Logout
     %main

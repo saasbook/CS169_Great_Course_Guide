@@ -32,7 +32,7 @@ Scenario: Prerequisites show
 
   Given I am on the courses page
   When I follow "CS61C"
-  Then I should see "Prerequisites for CS61C"
+  Then I should see "Required Prerequisites"
   And I should see "CS61B"
   But I should not see "CS70"
 
@@ -40,11 +40,11 @@ Scenario: Prerequisite links work
 
   Given I am on the courses page
   When I follow "CS61C"
-  Then I should see "Prerequisites for CS61C"
+  Then I should see "Required Prerequisites"
   When I follow "CS61B"
-  Then I should see "Prerequisites for CS61B"
+  Then I should see "Required Prerequisites"
   When I follow "CS61A"
-  Then I should see "Prerequisites for CS61A"
+  Then I should see "Required Prerequisites"
   But I should not see "CS61B"
 
 Scenario: Accounts for taken classes
@@ -53,7 +53,7 @@ Scenario: Accounts for taken classes
   And I have "CS61A-choice" in my classes
   When I am on the courses page
   And I follow "CS70"
-  Then I should see "Prerequisites for CS70"
+  Then I should see "Required Prerequisites"
   And I should see "CS61B" before "CS61A"
   And I should not see "Yes" before "CS61A"
   And I should see "No" before "CS61A"

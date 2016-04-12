@@ -17,8 +17,8 @@ Background: I am on the user page
 
 Scenario: I press on the Professors Page
 
-  When I follow "All Professors"
-  Then I should see "All Professors"
+  When I follow "All EECS Professors"
+  Then I should see "All EECS Professors"
   Then I should see "Dog" before "Cat"
   And I should see "Cup" before "Cat"
   But I should not see "Dog" before "Cup"
