@@ -22,7 +22,7 @@
         .card-action
           %a{href: session[:return_to]} Back
 .center-align
-  %h3 Data Over Time
+  %h3 Ratings Over Time for #{@prof.name}
   %canvas#graph{:height => "400", :width => "600"}
 %br
 %script{src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"}
