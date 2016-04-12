@@ -4,6 +4,8 @@
       .card.white
         .card-content
           %span.card-title Distinguished Professors
+          %br
+          .chip.center-div Distinguished EECS Professors
           %table.centered
             %thead
               %tr
@@ -11,10 +13,22 @@
                 %th{"data-field": "year"} Year
                 %th{"data-field": "rating"} Average Rating (Out of 7)
             %tbody
-              - @dist_profs.each do |prof|
+              - @dist_eecs_profs.each do |prof|
                 %tr
                   %td= link_to prof[:name], professor_path(prof[:id])
                   %td= prof[:year]
                   %td= prof[:rating]
+          %br
+          .chip.center-div Distinguished Humanities Professors
+          %table
+            %thead
+              %tr
+                %th{"data-field": "name"} Name
+                %th{"data-field": "year"} Year
+            %tbody
+              - @dist_hum_profs.each do |prof|
+                %tr
+                  %td= prof[:name]
+                  %td= prof[:year]
         .card-action
           %a{href: "/user"} Back

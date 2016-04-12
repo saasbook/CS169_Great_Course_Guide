@@ -56,6 +56,14 @@ CSV.foreach('data/classData.csv', converters: :numeric) do |row|
   professor.courses.create(number: number, rating: rating, term: term, name: courseName)
 end
 
+distinguishedProfs.each do |name, year|
+  prof = Professor.find_by(name: name)
+  if prof.nil?
+    professor = Professor.create(name: name, distinguished: true, 
+      distinguishedYear: year, category: "HUM")
+  end
+end
+
 # New Professors for the year
 Professor.create(name: "TBA")
 Professor.create(name: "Ken Goldberg")

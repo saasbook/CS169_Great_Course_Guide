@@ -9,24 +9,39 @@ class Professor < ActiveRecord::Base
   def rating
     rating_sum = self.courses.sum(:rating)
     num_courses = self.courses.length
-    return num_courses == 0 ? 0 : (rating_sum / num_courses).round(2)
+    return num_courses == 0 ? "*" : (rating_sum / num_courses).round(2)
   end
 
-	def self.all_profs
+	def self.all_profs(type)
 		profs = []
-		self.all.each do |prof|
-			profs << {id: prof.id, name: prof.name, rating: prof.rating}
+		self.where(category: type).each do |prof|
+      if not prof.name == "TBA"
+			 profs << {id: prof.id, name: prof.name, rating: prof.rating}
+      end
 		end
-		return profs.sort_by { |professor| -professor[:rating] }
+    profs.sort_by do |prof|
+      if prof[:rating] == "*"
+        0
+      else
+        -prof[:rating]
+      end
+    end
 	end
 
-  def self.dist_profs
+
+  def self.dist_profs(type)
     dist_profs = []
-    self.all.each do |prof|
+    self.where(category: type).each do |prof|
       if prof.distinguished
         dist_profs << {id: prof.id, name: prof.name, rating: prof.rating, year: prof.distinguishedYear}
       end
     end
-    return dist_profs.sort_by { |professor| -professor[:rating] }
+    dist_profs.sort_by do |prof|
+      if prof[:rating] == "*"
+        0
+      else
+        -prof[:rating]
+      end
+    end
   end
 end

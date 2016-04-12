@@ -1,7 +1,7 @@
 class ProfessorsController < ApplicationController
 
   def index
-    @all_profs = Professor.all_profs
+    @all_profs = Professor.all_profs("EECS")
   end
 
   def show
@@ -10,6 +10,7 @@ class ProfessorsController < ApplicationController
   end
 
   def dist
-    @dist_profs = Professor.dist_profs
+    @dist_eecs_profs = Professor.dist_profs("EECS")
+    @dist_hum_profs = Professor.dist_profs("HUM")
   end
 end
