@@ -90,37 +90,17 @@ class User < ActiveRecord::Base
   end
 
   def recommeded_breadth_courses
-    breadth_draft_schedule = Utils.breadth_draft_schedule
-    fall_breadth_courses = breadth_draft_schedule[:fall]
-    spring_breadth_courses = breadth_draft_schedule[:spring]
+    fall_breadth_courses = Utils.breadth_schedule
 
     distinguished_fall_breadth_courses = []
-    fall_breadth_courses.each_key do |course_number|
-      professors = fall_breadth_courses[course_number] # HOW TO DO DIS
-      professors.each do |professor|
-        if professor.distinguished
-          distinguished_fall_breadth_courses << course_number
-          break
-        end
+    fall_breadth_courses.each do |course|
+      professor = Professor.find_by(name: course[2])
+      if professor.distinguished
+        distinguished_fall_breadth_courses << course
       end
     end
 
-    distinguished_spring_breadth_courses = []
-    spring_breadth_courses.each_key do |course_number|
-      professors = spring_breadth_courses[course_number]
-      professors.each do |professor|
-        if professor.distinguished
-          distinguished_fall_breadth_courses << course_number
-          break
-        end
-      end
-    end
-
-    get_course_data(distinguished_fall_breadth_courses, fall_breadth_courses)
-    get_course_data(distinguished_spring_breadth_courses, spring_breadth_courses)
-
-    return {breadth_fall: distinguished_fall_breadth_courses
-            breadth_spring: distinguished_spring_breadth_courses }
+    return distinguished_fall_breadth_courses
   end
 
   private
