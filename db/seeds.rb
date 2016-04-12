@@ -34,7 +34,11 @@ CSV.foreach('data/classData.csv', converters: :numeric) do |row|
 
   # Calculate the rating
   total = row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10]
-  avg = (row[4]*1 + row[5]*2 + row[6]*3 + row[7]*4 + row[8]*5 + row[9]*6 + row[10]*7).to_f
+  if term =~ /Spring 2011/ or term =~ /Summer 2010/
+    avg = (row[4]*7 + row[5]*6 + row[6]*5 + row[7]*4 + row[8]*3 + row[9]*2 + row[10]*1).to_f
+  else
+    avg = (row[4]*1 + row[5]*2 + row[6]*3 + row[7]*4 + row[8]*5 + row[9]*6 + row[10]*7).to_f
+  end
   rating = total == 0 ? 0 : (avg/total).round(2) # Rating
 
   professor = Professor.find_by(name: name)
@@ -57,3 +61,4 @@ Professor.create(name: "TBA")
 Professor.create(name: "Ken Goldberg")
 Professor.create(name: "Nicholas Weaver")
 Professor.create(name: "Joseph Gonzalez")
+Professor.create(name: "Alexandra von Meier")
