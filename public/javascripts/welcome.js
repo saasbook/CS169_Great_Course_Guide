@@ -41,15 +41,17 @@ $(function () {
   $('#addClass').click(function() {
     $('#selected-classes').removeClass("hide")
     var item = $('#class-search');
-    value = item.val();
-
+    value = item.val()
     if (value === "") {
       alert("Oops", "Please select a class.", "error");
       return
     }
     if ($.inArray(value, all_classes) == -1) {
-      alert("Oops", "That isn't a valid class.", "error");
-      return;
+      value = item.data('oldVal');
+      if ($.inArray(value, all_classes) == -1) {
+        alert("Oops", "That isn't a valid class.", "error");
+        return;
+      }
     }
     if ($.inArray(value, selected_classes) !== -1) {
       alert("Oops", "Class already added.", "error");
@@ -57,6 +59,7 @@ $(function () {
     }
 
     item.val(""); // Clear textfield
+    item.removeData('oldVal')
     var list = $('#selected-classes');
     var class_selections = $('#class-selections');
     if ($.inArray(value, selected_classes) == -1) {
@@ -70,9 +73,20 @@ $(function () {
     }
   });
 
+  $('#class-search').each(function() {
+    var elem = $(this);
+    elem.bind("keyup", function(event){
+      if (elem.val().length >= 2) {
+        value = $("li[aria-selected='true']")
+        elem.data('oldVal', value.text())
+      }
+    });
+  });
+
   $('#class-search').keypress(function(e) {
     if (e.which == 13) {
       $('#addClass').click();
+      $('#class-search').removeData('oldVal');
       return false;
     }
   });
