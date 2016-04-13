@@ -13,6 +13,10 @@ Background: I have classes
   | IJKL  | CS61C  |
   | MNOP  | CS70   |
   | Fork  | Spoon  |
+  | ESPN  | CS188  |
+  And the following prerequisites exist:
+  | course | number |
+  | CS188  | CS61B  |
   And the following professors exist:
   | name |
   | Cup  |
@@ -30,23 +34,25 @@ Scenario: Displays recommended classes to take in the future
   | title | number | term       | professor |
   | EFGH  | CS61B  | FA16       | Cup       |
   When I follow "Schedule"
-  Then I should see "Courses You're Interested In"
-  Then I should see "CS61B"
+  Then I should see "Courses You're Interested In" before "CS61B"
   Then I should see "Cup"
+  And I should not see "CS61B" before "Best Alternative Courses"
 
 Scenario: The user isn't eligible to take any classes in the upcoming year (sad path)
   Given the following courses are going to be taught:
   | title | number | term       | professor |
-  | MNOP  | CS70   | Fall 2016  | Cat       |
+  | MNOP  | CS70   | FA18       | Cat       |
+  | ESPN  | CS188  | FA16       | Cup       |
   When I follow "Schedule"
   Then I should see "Courses You're Interested In"
-  Then I should see "It seems you cannot take any classes offered next year"
-  Then I should see "Please go see your advisor"
+  Then I should see "It seems you cannot take any classes offered next semester."
+  Then I should see "Please go see your advisor."
 
 Scenario: The classes the user wants to take don't match what they can take (sad path)
   Given the following courses are going to be taught:
   | title | number | term       | professor |
-  | EFGH  | CS61B  | Fall 2016  | Cup       |
+  | EFGH  | CS61B  | FA16       | Cup       |
+  Given I am on the user page
   Given I want to take "CS61C-choice"
   When I follow "Schedule"
   Then I should see "Courses You're Interested In"

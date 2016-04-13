@@ -4,6 +4,10 @@
       .card.white.medium
         .card-content.scrollable
           %span.card-title Recommended Fall 2016 Courses
+          - if @fall_length == 0
+            %br
+            It seems you cannot take any classes offered next semester. 
+            Please go see your advisor.
           %table.centered.highlight
             %thead
               %tr
@@ -53,6 +57,10 @@
       .card.white.medium
         .card-content.scrollable
           %span.card-title Recommended Spring 2017 Courses
+          - if @spring_length == 0
+            %br
+            It seems you cannot take any classes offered next spring. 
+            Please go see your advisor.
           %table.centered.highlight
             %thead
               %tr
@@ -103,6 +111,10 @@
       .card.white.medium
         .card-content.scrollable
           %span.card-title Recommended Fall 2016 Breadth Courses Taught by Distinguished Professors
+          - if @spring_length == 0
+            %br
+            No classes taught by a distinguished humanities professor the next semester.
+            Please see your advisor for more details.
           %table.centered.highlight
             %thead
               %tr
