@@ -102,7 +102,6 @@ class User < ActiveRecord::Base
     total = 0
     num_professors = 0
     professors.each do |name|
-      puts name
       if name == "TBA"
         next
       end
@@ -136,6 +135,5 @@ class User < ActiveRecord::Base
         -data[2]
       end
     end
-    #course_list.slice!(7,course_list.length)
   end
 end
