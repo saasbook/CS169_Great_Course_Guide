@@ -7,7 +7,7 @@ Given /the following professors exist/ do |prof_table|
   num_profs = 0
   prof_table.hashes.each do |prof|
     p = Professor.create(prof)
-    p.courses.create({number: "Spoon", name: "Fork", rating: -num_profs, term: "SP14"})
+    p.courses.create({number: "Spoon", name: "Fork", rating: -num_profs, term: "FA16"})
     num_profs += 1
   end
 end
@@ -20,9 +20,11 @@ Given /the following courses exist/ do |course_table|
   end
 end
 
-Given /the following courses are going to be taught/ do |course_table|
-  course_table.hashes.each do |course|
-    c = DraftCourse.create(course)
+Given /the following courses are going to be taught/ do |draft_course_table|
+  draft_course_table.hashes.each do |draft_course|
+    p = Professor.find_by(name: draft_course[:professor])   
+    c = Course.find_by(number: draft_course[:number])
+    dc = c.draft_courses.create(professor: p.name, term: draft_course[:term])
   end
 end
 

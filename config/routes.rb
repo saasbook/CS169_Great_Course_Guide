@@ -16,11 +16,13 @@ Rails.application.routes.draw do
   get '/users/emails' => 'application#emails'
 
   # Professors
-  get '/distinguished' => 'professors#dist'
-  resources :professors, only: [:index, :show]
+  resources :professors, only: [:index, :show] do
+    get :distinguished, :on => :collection
+  end
 
   # Courses
-  get '/courses/all' => 'courses#all'
-  get '/courses/schedule' => 'courses#schedule'
-  resources :courses, only: [:index, :show]
+  resources :courses, only: [:index, :show] do
+    get :all, :on => :collection
+    get :schedule, :on => :collection
+  end
 end
