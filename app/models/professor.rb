@@ -3,13 +3,25 @@ class Professor < ActiveRecord::Base
   validates_uniqueness_of :name
 
   def courses
-    self.professor_courses
+    return self.professor_courses
+  end
+
+  def unique_courses
+    return ProfessorCourse.where(professor_id: self.id).uniq.select(:name, :number)
   end
 
   def rating
     rating_sum = self.courses.sum(:rating)
     num_courses = self.courses.length
     return num_courses == 0 ? "*" : (rating_sum / num_courses).round(2)
+  end
+
+  def rating_for(course_number)
+    total = 0
+    self.professor_courses.where(number: course_number).each do |professor_course|
+      total += professor_course.rating
+    end
+    return (total / self.professor_courses.where(number: course_number).length).round(2)
   end
 
 	def self.all_profs(type)

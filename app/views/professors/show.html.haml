@@ -3,21 +3,22 @@
     .col.s12
       .card.white
         .card-content
-          %span.card-title="All Courses Taught By #{@prof.name}"
+          %span.card-title="#{@prof.name}"
           %table.centered
             %thead
               %tr
                 %th{"data-field": "name"} Course
                 %th{"data-field": "title"} Title
-                %th{"data-field": "term"} Term
                 %th{"data-field": "rating"} Rating (Out of 7)
             %tbody
-              - @prof_courses.each do |p_course|
+              %tr
+                %td Overall
+                %td --
+                %td= @prof.rating
+              - @uniq_prof_courses.each do |p_course|
                 %tr
-                  - puts p_course.number
                   %td= link_to p_course.number, course_path(Course.find_by_number(p_course.number).id)
                   %td= p_course.name
-                  %td= p_course.term
-                  %td= p_course.rating
+                  %td= @prof.rating_for(p_course.number)
         .card-action
           %a{href: session[:return_to]} Back

@@ -28,7 +28,7 @@ Background: I have classes
 Scenario: Professor page displays correct info
   When I follow "CS61A"
   And I follow "Cup"
-  Then I should see "All Courses Taught By Cup"
+  Then I should see "Cup"
   And I should see "CS61B" before "Spoon"
 
 Scenario: Clicking on a class should go to class page
