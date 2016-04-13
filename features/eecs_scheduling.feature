@@ -37,7 +37,7 @@ Scenario: Displays recommended classes to take in the future
 Scenario: The user isn't eligible to take any classes in the upcoming year (sad path)
   Given the following courses are going to be taught:
   | title | number | term       | professor |
-  | MNOP  | CS70   | Fall 2016  | Cat       |
+  | MNOP  | CS70   | FA16       | Cat       |
   When I follow "Schedule"
   Then I should see "Courses You're Interested In"
   Then I should see "It seems you cannot take any classes offered next year"
@@ -46,7 +46,8 @@ Scenario: The user isn't eligible to take any classes in the upcoming year (sad 
 Scenario: The classes the user wants to take don't match what they can take (sad path)
   Given the following courses are going to be taught:
   | title | number | term       | professor |
-  | EFGH  | CS61B  | Fall 2016  | Cup       |
+  | EFGH  | CS61B  | FA16       | Cup       |
+  Given I am on the user page
   Given I want to take "CS61C-choice"
   When I follow "Schedule"
   Then I should see "Courses You're Interested In"
