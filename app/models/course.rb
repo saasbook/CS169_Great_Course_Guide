@@ -1,6 +1,7 @@
 class Course < ActiveRecord::Base
 
   has_many :prereqs
+  has_many :draft_courses
   validates_uniqueness_of :number
 
 	def self.all_courses

@@ -17,15 +17,12 @@ class Utils
 
   def self.draft_schedule
     fall_2016 = Hash.new
+    DraftCourse.where(term: "FA16").each do |draft_course|
+      fall_2016[draft_course.course.number] = draft_course.professor
+    end
     spring_2017 = Hash.new
-    CSV.foreach('data/DraftSchedule.csv') do |line|
-      course = line[0]
-      if not line[1].nil?
-        fall_2016[course] = line[1]
-      end
-      if line.length == 3
-        spring_2017[course] = line[2]
-      end
+    DraftCourse.where(term: "SP17").each do |draft_course|
+      spring_2017[draft_course.course.number] = draft_course.professor
     end
     return {fall: fall_2016, spring: spring_2017}
   end

@@ -9,7 +9,7 @@ class ProfessorsController < ApplicationController
     @prof_courses = @prof.courses.order(rating: :desc)
   end
 
-  def dist
+  def distinguished
     @dist_eecs_profs = Professor.dist_profs("EECS")
     @dist_hum_profs = Professor.dist_profs("HUM")
   end
