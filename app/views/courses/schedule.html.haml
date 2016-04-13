@@ -111,6 +111,10 @@
       .card.white.medium
         .card-content.scrollable
           %span.card-title Recommended Fall 2016 Breadth Courses Taught by Distinguished Professors
+          - if @spring_length == 0
+            %br
+            No classes taught by a distinguished humanities professor the next semester.
+            Please see your advisor for more details.
           %table.centered.highlight
             %thead
               %tr

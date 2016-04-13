@@ -26,5 +26,6 @@ class CoursesController < ApplicationController
     @fall_length = @recommended_EECS_courses[:possible_fall].length + @recommended_EECS_courses[:backup_fall].length
     @spring_length = @recommended_EECS_courses[:possible_spring].length + @recommended_EECS_courses[:backup_spring].length
     @recommended_breadth_courses = @user.recommended_breadth_courses
+    @breadth_length = @recommended_breadth_courses.length
   end
 end

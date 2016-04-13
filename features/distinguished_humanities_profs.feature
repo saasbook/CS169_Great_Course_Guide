@@ -1,8 +1,8 @@
-Feature: Non-Major Requirements
+Feature: Distinguished Humanities Professors
 
   As a student
-  So that I can plan my breadth requirements
-  I would like to see a list non-major courses taught by distinguished teachers
+  So that I can know the award-winning non-EECS professors
+  I would like to which humanities professors have won the award
 
 Background: I am on the user page
 
