@@ -11268,6 +11268,11 @@ html, body{ margin:0; padding:0; height:100%; width:100%; }
   width:100%;
   overflow:auto; /* or overflow:auto; if you want scrollbars */
 }
+#full-size-login{
+  height:100%;
+  width:100%;
+  overflow:hidden; /* or overflow:auto; if you want scrollbars */
+}
 .screen-center {
   position: relative;
   padding-top: 12%;
