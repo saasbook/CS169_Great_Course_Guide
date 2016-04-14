@@ -6,7 +6,7 @@
           %span.card-title Recommended Fall 2016 Courses
           - if @fall_length == 0
             %br
-            It seems you cannot take any classes offered next semester. 
+            It seems you cannot take any classes offered next semester.
             Please go see your advisor.
           %table.centered.highlight
             %thead
@@ -20,7 +20,7 @@
             %tbody
               - @recommended_EECS_courses[:possible_fall].each do |course|
                 %tr
-                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
                       - if professor.name == "TBA"
@@ -41,7 +41,7 @@
             %tbody
               - @recommended_EECS_courses[:backup_fall].each do |course|
                 %tr
-                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
                       - if professor.name == "TBA"
@@ -59,7 +59,7 @@
           %span.card-title Recommended Spring 2017 Courses
           - if @spring_length == 0
             %br
-            It seems you cannot take any classes offered next spring. 
+            It seems you cannot take any classes offered next spring.
             Please go see your advisor.
           %table.centered.highlight
             %thead
@@ -73,7 +73,7 @@
             %tbody
               - @recommended_EECS_courses[:possible_spring].each do |course|
                 %tr
-                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
                       - if professor.name == "TBA"
@@ -94,7 +94,7 @@
             %tbody
               - @recommended_EECS_courses[:backup_spring].each do |course|
                 %tr
-                  %td= link_to course[0].number, course_path(course[0].id)
+                  %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
                       - if professor.name == "TBA"

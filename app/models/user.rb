@@ -89,7 +89,7 @@ class User < ActiveRecord::Base
     distinguished_fall_breadth_courses = []
     fall_breadth_courses.each do |course|
       professor = Professor.find_by(name: course[2])
-      if professor and professor.distinguished 
+      if professor and professor.distinguished
         distinguished_fall_breadth_courses << course
       end
     end
@@ -98,7 +98,6 @@ class User < ActiveRecord::Base
   end
 
   protected
-
   def get_average_rating_of_professors(professors)
     total = 0
     num_professors = 0
