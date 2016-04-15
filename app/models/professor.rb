@@ -7,7 +7,7 @@ class Professor < ActiveRecord::Base
   end
 
   def unique_courses
-    return ProfessorCourse.where(professor_id: self.id).uniq.select(:name, :number)
+    return ProfessorCourse.where(professor_id: self.id).uniq.select(:name, :number, :rating)
   end
 
   def rating
