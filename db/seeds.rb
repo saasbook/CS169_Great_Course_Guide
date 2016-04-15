@@ -59,7 +59,7 @@ end
 distinguishedProfs.each do |name, year|
   prof = Professor.find_by(name: name)
   if prof.nil?
-    professor = Professor.create(name: name, distinguished: true, 
+    professor = Professor.create(name: name, distinguished: true,
       distinguishedYear: year, category: "HUM")
   end
 end
@@ -70,3 +70,13 @@ Professor.create(name: "Ken Goldberg")
 Professor.create(name: "Nicholas Weaver")
 Professor.create(name: "Joseph Gonzalez")
 Professor.create(name: "Alexandra von Meier")
+
+CSV.foreach('data/DraftSchedule.csv') do |line|
+  course = Course.find_by(number: line[0])
+  if not line[1].nil?
+    course.draft_courses.create(term: "FA16", professor: line[1])
+  end
+  if line.length == 3
+    course.draft_courses.create(term: "SP17", professor: line[2])
+  end
+end
