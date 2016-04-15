@@ -11325,7 +11325,7 @@ html, body{ margin:0; padding:0; height:100%; width:100%; }
 }
 
 canvas {
-  width: 100% !important;
+  width: 95% !important;
   max-width: 1000px;
   height: auto !important;
 }
