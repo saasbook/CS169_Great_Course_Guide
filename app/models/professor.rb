@@ -7,8 +7,8 @@ class Professor < ActiveRecord::Base
   end
 
   def unique_courses
-    courses = ProfessorCourse.where(professor_id: self.id).order(rating: :desc).select(:name, :number)
-    # TODO: Need to be distinct
+    courses = self.courses.select(:name, :number).uniq.sort_by { |p_course| -self.rating_for(p_course.number) }
+    #courses = ProfessorCourse.where(professor_id: self.id).select(:name, :number).uniq.sort_by { |p_course| -self.rating_for(p_course.number) }
     return courses
   end
 
