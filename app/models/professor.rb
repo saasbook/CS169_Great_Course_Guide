@@ -35,7 +35,7 @@ class Professor < ActiveRecord::Base
 		end
     profs.sort_by do |prof|
       if prof[:rating] == "*"
-        0
+        0.0
       else
         -prof[:rating]
       end
@@ -52,7 +52,7 @@ class Professor < ActiveRecord::Base
     end
     dist_profs.sort_by do |prof|
       if prof[:rating] == "*"
-        0
+        0.0
       else
         -prof[:rating]
       end
