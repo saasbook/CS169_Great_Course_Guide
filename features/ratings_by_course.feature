@@ -11,6 +11,7 @@ Background: Professors teach courses and get ratings
   | ABCD  | CS61A  |
   | EFGH  | CS61B  |
   | IJKL  | CS61C  |
+  | Fork  | Spoon  |
   And the following professors exist:
   | name | category |
   | Cup  | EECS     |
@@ -27,12 +28,12 @@ Background: Professors teach courses and get ratings
 
 Scenario: Professor page displays overall rating
   When I follow "Cup"
-  Then I should see "Overall" before "4.98"
+  Then I should see "Overall" before "4.15"
 
 Scenario: Professor page displays average rating for courses
   When I follow "Cup"
-  Then I should see "CS61A" before "5.10"
-  And I should see "CS61B" before "4.80"
+  Then I should see "CS61A" before "5.1"
+  And I should see "CS61B" before "4.8"
 
 Scenario: Professor page does not display ratings for courses professor does not teach
   When I follow "Cup"
