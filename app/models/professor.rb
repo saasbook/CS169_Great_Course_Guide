@@ -35,7 +35,7 @@ class Professor < ActiveRecord::Base
 		end
     profs.sort_by do |prof|
       if prof[:rating] == "*"
-        0
+        0.0
       else
         -prof[:rating]
       end
@@ -52,10 +52,26 @@ class Professor < ActiveRecord::Base
     end
     dist_profs.sort_by do |prof|
       if prof[:rating] == "*"
-        0
+        0.0
       else
         -prof[:rating]
       end
     end
   end
+
+  def chart_info
+    terms = []
+    ratings = []
+    self.courses.each do |p_course|
+      terms << p_course.number + " " + p_course.term
+      ratings << p_course.rating
+    end
+    return terms,ratings
+  end
 end
+
+
+
+
+
+
