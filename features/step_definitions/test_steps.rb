@@ -22,9 +22,17 @@ end
 
 Given /the following courses are going to be taught/ do |draft_course_table|
   draft_course_table.hashes.each do |draft_course|
-    p = Professor.find_by(name: draft_course[:professor])   
+    p = Professor.find_by(name: draft_course[:professor])
     c = Course.find_by(number: draft_course[:number])
     dc = c.draft_courses.create(professor: p.name, term: draft_course[:term])
+  end
+end
+
+Given /the following courses were taught/ do |professor_course_table|
+  professor_course_table.hashes.each do |professor_course|
+    p = Professor.find_by(name: professor_course[:professor])
+    c = Course.find_by(number: professor_course[:number])
+    p.courses.create({number: c.number, name: c.title, rating: professor_course[:rating], term: professor_course[:term]})
   end
 end
 
@@ -94,8 +102,3 @@ Given(/^"([^"]*)" isn't teaching "([^"]*)" next semester$/) do |prof, course|
   prof.distinguished = false
   prof.save
 end
-
-
-
-
-
