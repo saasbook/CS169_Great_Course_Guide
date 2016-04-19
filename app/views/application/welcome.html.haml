@@ -23,19 +23,16 @@
               = hidden_field_tag :authenticity_token, form_authenticity_token
               .row
                 .input-field.col.s12
-                  %input.validate{placeholder: "Enter First Name", id: "first_name", name: "first_name", type: "text"}
-                  %label{for: "first_name"} First Name
+                  %input.validate{placeholder: "Enter First Name", id: "first_name", name: "first_name", type: "text", spellcheck: "false"}
               .row
                 .input-field.col.s12
-                  %input.validate{placeholder: "Enter Last Name", id: "last_name", name: "last_name", type: "text"}
-                  %label{for: "last_name"} Last Name
+                  %input.validate{placeholder: "Enter Last Name", id: "last_name", name: "last_name", type: "text", spellcheck: "false"}
               .row
                 .input-field.col.s12
-                  %input.validate{placeholder: "Enter Email", id: "email", name: "email", type: "email"}
-                  %label{for: "email", "data-error": "wrong", "data-success": "right"} Email
+                  %input.validate{placeholder: "Enter Email", id: "email", name: "email", type: "email", spellcheck: "false"} 
               .row.animated.fadeIn.delay-animation-1.slow-animation
                 .col.s12
-                  %input.btn.blue.waves-effect.waves-light#continue{type: "button", value: "Continue"}
+                  %input.btn.blue.waves-effect.waves-light#submit_nojs{type: "submit", value: "Finish"}
             #class-form.hide
               .row
                 .col.s6.m9

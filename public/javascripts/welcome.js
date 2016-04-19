@@ -14,7 +14,20 @@ $(function () {
     all_emails = JSON.parse(data);
   });
 
-  $('#selected-classes').addClass("hide")
+  // Make welcome page work without JS by default
+  var first_name_label = $('<label for="first_name">First Name</label>');
+  var last_name_label = $('<label for="last_name">Last Name</label>');
+  var email_label = $('<label data-error="wrong" data-success="right" for="email">Email</label>');
+  first_name_label.insertAfter('#first_name');
+  last_name_label.insertAfter('#last_name');
+  email_label.insertAfter('#email');
+
+  var continue_button = $('<input class="btn blue waves-effect waves-light" id="continue" type="button" value="Continue"></input>');
+  continue_button.insertBefore('#submit_nojs');
+  $('#submit_nojs').hide();
+  // 
+
+  $('#selected-classes').addClass("hide");
   $("#continue").click(function() {
 
     first_name = $('#first_name').val();
