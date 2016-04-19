@@ -35,16 +35,4 @@ class Utils
     return fall_2016_breadth
   end
 
-  def self.addDTA()
-    begin
-      file = File.open("awards.csv", "w")
-      IO.readlines("data/distinguishedProfs.csv").each do |line|
-        file.write(line.strip + ",Distinguished Teaching Award\n")
-      end
-    rescue IOError => e
-      puts "Error"
-    ensure
-      file.close unless file.nil?
-    end
-  end
 end
