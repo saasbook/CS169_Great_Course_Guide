@@ -25,4 +25,27 @@ class Course < ActiveRecord::Base
     Utils.alpha_sort(finished_reqs, :number)
     return remaining_reqs, finished_reqs
   end
+
+  def self.filter
+    map = {}
+    self.all.each do |course|
+      department = course.number[0..1]
+      course.number =~ /(\d+)/
+      lower_div = $1.to_i < 100
+      if department == "EE"
+        if lower_div
+          map[course.number] = "EE_LOWER_DIV"
+        else
+          map[course.number] = "EE_UPPER_DIV"
+        end
+      else
+        if lower_div
+          map[course.number] = "CS_LOWER_DIV"
+        else
+          map[course.number] = "CS_UPPER_DIV"
+        end
+      end
+    end
+    return map
+  end
 end

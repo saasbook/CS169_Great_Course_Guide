@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     @user_exists = @user != nil
     @all_courses = Course.all_courses
     @all_emails = User.all_emails
+    @filter_map = Course.filter
     session[:return_to] = request.referer
   end
 
