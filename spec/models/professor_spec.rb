@@ -60,9 +60,9 @@ describe Professor do
 
 		it 'should filter by distinguished teachers' do
 			expect(Professor.dist_profs("EECS").length).to equal(2)
-			expect(Professor.dist_profs("EECS").first[:name]).to eql("John Denero")
-			expect(Professor.dist_profs("EECS").first[:year]).to eql("2016")
-			expect(Professor.dist_profs("EECS").second[:name]).to eql("Bleh")
+			expect(Professor.dist_profs("EECS").first.name).to eql("John Denero")
+			expect(Professor.dist_profs("EECS").first.distinguishedYear).to eql("2016")
+			expect(Professor.dist_profs("EECS").second.name).to eql("Bleh")
 		end
 
 		it 'should have the average rating of the professor' do

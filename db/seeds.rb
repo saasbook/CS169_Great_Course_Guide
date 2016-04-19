@@ -4,12 +4,17 @@ require 'set'
 Professor.destroy_all
 ProfessorCourse.destroy_all
 Course.destroy_all
+Award.destroy_all
+DraftCourse.destroy_all
 
 distinguishedProfs = Hash.new
-CSV.foreach('data/distinguishedProfs.csv') do |line|
+CSV.foreach('data/awards.csv') do |line|
   name = line[0]
   year = line[1]
-  distinguishedProfs[name] = year
+  award_title = line[2]
+  if award_title =~ /Distinguished Teaching Award/
+    distinguishedProfs[name] = year
+  end
 end
 
 CSV.foreach('data/classNames.csv', converters: :numeric) do |line|
@@ -46,6 +51,7 @@ CSV.foreach('data/classData.csv', converters: :numeric) do |row|
     professor = Professor.create(name: name)
     if distinguishedProfs.keys.include?(name)
       professor.distinguished = true
+      professor.awarded = true
       professor.distinguishedYear = distinguishedProfs[name]
       professor.save
     end
@@ -60,7 +66,7 @@ distinguishedProfs.each do |name, year|
   prof = Professor.find_by(name: name)
   if prof.nil?
     professor = Professor.create(name: name, distinguished: true,
-      distinguishedYear: year, category: "HUM")
+      distinguishedYear: year, category: "HUM", awarded: true)
   end
 end
 
@@ -70,6 +76,19 @@ Professor.create(name: "Ken Goldberg")
 Professor.create(name: "Nicholas Weaver")
 Professor.create(name: "Joseph Gonzalez")
 Professor.create(name: "Alexandra von Meier")
+
+CSV.foreach('data/awards.csv') do |line|
+  name = line[0]
+  year = line[1]
+  award_title = line[2]
+  prof = Professor.find_by(name: name)
+  if prof
+    prof.awards.create(title: award_title, year: year)
+  else
+    prof = Professor.create(name: name, category: "HUM", awarded: true)
+    prof.awards.create(title: award_title, year: year)
+  end
+end
 
 CSV.foreach('data/DraftSchedule.csv') do |line|
   course = Course.find_by(number: line[0])

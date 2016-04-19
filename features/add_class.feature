@@ -10,10 +10,10 @@ Background: I am on the user page
   And I login as "Michael"
   Then I should be on the user page
   Given the following courses exist:
-  | title                   | number      | 
-  | ABCD                    | CS61A       | 
-  | EFGH                    | CS61B       | 
-  | IJKL                    | CS61C       | 
+  | title                   | number      |
+  | ABCD                    | CS61A       |
+  | EFGH                    | CS61B       |
+  | IJKL                    | CS61C       |
 
 Scenario: Click All Courses
   When I follow "Courses"
@@ -32,7 +32,7 @@ Scenario: Add Courses I Have Taken
   And I check "CS61A-choice"
   When I check "CS61B-taken"
   And I check "CS61B-choice"
-  Then I press "Save"
+  Then I press "#save"
   Then I should be on the user page
   And I should see "CS61A" before "CS61B"
   And I should not see "EFGH" before "Courses You Want to Take"
@@ -44,7 +44,7 @@ Scenario: Delete Courses
   When I follow "Edit"
   When I uncheck "CS61A-choice"
   And I check "CS61C-choice"
-  Then I press "Save"
+  Then I press "#save"
   And I should not see "CS61A"
   And I should not see "CS61B" before "Courses You Want to Take"
   And I should see "CS61C" before "Your Completed Courses"

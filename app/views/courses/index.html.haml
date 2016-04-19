@@ -1,18 +1,52 @@
 .container.animated.mainContent
   .row
-    .col.s12
+    .col.s12.l3
+      .card.white#show-filters
+        .card-content
+          %span.card-title Filters
+          %br
+          .row
+            .col.s6.l12
+              .switch
+                %label
+                  %input#cs{type: "checkbox", checked: "true"}
+                    %span.lever
+                    CS
+              %br
+            .col.s6.l12
+              .switch
+                %label
+                  %input#ee{type: "checkbox", checked: "true"}
+                    %span.lever
+                    EE
+              %br
+            .col.s6.l12
+              .switch
+                %label
+                  %input#upper{type: "checkbox", checked: "true"}
+                    %span.lever
+                    Upper Divs
+              %br
+            .col.s6.l12
+              .switch
+                %label
+                  %input#lower{type: "checkbox", checked: "true"}
+                    %span.lever
+                    Lower Divs
+    .col.s12.l9#show-all
       .card.white
         .card-content
           %span.card-title All Courses
           %table.centered
             %thead
               %tr
-                %th{"data-fied": "name"} Course
+                %th{"data-field": "name"} Course
                 %th{"data-field": "title"} Title
             %tbody
               - @all_courses.each do |course|
-                %tr
+                %tr{class: @filter_map[course[:number]]}
                   %td= link_to course[:number], course_path(course[:id])
                   %td= course[:title]
         .card-action
           %a{href: "/user"} Back
+= javascript_include_tag '/javascripts/courses_index.js'
