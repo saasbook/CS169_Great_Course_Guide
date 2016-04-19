@@ -10,9 +10,9 @@ Background: I am on the user page
   And I fill in "First Name" with "Michael"
   And I fill in "Last Name" with "Jackson"
   And I fill in "Email" with "mjhomie@gmail.com"
-  And I press "Continue"
+  And I press "#continue"
   Then there should be the button "Add Class"
-  And I press "Finish"
+  And I press "#submit"
   Then I should be on the user page
 
  Scenario: Logout button exists

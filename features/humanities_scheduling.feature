@@ -10,17 +10,17 @@ Background: I am on the user page
   And I login as "Michael"
   Then I should be on the user page
   Given the following professors exist:
-  | name       | distinguished | distinguishedYear | category |
-  | Junko Habu | true			     | 2016              | HUM      |
-  | Xin Liu    | false         | null              | HUM      |
-  | Fae M. Ng  | true		       | 2014              | HUM      |
+  | name       | distinguished | distinguishedYear | category | awarded |
+  | Junko Habu | true			     | 2016              | HUM      | true    |
+  | Xin Liu    | false         | null              | HUM      | false   |
+  | Fae M. Ng  | true		       | 2014              | HUM      | true    |
   And they teach the humanities classes
 
 
-Scenario: I want to see classes taught by distinguished humanities teachers 
+Scenario: I want to see classes taught by distinguished humanities teachers
 
   When I follow "Schedule"
-  Then I should see "Breadth"
+  Then I should see "Non-EECS"
   And I should see "ANTHROC125A"
   And I should not see "ANTHRO189"
   But I should see "ASAMST172"

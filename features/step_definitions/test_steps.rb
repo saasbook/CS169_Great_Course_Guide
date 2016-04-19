@@ -78,13 +78,13 @@ Given /I have "(.*)" in my classes/ do |course_name|
   click_link("Edit", match: :first)
   check(course_name)
   check("#{course_name.split("-")[0]}" + "-taken")
-  click_button("Save", match: :first)
+  find('#save').click
 end
 
 Given /I want to take "(.*)"/ do |course_name|
   click_link("Edit", match: :first)
   check(course_name)
-  click_button("Save", match: :first)
+  find('#save').click
 end
 
 Given(/^they teach the humanities classes$/) do
