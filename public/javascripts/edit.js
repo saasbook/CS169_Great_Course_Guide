@@ -36,4 +36,23 @@ $(function() {
   	}
   });
 
+  // Fixed Scrolling
+  scrollDivWithPage = function() {
+    if ($(window).width() <= 950) {
+      $('#filters').removeAttr('style');
+      $('#selections').removeAttr('style');
+    } else {
+      var containerWidth = $('.container').width()
+      $('#filters').css({'position': 'fixed', 'top': '64px', 'width': 180});
+      var filterWidth = $('#filters').width()
+      $('#selections').css({'position': 'absolute', 'top': '64px', 'margin-left': (filterWidth + 10).toString() + 'px', 'width': containerWidth - filterWidth - 10});
+    }
+  }
+  $(window).resize(scrollDivWithPage);
+  scrollDivWithPage();
+
+  $('#saveInFilter').click(function() {
+    $('#save').click();
+  });
+
 });

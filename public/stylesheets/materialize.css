@@ -11330,18 +11330,4 @@ canvas {
   height: auto !important;
 }
 
-/*@media only screen and (max-width: 1200px) {
-  #filters {
-    position: fixed;
-    top: 64px;
-  }
-  .shift-s2 {
-    margin-left: 16.6666666667%;
-  }
-}*/
-
-/*#filters {
-  position: fixed;
-  top: 64px;
-}*/
-
+/* Rohit: Fixed Scrolling in edit.js */
