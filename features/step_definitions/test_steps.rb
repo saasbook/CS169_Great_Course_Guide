@@ -66,11 +66,11 @@ Then /I should not see "(.*)" before "(.*)"/ do |e1, e2|
 end
 
 And /I login as "(.*)"/ do |name|
-  fill_in("First Name", :with => name)
-  fill_in("Last Name", :with => "Jackson")
-  fill_in("Email", :with => "mjhomie@gmail.com")
-  click_button("Continue", match: :first)
-  should have_button("Add Class")
+  fill_in("first_name", :with => name)
+  fill_in("last_name", :with => "Jackson")
+  fill_in("email", :with => "mjhomie@gmail.com")
+  #click_button("Continue", match: :first)
+  #should have_button("Add Class")
   click_button("Finish", match: :first)
 end
 
