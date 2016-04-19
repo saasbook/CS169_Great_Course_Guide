@@ -9,7 +9,7 @@ $(function() {
     $("#" + split[0] + "-taken").prop('checked', false);
   });
   var filters = {"cs": $("#cs"), "ee": $("#ee"), "upper": $("#upper"), "lower": $("#lower")}
-  $(".filters").change(function() {
+  $("#filters").change(function() {
   	$('.EE_UPPER_DIV').hide();
   	$('.EE_LOWER_DIV').hide();
   	$('.CS_LOWER_DIV').hide();
@@ -35,4 +35,5 @@ $(function() {
   		}
   	}
   });
+
 });
