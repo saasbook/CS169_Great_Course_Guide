@@ -1,7 +1,7 @@
 .container.animated.mainContent
   .row
     .col.s12.l3
-      .card.white#show-filters
+      .card.white#filters
         .card-content
           %span.card-title Filters
           %br
@@ -19,6 +19,14 @@
                   %input#ee{type: "checkbox", checked: "true"}
                     %span.lever
                     EE
+          %hr#filterDivider
+          .row
+            .col.s6.l12
+              .switch
+                %label
+                  %input#lower{type: "checkbox", checked: "true"}
+                    %span.lever
+                    Lower Divs
               %br
             .col.s6.l12
               .switch
@@ -30,10 +38,10 @@
             .col.s6.l12
               .switch
                 %label
-                  %input#lower{type: "checkbox", checked: "true"}
+                  %input#grad{type: "checkbox", checked: "true"}
                     %span.lever
-                    Lower Divs
-    .col.s12.l9#show-all
+                    Graduate
+    .col.s12.l9#selections
       .card.white
         .card-content
           %span.card-title All Courses
@@ -49,4 +57,4 @@
                   %td= course[:title]
         .card-action
           %a{href: "/user"} Back
-= javascript_include_tag '/javascripts/courses_index.js'
+= javascript_include_tag '/javascripts/filter.js'

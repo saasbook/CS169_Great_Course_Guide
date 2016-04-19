@@ -19,6 +19,11 @@
             %a{href: "/professors"} All EECS Professors
           %li
             %a{href: "/professors/distinguished"} Distinguished Professors
+        %ul#courseOptions.dropdown-content
+          %li
+            %a{href: "/courses"} All Courses
+          %li
+            %a{href: "/edit"} Edit Courses
         %nav.blue.darken-4
           .nav-wrapper.container
             %a.brand-logo{href: "/welcome"} Great Course Guide
@@ -30,9 +35,10 @@
                   %i.material-icons.left today
                   Schedule
               %li
-                %a{href: "/courses"}
+                %a.dropdown-button{"data-activates": "courseOptions"}
                   %i.material-icons.left subject
                   Courses
+                  %i.material-icons.right arrow_drop_down
               %li
                 %a.dropdown-button{"data-activates": "profOptions"}
                   %i.material-icons.left group
@@ -40,19 +46,30 @@
                   %i.material-icons.right arrow_drop_down
               %li
                 %a{href: "/logout"} Logout
+
             %ul#nav-mobile2.side-nav
               %li.bold.no-padding
                 %a{href: "/courses/schedule"}
                   %i.material-icons.left today
                   Schedule
               %li.bold.no-padding
-                %a{href: "/courses"} 
-                  %i.material-icons.left subject
-                  Courses
+                %ul.collapsible.collapsible-accordion
+                  %li.bold.no-padding
+                    %a.collapsible-header
+                      %i.material-icons.left subject
+                      Courses
+                      %i.material-icons.right arrow_drop_down
+                    %div.collapsible-body{style: "display: block"}
+                      %ul
+                        %li.bold.no-padding
+                          %a{href: "/courses"} All Courses
+                        %li.bold.no-padding
+                          %a{href: "/edit"} Edit Courses
               %li.bold.no-padding
                 %ul.collapsible.collapsible-accordion
                   %li.bold.no-padding
                     %a.collapsible-header
+                      %i.material-icons.left group
                       Professors
                       %i.material-icons.right arrow_drop_down
                     %div.collapsible-body{style: "display: block"}

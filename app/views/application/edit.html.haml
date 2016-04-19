@@ -19,7 +19,7 @@
                   %input#ee{type: "checkbox", checked: "true"}
                     %span.lever
                     EE
-              %br
+          %hr#filterDivider
           .row
             .col.s6.l12
               .switch
@@ -38,7 +38,7 @@
             .col.s6.l12
               .switch
                 %label
-                  %input#grad{type: "checkbox", checked: "false"}
+                  %input#grad{type: "checkbox", checked: "true"}
                     %span.lever
                     Graduate
         .card-action.center
@@ -67,7 +67,7 @@
                     %td
                       %input{type: "checkbox", class: "filled-in takenBox", id: "#{course[:number]}-taken", :checked => (@user_takenClassNames.include?(course[:number]) ? "checked" : nil), name: "taken_classes[#{course[:number]}: #{course[:title]}]"}
                       %label{for: "#{course[:number]}-taken"}
-          .card-action
-            %input.btn.blue.waves-effect.waves-light#save{type: "submit", value: "Save"}
+        %input.btn.blue.waves-effect.waves-light#save.hidden{type: "submit", value: "Save"}
 
 = javascript_include_tag '/javascripts/edit.js'
+= javascript_include_tag '/javascripts/filter.js'
