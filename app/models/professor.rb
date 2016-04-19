@@ -1,5 +1,6 @@
 class Professor < ActiveRecord::Base
   has_many :professor_courses
+  has_many :awards
   validates_uniqueness_of :name
 
   def courses
@@ -47,14 +48,14 @@ class Professor < ActiveRecord::Base
     dist_profs = []
     self.where(category: type).each do |prof|
       if prof.distinguished
-        dist_profs << {id: prof.id, name: prof.name, rating: prof.rating, year: prof.distinguishedYear}
+        dist_profs << prof
       end
     end
     dist_profs.sort_by do |prof|
-      if prof[:rating] == "*"
+      if prof.rating == "*"
         0.0
       else
-        -prof[:rating]
+        -prof.rating
       end
     end
   end
@@ -67,6 +68,22 @@ class Professor < ActiveRecord::Base
       ratings << p_course.rating
     end
     return terms,ratings
+  end
+
+  def all_awards
+    awards = ""
+    self.awards.each do |award|
+      if award == self.awards.last
+        awards << "#{award.year} #{award.title}"
+      else
+        awards << "#{award.year} #{award.title}, "
+      end
+    end
+    return awards
+  end
+
+  def self.awarded_hum_profs
+    return self.where(category: "HUM", awarded: true)
   end
 end
 

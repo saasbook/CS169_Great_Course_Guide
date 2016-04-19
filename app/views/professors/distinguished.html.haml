@@ -16,20 +16,20 @@
             %tbody
               - @dist_eecs_profs.each do |prof|
                 %tr
-                  %td= link_to prof[:name], professor_path(prof[:id])
-                  %td= prof[:year]
-                  %td= prof[:rating]
+                  %td= link_to prof.name, professor_path(prof.id)
+                  %td= prof.distinguishedYear
+                  %td= prof.rating
           %br
-          .chip.center-div Distinguished Non-EECS Professors
+          .chip.center-div Awarded Non-EECS Professors
           %table
             %thead
               %tr
                 %th{"data-field": "name"} Name
-                %th{"data-field": "year"} Year
+                %th{"data-field": "award"} Award(s)
             %tbody
-              - @dist_hum_profs.each do |prof|
+              - @awarded_hum_profs.each do |prof|
                 %tr
-                  %td= prof[:name]
-                  %td= prof[:year]
+                  %td= prof.name
+                  %td= prof.all_awards
         .card-action
           %a{href: "/user"} Back
