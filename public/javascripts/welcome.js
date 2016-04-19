@@ -25,7 +25,7 @@ $(function () {
   var continue_button = $('<input class="btn blue waves-effect waves-light" id="continue" type="button" value="Continue"></input>');
   continue_button.insertBefore('#submit_nojs');
   $('#submit_nojs').hide();
-  // 
+  // End
 
   $('#selected-classes').addClass("hide");
   $("#continue").click(function() {

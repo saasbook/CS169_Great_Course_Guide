@@ -74,6 +74,10 @@ And /I login as "(.*)"/ do |name|
   click_button("Finish", match: :first)
 end
 
+And /I should find "(.*)"/ do |id|
+  find_by_id(id)
+end
+
 Given /I have "(.*)" in my classes/ do |course_name|
   click_link("Edit", match: :first)
   check(course_name)
