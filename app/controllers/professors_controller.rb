@@ -14,6 +14,6 @@ class ProfessorsController < ApplicationController
 
   def distinguished
     @dist_eecs_profs = Professor.dist_profs("EECS")
-    @dist_hum_profs = Professor.dist_profs("HUM")
+    @awarded_hum_profs = Professor.awarded_hum_profs
   end
 end
