@@ -31,20 +31,8 @@ class Course < ActiveRecord::Base
     self.all.each do |course|
       department = course.number[0..1]
       course.number =~ /(\d+)/
-      lower_div = $1.to_i < 100
-      if department == "EE"
-        if lower_div
-          map[course.number] = "EE_LOWER_DIV"
-        else
-          map[course.number] = "EE_UPPER_DIV"
-        end
-      else
-        if lower_div
-          map[course.number] = "CS_LOWER_DIV"
-        else
-          map[course.number] = "CS_UPPER_DIV"
-        end
-      end
+      div = $1.to_i < 100 ? "_LOWER_DIV" : "_UPPER_DIV"
+      map[course.number] = department + div
     end
     return map
   end
