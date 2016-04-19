@@ -11330,4 +11330,6 @@ canvas {
   height: auto !important;
 }
 
-/* Rohit: Fixed Scrolling in edit.js */
+.hidden {
+  visibility: hidden;
+}

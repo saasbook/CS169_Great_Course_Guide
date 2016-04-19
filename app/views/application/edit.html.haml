@@ -19,6 +19,14 @@
                   %input#ee{type: "checkbox", checked: "true"}
                     %span.lever
                     EE
+          %hr#filterDivider
+          .row
+            .col.s6.l12
+              .switch
+                %label
+                  %input#lower{type: "checkbox", checked: "true"}
+                    %span.lever
+                    Lower Divs
               %br
             .col.s6.l12
               .switch
@@ -30,9 +38,9 @@
             .col.s6.l12
               .switch
                 %label
-                  %input#lower{type: "checkbox", checked: "true"}
+                  %input#grad{type: "checkbox", checked: "true"}
                     %span.lever
-                    Lower Divs
+                    Graduate
         .card-action.center
           %input.btn.blue.waves-effect.waves-light#saveInFilter{type: "submit", value: "Save"}
     .col.s12.l9#selections
@@ -59,7 +67,7 @@
                     %td
                       %input{type: "checkbox", class: "filled-in takenBox", id: "#{course[:number]}-taken", :checked => (@user_takenClassNames.include?(course[:number]) ? "checked" : nil), name: "taken_classes[#{course[:number]}: #{course[:title]}]"}
                       %label{for: "#{course[:number]}-taken"}
-          .card-action
-            %input.btn.blue.waves-effect.waves-light#save{type: "submit", value: "Save"}
+        %input.btn.blue.waves-effect.waves-light#save.hidden{type: "submit", value: "Save"}
 
 = javascript_include_tag '/javascripts/edit.js'
+= javascript_include_tag '/javascripts/filter.js'
