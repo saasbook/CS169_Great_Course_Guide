@@ -10,12 +10,7 @@ $(function() {
   });
   var filters = {"cs": $("#cs"), "ee": $("#ee"), "upper": $("#upper"), "lower": $("#lower"), "grad": $("#grad")}
   $("#filters").change(function() {
-  	$('.EE_GRAD').hide();
-    $('.EE_UPPER_DIV').hide();
-  	$('.EE_LOWER_DIV').hide();
-  	$('.CS_LOWER_DIV').hide();
-  	$('.CS_UPPER_DIV').hide();
-    $('.CS_GRAD').hide();
+    $("tr").hide()
   	var cs = filters["cs"].is(':checked');
   	var lower = filters["lower"].is(':checked');
   	var ee = filters["ee"].is(':checked');
