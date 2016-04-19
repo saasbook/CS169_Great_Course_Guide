@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
         1,
         null,
         1,
@@ -15,18 +15,19 @@
         1,
         null,
         1,
-        97,
-        97,
+        75,
+        75,
         1,
         null,
         null,
         null,
         1,
-        121,
-        121,
-        121,
-        121,
-        121,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
         null,
         null,
         1,
@@ -44,32 +45,32 @@
         null,
         null,
         1,
-        11,
-        11,
-        11,
-        4,
-        4,
+        9,
+        9,
+        9,
+        0,
+        0,
         null,
-        4,
+        0,
         null,
         null,
         null,
         1,
-        11,
-        11,
-        11,
-        11,
-        15,
-        15,
-        15,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
         null,
         0,
         null,
-        15,
+        2,
         null,
         null,
         null,
-        11,
+        1,
         null,
         null,
         1,
@@ -98,15 +99,15 @@
         null,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
         1,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/user.rb": [
         1,
         null,
         1,
@@ -118,19 +119,19 @@
         1,
         null,
         1,
-        121,
-        217,
-        121,
+        99,
+        173,
+        99,
         null,
         null,
         1,
-        76,
-        76,
+        56,
+        56,
         null,
-        32,
+        4,
         null,
-        76,
-        76,
+        56,
+        56,
         null,
         null,
         1,
@@ -247,7 +248,7 @@
         null,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/course.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/course.rb": [
         1,
         null,
         1,
@@ -255,12 +256,12 @@
         1,
         null,
         1,
-        121,
-        121,
-        413,
+        99,
+        99,
+        313,
         null,
-        121,
-        121,
+        99,
+        99,
         null,
         null,
         1,
@@ -274,25 +275,37 @@
         9,
         9,
         9,
+        null,
+        null,
+        1,
+        99,
+        99,
+        313,
+        313,
+        313,
+        313,
+        313,
+        null,
+        99,
         null,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/utils.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/utils.rb": [
         1,
         1,
         null,
         1,
         1,
-        215,
-        846,
+        173,
+        602,
         null,
         null,
         null,
         1,
-        15,
-        15,
-        15,
-        15,
+        2,
+        2,
+        2,
+        2,
         null,
         null,
         1,
@@ -317,12 +330,12 @@
         null,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/professor.rb": [
         1,
         1,
         1,
@@ -401,12 +414,12 @@
         null,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor_course.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/professor_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/professors_controller.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/professors_controller.rb": [
         1,
         null,
         1,
@@ -427,7 +440,7 @@
         null,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/courses_controller.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/courses_controller.rb": [
         1,
         null,
         1,
@@ -460,17 +473,17 @@
         null,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
         1,
         1,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/draft_course.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/draft_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
+      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
         1,
         null,
         1,
@@ -485,7 +498,7 @@
         null
       ]
     },
-    "timestamp": 1460834745
+    "timestamp": 1461084509
   },
   "RSpec": {
     "coverage": {
