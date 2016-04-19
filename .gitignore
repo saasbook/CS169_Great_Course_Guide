@@ -3,4 +3,6 @@
 /spec/tmp
 /.bundle
 /vendor/bundle
+/coverage
+/db/development.sqlite3
 
