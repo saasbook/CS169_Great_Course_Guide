@@ -31,7 +31,9 @@ class Course < ActiveRecord::Base
     self.all.each do |course|
       department = course.number[0..1]
       course.number =~ /(\d+)/
-      div = $1.to_i < 100 ? "_LOWER_DIV" : "_UPPER_DIV"
+      num = $1.to_i
+      #div = $1.to_i < 100 ? "_LOWER_DIV" : "_UPPER_DIV"
+      div = num < 100 ? "_LOWER_DIV" : (num < 200 ? "_UPPER_DIV" : "_GRAD")
       map[course.number] = department + div
     end
     return map

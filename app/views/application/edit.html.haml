@@ -23,6 +23,13 @@
             .col.s6.l12
               .switch
                 %label
+                  %input#lower{type: "checkbox", checked: "true"}
+                    %span.lever
+                    Lower Divs
+              %br
+            .col.s6.l12
+              .switch
+                %label
                   %input#upper{type: "checkbox", checked: "true"}
                     %span.lever
                     Upper Divs
@@ -30,9 +37,9 @@
             .col.s6.l12
               .switch
                 %label
-                  %input#lower{type: "checkbox", checked: "true"}
+                  %input#grad{type: "checkbox", checked: "true"}
                     %span.lever
-                    Lower Divs
+                    Graduate
         .card-action.center
           %input.btn.blue.waves-effect.waves-light#saveInFilter{type: "submit", value: "Save"}
     .col.s12.l9#selections

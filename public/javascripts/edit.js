@@ -8,16 +8,19 @@ $(function() {
     var split = this.id.split("-");
     $("#" + split[0] + "-taken").prop('checked', false);
   });
-  var filters = {"cs": $("#cs"), "ee": $("#ee"), "upper": $("#upper"), "lower": $("#lower")}
+  var filters = {"cs": $("#cs"), "ee": $("#ee"), "upper": $("#upper"), "lower": $("#lower"), "grad": $("#grad")}
   $("#filters").change(function() {
-  	$('.EE_UPPER_DIV').hide();
+  	$('.EE_GRAD').hide();
+    $('.EE_UPPER_DIV').hide();
   	$('.EE_LOWER_DIV').hide();
   	$('.CS_LOWER_DIV').hide();
   	$('.CS_UPPER_DIV').hide();
+    $('.CS_GRAD').hide();
   	var cs = filters["cs"].is(':checked');
   	var lower = filters["lower"].is(':checked');
   	var ee = filters["ee"].is(':checked');
   	var upper = filters["upper"].is(':checked');
+    var grad = filters["grad"].is(':checked');
   	if (cs) {
   		if (lower) {
   			$('.CS_LOWER_DIV').show();
@@ -25,6 +28,9 @@ $(function() {
   		if (upper) {
   			$('.CS_UPPER_DIV').show();
   		}
+      if (grad) {
+        $('.CS_GRAD').show();
+      }
   	}
   	if (ee) {
   		if (lower) {
@@ -33,6 +39,9 @@ $(function() {
   		if (upper) {
   			$('.EE_UPPER_DIV').show();
   		}
+      if (grad) {
+        $('.EE_GRAD').show();
+      }
   	}
   });
 
