@@ -19,7 +19,7 @@ Scenario: I see the distinguished humanities professor
   | Cat  | false         | null              | HUM      | false   |
 
   When I follow "Award-Winning Professors"
-  Then I should see "Awarded Non-EECS Professors" before "Cup"
+  Then I should see "Award-Winning Non-EECS Professors" before "Cup"
   But I should not see "Dog"
   And I should not see "Cat"
 
