@@ -49,22 +49,22 @@
         .card.white
           .card-content
             %span.card-title Edit Your Courses
-            %table.centered
+            %table
               %thead
                 %tr
                   %th{"data-field": "name"} Course
                   %th{"data-field": "title"} Title
-                  %th{"data-field": "add"} Add?
-                  %th{"data-field": "taken"} Taken?
+                  %th{"data-field": "add"} Interested
+                  %th{"data-field": "taken"} Completed
               %tbody
                 - @all_courses.each do |course|
                   %tr{class: @filter_map[course[:number]]}
                     %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
-                    %td
+                    %td.pad-left-35
                       %input{type: "checkbox", class: "filled-in addBox", id: "#{course[:number]}-choice", :checked => (@user_classNames.include?(course[:number]) ? "checked" : nil), name: "classes[#{course[:number]}: #{course[:title]}]"}
                       %label{for: "#{course[:number]}-choice"}
-                    %td
+                    %td.pad-left-35
                       %input{type: "checkbox", class: "filled-in takenBox", id: "#{course[:number]}-taken", :checked => (@user_takenClassNames.include?(course[:number]) ? "checked" : nil), name: "taken_classes[#{course[:number]}: #{course[:title]}]"}
                       %label{for: "#{course[:number]}-taken"}
         %input.btn.blue.waves-effect.waves-light#save.hidden{type: "submit", value: "Save"}

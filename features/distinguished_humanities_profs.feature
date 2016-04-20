@@ -18,7 +18,7 @@ Scenario: I see the distinguished humanities professor
   | Dog  | false         | null              | HUM      | false   |
   | Cat  | false         | null              | HUM      | false   |
 
-  When I follow "Distinguished Professors"
+  When I follow "Award-Winning Professors"
   Then I should see "Awarded Non-EECS Professors" before "Cup"
   But I should not see "Dog"
   And I should not see "Cat"
@@ -31,7 +31,7 @@ Scenario: There are no distinguished humanities professors (SAD PATH)
   | Dog  | false         | null              | HUM      | false   |
   | Cat  | false         | null              | HUM      | false   |
 
-  When I follow "Distinguished Professors"
+  When I follow "Award-Winning Professors"
   Then I should not see "Cup"
   And I should not see "Dog"
   And I should not see "Cat"

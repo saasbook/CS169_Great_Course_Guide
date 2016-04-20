@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
         1,
         null,
         1,
@@ -99,15 +99,15 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/user.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user.rb": [
         1,
         null,
         1,
@@ -248,7 +248,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/course.rb": [
         1,
         null,
         1,
@@ -290,7 +290,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/utils.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/utils.rb": [
         1,
         1,
         null,
@@ -330,12 +330,12 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/professor.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor.rb": [
         1,
         1,
         1,
@@ -431,12 +431,12 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/professor_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/professors_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/professors_controller.rb": [
         1,
         null,
         1,
@@ -457,7 +457,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/courses_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/courses_controller.rb": [
         1,
         null,
         1,
@@ -490,22 +490,22 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/award.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/award.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/draft_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/draft_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
         1,
         null,
         1,
@@ -520,19 +520,19 @@
         null
       ]
     },
-    "timestamp": 1461104693
+    "timestamp": 1461116956
   },
   "RSpec": {
     "coverage": {
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/helpers/login_helper.rb": [
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/application_controller.rb": [
         1,
         null,
         1,
@@ -630,7 +630,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/user.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user.rb": [
         1,
         null,
         1,
@@ -771,7 +771,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/professor.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor.rb": [
         1,
         1,
         1,
@@ -867,7 +867,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/course.rb": [
         1,
         null,
         1,
@@ -909,7 +909,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/courses_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/courses_controller.rb": [
         1,
         null,
         1,
@@ -942,7 +942,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/login_controller.rb": [
         1,
         null,
         1,
@@ -956,7 +956,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/controllers/professors_controller.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/controllers/professors_controller.rb": [
         1,
         null,
         1,
@@ -977,7 +977,7 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/utils.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/utils.rb": [
         1,
         1,
         null,
@@ -1017,32 +1017,32 @@
         null,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/user_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/prereq.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/professor_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/professor_course.rb": [
         1,
         1,
         null
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/award.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/award.rb": [
         0,
         0,
         0
       ],
-      "/Users/anishbalaji/Documents/Berkeley/CS169/CS169_Great_Course_Guide/app/models/draft_course.rb": [
+      "/Users/Monu/Desktop/CS169/CS169_Great_Course_Guide/app/models/draft_course.rb": [
         0,
         0,
         0
       ]
     },
-    "timestamp": 1461104112
+    "timestamp": 1461116961
   }
 }

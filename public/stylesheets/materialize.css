@@ -11333,3 +11333,7 @@ canvas {
 .hidden {
   visibility: hidden;
 }
+
+.pad-left-35 {
+  padding-left: 35px;
+}

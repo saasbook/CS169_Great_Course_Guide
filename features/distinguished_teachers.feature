@@ -16,7 +16,7 @@ Background: There are classes
   Then I should be on the user page
 
 Scenario: Seeing Distinguished Teachers
-  When I follow "Distinguished Professors"
+  When I follow "Award-Winning Professors"
   And I should see "Dog"
   And I should see "Cup"
   And I should not see "Cat"
