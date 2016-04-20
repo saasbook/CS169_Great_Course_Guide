@@ -106,3 +106,7 @@ Given(/^"([^"]*)" isn't teaching "([^"]*)" next semester$/) do |prof, course|
   prof.distinguished = false
   prof.save
 end
+
+Then /I logout/ do
+  visit('/logout')
+end
