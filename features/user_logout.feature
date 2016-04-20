@@ -13,3 +13,4 @@ Background: I am on the user page
  Scenario: Logout button exists
   Given I am on the user page
   Then I should see "Logout"
+  Then I logout

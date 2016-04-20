@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # General
   get "/logout" => "application#logout"
+  get "/cas/logout" => "login#index"
   get "/welcome" => "application#welcome"
   get "/user" => "application#index"
   get "/edit" => "application#edit"
