@@ -110,3 +110,11 @@ end
 Then /I logout/ do
   visit('/logout')
 end
+
+Then(/^"([^"]*)" should be visible$/) do |arg1|
+  expect(page).to have_selector(arg1, visible: true)
+end
+
+Then(/^"([^"]*)" should not be visible$/) do |arg1|
+  expect(page).to have_selector(arg1, visible: false)
+end
