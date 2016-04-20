@@ -69,8 +69,6 @@ And /I login as "(.*)"/ do |name|
   fill_in("first_name", :with => name)
   fill_in("last_name", :with => "Jackson")
   fill_in("email", :with => "mjhomie@gmail.com")
-  #click_button("Continue", match: :first)
-  #should have_button("Add Class")
   click_button("Finish", match: :first)
 end
 
