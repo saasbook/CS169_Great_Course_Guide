@@ -27,6 +27,7 @@ Feature: Add Classes to Fall Schedule
     And professors teach the appropriate courses
     Given I have "CS61A-choice" in my classes
     And I am on the courses page
+    When I follow "Schedule"
 
 @wip
 Scenario: Adding a class and removing a class

@@ -28,32 +28,36 @@ Background: I have classes
   Given I have "CS61A-choice" in my classes
   And I am on the courses page
 
+@wip
 Scenario: Displays spring classes 
   Given the following courses are going to be taught:
   | title | number | term       | professor |
   | EFGH  | CS61B  | FA16       | Cup       |
+  | IEFJ  | CS61B  | SP17       | Dog       |
   When I follow "Schedule"
-  Then I should see "Courses You're Interested In" before "CS61B"
-  Then I should see "Cup"
-  And I should not see "CS61B" before "Best Alternative Courses"
+  When I check "add-CS61B"
+  Then "#CS61B-spring" should not be visible 
+  And I should not see "Dog"
 
-Scenario: The user isn't eligible to take any classes in the upcoming year (sad path)
-  Given the following courses are going to be taught:
-  | title | number | term       | professor |
-  | MNOP  | CS70   | FA18       | Cat       |
-  | ESPN  | CS188  | FA16       | Cup       |
-  When I follow "Schedule"
-  Then I should see "Courses You're Interested In"
-  Then I should see "It seems you cannot take any classes offered next semester."
-  Then I should see "Please go see your advisor."
-
-Scenario: The classes the user wants to take don't match what they can take (sad path)
+@wip
+Scenario: No classes to remove in Spring
   Given the following courses are going to be taught:
   | title | number | term       | professor |
   | EFGH  | CS61B  | FA16       | Cup       |
-  Given I am on the user page
-  Given I want to take "CS61C-choice"
-  When I follow "Schedule"
-  Then I should see "Courses You're Interested In"
-  Then I should see "CS61B"
-  And I should not see "CS61C"
+  When I check "add-CS61B"
+  And I uncheck "add-CS61B"
+  Then I should not see "#CS61B-spring"
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
