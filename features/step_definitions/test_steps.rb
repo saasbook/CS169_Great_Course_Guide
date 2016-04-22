@@ -116,3 +116,13 @@ end
 Then(/^"([^"]*)" should not be visible$/) do |arg1|
   expect(page).to have_selector(arg1, visible: false)
 end
+
+Then(/^"([^"]*)" should be checked$/) do |arg1|
+  my_box = find(arg1)
+  expect(my_box).to be_checked  # Rspec 2.11
+end
+
+Then(/^"([^"]*)" should not be checked$/) do |arg1|
+  my_box = find(arg1)
+  expect(my_box).to_not be_checked  # Rspec 2.11
+end
