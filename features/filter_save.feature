@@ -35,3 +35,12 @@ Scenario: Uncheck EE then leave the page and come back
   Then ".EE_LOWER_DIV" should not be visible
   Then ".EE_UPPER_DIV" should not be visible
 
+Scenario: Uncheck all options and come back
+  When I uncheck "cs"
+  When I uncheck "lower"
+  When I uncheck "upper"
+  When I uncheck "grad"
+  Then ".CS_LOWER_DIV" should not be visible
+  Then ".CS_UPPER_DIV" should not be visible
+  Then ".EE_LOWER_DIV" should not be visible
+  Then ".EE_UPPER_DIV" should not be visible
