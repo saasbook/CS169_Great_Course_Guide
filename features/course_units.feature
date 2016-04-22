@@ -32,5 +32,5 @@ Scenario: Units on Specific Course Page
   Then I should not see "2 Units"
 
 Scenario: Units do not exist for specific course
-  When I follow "YOYO"
+  When I follow "CS150"
   Then I should see "units info not available"
