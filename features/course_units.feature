@@ -18,6 +18,7 @@ Background: I am on the courses page
   | YOYO                    | CS150       | nil   |
   Then I follow "All Courses"
 
+@wip
 Scenario: Checking Units on All Courses Page
   Then I should see "4 Units"
   Then I should not see "1 Unit"
@@ -25,12 +26,14 @@ Scenario: Checking Units on All Courses Page
   Then I should see "3 Units"
   Then I should see "2 Units"
 
+@wip
 Scenario: Units on Specific Course Page
   When I follow "CS61A"
   Then I should see "4 Units"
   Then I should not see "3 Units"
   Then I should not see "2 Units"
 
+@wip
 Scenario: Units do not exist for specific course
   When I follow "CS150"
   Then I should see "units info not available"

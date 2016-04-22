@@ -1,4 +1,4 @@
-Feature: Spring Semester Updated
+Feature: See Updated Spring Recommendations
 
   As a student
   So that I can plan out my Spring of EECS courses
