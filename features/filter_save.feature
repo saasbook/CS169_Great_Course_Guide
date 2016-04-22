@@ -1,8 +1,8 @@
 Feature: Filter Courses
 
   As a student
-  So that I can limit the amount of courses to look through
-  I would like to to filter the classes based on subject and upper/lower division
+  So that I can easily see the kinds of classes that I am interested in on the course lists
+  My filter preferences should be maintained throughout my session
 
 Background: I am on the courses page
 
@@ -18,32 +18,28 @@ Background: I am on the courses page
   | YOYO                    | CS150       |
   Then I follow "All Courses"
 
-Scenario: Initially, everything is visible
+Scenario: Uncheck EE then leave the page and come back
   Then ".CS_LOWER_DIV" should be visible
   Then ".CS_UPPER_DIV" should be visible
   Then ".EE_LOWER_DIV" should be visible
   Then ".EE_UPPER_DIV" should be visible
-
-Scenario: Filter by CS
-  Then I should see "Upper Divs"
-  And I should see "CS61A"
   When I uncheck "ee"
   Then ".CS_LOWER_DIV" should be visible
-  Then ".CS_UPPER_DIV" should not be visible
+  Then ".CS_UPPER_DIV" should be visible
   Then ".EE_LOWER_DIV" should not be visible
-  Then ".EE_UPPER_DIV" should be visible
-
-Scenario: Filter by EE
-  When I uncheck "cs"
-  Then ".CS_LOWER_DIV" should not be visible
-  Then ".EE_LOWER_DIV" should be visible
-  When I uncheck "upper"
   Then ".EE_UPPER_DIV" should not be visible
-  Then ".EE_LOWER_DIV" should be visible
+  When I follow "CS61B"
+  Then I follow "All Courses"
+  Then ".CS_LOWER_DIV" should be visible
+  Then ".CS_UPPER_DIV" should be visible
+  Then ".EE_LOWER_DIV" should not be visible
+  Then ".EE_UPPER_DIV" should not be visible
 
-Scenario: Filter everything out (sad path)
+Scenario: Uncheck all options and come back
   When I uncheck "cs"
-  When I uncheck "ee"
+  When I uncheck "lower"
+  When I uncheck "upper"
+  When I uncheck "grad"
   Then ".CS_LOWER_DIV" should not be visible
   Then ".CS_UPPER_DIV" should not be visible
   Then ".EE_LOWER_DIV" should not be visible
