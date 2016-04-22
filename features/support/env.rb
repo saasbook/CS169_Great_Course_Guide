@@ -7,6 +7,7 @@
 require 'cucumber/rails'
 require 'simplecov'
 SimpleCov.start 'rails'
+Capybara.ignore_hidden_elements = true
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
