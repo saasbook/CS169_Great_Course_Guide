@@ -1,7 +1,7 @@
 $(function() {
   var filters = {"cs": $("#cs"), "ee": $("#ee"), "upper": $("#upper"), "lower": $("#lower"), "grad": $("#grad")}
   $("#filters").change(function() {
-    $("tr").hide()
+    $(".course_row").hide()
     console.log("hooplay");
     var cs = filters["cs"].is(':checked');
     var lower = filters["lower"].is(':checked');

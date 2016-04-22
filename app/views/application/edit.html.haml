@@ -58,7 +58,7 @@
                   %th{"data-field": "taken"} Completed
               %tbody
                 - @all_courses.each do |course|
-                  %tr{class: @filter_map[course[:number]]}
+                  %tr{class: @filter_map[course[:number]] + " course_row"}
                     %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
                     %td.pad-left-35
