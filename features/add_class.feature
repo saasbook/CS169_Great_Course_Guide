@@ -28,10 +28,10 @@ Scenario: Click All Courses
 Scenario: Add Courses I Have Taken
   When I follow "Edit"
   Then I should be on the edit page
-  When I check "CS61A-taken"
-  And I check "CS61A-choice"
-  When I check "CS61B-taken"
-  And I check "CS61B-choice"
+  When I check "#CS61A-taken"
+  And I check "#CS61A-choice"
+  When I check "#CS61B-taken"
+  And I check "#CS61B-choice"
   Then I press "#save"
   Then I should be on the user page
   And I should see "CS61A" before "CS61B"
@@ -42,8 +42,8 @@ Scenario: Delete Courses
   Given I have "CS61A-choice" in my classes
   Given I have "CS61B-choice" in my classes
   When I follow "Edit"
-  When I uncheck "CS61A-choice"
-  And I check "CS61C-choice"
+  When I uncheck "#CS61A-choice"
+  And I check "#CS61C-choice"
   Then I press "#save"
   And I should not see "CS61A"
   And I should not see "CS61B" before "Courses You Want to Take"

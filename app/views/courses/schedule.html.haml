@@ -14,6 +14,7 @@
                 %th{"data-field": "name"} Course
                 %th{"data-field": "professor"} Professor(s)
                 %th{"data-field": "average rating"} Rating
+                %th{"data-field": "add to selection"} Taking
           %br
           .chip Courses You're Interested In
           %table.centered.highlight
@@ -30,6 +31,9 @@
                       - else
                         = link_to(professor.name, professor_path(professor.id)) + ", "
                   %td= course[2]
+                  %td.vertical-align
+                    %input{type: "checkbox", class: "filled-in takenBox", id: "add-#{course[0].number}", name: "taking_classes[#{course[0].number}: #{course[0].title}]"}
+                    %label{for: "add-#{course[0].number}"}
           %br
           .chip.center-div The Best Alternative Courses
           %table.centered.highlight
@@ -38,6 +42,7 @@
                 %th{"data-field": "name"} Course
                 %th{"data-field": "professor"} Professor(s)
                 %th{"data-field": "average rating"} Rating
+                %th{"data-field": "add to selection"} Taking
             %tbody
               - @recommended_EECS_courses[:backup_fall].each do |course|
                 %tr
@@ -51,6 +56,9 @@
                       - else
                         = link_to(professor.name, professor_path(professor.id)) + ", "
                   %td= course[2]
+                  %td.vertical-align
+                    %input{type: "checkbox", class: "filled-in takenBox", id: "add-#{course[0].number}", name: "taking_classes[#{course[0].number}: #{course[0].title}]"}
+                    %label{for: "add-#{course[0].number}"}
         .center-align.card-action-small.card-action
           %i.material-icons.small.animated-slow.tada.infinite arrow_drop_down
     .col.l6.m12
@@ -72,7 +80,7 @@
           %table.centered.highlight
             %tbody
               - @recommended_EECS_courses[:possible_spring].each do |course|
-                %tr
+                %tr{"id": "#{course[0].number}-sp17-row"}
                   %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
@@ -93,7 +101,7 @@
                 %th{"data-field": "average rating"} Rating
             %tbody
               - @recommended_EECS_courses[:backup_spring].each do |course|
-                %tr
+                %tr{"id": "#{course[0].number}-sp17-row"}
                   %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
@@ -127,3 +135,4 @@
                   %td= course[0]
                   %td= course[1]
                   %td= course[2]
+= javascript_include_tag '/javascripts/schedule.js'
