@@ -50,11 +50,19 @@
               %tr
                 %th{"data-field": "name"} Course
                 %th{"data-field": "title"} Title
+                %th{"data-field": "units"} Units
             %tbody
               - @all_courses.each do |course|
                 %tr{class: @filter_map[course[:number]] + " course_row"}
                   %td= link_to course[:number], course_path(course[:id])
                   %td= course[:title]
+                  %td
+                    -if course[:units] == 0 or course[:units] == nil
+                      = "TBA"
+                    -elsif course[:units] == 1
+                      = course[:units].to_s + " Unit"
+                    -else
+                      = course[:units].to_s + " Units"
         .card-action
           %a{href: "/user"} Back
 = javascript_include_tag '/javascripts/filter.js'

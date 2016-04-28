@@ -16,7 +16,6 @@ Background: I am on the user page
   | Cat  | 
 
 Scenario: I press on the Professors Page
-
   When I follow "All EECS Professors"
   Then I should see "All EECS Professors"
   Then I should see "Dog" before "Cat"

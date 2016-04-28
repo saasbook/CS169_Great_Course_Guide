@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419072404) do
+ActiveRecord::Schema.define(version: 20160428232839) do
 
   create_table "awards", force: :cascade do |t|
     t.string   "title"
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20160419072404) do
   create_table "courses", force: :cascade do |t|
     t.string   "number"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "units",      default: 4
   end
 
   create_table "draft_courses", force: :cascade do |t|
