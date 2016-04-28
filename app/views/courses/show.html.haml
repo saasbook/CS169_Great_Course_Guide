@@ -3,7 +3,13 @@
     .col.s12
       .card.white
         .card-content
-          %span.card-title="#{@course.number}: #{@course.title}"
+          %span.card-title
+            - if @course.units == 0 or @course.units == nil
+              ="#{@course.number}: #{@course.title} (Units info TBA"
+            - if @course.units == 1
+              ="#{@course.number}: #{@course.title} (" + @course.units.to_s + " Unit)"
+            - else
+              ="#{@course.number}: #{@course.title} (" + @course.units.to_s + " Units)"
           %br
           .chip Required Prerequisites
           %table.centered

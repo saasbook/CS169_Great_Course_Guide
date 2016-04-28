@@ -7,7 +7,7 @@ class Course < ActiveRecord::Base
 	def self.all_courses
 		courses = []
 		self.all.each do |course|
-			courses << {id: course.id, number: course.number, title: course.title}
+			courses << {id: course.id, number: course.number, title: course.title, units: course.units}
 		end
     Utils.alpha_sort(courses, :number)
 		return courses
