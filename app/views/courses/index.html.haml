@@ -2,45 +2,61 @@
   .row
     .col.s12.l3
       .card.white#filters
-        .card-content
+        .card-content#test
           %span.card-title Filters
+          = hidden_field_tag :authenticity_token, form_authenticity_token
           %br
           .row
             .col.s6.l12
               .switch
                 %label
-                  %input#cs{type: "checkbox", checked: "true"}
-                    %span.lever
-                    CS
+                  - if @filter_settings["cs"] == "true"
+                    %input#cs{type: "checkbox", checked: "true"}
+                  - else
+                    %input#cs{type: "checkbox"}
+                  %span.lever
+                  CS
               %br
             .col.s6.l12
               .switch
                 %label
-                  %input#ee{type: "checkbox", checked: "true"}
-                    %span.lever
-                    EE
+                  - if @filter_settings["ee"] == "true"
+                    %input#ee{type: "checkbox", checked: "true"}
+                  - else
+                    %input#ee{type: "checkbox"}
+                  %span.lever
+                  EE
           %hr#filterDivider
           .row
             .col.s6.l12
               .switch
                 %label
-                  %input#lower{type: "checkbox", checked: "true"}
-                    %span.lever
-                    Lower Divs
+                  - if @filter_settings["lower"] == "true"
+                    %input#lower{type: "checkbox", checked: "true"}
+                  - else
+                    %input#lower{type: "checkbox"}
+                  %span.lever
+                  Lower Divs
               %br
             .col.s6.l12
               .switch
                 %label
-                  %input#upper{type: "checkbox", checked: "true"}
-                    %span.lever
-                    Upper Divs
+                  - if @filter_settings["upper"] == "true"
+                    %input#upper{type: "checkbox", checked: "true"}
+                  - else
+                    %input#upper{type: "checkbox"}
+                  %span.lever
+                  Upper Divs
               %br
             .col.s6.l12
               .switch
                 %label
-                  %input#grad{type: "checkbox", checked: "true"}
-                    %span.lever
-                    Graduate
+                  - if @filter_settings["grad"] == "true"
+                    %input#grad{type: "checkbox", checked: "true"}
+                  - else
+                    %input#grad{type: "checkbox"}
+                  %span.lever
+                  Graduate
     .col.s12.l9#selections
       .card.white
         .card-content
@@ -66,3 +82,4 @@
         .card-action
           %a{href: "/user"} Back
 = javascript_include_tag '/javascripts/filter.js'
+= javascript_include_tag '/javascripts/saveFilter.js'

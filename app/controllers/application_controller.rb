@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     @all_emails = User.all_emails
     @filter_map = Course.filter
     session[:return_to] = request.referer
+    puts session[:filter_settings]
   end
 
   def logout
@@ -91,6 +92,12 @@ class ApplicationController < ActionController::Base
 
   def emails
     render :text => @all_emails.to_json
+  end
+
+  def updateFilters
+    session[:filter_settings] = params[:filter_settings]
+    puts session[:filter_settings]
+    render :text => "null"
   end
 
 end
