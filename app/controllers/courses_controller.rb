@@ -1,6 +1,16 @@
 class CoursesController < ApplicationController
 
   def index
+    if not session[:filter_settings]
+      @filter_settings = {ee: true, cs: true, lower: true, upper: true, grad: true}
+    else
+      @filter_settings = session[:filter_settings]
+    end
+
+    puts "FILTER SETTINGS"
+    puts @filter_settings
+    puts @filter_settings[:cs]
+    puts @filter_settings["cs"]
   end
 
   def show

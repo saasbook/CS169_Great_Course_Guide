@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "/update" => "application#update"
   post "/create" => 'application#create'
   get '/users/emails' => 'application#emails'
+  post '/updateFilters' => 'application#updateFilters'
 
   # Professors
   resources :professors, only: [:index, :show] do

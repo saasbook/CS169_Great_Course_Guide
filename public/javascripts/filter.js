@@ -1,6 +1,6 @@
 $(function() {
-  var filters = {"cs": $("#cs"), "ee": $("#ee"), "upper": $("#upper"), "lower": $("#lower"), "grad": $("#grad")}
-  $("#filters").change(function() {
+
+  var updateClasses = function() {
     $(".course_row").hide()
     var cs = filters["cs"].is(':checked');
     var lower = filters["lower"].is(':checked');
@@ -29,7 +29,14 @@ $(function() {
         $('.EE_GRAD').show();
       }
     }
-  });
+  };
+
+  var filters = {"cs": $("#cs"), "ee": $("#ee"), "upper": $("#upper"), "lower": $("#lower"), "grad": $("#grad")}
+  $("#filters").change(updateClasses);
+
+  updateClasses();
+
+
 
   // Fixed Scrolling
   scrollDivWithPage = function() {
