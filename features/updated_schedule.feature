@@ -28,36 +28,20 @@ Background: I have classes
   Given I have "CS61A-choice" in my classes
   And I am on the courses page
 
-@wip
-Scenario: Displays spring classes 
+Scenario: Displays spring classes
   Given the following courses are going to be taught:
   | title | number | term       | professor |
   | EFGH  | CS61B  | FA16       | Cup       |
   | IEFJ  | CS61B  | SP17       | Dog       |
   When I follow "Schedule"
-  When I check "add-CS61B"
-  Then "#CS61B-spring" should not be visible 
-  And I should not see "Dog"
+  When I check "#add-CS61B"
+  Then "#CS61B-sp17-row" should not be visible
 
-@wip
 Scenario: No classes to remove in Spring
   Given the following courses are going to be taught:
   | title | number | term       | professor |
   | EFGH  | CS61B  | FA16       | Cup       |
-  When I check "add-CS61B"
-  And I uncheck "add-CS61B"
-  Then I should not see "#CS61B-spring"
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+  When I follow "Schedule"
+  When I check "#add-CS61B"
+  And I uncheck "#add-CS61B"
+  Then I should not see "#CS61B-sp17-row"

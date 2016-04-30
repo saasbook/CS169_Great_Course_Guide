@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
     @all_emails = User.all_emails
     @filter_map = Course.filter
     session[:return_to] = request.referer
-    puts session[:filter_settings]
   end
 
   def logout
