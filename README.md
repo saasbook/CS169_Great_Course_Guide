@@ -1,6 +1,8 @@
 ## CS169 Great Course Guide
 
 A SaaS application project for CS169 Software Engineering at the University of California, Berkeley.
+This application, proposed by [David Patterson](https://www2.eecs.berkeley.edu/Faculty/Homepages/patterson.html), provides 
+information to help students select upcoming courses based on professor reputation.
 
 ### Deployment
 
