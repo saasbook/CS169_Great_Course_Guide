@@ -14,6 +14,8 @@ Great Course Guide is deployed on [Heroku](https://cs169-great-course-guide.hero
 
 [<img src="https://api.travis-ci.org/MarcusLee143/CS169_Great_Course_Guide.svg"/>](https://travis-ci.org/MarcusLee143/CS169_Great_Course_Guide)
 
-[<img src="https://codeclimate.com/github/MarcusLee143/CS169_Great_Course_Guide/badges/gpa.svg" />](https://codeclimate.com/github/MarcusLee143/CS169_Great_Course_Guide)
+[![Maintainability](https://api.codeclimate.com/v1/badges/cff679349717ecec648d/maintainability)](https://codeclimate.com/github/MarcusLee143/CS169_Great_Course_Guide/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/cff679349717ecec648d/test_coverage)](https://codeclimate.com/github/MarcusLee143/CS169_Great_Course_Guide/test_coverage)
 
 [![Coverage Status](https://coveralls.io/repos/github/MarcusLee143/CS169_Great_Course_Guide/badge.svg?branch=master)](https://coveralls.io/github/MarcusLee143/CS169_Great_Course_Guide?branch=master)
