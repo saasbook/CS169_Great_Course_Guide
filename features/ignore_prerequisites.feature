@@ -35,5 +35,3 @@ Scenario: Disable Prereqs box is checked
   Then I should see "CS188"
   Then I should see "Dog"
   
-
-    
