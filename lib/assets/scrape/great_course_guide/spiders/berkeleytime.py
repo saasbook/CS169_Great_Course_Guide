@@ -30,16 +30,16 @@ class BerkeleyTimeSpider(scrapy.Spider):
 
             # no need for generator, just save the file
             catalog_response = urllib.urlopen(catalog_url).read()
-            with open("catalog.json", "w") as f:
-                f.write(catalog_response)
-
-            # scrape for course data (extra parse needed for units)
             try:
                 catalog_response = json.loads(catalog_response)
             except ValueError as e:
                 print e
                 raise Exception("Could not parse catalog response.")
 
+            with open("bt_catalog.json", "w") as f:
+                json.dump(catalog_response, f, indent=4)
+
+            # scrape for course data (extra parse needed for units)
             for cr in catalog_response:
                 # response.url is only berkeleytime.com
                 course_id = cr["id"]
@@ -74,8 +74,8 @@ class BerkeleyTimeSpider(scrapy.Spider):
                 filter_dict[requirement] = {"id": id, "category": category}
 
             # save the filter dictionary
-            with open("filter.json", 'w') as f:
-                json.dump(filter_dict, f)
+            with open("bt_filter.json", 'w') as f:
+                json.dump(filter_dict, f, indent=4)
 
     def course_parse(self, response):
         unit_el = response.xpath(".//span[@class='blocks units']")
