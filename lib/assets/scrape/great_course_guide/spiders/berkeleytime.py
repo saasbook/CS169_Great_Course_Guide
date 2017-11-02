@@ -73,10 +73,9 @@ class BerkeleyTimeSpider(scrapy.Spider):
 
                 filter_dict[requirement] = {"id": id, "category": category}
 
+            # save the filter dictionary
             with open("filter.json", 'w') as f:
                 json.dump(filter_dict, f)
-            #
-            # yield filter_dict
 
     def course_parse(self, response):
         unit_el = response.xpath(".//span[@class='blocks units']")
