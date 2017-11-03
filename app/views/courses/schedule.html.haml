@@ -44,39 +44,21 @@
                 %th{"data-field": "average rating"} Rating
                 %th{"data-field": "add to selection"} Taking
             %tbody
-              - if not @recommended_EECS_courses[:possible_fall].blank?
-                - min_fall_recommended_rating = @recommended_EECS_courses[:possible_fall].min_by {|x| x[2]}[2]
-                - @recommended_EECS_courses[:backup_fall].select{|a| a[2] > min_fall_recommended_rating}.each do |course|
-                  %tr
-                    %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
-                    %td
-                      - course[1].each do |professor|
-                        - if professor.name == "TBA"
-                          = "TBA"
-                        - elsif course[1].index(professor) + 1 == course[1].length
-                          = link_to(professor.name, professor_path(professor.id))
-                        - else
-                          = link_to(professor.name, professor_path(professor.id)) + ", "
-                    %td= course[2]
-                    %td.vertical-align
-                      %input{type: "checkbox", class: "filled-in takenBox", id: "add-#{course[0].number}", name: "taking_classes[#{course[0].number}: #{course[0].title}]"}
-                      %label{for: "add-#{course[0].number}"}
-              - else
-                - @recommended_EECS_courses[:backup_fall].each do |course|
-                  %tr
-                    %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
-                    %td
-                      - course[1].each do |professor|
-                        - if professor.name == "TBA"
-                          = "TBA"
-                        - elsif course[1].index(professor) + 1 == course[1].length
-                          = link_to(professor.name, professor_path(professor.id))
-                        - else
-                          = link_to(professor.name, professor_path(professor.id)) + ", "
-                    %td= course[2]
-                    %td.vertical-align
-                      %input{type: "checkbox", class: "filled-in takenBox", id: "add-#{course[0].number}", name: "taking_classes[#{course[0].number}: #{course[0].title}]"}
-                      %label{for: "add-#{course[0].number}"}
+              - @recommended_EECS_courses[:backup_fall].each do |course|
+                %tr
+                  %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
+                  %td
+                    - course[1].each do |professor|
+                      - if professor.name == "TBA"
+                        = "TBA"
+                      - elsif course[1].index(professor) + 1 == course[1].length
+                        = link_to(professor.name, professor_path(professor.id))
+                      - else
+                        = link_to(professor.name, professor_path(professor.id)) + ", "
+                  %td= course[2]
+                  %td.vertical-align
+                    %input{type: "checkbox", class: "filled-in takenBox", id: "add-#{course[0].number}", name: "taking_classes[#{course[0].number}: #{course[0].title}]"}
+                    %label{for: "add-#{course[0].number}"}
                 
         .center-align.card-action-small.card-action
           %i.material-icons.small.animated-slow.tada.infinite arrow_drop_down
@@ -119,33 +101,18 @@
                 %th{"data-field": "professor"} Professor(s)
                 %th{"data-field": "average rating"} Rating
             %tbody
-              - if not @recommended_EECS_courses[:possible_spring].blank?
-                - min_spring_recommended_rating = @recommended_EECS_courses[:possible_spring].min_by {|x| x[2]}[2]
-                - @recommended_EECS_courses[:backup_spring].select{|a| a[2] > min_spring_recommended_rating}.each do |course|
-                  %tr{"id": "#{course[0].number}-sp17-row"}
-                    %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
-                    %td
-                      - course[1].each do |professor|
-                        - if professor.name == "TBA"
-                          = "TBA"
-                        - elsif course[1].index(professor) + 1 == course[1].length
-                          = link_to(professor.name, professor_path(professor.id))
-                        - else
-                          = link_to(professor.name, professor_path(professor.id)) + ", "
-                    %td= course[2]
-              - else
-                - @recommended_EECS_courses[:backup_spring].each do |course|
-                  %tr{"id": "#{course[0].number}-sp17-row"}
-                    %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
-                    %td
-                      - course[1].each do |professor|
-                        - if professor.name == "TBA"
-                          = "TBA"
-                        - elsif course[1].index(professor) + 1 == course[1].length
-                          = link_to(professor.name, professor_path(professor.id))
-                        - else
-                          = link_to(professor.name, professor_path(professor.id)) + ", "
-                    %td= course[2]
+              - @recommended_EECS_courses[:backup_spring].each do |course|
+                %tr{"id": "#{course[0].number}-sp17-row"}
+                  %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
+                  %td
+                    - course[1].each do |professor|
+                      - if professor.name == "TBA"
+                        = "TBA"
+                      - elsif course[1].index(professor) + 1 == course[1].length
+                        = link_to(professor.name, professor_path(professor.id))
+                      - else
+                        = link_to(professor.name, professor_path(professor.id)) + ", "
+                  %td= course[2]
         .center-align.card-action-small.card-action
           %i.material-icons.small.animated-slow.tada.infinite arrow_drop_down
   .row
