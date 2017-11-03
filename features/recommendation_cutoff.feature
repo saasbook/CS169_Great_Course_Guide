@@ -19,12 +19,13 @@ Background: I have classes with previous professor ratings
   | CS188  | CS61B  |
   And the following professors exist:
   | name | category |
+  | Fork | EECS     |
   | Cup  | EECS     |
   | Dog  | EECS     |
   | Cat  | EECS     |
   And the following courses were taught:
   | professor | number | rating | term |
-  | Cup       | CS61A  | 5.6    | SP13 |
+  | Fork      | CS61A  | 5.6    | SP13 |
   | Cup       | CS61B  | 6.2    | SP15 |
   | Dog       | CS61C  | 4.7    | SP13 |
   | Cat       | CS70   | 6.5    | SP14 |
