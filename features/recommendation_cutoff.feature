@@ -8,10 +8,6 @@ Background: I have classes with previous professor ratings
 
   Given the following courses exist:
   | title | number |
-  | ABCD  | CS61A  |
-  | EFGH  | CS61B  |
-  | IJKL  | CS61C  |
-  | MNOP  | CS70   |
   | ESPN  | CS188  |
   | XYZO  | CS189  |
   | DAB   | CS170  |
