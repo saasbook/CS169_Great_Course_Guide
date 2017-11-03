@@ -46,5 +46,6 @@ Scenario: Displays better alternative classes to take in the future
   Then I should see "Courses You're Interested In" before "CS61B"
   And I should see "CS61B" before "Cup"
   And I should see "CS61B" before "Best Alternative Courses"
-  Then I should see "Best Alternative Courses" before "CS70"
+  And I should see "CS70"
+  And I should see "Best Alternative Courses" before "CS70"
   And I should not see "CS61C"
