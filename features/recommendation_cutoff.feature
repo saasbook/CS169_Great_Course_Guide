@@ -22,7 +22,7 @@ Background: I have classes with previous professor ratings
   | Cat  | EECS     |
   And the following courses were taught:
   | professor | number | rating | term |
-  | Cup       | CS188  | 5.0    | SP16 |
+  | Cup       | CS188  | 4.0    | SP16 |
   | Dog       | CS189  | 3.0    | SP16 |
   | Cat       | CS170  | 7.0    | SP16 |
   And I am on the welcome page
