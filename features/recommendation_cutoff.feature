@@ -32,6 +32,7 @@ Background: I have classes with previous professor ratings
   And I login as "Michael"
   And professors teach the appropriate courses
   Given I have "CS61A-choice" in my classes
+  And I want to take "CS61B-choice"
   And I am on the courses page
   
 Scenario: Displays better alternative classes to take in the future
@@ -42,7 +43,7 @@ Scenario: Displays better alternative classes to take in the future
   | MNOP  | CS70   | FA16       | Cat       |
   When I follow "Schedule"
   Then I should see "Courses You're Interested In" before "CS61B"
-  Then I should see "Cup"
-  And I should not see "CS61B" before "Best Alternative Courses"
+  And I should see "CS61B" before "Cup"
+  And I should see "CS61B" before "Best Alternative Courses"
   Then I should see "Best Alternative Courses" before "CS70"
   And I should not see "CS61C"
