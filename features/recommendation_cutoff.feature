@@ -12,40 +12,35 @@ Background: I have classes with previous professor ratings
   | EFGH  | CS61B  |
   | IJKL  | CS61C  |
   | MNOP  | CS70   |
-  | Fork  | Spoon  |
   | ESPN  | CS188  |
-  And the following prerequisites exist:
-  | course | number |
-  | CS188  | CS61B  |
-  And the following professors exist:
+  | XYZO  | CS189  |
+  | DAB   | CS170  |
+  And the following professors, without ratings, exist:
   | name | category |
-  | Fork | EECS     |
   | Cup  | EECS     |
   | Dog  | EECS     |
   | Cat  | EECS     |
   And the following courses were taught:
   | professor | number | rating | term |
-  | Fork      | CS61A  | 5.6    | SP13 |
-  | Cup       | CS61B  | 6.2    | SP15 |
-  | Dog       | CS61C  | 4.7    | SP13 |
-  | Cat       | CS70   | 6.5    | SP14 |
+  | Cup       | CS188  | 5.0    | SP16 |
+  | Dog       | CS189  | 3.0    | SP16 |
+  | Cat       | CS170  | 7.0    | SP16 |
   And I am on the welcome page
   And I login as "Michael"
   And professors teach the appropriate courses
-  Given I have "CS61A-choice" in my classes
-  And I want to take "CS61B-choice"
+  Given I want to take "CS188-choice"
   And I am on the courses page
   
 Scenario: Displays better alternative classes to take in the future
   Given the following courses are going to be taught:
   | title | number | term       | professor |
-  | EFGH  | CS61B  | FA16       | Cup       |
-  | IJKL  | CS61C  | FA16       | Dog       |
-  | MNOP  | CS70   | FA16       | Cat       |
+  | EFGH  | CS188  | FA16       | Cup       |
+  | IJKL  | CS189  | FA16       | Dog       |
+  | MNOP  | CS170  | FA16       | Cat       |
   When I follow "Schedule"
-  Then I should see "Courses You're Interested In" before "CS61B"
-  And I should see "CS61B" before "Cup"
-  And I should see "CS61B" before "Best Alternative Courses"
-  And I should see "CS70"
-  And I should see "Best Alternative Courses" before "CS70"
-  And I should not see "CS61C"
+  Then I should see "Courses You're Interested In" before "CS188"
+  And I should see "CS188" before "Cup"
+  And I should see "CS188" before "Best Alternative Courses"
+  And I should see "CS170"
+  And I should see "Best Alternative Courses" before "CS170"
+  And I should not see "CS189"
