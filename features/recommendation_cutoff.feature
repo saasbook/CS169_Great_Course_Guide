@@ -23,8 +23,7 @@ Background: I have classes with previous professor ratings
   | Cat       | CS170  | 7.0    | SP16 |
   And I am on the welcome page
   And I login as "Michael"
-  And professors teach the appropriate courses
-  Given I want to take "CS188-choice"
+  And I want to take "CS188-choice"
   And I am on the courses page
   
 Scenario: Displays better alternative classes to take in the future
