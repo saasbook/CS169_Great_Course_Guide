@@ -6,8 +6,11 @@ Feature: Compare courses and their info from
         difficulty rating, and number of units
 
 Background: the following courses are comparable
-    
-  Given the following courses exist:
+  Given I am on the welcome page
+  And I login as "Michael"
+  Then I should be on the user page
+  When I follow "Compare Courses"
+  And the following courses exist:
   | title | number | units |
   | ABCD  | CS61A  | 4     |
   | EFGH  | CS61B  | 4     |
@@ -18,48 +21,27 @@ Background: the following courses are comparable
   | Cup  | EECS     |
   | Tea  | EECS     |
   And the following courses were taught:
-  | professor | number | rating | 
-  | Cup       | CS61A  | 5.6    | 
-  | Tea       | CS61A  | 3.5    | 
-  | Cup       | CS61B  | 6.2    | 
+  | professor | number | rating |
+  | Cup       | CS61A  | 5.6    |
+  | Tea       | CS61A  | 3.5    |
+  | Cup       | CS61B  | 6.2    |
 
 Scenario: Adding classes to compare
-  Given I fill in "Search for Course" with "CS61A"
+  Given I fill in "course-search" with "CS61A"
   And I fill in "Search for Professor (optional)" with "Cup"
-  And I press "Add Class"
-  Then I should see "CS61A" before "4"
-  And I should see "4" before "Cup" 
-  And I should see "Cup" before "5.9"
-  And I should see "5.9" before "5.6"
-  
-  When I fill in "Search for Course"  with "CS61A"
-  And I fill in "Search for Professor (optional)" with "Tea"
-  And I press "Add Class"
-  Then I should see "CS61A" before "4"
-  And I should see "4" before "Tea" 
-  And I should see "Tea" before "3.5"
-  And I should see "3.5" before "3.5"
-  
-Scenario: Removing a class
-  Given I fill in "Search for Course" with "CS61A"
-  And I fill in "Search for Professor (optional)" with "Cup"
-  And I press "Add Class"
-  And I press "#remove_course_item"
-  Then I should not see "CS61A"
+  And I press "#addCourse"
+  Then I should not see "Tea"
+
+Scenario: Adding a class without specifying a professor
+  Given I fill in "Search for Course" with "CS61B"
+  And I press "#addCourse"
+  Then I should not see "Cup"
+
+Scenario: User doesn't specify course
+  Given I fill in "Search for Professor (optional)" with "Cup"
+  And I press "#addCourse"
+  Then I should not see "CS61B"
   And I should not see "4"
   And I should not see "Cup"
   And I should not see "5.9"
-  And I should not see "5.6"
-  
-Scenario: Adding a class without specifying a professor
-  Given I fill in "Search for Course" with "CS61B"
-  And I press "Add"
-  Then I should see "CS61B" before "4"
-  And I should see "4" before "Cup"
-  And I should see "Cup" before "5.9" 
-  And I should see "5.9" before "5.6"
-  
-Scenario: User doesn't specify course
-  Given I fill in "Search for Professor (optional)" with "Cup"
-  And I press "Add"
-  Then I should not see "CS61B"
+  And I should not see "6.2"
