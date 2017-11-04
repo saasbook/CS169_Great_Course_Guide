@@ -59,14 +59,29 @@ $(document).ready(function () {
     $('#course-search').val("");
     $('#professor-search').val("");
 
-    validate_inputs(selected_professor_name, selected_course_name);
+    if (!validate_inputs(selected_professor_name, selected_course_name)) {
+      return;
+    }
 
     let selected_course_number = selected_course_name.split(": ")[0];
     var selected_course_data = all_courses_data[selected_course_number];
-    var ratings = average_ratings(selected_professor_name, selected_course_number);
-    $('#selected-courses').append("<tr><td>" + selected_course_number + "</td><td>" + selected_course_data["units"]
+
+    if (selected_professor_name == "") {
+      for (var i = 0; i < course_professors_options.length; i++) {
+        let professor_name = course_professors_options[i];
+        var ratings = average_ratings(professor_name, selected_course_number);
+        $('#selected-courses').append("<tr><td>" + selected_course_number + "</td><td>" + selected_course_data["units"]
+            + "</td><td>" + professor_name + "</td><td>" + ratings[0] + "</td><td>" + ratings[1] 
+            + `</td><td><a id="remove_course_item" class="btn-floating btn-small waves-effect waves-light grey"><i class="material-icons">remove_circle_outline</i></a></td></tr>`);
+
+      }
+    } else {
+      var ratings = average_ratings(selected_professor_name, selected_course_number);
+      $('#selected-courses').append("<tr><td>" + selected_course_number + "</td><td>" + selected_course_data["units"]
         + "</td><td>" + selected_professor_name + "</td><td>" + ratings[0] + "</td><td>" + ratings[1] 
         + `</td><td><a id="remove_course_item" class="btn-floating btn-small waves-effect waves-light grey"><i class="material-icons">remove_circle_outline</i></a></td></tr>`);
+
+    }
   });
 
   // Remove course item button function
@@ -84,20 +99,17 @@ $(document).ready(function () {
   function validate_inputs(selected_professor_name, selected_course_name) {
     if (selected_course_name == "") {
       alert("Please select a class.");
-      return
-    }
-    if (selected_professor_name == "") {
-      alert("Please select a professor.");
-      return
+      return false;
     }
     if ($.inArray(selected_course_name, all_courses_options) == -1) {
       alert("That isn't a valid class.");
-      return;
+      return false;
     }
-    if ($.inArray(selected_professor_name, course_professors_options) == -1) {
+    if (selected_professor_name != "" && $.inArray(selected_professor_name, course_professors_options) == -1) {
       alert("That isn't a valid professor.");
-      return;
+      return false;
     }
+    return true;
   };
 
   function average_ratings(selected_professor_name, selected_course_number) {
