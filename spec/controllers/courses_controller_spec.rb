@@ -48,8 +48,11 @@ describe CoursesController do
       @prof2.professor_courses.create(number: "B", name: "TestB", rating: 3.0, term: "Spring 2016")
       @prof3.professor_courses.create(number: "C", name: "TestC", rating: 7.0, term: "Spring 2016")
       @user.user_courses.create(number: "A", title: "TestA", taken: false)
-      @user.user_courses.create(number: "B", title: "TestB", taken: false)
-      @user.user_courses.create(number: "C", title: "TestC", taken: false)
+      # @user.user_courses.create(number: "B", title: "TestB", taken: false)
+      # @user.user_courses.create(number: "C", title: "TestC", taken: false)
+      @draft_course_a = @a.draft_courses.create(professor: "Prof1", term: "Fall 2016")
+      @draft_course_b = @b.draft_courses.create(professor: "Prof2", term: "Fall 2016")
+      @draft_course_c = @c.draft_courses.create(professor: "Prof3", term: "Fall 2016")
       get :schedule
     end
     it "should load the schedule page" do
