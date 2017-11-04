@@ -1,8 +1,8 @@
 .container.animated.mainContent
   .row
     .col.s12
-      .card.white.medium
-        .card-content.scrollable
+      .card.white
+        .card-content
           %span.card-title Compare Courses
           .row
             .col.s6.m4
@@ -13,6 +13,10 @@
                 %input.autocomplete#professor-search{placeholder: "Search for Professor (optional)", type: "text"} 
             .pad-top.col.s6.m2
               %input.btn.blue.waves-effect.waves-light#addCourse{type: "button", value: "Add Class"}
+      .card.white.large
+        .card-content.scrollable
+          .progress.blue#data-loader{:style=>"display:none;"}
+            .indeterminate
           %table.centered.highlight
             %thead
               %tr
