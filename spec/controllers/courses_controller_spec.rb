@@ -50,16 +50,23 @@ describe CoursesController do
       @user.user_courses.create(number: "A", title: "TestA", taken: false)
       @user.user_courses.create(number: "B", title: "TestB", taken: false)
       @user.user_courses.create(number: "C", title: "TestC", taken: false)
+      get :schedule
     end
     it "should load the schedule page" do
-      get :schedule
       expect(response).to render_template :schedule
     end
-    it "should show better alternative courses" do
+    it "should call recommended_EECS_courses" do
+      expect(assigns(:recommended_EECS_courses)).to eq(@user.recommended_EECS_courses)
+    end
+    it "should have the correct rating threshold" do
+      pending("need to indicate interested courses")
+      fail
+    end
+    it "should contain better alternative courses" do
       pending("implement rspec for better")
       fail
     end
-    it "should not show worse alternative courses" do
+    it "should not contain worse alternative courses" do
       pending("implement rspec for worse")
       fail
     end
