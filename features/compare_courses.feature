@@ -24,33 +24,27 @@ Background: the following courses are comparable
   | Cup       | CS61B  | 6.2    | 
 
 Scenario: Adding classes to compare
-  When I press "Select Course"
-  And I press "CS61A"
-  And I press "Select Professor (optional)"
-  And I press "Cup"
-  And I press "Add"
+  Given I fill in "Search for Course" with "CS61A"
+  And I fill in "Search for Professor (optional)" with "Cup"
+  And I press "Add Class"
   Then I should see "CS61A" before "4"
   And I should see "4" before "Cup" 
   And I should see "Cup" before "5.9"
   And I should see "5.9" before "5.6"
   
-  When I press "Select Course"
-  And I press "CS61A"
-  And I press "Select Professor (optional)"
-  And I press "Tea"
-  And I press "Add"
-  Then I should see "CS61A" before "4 units"
+  When I fill in "Search for Course"  with "CS61A"
+  And I fill in "Search for Professor (optional)" with "Tea"
+  And I press "Add Class"
+  Then I should see "CS61A" before "4"
   And I should see "4" before "Tea" 
-  And I should see "Tea" before "3.5" 
+  And I should see "Tea" before "3.5"
   And I should see "3.5" before "3.5"
   
 Scenario: Removing a class
-  When I press "Select Course"
-  And I press "CS61A"
-  And I press "Select Professor (optional)"
-  And I press "Cup"
-  And I press "Add"
-  And I press "Remove"
+  Given I fill in "Search for Course" with "CS61A"
+  And I fill in "Search for Professor (optional)" with "Cup"
+  And I press "Add Class"
+  And I press "#remove_course_item"
   Then I should not see "CS61A"
   And I should not see "4"
   And I should not see "Cup"
@@ -58,16 +52,14 @@ Scenario: Removing a class
   And I should not see "5.6"
   
 Scenario: Adding a class without specifying a professor
-  When I press "Select Course"
-  And I press "CS61B"
+  Given I fill in "Search for Course" with "CS61B"
   And I press "Add"
   Then I should see "CS61B" before "4"
   And I should see "4" before "Cup"
   And I should see "Cup" before "5.9" 
-  And I should see "5.9" before "5.6" 
-
+  And I should see "5.9" before "5.6"
+  
 Scenario: User doesn't specify course
-  When I press "Select Professor (optional)"
-  And I press "Cup"
+  Given I fill in "Search for Professor (optional)" with "Cup"
   And I press "Add"
   Then I should not see "CS61B"
