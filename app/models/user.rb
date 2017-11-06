@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
     return self.courses.select { |course| course[:taken] }
   end
 
-  def recommended_EECS_courses
+  def recommended_EECS_courses(ignore_flag)
     draft_schedule = Utils.draft_schedule
 
     semesters = {fall: {courses: {}, possible_courses: [], backup_courses: []}, spring: {courses: {}, possible_courses: [], backup_courses: []}}
@@ -68,8 +68,14 @@ class User < ActiveRecord::Base
     semesters.each do |name, semester|
       semester[:courses] = draft_schedule[name]
       semester[:courses].each_key do |course_number|
-        if self.wants_to_take(course_number) and self.can_take(course_number)
-          semester[:possible_courses] << course_number
+        if self.wants_to_take(course_number)
+          if ignore_flag
+            semester[:possible_courses] << course_number
+          else
+            if self.can_take(course_number)
+              semester[:possible_courses] << course_number
+            end
+          end
         elsif self.can_take(course_number)
           semester[:backup_courses] << course_number
         end
