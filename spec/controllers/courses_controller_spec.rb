@@ -44,34 +44,30 @@ describe CoursesController do
       @prof1 = Professor.create(name: "Prof1")
       @prof2 = Professor.create(name: "Prof2")
       @prof3 = Professor.create(name: "Prof3")
-      @prof1.professor_courses.create(number: "A", name: "TestA", rating: 4.0, term: "Spring 2016")
-      @prof2.professor_courses.create(number: "B", name: "TestB", rating: 3.0, term: "Spring 2016")
-      @prof3.professor_courses.create(number: "C", name: "TestC", rating: 7.0, term: "Spring 2016")
+      @prof1.courses.create(number: "A", name: "TestA", rating: 4.0, term: "SP16")
+      @prof2.courses.create(number: "B", name: "TestB", rating: 3.0, term: "SP16")
+      @prof3.courses.create(number: "C", name: "TestC", rating: 7.0, term: "SP16")
       @user.user_courses.create(number: "A", title: "TestA", taken: false)
       # @user.user_courses.create(number: "B", title: "TestB", taken: false)
       # @user.user_courses.create(number: "C", title: "TestC", taken: false)
-      @draft_course_a = @a.draft_courses.create(professor: "Prof1", term: "Fall 2016")
-      @draft_course_b = @b.draft_courses.create(professor: "Prof2", term: "Fall 2016")
-      @draft_course_c = @c.draft_courses.create(professor: "Prof3", term: "Fall 2016")
+      @draft_course_a = @a.draft_courses.create(professor: "Prof1", term: "FA16")
+      @draft_course_b = @b.draft_courses.create(professor: "Prof2", term: "FA16")
+      @draft_course_c = @c.draft_courses.create(professor: "Prof3", term: "FA16")
       get :schedule
     end
     it "should load the schedule page" do
       expect(response).to render_template :schedule
     end
     it "should call recommended_EECS_courses" do
-      expect(assigns(:recommended_EECS_courses)).to eq(@user.recommended_EECS_courses)
+      expect(@user).to receive(:recommended_EECS_courses)
     end
     it "should have the correct rating threshold" do
-      pending("need to indicate interested courses")
-      fail
+      pending("fix recommended_EECS_courses method call")
+      expect(assigns(:min_fall_recommended_rating)).to eq(4.0)
     end
     it "should contain better alternative courses" do
-      pending("implement rspec for better")
-      fail
-    end
-    it "should not contain worse alternative courses" do
-      pending("implement rspec for worse")
-      fail
+      pending("fix correct rating threshold")
+      expect(@recommended_EECS_courses[:backup_fall].min_by {|x| x[2]}[2]).to be > :min_fall_recommended_rating
     end
   end
 end
