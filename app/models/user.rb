@@ -35,11 +35,14 @@ class User < ActiveRecord::Base
     return (user_course != nil and not user_course.taken)
   end
 
-  def can_take(course_number)
+  def can_take(course_number, ignore_flag)
     if Course.exists?(number: course_number)
       course = Course.find_by(number: course_number)
       if has_taken(course)
         return false
+      end
+      if ignore_flag
+        return true
       end
       course.prereqs.each do |prereq|
         if not has_taken(prereq)
@@ -68,15 +71,9 @@ class User < ActiveRecord::Base
     semesters.each do |name, semester|
       semester[:courses] = draft_schedule[name]
       semester[:courses].each_key do |course_number|
-        if self.wants_to_take(course_number)
-          if ignore_flag
-            semester[:possible_courses] << course_number
-          else
-            if self.can_take(course_number)
-              semester[:possible_courses] << course_number
-            end
-          end
-        elsif self.can_take(course_number)
+        if self.wants_to_take(course_number) and self.can_take(course_number, ignore_flag)
+          semester[:possible_courses] << course_number
+        elsif self.can_take(course_number, ignore_flag)
           semester[:backup_courses] << course_number
         end
       end

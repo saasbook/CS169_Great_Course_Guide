@@ -24,7 +24,9 @@
                   %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
-                      - if professor.name == "TBA"
+                      - if professor.nil?
+                        = "TBA"
+                      - elsif professor.name == "TBA"
                         = "TBA"
                       - elsif course[1].index(professor) + 1 == course[1].length
                         = link_to(professor.name, professor_path(professor.id))
@@ -49,7 +51,9 @@
                   %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
-                      - if professor.name == "TBA"
+                      - if professor.nil?
+                        = "TBA"
+                      - elsif professor.name == "TBA"
                         = "TBA"
                       - elsif course[1].index(professor) + 1 == course[1].length
                         = link_to(professor.name, professor_path(professor.id))
