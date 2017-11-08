@@ -13,10 +13,10 @@ Background: I have classes
   | IJKL                    | CS169       |
   | MNOP                    | CS189       |
   
-#  And the following prerequisites exist:
-#  | course | number |
-#  | CS170  | CS61A  |
-#  | CS188  | CS61A  |
+And the following prerequisites exist:
+  | course | number |
+  | CS170  | CS61A  |
+  | CS188  | CS61A  |
 
   And the following professors exist:
   | name |
@@ -43,3 +43,4 @@ Scenario: Ignore Prerequisties is selected
   Then I should see "Cup"
   Then I should see "CS188"
   Then I should see "Dog"
+  Then I should see "Cat"
