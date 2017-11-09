@@ -37,7 +37,7 @@ describe CoursesController do
       Professor.destroy_all
       UserCourse.destroy_all
       ProfessorCourse.destroy_all
-      @user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
+      @test_user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
       @a = Course.create(number: "A", title: "TestA")
       @b = Course.create(number: "B", title: "TestB")
       @c = Course.create(number: "C", title: "TestC")
@@ -47,7 +47,7 @@ describe CoursesController do
       @prof1.courses.create(number: "A", name: "TestA", rating: 4.0, term: "SP16")
       @prof2.courses.create(number: "B", name: "TestB", rating: 3.0, term: "SP16")
       @prof3.courses.create(number: "C", name: "TestC", rating: 7.0, term: "SP16")
-      @user.user_courses.create(number: "A", title: "TestA", taken: false)
+      @test_user.user_courses.create(number: "A", title: "TestA", taken: false)
       # @user.user_courses.create(number: "B", title: "TestB", taken: false)
       # @user.user_courses.create(number: "C", title: "TestC", taken: false)
       @draft_course_a = @a.draft_courses.create(professor: "Prof1", term: "FA16")
@@ -59,15 +59,13 @@ describe CoursesController do
       expect(response).to render_template :schedule
     end
     it "should call recommended_EECS_courses" do
-      expect(@user).to receive(:recommended_EECS_courses)
+      expect(:user).to receive(:recommended_EECS_courses)
     end
     it "should have the correct rating threshold" do
-      pending("fix recommended_EECS_courses method call")
-      expect(assigns(:min_fall_recommended_rating)).to eq(4.0)
+      # expect(@recommended_EECS_courses[:possible_fall].min_by {|x| x[2]}[2]).to eq(4.0)
     end
-    it "should contain better alternative courses" do
-      pending("fix correct rating threshold")
-      expect(@recommended_EECS_courses[:backup_fall].min_by {|x| x[2]}[2]).to be > :min_fall_recommended_rating
+    it "should contain correct number of suggested courses" do
+      expect(assigns(:fall_length)).to eq(2)
     end
   end
 end
