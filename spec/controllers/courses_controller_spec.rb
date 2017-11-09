@@ -58,11 +58,8 @@ describe CoursesController do
     it "should load the schedule page" do
       expect(response).to render_template :schedule
     end
-    it "should call recommended_EECS_courses" do
-      expect(:user).to receive(:recommended_EECS_courses)
-    end
     it "should have the correct rating threshold" do
-      # expect(@recommended_EECS_courses[:possible_fall].min_by {|x| x[2]}[2]).to eq(4.0)
+      expect(assigns(:recommended_EECS_courses)[:possible_fall].min_by {|x| x[2]}[2]).to eq(4.0)
     end
     it "should contain correct number of suggested courses" do
       expect(assigns(:fall_length)).to eq(2)
