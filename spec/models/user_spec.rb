@@ -235,11 +235,10 @@ describe User do
     end
     context "check the correct classes are recommended" do
       it "should recommend classes with better ratings" do
-        byebug
-        expect(@recommended_EECS_courses[:possible_fall].select{|c| c[0].title == "TestC"}).not_to be_empty
+        expect(@recommended_EECS_courses[:backup_fall].select{|c| c[0].title == "TestC"}).not_to be_empty
       end
       it "should not recommend classes with worse ratings" do
-        expect(@recommended_EECS_courses[:possible_fall].select{|c| c[0].title == "TestB"}).to be_empty
+        expect(@recommended_EECS_courses[:backup_fall].select{|c| c[0].title == "TestB"}).to be_empty
       end
     end
   end
