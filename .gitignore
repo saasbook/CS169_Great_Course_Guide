@@ -6,3 +6,8 @@
 /coverage
 /db/development.sqlite3
 
+.DS_Store
+
+# python files
+*.pyc
+

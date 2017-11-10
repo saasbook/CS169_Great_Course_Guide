@@ -198,14 +198,31 @@ describe User do
     end
     context "check if user can take the class" do
       it "should return true if user can take the course" do
-        expect(@user.can_take("C")).to eq(true)
+        expect(@user.can_take("C",false)).to eq(true)
       end
       it "should return false if user cannot take the course" do
-        expect(@user.can_take("A")).to eq(false)
-        expect(@user.can_take("B")).to eq(false)
-        expect(@user.can_take("D")).to eq(false)
+        expect(@user.can_take("A",false)).to eq(false)
+        expect(@user.can_take("B",false)).to eq(false)
+        expect(@user.can_take("D",false)).to eq(false)
+        expect(@user.can_take("A",true)).to eq(false)
+        expect(@user.can_take("B",true)).to eq(false)
+        expect(@user.can_take("C",true)).to eq(true)
+        expect(@user.can_take("D",true)).to eq(true)
       end
     end
+
+    ### NEW 
+    # context "check if user can take the class if prereqs are ignored" do
+    #   it "should return true regardless if user can take the course" do
+    #     # set the ignore flag to true
+    #     expect(@user.recommended_EECS_courses(true)).to eq({:possible_fall=>[], :backup_fall=>[], :possible_spring=>[], :backup_spring=>[]})
+    #     expect(@user.can_take("A",true)).to eq(false)
+    #     expect(@user.can_take("B",true)).to eq(true)
+    #     expect(@user.can_take("C",true)).to eq(true)
+    #     expect(@user.can_take("D",true)).to eq(true)
+    #   end
+    # end
+    ### END
   end
 
   describe "Schedule recommendations" do
