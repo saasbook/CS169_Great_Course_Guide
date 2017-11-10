@@ -24,7 +24,9 @@
                   %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
-                      - if professor.name == "TBA"
+                      - if professor.nil?
+                        = "TBA"
+                      - elsif professor.name == "TBA"
                         = "TBA"
                       - elsif course[1].index(professor) + 1 == course[1].length
                         = link_to(professor.name, professor_path(professor.id))
@@ -49,7 +51,9 @@
                   %td= link_to(course[0].number, course_path(course[0].id), { class: "tooltipped", data: { position: "right", tooltip: course[0].title}})
                   %td
                     - course[1].each do |professor|
-                      - if professor.name == "TBA"
+                      - if professor.nil?
+                        = "TBA"
+                      - elsif professor.name == "TBA"
                         = "TBA"
                       - elsif course[1].index(professor) + 1 == course[1].length
                         = link_to(professor.name, professor_path(professor.id))
@@ -115,6 +119,16 @@
                   %td= course[2]
         .center-align.card-action-small.card-action
           %i.material-icons.small.animated-slow.tada.infinite arrow_drop_down
+  .row
+    .col.s12
+      .card.white
+        .text #{@ignore}
+        - if @ignore_flag
+          %a{:href => "/courses/schedule", :id => "dont ignore"} 
+            Dont Ignore Prerequisites
+        - else
+          %a{:href => "/courses/schedule?ignore=true", :id => "ignore"}
+            Ignore Prerequisites 
   .row
     .col.s12
       .card.white.medium
