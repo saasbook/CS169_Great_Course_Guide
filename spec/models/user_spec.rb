@@ -231,7 +231,7 @@ describe User do
       @draft_course_a = @a.draft_courses.create(professor: "Prof1", term: "FA16")
       @draft_course_b = @b.draft_courses.create(professor: "Prof2", term: "FA16")
       @draft_course_c = @c.draft_courses.create(professor: "Prof3", term: "FA16")
-      @recommended_EECS_courses = @test_user.recommended_EECS_courses
+      @recommended_EECS_courses = @test_user.recommended_EECS_courses(false) # @ignore_flag = false
     end
     context "check the correct classes are recommended" do
       it "should recommend classes with better ratings" do
