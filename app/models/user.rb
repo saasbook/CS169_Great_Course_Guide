@@ -79,8 +79,15 @@ class User < ActiveRecord::Base
       end
       get_course_data(semester[:possible_courses], semester[:courses])
       get_course_data(semester[:backup_courses], semester[:courses])
+      
+      # for filtering out "Best Alternative Courses" who's ratings are lower than "Courses You're Interested In"
+      # the overall rating for the professors teaching a course is stored in the [2] index of a course;
+      if not semester[:possible_courses].blank?
+        min_interested_rating = semester[:possible_courses].min_by {|x| x[2].to_f}[2].to_f
+        semester[:backup_courses] = semester[:backup_courses].select{|a| a[2].to_f > min_interested_rating}
+      end
     end
-
+    
     return { possible_fall: semesters[:fall][:possible_courses],
              backup_fall: semesters[:fall][:backup_courses],
              possible_spring: semesters[:spring][:possible_courses],

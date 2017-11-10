@@ -12,6 +12,13 @@ Given /the following professors exist/ do |prof_table|
   end
 end
 
+Given /the following professors, without ratings, exist/ do |prof_table|
+  num_profs = 0
+  prof_table.hashes.each do |prof|
+    p = Professor.create(prof)
+  end
+end
+
 num_courses = 0
 Given /the following courses exist/ do |course_table|
   num_courses = 0
