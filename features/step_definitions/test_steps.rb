@@ -66,10 +66,22 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   e2index.should be > e1index
 end
 
+Then /I should see "(.*)" after "(.*)"/ do |e1, e2|
+  e1index = page.body.index(e1)
+  e2index = page.body.index(e2)
+  e2index.should be < e1index
+end
+
 Then /I should not see "(.*)" before "(.*)"/ do |e1, e2|
   e1index = page.body.index(e1)
   e2index = page.body.index(e2)
   e2index.should be < e1index
+end
+
+Then /I should not see "(.*)" after "(.*)"/ do |e1, e2|
+  e1index = page.body.index(e1)
+  e2index = page.body.index(e2)
+  e2index.should be > e1index
 end
 
 And /I login as "(.*)"/ do |name|
@@ -138,3 +150,8 @@ end
 Then(/^I should see ignore in the url$/) do
   expect(page).to have_current_path(schedule_courses_path(ignore: 'true'))
 end
+
+When(/^I delete the course "([^"]*)"$/) do |arg1|
+  find('tr', text: arg1).click_link("Remove")
+end
+

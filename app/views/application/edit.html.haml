@@ -42,7 +42,10 @@
                     %span.lever
                     Graduate
         .card-action.center
-          %input.btn.blue.waves-effect.waves-light#saveInFilter{type: "submit", value: "Save"}
+          %input.col.s6.l12.btn.blue.waves-effect.waves-light#saveInFilter{type: "submit", value: "Save"}
+        .card-action.center
+          %a.col.s6.l12.btn.grey.waves-effect.waves-light{href: "/user"} My Courses
+        .card-action.center
     .col.s12.l9#selections
       %form#edit-form{action: "/update", method: "post"}
         = hidden_field_tag :authenticity_token, form_authenticity_token

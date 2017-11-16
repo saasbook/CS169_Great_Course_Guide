@@ -29,4 +29,7 @@ Rails.application.routes.draw do
     get :schedule, :on => :collection
     get :compare, :on => :collection
   end
+
+  # User Courses
+  resources :user_courses, only: [:create, :destroy]
 end
