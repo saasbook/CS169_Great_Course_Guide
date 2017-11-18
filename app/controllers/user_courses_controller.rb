@@ -4,9 +4,9 @@ class UserCoursesController < ApplicationController
     @user = User.find_by(uid: session[:cas_user])
     input_course = params[:course]
     input_taken = params[:taken]
-    if input_course != nil and input_course.include? ":"
+    if not input_course.to_s.empty?
       attrs = Utils.split_by_colon(input_course)
-      if Course.where(:title => attrs[0], :number => attrs[1]).present? and course = @user.user_courses.where(:title => attrs[0]).first
+      if course = @user.user_courses.where(:title => attrs[0]).first
         course.update_attribute(:taken, input_taken)
       else
         @user.user_courses.create(title: attrs[0], number: attrs[1], taken: input_taken)
