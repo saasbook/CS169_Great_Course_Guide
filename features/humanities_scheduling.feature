@@ -43,3 +43,4 @@ Scenario: I want to see classes by all awarded humanities teachers
   Then I should see "Non-EECS"
   And I should see "Awards Tier"
   And I should see "IDX2017"
+  And I should see "Low"
