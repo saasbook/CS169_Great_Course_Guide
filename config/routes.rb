@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   end
 
   # Courses
+  match '/courses/filter' => 'courses#filter', :via => [:get]
+
   resources :courses, only: [:index, :show] do
     get :all, :on => :collection
     get :schedule, :on => :collection
