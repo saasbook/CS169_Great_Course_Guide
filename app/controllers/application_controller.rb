@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   # Filter Needed for CalNet Login
   before_filter CASClient::Frameworks::Rails::Filter
-  before_action :require_info, :except => [:welcome, :all, :emails, :create]
+  before_action :require_info, :except => [:welcome, :all, :emails, :create, :verify]
   before_action :get_info, :except => :create
 
   def require_info
@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
   end
 
   def index
+  end
+
+  def about
+    render "about"
   end
 
   def edit
@@ -89,8 +93,13 @@ class ApplicationController < ActionController::Base
     redirect_to "/user" and return
   end
 
-  def emails
-    render :text => @all_emails.to_json
+  def verify
+    if @all_emails.include?(params[:email])
+      resp = {:resp => false}
+    else
+      resp = {:resp => true}
+    end
+    render :json => resp
   end
 
   def updateFilters
