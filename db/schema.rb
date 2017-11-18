@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428232839) do
+ActiveRecord::Schema.define(version: 20171118073332) do
 
   create_table "awards", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20160428232839) do
   end
 
   add_index "awards", ["professor_id"], name: "index_awards_on_professor_id"
+
+  create_table "bt_filters", force: :cascade do |t|
+    t.string   "filter"
+    t.string   "category"
+    t.string   "filter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "number"
