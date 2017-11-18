@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 		courses = []
 		self.user_courses.each do |course|
 		courses << {id: Course.find_by(number: course.number).id,
-						    number: course.number, title: course.title, taken: course.taken}
+						    number: course.number, title: course.title, taken: course.taken, user_course_id: course.id}
 		end
     Utils.alpha_sort(courses, :number)
 		return courses
