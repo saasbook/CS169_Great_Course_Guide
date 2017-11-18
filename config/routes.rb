@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/edit" => "application#edit"
   post "/update" => "application#update"
   post "/create" => 'application#create'
-  get '/users/emails' => 'application#emails'
+  match '/users/email' => 'application#verify', :via => [:get]
   post '/updateFilters' => 'application#updateFilters'
   get '/about' => 'application#about'
 
