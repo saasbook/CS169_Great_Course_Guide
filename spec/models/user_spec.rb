@@ -259,4 +259,25 @@ describe User do
       end
     end
   end
+
+  describe "Distinguishing different non-EECS awards" do
+    before :each do
+      User.destroy_all
+      Course.destroy_all
+      Professor.destroy_all
+      UserCourse.destroy_all
+      ProfessorCourse.destroy_all
+      @cup = Professor.create({name: "Junko Habu", distinguished: true, distinguishedYear: , category: "HUM", awarded: })
+      @dog = Professor.create({name: "Xin Liu", distinguished: false, distinguishedYear: , category: "HUM", awarded: })
+      @cat = Professor.create({name: "Fae M. Ng", distinguished: , distinguishedYear: , category: "HUM", awarded: })
+      @lie = Professor.create({name: "Marcus Lee", distinguished: , distinguishedYear: , category: "HUM", awarded: })
+      @cup.courses.create({name: "Art", number: "ANTHROC125A", rating: 2, term: "FA16"})
+      @dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
+      @cat.courses.create({name: "History", number: "ASAMST172", rating: 3, term: "FA16"})
+      @lie.courses.create({name: "Dance", number: "IDX2017", rating: 4, term: "FA16"})
+      @recommended_breadth_courses = @user.recommended_breadth_courses
+    end
+    context "recommend non-EECS courses" do
+      it "should recommend courses from distinguished professors"
+      it "should recommend courses from awarded, non-distinguished professors"
 end
