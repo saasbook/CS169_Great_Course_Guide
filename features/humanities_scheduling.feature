@@ -38,12 +38,7 @@ Scenario: There are no distinguished humanities teachers teaching the next year 
   And I should see "Please see your advisor for more details."
 
 Scenario: I want to see classes by all awarded humanities teachers
-  Given the following courses exist:
-  | title  | number   | units |
-  | Dance  | IDX2017  | 4     |
-  And the following courses were taught:
-  | professor   | number      | rating | term |
-  | Marcus Lee  | IDX2017     | 4.0    | FA16 |
+
   When I follow "Schedule"
   Then I should see "Non-EECS"
   And I should see "Awards Tier"
