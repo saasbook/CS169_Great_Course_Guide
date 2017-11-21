@@ -6,16 +6,22 @@ Feature: Schedule Planning for Humanities
 
 Background: I am on the user page
 
-  Given I am on the welcome page
-  And I login as "Michael"
-  Then I should be on the user page
-  Given the following professors exist:
+  Given the following courses exist:
+  | title   | number      |
+  | Art     | ANTHROC125A |
+  | Music   | ANTHRO189   |
+  | History | ASAMST172   |
+  | Dance   | IDX2017     |
+  And the following professors exist:
   | name       | distinguished | distinguishedYear | category | awarded |
-  | Junko Habu | true			     | 2016              | HUM      | true    |
+  | Junko Habu | true          | 2016              | HUM      | true    |
   | Xin Liu    | false         | null              | HUM      | false   |
-  | Fae M. Ng  | true		       | 2014              | HUM      | true    |
+  | Fae M. Ng  | true          | 2014              | HUM      | true    |
   | Marcus Lee | false         | null              | HUM      | true    |
   And they teach the humanities classes
+  And I am on the welcome page
+  And I login as "Michael"
+  Then I should be on the user page
 
 
 Scenario: I want to see classes taught by distinguished humanities teachers

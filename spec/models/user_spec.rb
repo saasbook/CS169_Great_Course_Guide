@@ -280,9 +280,16 @@ describe User do
       @dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
       @cat.courses.create({name: "History", number: "ASAMST172", rating: 3, term: "FA16"})
       @lie.courses.create({name: "Dance", number: "IDX2017", rating: 4, term: "FA16"})
-      @recommended_breadth_courses = @user.recommended_breadth_courses
+      @recommended_breadth_courses = @test_user.recommended_breadth_courses
+      @courses_to_match = @recommended_breadth_courses.join(",")
     end
     context "recommend non-EECS courses" do
-      it "should recommend courses from distinguished professors"
-      it "should recommend courses from awarded, non-distinguished professors"
+      it "should recommend courses from distinguished professors" do
+        expect(@courses_to_match).to match(/ANTHROC125A/)
+      end
+      it "should recommend courses from awarded, non-distinguished professors" do
+        expect(@courses_to_match).to match(/IDX2017/)
+      end
+    end
+  end
 end
