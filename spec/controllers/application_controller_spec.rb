@@ -107,6 +107,14 @@ describe ApplicationController do
       expect(assigns(:user).user_courses.first.title).to eq(@course.title)
     end    
   end
+  
+  describe "about" do
+    it "should direct logged in user to the logged in version of the about page" do
+      @user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
+      get :about
+      expect(response).to render_template(:about)
+    end
+  end 
 
   it "logging out" do
     get :logout

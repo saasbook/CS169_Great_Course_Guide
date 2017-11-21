@@ -1,5 +1,6 @@
 require 'csv'
 require 'set'
+require 'json'
 
 Professor.destroy_all
 ProfessorCourse.destroy_all
@@ -98,4 +99,10 @@ CSV.foreach('data/DraftSchedule.csv') do |line|
   if line.length == 3
     course.draft_courses.create(term: "SP17", professor: line[2])
   end
+end
+
+newest_run = 'data/run_2017-11-03_17_33_48/bt_filter.json'
+filter_data_hash = JSON.parse(File.read(newest_run))
+filter_data_hash.each do |key, hash|
+  BtFilter.create(filter: key, category: hash['category'], filter_id: hash['filter_id'])
 end

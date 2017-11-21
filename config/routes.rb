@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get "/edit" => "application#edit"
   post "/update" => "application#update"
   post "/create" => 'application#create'
-  get '/users/emails' => 'application#emails'
+  match '/users/email' => 'application#verify', :via => [:get]
   post '/updateFilters' => 'application#updateFilters'
+  get '/about' => 'application#about'
 
   # Professors
   resources :professors, only: [:index, :show] do
@@ -24,9 +25,14 @@ Rails.application.routes.draw do
   end
 
   # Courses
+  match '/courses/filter' => 'courses#filter', :via => [:get]
+
   resources :courses, only: [:index, :show] do
     get :all, :on => :collection
     get :schedule, :on => :collection
     get :compare, :on => :collection
   end
+
+  # User Courses
+  resources :user_courses, only: [:create, :destroy]
 end

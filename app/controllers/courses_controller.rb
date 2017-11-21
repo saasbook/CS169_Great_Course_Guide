@@ -40,4 +40,15 @@ class CoursesController < ApplicationController
     @recommended_breadth_courses = @user.recommended_breadth_courses
     @breadth_length = @recommended_breadth_courses.length
   end
+
+  def filter
+    filter = BtFilter.where(filter: params[:filter])[0]
+    if !filter.nil?
+      resp = {:filter => filter.filter_id}
+    else
+      resp = {:filter => nil}
+    end
+    render :json => resp
+  end
 end
+
