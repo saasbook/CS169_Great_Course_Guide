@@ -267,10 +267,15 @@ describe User do
       Professor.destroy_all
       UserCourse.destroy_all
       ProfessorCourse.destroy_all
-      @cup = Professor.create({name: "Junko Habu", distinguished: true, distinguishedYear: , category: "HUM", awarded: })
-      @dog = Professor.create({name: "Xin Liu", distinguished: false, distinguishedYear: , category: "HUM", awarded: })
-      @cat = Professor.create({name: "Fae M. Ng", distinguished: , distinguishedYear: , category: "HUM", awarded: })
-      @lie = Professor.create({name: "Marcus Lee", distinguished: , distinguishedYear: , category: "HUM", awarded: })
+      @test_user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
+      @a = Course.create(number: "ANTHROC125A", title: "Art")
+      @b = Course.create(number: "ANTHRO189", title: "Music")
+      @c = Course.create(number: "ASAMST172", title: "History")
+      @d = Course.create(number: "IDX2017", title: "Dance")
+      @cup = Professor.create({name: "Junko Habu", distinguished: true, distinguishedYear: 2016, category: "HUM", awarded: true})
+      @dog = Professor.create({name: "Xin Liu", distinguished: false, category: "HUM", awarded: false})
+      @cat = Professor.create({name: "Fae M. Ng", distinguished: true, distinguishedYear: 2014, category: "HUM", awarded: true})
+      @lie = Professor.create({name: "Marcus Lee", distinguished: false, category: "HUM", awarded: true})
       @cup.courses.create({name: "Art", number: "ANTHROC125A", rating: 2, term: "FA16"})
       @dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
       @cat.courses.create({name: "History", number: "ASAMST172", rating: 3, term: "FA16"})
