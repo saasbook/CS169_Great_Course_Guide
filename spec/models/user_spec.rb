@@ -204,6 +204,8 @@ describe User do
         expect(@user.can_take("A",false)).to eq(false)
         expect(@user.can_take("B",false)).to eq(false)
         expect(@user.can_take("D",false)).to eq(false)
+      end
+      it "should return true if ignore flag is toggled and hasn't taken yet" do
         expect(@user.can_take("A",true)).to eq(false)
         expect(@user.can_take("B",true)).to eq(false)
         expect(@user.can_take("C",true)).to eq(true)
