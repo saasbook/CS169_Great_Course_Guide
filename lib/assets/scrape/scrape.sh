@@ -26,7 +26,18 @@ sleep 1
 sleep 1
 
 echo "Created directory: scrape_$dt"
-FILEDIR="run_$dt"
+FILEDIR="../../../data/current"
+
+echo "Checking for previous run"
+if [ -d "$FILEDIR" ]; then
+    NEWFILEDIRNAME="archived_run_$dt"
+	NEWFILEDIR="../../../data/$NEWFILEDIRNAME"
+	echo "Previous run found. Renaming to: $NEWFILEDIRNAME"
+	mv $FILEDIR $NEWFILEDIR
+else
+	echo "No previous run found."
+fi
+
 mkdir $FILEDIR
 
 if $h; then
