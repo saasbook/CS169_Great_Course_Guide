@@ -9,16 +9,23 @@
               %tr
                 %th{"data-field": "name"} Course
                 %th{"data-field": "title"} Title
+                %td
             %tbody
               - @user.courses.each do |course|
                 - if not course[:taken]
                   %tr
                     %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
+                    %td= link_to "Remove", user_course_path(course[:user_course_id]), method: :delete
         .card-action
-          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"}
-            %i.material-icons.right mode_edit
-            Edit
+          %form#add-interested-course{action: "/user_courses", method: "post"}
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            = hidden_field_tag :taken, false
+            %input.col.s6.m6.autocomplete#interested-course-search{placeholder: "Search for course to add", type: "text", name: "course"} 
+            %input.btn.blue.waves-effect.waves-light#submit-interested-course{type: "submit", value: "Add Course", name: "Add Interested Course"}
+            %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"}
+              %i.material-icons.right mode_edit
+              Multi-Edit
   .row
     .col.s12
       .card.white
@@ -29,13 +36,21 @@
               %tr
                 %th{"data-field": "name"} Course
                 %th{"data-field": "title"} Title
+                %td
             %tbody
               - @user.courses.each do |course|
                 - if course[:taken]
                   %tr
                     %td= link_to course[:number], course_path(course[:id])
                     %td= course[:title]
+                    %td= link_to "Remove", user_course_path(course[:user_course_id]), method: :delete
         .card-action
-          %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"}
-            %i.material-icons.right mode_edit
-            Edit
+          %form#add-taken-course{action: "/user_courses", method: "post"}
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            = hidden_field_tag :taken, true
+            %input.col.s6.m6.autocomplete#taken-course-search{placeholder: "Search for course to add", type: "text", name: "course"} 
+            %input.btn.blue.waves-effect.waves-light#submit-taken-course{type: "submit", value: "Add Course", name: "Add Taken Course"}
+            %a.btn.blue.waves-effect.waves-light#edit{href: "/edit"}
+              %i.material-icons.right mode_edit
+              Multi-Edit
+= javascript_include_tag '/javascripts/edit.js'

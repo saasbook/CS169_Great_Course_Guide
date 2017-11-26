@@ -27,10 +27,35 @@ class CoursesController < ApplicationController
   end
 
   def schedule
-    @recommended_EECS_courses = @user.recommended_EECS_courses
+    @ignore = "not ignoring prerequisites"
+    @ignore_flag = false
+    ignore = params[:ignore]
+    if !ignore.nil?
+      @ignore = "ignoring prerequisites"
+      @ignore_flag = true
+    end
+    @recommended_EECS_courses = @user.recommended_EECS_courses(@ignore_flag)
     @fall_length = @recommended_EECS_courses[:possible_fall].length + @recommended_EECS_courses[:backup_fall].length
     @spring_length = @recommended_EECS_courses[:possible_spring].length + @recommended_EECS_courses[:backup_spring].length
     @recommended_breadth_courses = @user.recommended_breadth_courses
     @breadth_length = @recommended_breadth_courses.length
   end
+
+  def filter
+    resp = []
+    if params[:category]
+      filters = BtFilter.where(category: params[:category])
+    elsif params[:filter]
+      filters = BtFilter.where(filter: params[:filter])
+    end
+    if filters
+      default_filter = BtFilter.where(filter: 'default')[0]
+      resp << default_filter
+      filters.each do |filter|
+        resp << filter
+      end
+    end
+    render :json => resp
+  end
 end
+
