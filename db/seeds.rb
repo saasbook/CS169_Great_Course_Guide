@@ -21,12 +21,6 @@ CSV.foreach('data/awards.csv') do |line|
   end
 end
 
-# CSV.foreach('data/classNames.csv', converters: :numeric) do |line|
-#   number = line[0]
-#   title = line[1]
-#   Course.create(number: number, title: title)
-# end
-
 course_data_file = newest_run_dir + '/bt_data.json'
 course_data_hash = JSON.parse(File.read(course_data_file))
 course_data_hash.each do |hash|
