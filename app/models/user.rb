@@ -65,8 +65,18 @@ class User < ActiveRecord::Base
 
   def recommended_EECS_courses(ignore_flag)
     draft_schedule = Utils.draft_schedule
-
-    semesters = {fall: {courses: {}, possible_courses: [], backup_courses: []}, spring: {courses: {}, possible_courses: [], backup_courses: []}}
+    semesters = {
+        fall: {
+            courses: {},
+            possible_courses: [],
+            backup_courses: []
+        },
+        spring: {
+            courses: {},
+            possible_courses: [],
+            backup_courses: []
+        }
+    }
 
     semesters.each do |name, semester|
       semester[:courses] = draft_schedule[name]
@@ -121,6 +131,8 @@ class User < ActiveRecord::Base
           total += professor.rating
           num_professors += 1
         end
+      else
+        next
       end
     end
     return num_professors > 0 ? (total / num_professors).round(2) : "*"
@@ -133,7 +145,10 @@ class User < ActiveRecord::Base
     course_list.each do |data|
       new_professors = []
       data[1].each do |professor_name|
-        new_professors << Professor.find_by(name: professor_name)
+        professor = Professor.find_by(name: professor_name)
+        if professor
+          new_professors << professor
+        end
       end
       data[1] = new_professors
     end
