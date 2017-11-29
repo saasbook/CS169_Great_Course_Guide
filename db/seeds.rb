@@ -25,11 +25,11 @@ course_data_file = newest_run_dir + '/bt_data.json'
 course_data_hash = JSON.parse(File.read(course_data_file))
 course_data_hash.each do |hash|
   # TODO: change this to match Berkeleytime naming scheme
-  # Hot fix for working with legacy COMPSCI -> CS and EEECS -> EE
+  # Hot fix for working with legacy COMPSCI -> CS and EL ENG -> EE
   abbr = hash['abbreviation']
   if abbr == 'COMPSCI'
     abbr = 'CS'
-  elsif abbr == 'EECS'
+  elsif abbr == 'EL ENG'
     abbr = 'EE'
   end
   course_number = abbr + hash['course_number']
@@ -43,7 +43,6 @@ end
 CSV.foreach('data/classPrereqs.csv') do |line|
   size = line.size()
   number = line[0]
-  puts number
   course = Course.find_by_number(number)
   # Some courses are no longer offered with new Berkeleytime data so skip
   if course
