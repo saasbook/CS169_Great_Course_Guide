@@ -100,11 +100,7 @@ class User < ActiveRecord::Base
     fall_breadth_courses.each do |course|
       professor = Professor.find_by(name: course[2])
       if professor and professor.awarded
-        if professor.distinguished
-          course[3] = "High"
-        else
-          course[3] = "Low"
-        end
+        course[3] = if professor.distinguished then "High" else "Low" end
         distinguished_fall_breadth_courses << course
       end
     end

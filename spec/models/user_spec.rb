@@ -263,24 +263,13 @@ describe User do
   describe "Distinguishing different non-EECS awards" do
     before :each do
       User.destroy_all
-      # Course.destroy_all
       Professor.destroy_all
-      # UserCourse.destroy_all
       ProfessorCourse.destroy_all
       @test_user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
      
-      # @a = Course.create(number: "ANTHROC125A", title: "Art")
-      # @b = Course.create(number: "ANTHRO189", title: "Music")
-      # @c = Course.create(number: "IDX2017", title: "Dance")
       @professor1 = Professor.create(name: "Junko Habu", distinguished: true, distinguishedYear: 2016, category: "HUM", awarded: true)
       @professor2 = Professor.create(name: "Xin Liu", distinguished: false, category: "HUM", awarded: false)
       @professor3 = Professor.create(name: "Angela Marino", distinguished: false, category: "HUM", awarded: true)
-      # @cup.courses.create({name: "Art", number: "ANTHROC125A", rating: 2, term: "FA16"})
-      # @dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
-      # @lie.courses.create({name: "Dance", number: "IDX2017", rating: 4, term: "FA16"})
-      # @draft_course_a = @a.draft_courses.create(professor: "Junko Habu", term: "SP17")
-      # @draft_course_b = @b.draft_courses.create(professor: "Xin Liu", term: "SP17")
-      # @draft_course_c = @c.draft_courses.create(professor: "Marcus Lee", term: "SP17")
       @course1 = ProfessorCourse.create(number: "ANTHROC125A", name: "Art", rating: 2, term: "FA16")
       @course2 = ProfessorCourse.create(number: "ANTHRO189", name: "Music", rating: 2, term: "FA16")
       @course3 = ProfessorCourse.create(number: "THEATER26", name: "Dance", rating: 4, term: "FA16")
