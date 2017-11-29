@@ -144,10 +144,12 @@
                 %th{"data-field": "name"} Course
                 %th{"data-field": "title"} Title
                 %th{"data-field": "professor"} Professor
+                %th{"data-field": "awards_tier"} Awards Tier
             %tbody
               - @recommended_breadth_courses.each do |course|
                 %tr
                   %td= course[0]
                   %td= course[1]
                   %td= course[2]
+                  %td= course[3]
 = javascript_include_tag '/javascripts/schedule.js'
