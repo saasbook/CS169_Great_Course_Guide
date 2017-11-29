@@ -263,23 +263,31 @@ describe User do
   describe "Distinguishing different non-EECS awards" do
     before :each do
       User.destroy_all
-      Course.destroy_all
+      # Course.destroy_all
       Professor.destroy_all
-      UserCourse.destroy_all
+      # UserCourse.destroy_all
       ProfessorCourse.destroy_all
       @test_user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
-      @a = Course.create(number: "ANTHROC125A", title: "Art")
-      @b = Course.create(number: "ANTHRO189", title: "Music")
-      @c = Course.create(number: "ASAMST172", title: "History")
-      @d = Course.create(number: "IDX2017", title: "Dance")
-      @cup = Professor.create({name: "Junko Habu", distinguished: true, distinguishedYear: 2016, category: "HUM", awarded: true})
-      @dog = Professor.create({name: "Xin Liu", distinguished: false, category: "HUM", awarded: false})
-      @cat = Professor.create({name: "Fae M. Ng", distinguished: true, distinguishedYear: 2014, category: "HUM", awarded: true})
-      @lie = Professor.create({name: "Marcus Lee", distinguished: false, category: "HUM", awarded: true})
-      @cup.courses.create({name: "Art", number: "ANTHROC125A", rating: 2, term: "FA16"})
-      @dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
-      @cat.courses.create({name: "History", number: "ASAMST172", rating: 3, term: "FA16"})
-      @lie.courses.create({name: "Dance", number: "IDX2017", rating: 4, term: "FA16"})
+     
+      # @a = Course.create(number: "ANTHROC125A", title: "Art")
+      # @b = Course.create(number: "ANTHRO189", title: "Music")
+      # @c = Course.create(number: "IDX2017", title: "Dance")
+      @professor1 = Professor.create(name: "Junko Habu", distinguished: true, distinguishedYear: 2016, category: "HUM", awarded: true)
+      @professor2 = Professor.create(name: "Xin Liu", distinguished: false, category: "HUM", awarded: false)
+      @professor3 = Professor.create(name: "Angela Marino", distinguished: false, category: "HUM", awarded: true)
+      # @cup.courses.create({name: "Art", number: "ANTHROC125A", rating: 2, term: "FA16"})
+      # @dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
+      # @lie.courses.create({name: "Dance", number: "IDX2017", rating: 4, term: "FA16"})
+      # @draft_course_a = @a.draft_courses.create(professor: "Junko Habu", term: "SP17")
+      # @draft_course_b = @b.draft_courses.create(professor: "Xin Liu", term: "SP17")
+      # @draft_course_c = @c.draft_courses.create(professor: "Marcus Lee", term: "SP17")
+      @course1 = ProfessorCourse.create(number: "ANTHROC125A", name: "Art", rating: 2, term: "FA16")
+      @course2 = ProfessorCourse.create(number: "ANTHRO189", name: "Music", rating: 2, term: "FA16")
+      @course3 = ProfessorCourse.create(number: "THEATER26", name: "Dance", rating: 4, term: "FA16")
+      @professor1.professor_courses << @course1
+      @professor2.professor_courses << @course2
+      @professor3.professor_courses << @course3
+      
       @recommended_breadth_courses = @test_user.recommended_breadth_courses
       @courses_to_match = @recommended_breadth_courses.join(",")
     end
@@ -288,7 +296,7 @@ describe User do
         expect(@courses_to_match).to match(/ANTHROC125A/)
       end
       it "should recommend courses from awarded, non-distinguished professors" do
-        expect(@courses_to_match).to match(/IDX2017/)
+        expect(@courses_to_match).to match(/THEATER26/)
       end
     end
   end

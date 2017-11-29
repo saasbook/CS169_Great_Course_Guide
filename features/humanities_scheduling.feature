@@ -13,11 +13,11 @@ Background: I am on the user page
   | History | ASAMST172   |
   | Dance   | IDX2017     |
   And the following professors exist:
-  | name       | distinguished | distinguishedYear | category | awarded |
-  | Junko Habu | true          | 2016              | HUM      | true    |
-  | Xin Liu    | false         | null              | HUM      | false   |
-  | Fae M. Ng  | true          | 2014              | HUM      | true    |
-  | Marcus Lee | false         | null              | HUM      | true    |
+  | name          | distinguished | distinguishedYear | category | awarded |
+  | Junko Habu    | true          | 2016              | HUM      | true    |
+  | Xin Liu       | false         | null              | HUM      | false   |
+  | Fae M. Ng     | true          | 2014              | HUM      | true    |
+  | Angela Marino | false         | null              | HUM      | true    |
   And they teach the humanities classes
   And I am on the welcome page
   And I login as "Michael"
@@ -48,5 +48,5 @@ Scenario: I want to see classes by all awarded humanities teachers
   When I follow "Schedule"
   Then I should see "Non-EECS"
   And I should see "Awards Tier"
-  And I should see "IDX2017"
+  And I should see "THEATER26"
   And I should see "Low"

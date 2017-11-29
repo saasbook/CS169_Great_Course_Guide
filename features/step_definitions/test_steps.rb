@@ -112,11 +112,11 @@ Given(/^they teach the humanities classes$/) do
   cup = Professor.find_by_name("Junko Habu")
   dog = Professor.find_by_name("Xin Liu")
   cat = Professor.find_by_name("Fae M. Ng")
-  lie = Professor.find_by_name("Marcus Lee")
+  lie = Professor.find_by_name("Angela Marino")
   cup.courses.create({name: "Art", number: "ANTHROC125A", rating: 2, term: "FA16"})
   dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
   cat.courses.create({name: "History", number: "ASAMST172", rating: 3, term: "FA16"})
-  lie.courses.create({name: "Dance", number: "IDX2017", rating: 4, term: "FA16"})
+  lie.courses.create({name: "Dance", number: "THEATER26", rating: 4, term: "FA16"})
 end
 
 Given(/^"([^"]*)" isn't teaching "([^"]*)" next semester$/) do |prof, course|
