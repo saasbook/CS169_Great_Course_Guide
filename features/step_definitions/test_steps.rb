@@ -123,6 +123,7 @@ Given(/^"([^"]*)" isn't teaching "([^"]*)" next semester$/) do |prof, course|
   prof = Professor.find_by_name(prof)
   prof.courses.destroy_all
   prof.distinguished = false
+  prof.awarded = false
   prof.save
 end
 
