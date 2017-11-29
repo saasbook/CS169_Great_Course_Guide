@@ -21,7 +21,10 @@ class BerkeleyTimeSpider(scrapy.Spider):
             default_filters = re.search(filter_re, default_string_el)
 
             try:
-                default_filters = default_filters.group(1).split(",")
+                default_filters = default_filters.group(1)
+                default_filters_copy = default_filters
+                default_filters = default_filters.split(",")
+
             except IndexError:
                 raise Exception("Default filter strings not found.")
 
@@ -39,20 +42,23 @@ class BerkeleyTimeSpider(scrapy.Spider):
             with open("bt_catalog.json", "w") as f:
                 json.dump(catalog_response, f, indent=4)
 
-            # scrape for course data (extra parse needed for units)
-            for cr in catalog_response:
-                # response.url is only berkeleytime.com
-                course_id = cr["id"]
-                course_url = response.urljoin("/catalog/course/" + str(course_id) + "/")
-                print "Processing Course Url: {0}".format(course_url)
-                yield scrapy.Request(course_url, callback=self.course_parse, meta={"cr": cr})
+            # # scrape for course data (extra parse needed for units)
+            # for cr in catalog_response:
+            #     # response.url is only berkeleytime.com
+            #     course_id = cr["id"]
+            #     course_url = response.urljoin("/catalog/course/" + str(course_id) + "/")
+            #     print "Processing Course Url: {0}".format(course_url)
+            #     yield scrapy.Request(course_url, callback=self.course_parse, meta={"cr": cr})
 
             # scrape for filter id's
 
             filter_div = response.xpath(".//div[@class='filter-list' and @id='req']")
             filter_li = filter_div.xpath(".//li[@class='searchable selectable filter']")
 
-            filter_dict = {}
+            filter_dict = dict()
+
+            # add in default filter string
+            filter_dict["default"] = {"id": default_filters_copy, "category": "default"}
 
             category_re = r'data-category=\"(.*)\"\s'
             requirement_re = r'>(.*)<'

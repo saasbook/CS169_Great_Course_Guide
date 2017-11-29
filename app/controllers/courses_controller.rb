@@ -42,13 +42,45 @@ class CoursesController < ApplicationController
   end
 
   def filter
-    filter = BtFilter.where(filter: params[:filter])[0]
-    if !filter.nil?
-      resp = {:filter => filter.filter_id}
-    else
-      resp = {:filter => nil}
+    resp = []
+    if params[:category]
+      filters = filter_category(params[:category])
+    elsif params[:filter]
+      filters = filter_filter(params[:filter])
+    end
+    if filters
+      default_filter = BtFilter.where(filter: 'default')[0]
+      default_filter = {
+          :filter => default_filter.filter,
+          :category => default_filter.category,
+          :filter_id => default_filter.filter_id
+      }
+      resp << default_filter
+      filters.each do |filter|
+        tmp = {:filter => filter.filter, :category => filter.category, :filter_id => filter.filter_id}
+        resp << tmp
+      end
     end
     render :json => resp
   end
+
+  def filter_category (category)
+    filters = nil
+    tmp = BtFilter.where(category: category)
+    if tmp.length > 0
+      filters = tmp
+    end
+    filters
+  end
+
+  def filter_filter (filter)
+    filters = nil
+    tmp = BtFilter.where(filter: filter)
+    if tmp.length > 0
+      filters = tmp
+    end
+    filters
+  end
+
 end
 
