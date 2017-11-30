@@ -134,6 +134,13 @@
       .card.white.medium
         .card-content.scrollable
           %span.card-title Recommended Fall 2016 Non-EECS Courses Taught by Distinguished Professors
+          %br
+          %span.card-subtitle
+            .text{:style => 'display: inline-block'} Distiguished Teaching Award:
+            %i.material-icons.center.amber-text{:style => 'display: inline-block; vertical-align: middle'} star
+            %br
+            .text{:style => 'display: inline-block'} Other Awards:
+            %i.material-icons.center.blue-text{:style => 'display: inline-block; vertical-align: middle'} star
           - if @spring_length == 0
             %br
             No classes taught by a distinguished humanities professor the next semester.
@@ -151,5 +158,10 @@
                   %td= course[0]
                   %td= course[1]
                   %td= course[2]
-                  %td= course[3]
+                  - if course[3] == "High"
+                    %td{:class => "tier_star", :id => "gold_star"}
+                      %i.material-icons.center.amber-text star
+                  - else
+                    %td{:class => "tier_star", :id => "blue_star"}
+                      %i.material-icons.center.blue-text star
 = javascript_include_tag '/javascripts/schedule.js'

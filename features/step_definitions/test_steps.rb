@@ -158,3 +158,6 @@ When(/^I delete the course "([^"]*)"$/) do |arg1|
   find('tr', text: arg1).click_link("Remove")
 end
 
+Then(/^the page element "([^"]*)" should be under class "([^"]*)"$/) do |arg1, arg2|
+  page.find(arg1)[:class].include?(arg2)
+end
