@@ -1,4 +1,14 @@
 .container.animated.mainContent
+  .row-toggle
+    .col.s12
+      .card.white
+        .text #{@ignore}
+        - if @ignore_flag
+          %a{:href => "/courses/schedule", :id => "dont ignore"} 
+            Don't Ignore Prerequisites
+        - else
+          %a{:href => "/courses/schedule?ignore=true", :id => "ignore"}
+            Ignore Prerequisites 
   .row
     .col.l6.m12
       .card.white.medium
@@ -119,16 +129,7 @@
                   %td= course[2]
         .center-align.card-action-small.card-action
           %i.material-icons.small.animated-slow.tada.infinite arrow_drop_down
-  .row
-    .col.s12
-      .card.white
-        .text #{@ignore}
-        - if @ignore_flag
-          %a{:href => "/courses/schedule", :id => "dont ignore"} 
-            Dont Ignore Prerequisites
-        - else
-          %a{:href => "/courses/schedule?ignore=true", :id => "ignore"}
-            Ignore Prerequisites 
+
   .row
     .col.s12
       .card.white.medium

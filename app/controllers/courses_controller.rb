@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
   end
 
   def schedule
-    @ignore = "Click to Toggle"
+    @ignore = "Click to Ignore Prerequisites"
     @ignore_flag = false
     ignore = params[:ignore]
     if !ignore.nil?
