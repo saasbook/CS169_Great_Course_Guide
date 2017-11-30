@@ -42,7 +42,12 @@
                         = link_to(professor.name, professor_path(professor.id))
                       - else
                         = link_to(professor.name, professor_path(professor.id)) + ", "
-                  %td= course[2]
+                  %td 
+                    - course[2].each do |rating|
+                      - if course[2].index(rating) + 1 == course[2].length # I'm so sorry
+                        = rating.to_s
+                      - else
+                        = rating.to_s + ", "
                   %td.vertical-align
                     %input{type: "checkbox", class: "filled-in takenBox", id: "add-#{course[0].number}", name: "taking_classes[#{course[0].number}: #{course[0].title}]"}
                     %label{for: "add-#{course[0].number}"}
@@ -69,7 +74,12 @@
                         = link_to(professor.name, professor_path(professor.id))
                       - else
                         = link_to(professor.name, professor_path(professor.id)) + ", "
-                  %td= course[2]
+                  %td 
+                    - course[2].each do |rating|
+                      - if course[2].index(rating) + 1 == course[2].length
+                        = rating.to_s
+                      - else
+                        = rating.to_s + ", "
                   %td.vertical-align
                     %input{type: "checkbox", class: "filled-in takenBox", id: "add-#{course[0].number}", name: "taking_classes[#{course[0].number}: #{course[0].title}]"}
                     %label{for: "add-#{course[0].number}"}
@@ -105,7 +115,12 @@
                         = link_to(professor.name, professor_path(professor.id))
                       - else
                         = link_to(professor.name, professor_path(professor.id)) + ", "
-                  %td= course[2]
+                  %td 
+                    - course[2].each do |rating|
+                      - if course[2].index(rating) + 1 == course[2].length
+                        = rating.to_s
+                      - else
+                        = rating.to_s + ", "
           %br
           .chip.center-div The Best Alternative Courses
           %table.centered.highlight
@@ -126,7 +141,12 @@
                         = link_to(professor.name, professor_path(professor.id))
                       - else
                         = link_to(professor.name, professor_path(professor.id)) + ", "
-                  %td= course[2]
+                  %td 
+                    - course[2].each do |rating|
+                      - if course[2].index(rating) + 1 == course[2].length # I'm so sorry
+                        = rating.to_s
+                      - else
+                        = rating.to_s + ", "
         .center-align.card-action-small.card-action
           %i.material-icons.small.animated-slow.tada.infinite arrow_drop_down
 
