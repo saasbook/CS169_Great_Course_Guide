@@ -85,7 +85,6 @@ class User < ActiveRecord::Base
       if not semester[:possible_courses].blank? and not ignore_flag
         min_interested_rating = semester[:possible_courses].min_by {|x| x[2]}[2]  
         min_interested_rating = min_interested_rating.min
-        #byebug
         semester[:backup_courses] = semester[:backup_courses].select{|a| a[2][0] > min_interested_rating}
       end
     end
@@ -132,7 +131,6 @@ class User < ActiveRecord::Base
     course_list.map! { |course_number| [Course.find_by(number: course_number),
               term_list[course_number].split(";")]}
               #get_average_rating_of_professors(term_list[course_number].split(";"))] }
-    #byebug
     course_list.each do |data|
       new_professors = []
       prof_ratings = []
@@ -150,12 +148,5 @@ class User < ActiveRecord::Base
       data[1] = new_professors
       data[2] = prof_ratings
     end
-    # course_list.sort_by! do |data|
-    #   if data[2] == "*"
-    #     0
-    #   else
-    #     -data[2]
-    #   end
-    # end
   end
 end
