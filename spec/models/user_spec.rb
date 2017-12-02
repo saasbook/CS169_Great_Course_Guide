@@ -295,4 +295,34 @@ describe User do
       end
     end
   end
+
+  describe "Distinguishing different non-EECS awards" do
+    before :each do
+      User.destroy_all
+      Professor.destroy_all
+      ProfessorCourse.destroy_all
+      @test_user = User.create(first_name: "Test", last_name: "Test", uid: "123456", email: "Test@test.test")
+     
+      @professor1 = Professor.create(name: "Junko Habu", distinguished: true, distinguishedYear: 2016, category: "HUM", awarded: true)
+      @professor2 = Professor.create(name: "Xin Liu", distinguished: false, category: "HUM", awarded: false)
+      @professor3 = Professor.create(name: "Angela Marino", distinguished: false, category: "HUM", awarded: true)
+      @course1 = ProfessorCourse.create(number: "ANTHROC125A", name: "Art", rating: 2, term: "FA16")
+      @course2 = ProfessorCourse.create(number: "ANTHRO189", name: "Music", rating: 2, term: "FA16")
+      @course3 = ProfessorCourse.create(number: "THEATER26", name: "Dance", rating: 4, term: "FA16")
+      @professor1.professor_courses << @course1
+      @professor2.professor_courses << @course2
+      @professor3.professor_courses << @course3
+      
+      @recommended_breadth_courses = @test_user.recommended_breadth_courses
+      @courses_to_match = @recommended_breadth_courses.join(",")
+    end
+    context "recommend non-EECS courses" do
+      it "should recommend courses from distinguished professors" do
+        expect(@courses_to_match).to match(/ANTHROC125A/)
+      end
+      it "should recommend courses from awarded, non-distinguished professors" do
+        expect(@courses_to_match).to match(/THEATER26/)
+      end
+    end
+  end
 end
