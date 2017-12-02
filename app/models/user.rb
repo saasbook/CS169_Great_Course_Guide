@@ -77,6 +77,7 @@ class User < ActiveRecord::Base
           semester[:backup_courses] << course_number
         end
       end
+      #byebug
       get_course_data(semester[:possible_courses], semester[:courses])
       get_course_data(semester[:backup_courses], semester[:courses])
       
@@ -109,7 +110,7 @@ class User < ActiveRecord::Base
     return distinguished_fall_breadth_courses
   end
 
-  protected
+  #protected
   def get_average_rating_of_professors(professors)
     total = 0
     num_professors = 0
