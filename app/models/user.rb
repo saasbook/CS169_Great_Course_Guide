@@ -130,12 +130,5 @@ class User < ActiveRecord::Base
       data[1] = new_professors
       data[2] = prof_ratings
     end
-    # course_list.sort_by! do |data|
-    #   if data[2] == "*"
-    #     0
-    #   else
-    #     -data[2]
-    #   end
-    # end
   end
 end
