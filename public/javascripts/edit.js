@@ -50,12 +50,12 @@ $(function() {
   }
 
   $("#add-interested-course").submit(function() {
-    let input_string = $('interested-course-search').val();
+    let input_string = $('#interested-course-search').val();
     return validate_input(input_string);
   });
   $("#add-taken-course").submit(function() {
     console.log("SwS");
-    let input_string = $('taken-course-search').val();
+    let input_string = $('#taken-course-search').val();
     return validate_input(input_string);
   });
   
