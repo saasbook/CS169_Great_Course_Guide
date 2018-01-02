@@ -5,14 +5,22 @@ var selected_classes = [];
 alert = swal;
 
 $(function () {
-  var all_emails = [];
   function validateEmail(email) {
     var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(email) && all_emails.indexOf(email) < 0;
+    if (regex.test(email))
+      $.get("/users/email/?email=" + email.toString(), function(data) {
+        if (!data.resp) {
+          alert("Oops", "Please enter a valid and unique email.", "error");
+          return;
+        } else {
+          $('#details-form').removeClass("slideInUp").addClass("fadeOutLeft")
+          setTimeout(function() {
+              $('#details-form').addClass("hide")
+              $('#class-form').removeClass("fadeOutRight").addClass("animated fadeInRight").removeClass("hide");
+          }, 400);
+        }
+      });
   }
-  $.get("/users/emails", function(data) {
-    all_emails = JSON.parse(data);
-  });
 
   // Make welcome page work without JS by default
   var first_name_label = $('<label for="first_name">First Name</label>');
@@ -29,26 +37,15 @@ $(function () {
 
   $('#selected-classes').addClass("hide");
   $("#continue").click(function() {
-
     first_name = $('#first_name').val();
     last_name = $('#last_name').val();
     email = $('#email').val();
 
-    if (!validateEmail(email)) {
-      alert("Oops", "Please enter a valid and unique email.", "error")
-      return
-    }
-
     if (first_name == "" || last_name == "" || email == "") {
-      alert("Oops", "Please fill-in all fields.", "error");
-      return
+        alert("Oops", "Please fill-in all fields.", "error");
+        return;
     }
-
-    $('#details-form').removeClass("slideInUp").addClass("fadeOutLeft")
-    setTimeout(function() {
-      $('#details-form').addClass("hide")
-      $('#class-form').removeClass("fadeOutRight").addClass("animated fadeInRight").removeClass("hide");
-    }, 400);
+    validateEmail(email);
   });
 
   $('#addClass').click(function() {

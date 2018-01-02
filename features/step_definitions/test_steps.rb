@@ -12,6 +12,13 @@ Given /the following professors exist/ do |prof_table|
   end
 end
 
+Given /the following professors, without ratings, exist/ do |prof_table|
+  num_profs = 0
+  prof_table.hashes.each do |prof|
+    p = Professor.create(prof)
+  end
+end
+
 num_courses = 0
 Given /the following courses exist/ do |course_table|
   num_courses = 0
@@ -59,10 +66,22 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   e2index.should be > e1index
 end
 
+Then /I should see "(.*)" after "(.*)"/ do |e1, e2|
+  e1index = page.body.index(e1)
+  e2index = page.body.index(e2)
+  e2index.should be < e1index
+end
+
 Then /I should not see "(.*)" before "(.*)"/ do |e1, e2|
   e1index = page.body.index(e1)
   e2index = page.body.index(e2)
   e2index.should be < e1index
+end
+
+Then /I should not see "(.*)" after "(.*)"/ do |e1, e2|
+  e1index = page.body.index(e1)
+  e2index = page.body.index(e2)
+  e2index.should be > e1index
 end
 
 And /I login as "(.*)"/ do |name|
@@ -93,15 +112,18 @@ Given(/^they teach the humanities classes$/) do
   cup = Professor.find_by_name("Junko Habu")
   dog = Professor.find_by_name("Xin Liu")
   cat = Professor.find_by_name("Fae M. Ng")
+  lie = Professor.find_by_name("Angela Marino")
   cup.courses.create({name: "Art", number: "ANTHROC125A", rating: 2, term: "FA16"})
   dog.courses.create({name: "Music", number: "ANTHRO189", rating: 2, term: "FA16"})
   cat.courses.create({name: "History", number: "ASAMST172", rating: 3, term: "FA16"})
+  lie.courses.create({name: "Dance", number: "THEATER26", rating: 4, term: "FA16"})
 end
 
 Given(/^"([^"]*)" isn't teaching "([^"]*)" next semester$/) do |prof, course|
   prof = Professor.find_by_name(prof)
   prof.courses.destroy_all
   prof.distinguished = false
+  prof.awarded = false
   prof.save
 end
 
@@ -125,4 +147,17 @@ end
 Then(/^"([^"]*)" should not be checked$/) do |arg1|
   my_box = find(arg1)
   expect(my_box).to_not be_checked  # Rspec 2.11
+end
+
+### NEW 
+Then(/^I should see ignore in the url$/) do
+  expect(page).to have_current_path(schedule_courses_path(ignore: 'true'))
+end
+
+When(/^I delete the course "([^"]*)"$/) do |arg1|
+  find('tr', text: arg1).click_link("Remove")
+end
+
+Then(/^the page element "([^"]*)" should be under class "([^"]*)"$/) do |arg1, arg2|
+  page.find(arg1)[:class].include?(arg2)
 end

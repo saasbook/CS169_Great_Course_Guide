@@ -2,14 +2,16 @@
 %html
   %head
     %title Great Course Guide
-
+    = stylesheet_link_tag '/stylesheets/jquery-ui'
     = stylesheet_link_tag '/stylesheets/materialize'
     = stylesheet_link_tag '/stylesheets/animate.min'
     = stylesheet_link_tag '/stylesheets/awesomplete'
     = stylesheet_link_tag '/stylesheets/sweetalert'
     %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet"}
-    = javascript_include_tag '/javascripts/jquery.js'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
+    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}/
 
   %body.grey.lighten-3
     %header
@@ -24,12 +26,18 @@
             %a{href: "/courses"} All Courses
           %li
             %a{href: "/edit"} Edit Courses
+          %li
+            %a{href: "/courses/compare"} Compare Courses
         %nav.blue.darken-4
           .nav-wrapper.container
             %a.brand-logo{href: "/welcome"} Great Course Guide
             %a.button-collapse{"data-activates": "nav-mobile2"}
               %i.material-icons menu
             %ul#nav-mobile.right.hide-on-med-and-down
+              %li
+                %a{href: "/about"}
+                  %i.material-icons.left info
+                  About
               %li
                 %a{href: "/courses/schedule"}
                   %i.material-icons.left today
@@ -65,6 +73,8 @@
                           %a{href: "/courses"} All Courses
                         %li.bold.no-padding
                           %a{href: "/edit"} Edit Courses
+                        %li.bold.no-padding
+                          %a{href: "/courses/compare"} Compare Courses
               %li.bold.no-padding
                 %ul.collapsible.collapsible-accordion
                   %li.bold.no-padding

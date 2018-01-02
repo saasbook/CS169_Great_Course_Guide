@@ -27,10 +27,60 @@ class CoursesController < ApplicationController
   end
 
   def schedule
-    @recommended_EECS_courses = @user.recommended_EECS_courses
+    @ignore = "Click to Ignore Prerequisites"
+    @ignore_flag = false
+    ignore = params[:ignore]
+    if !ignore.nil?
+      #@ignore = "ignoring prerequisites"
+      @ignore_flag = true
+    end
+    @recommended_EECS_courses = @user.recommended_EECS_courses(@ignore_flag)
     @fall_length = @recommended_EECS_courses[:possible_fall].length + @recommended_EECS_courses[:backup_fall].length
     @spring_length = @recommended_EECS_courses[:possible_spring].length + @recommended_EECS_courses[:backup_spring].length
     @recommended_breadth_courses = @user.recommended_breadth_courses
     @breadth_length = @recommended_breadth_courses.length
   end
+
+  def filter
+    resp = []
+    if params[:category]
+      filters = filter_category(params[:category])
+    elsif params[:filter]
+      filters = filter_filter(params[:filter])
+    end
+    if filters
+      default_filter = BtFilter.where(filter: 'default')[0]
+      default_filter = {
+          :filter => default_filter.filter,
+          :category => default_filter.category,
+          :filter_id => default_filter.filter_id
+      }
+      resp << default_filter
+      filters.each do |filter|
+        tmp = {:filter => filter.filter, :category => filter.category, :filter_id => filter.filter_id}
+        resp << tmp
+      end
+    end
+    render :json => resp
+  end
+
+  def filter_category (category)
+    filters = nil
+    tmp = BtFilter.where(category: category)
+    if tmp.length > 0
+      filters = tmp
+    end
+    filters
+  end
+
+  def filter_filter (filter)
+    filters = nil
+    tmp = BtFilter.where(filter: filter)
+    if tmp.length > 0
+      filters = tmp
+    end
+    filters
+  end
+
 end
+
